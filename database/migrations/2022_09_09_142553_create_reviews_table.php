@@ -20,7 +20,7 @@ class CreateReviewsTable extends Migration
             $table->text('review');
             $table->decimal('vote', 2,1);
             $table->date('date');
-            $table->string('name');
+            $table->string('name', 255);
         });
     }
 

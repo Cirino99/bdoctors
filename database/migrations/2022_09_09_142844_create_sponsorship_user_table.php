@@ -18,7 +18,7 @@ class CreateSponsorshipUserTable extends Migration
             $table->foreignId('sponsorship_id')->constrained();
             $table->time('starting_date');
             $table->time('ending_date');
-            $table->string('id_paymant');
+            $table->string('id_paymant', 255);
         });
     }
 
