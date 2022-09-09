@@ -16,8 +16,8 @@ class CreateSponsorshipUserTable extends Migration
         Schema::create('sponsorship_user', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained();
             $table->foreignId('sponsorship_id')->constrained();
-            $table->timestamp('starting_date');
-            $table->timestamp('ending_date');
+            $table->time('starting_date');
+            $table->time('ending_date');
             $table->string('id_paymant');
         });
     }
