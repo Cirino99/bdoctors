@@ -12,10 +12,8 @@ class SpecializationSeeder extends Seeder
      */
     public function run()
     {
-        $specializations = [
-            // Non so che altro mettere
-            'Radiologia', 'Chirurgia', 'Pediatria', 'Oncologia', 'Neurochirurgia'
-        ];
+        $specializations = ['Radiologia', 'Chirurgia', 'Pediatria', 'Oncologia', 'Neurochirurgia'];
+        // Non so che altro mettere
 
         foreach ($specializations as $specialization) {
             Specialization::create($specialization);
