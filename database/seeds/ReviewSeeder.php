@@ -3,6 +3,7 @@
 use App\Models\User;
 use App\Models\Review;
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
 
 class ReviewSeeder extends Seeder
 {
@@ -19,7 +20,7 @@ class ReviewSeeder extends Seeder
             $review = new Review;
 
             $review->review = $faker->paragraphs(3);
-            $review->vote = $faker->numberBetween(1,5);
+            $review->vote = $faker->numberBetween(1, 5);
             $review->date = $faker->date('d_m_y');
             $review->date = $faker->firstName();
 
