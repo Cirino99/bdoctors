@@ -22,7 +22,7 @@ class ReviewSeeder extends Seeder
             $review->review = $faker->paragraphs(3);
             $review->vote = $faker->numberBetween(1, 5);
             $review->date = $faker->date('d_m_y');
-            $review->date = $faker->firstName();
+            $review->name = $faker->firstName();
 
             $review->save();
         }
