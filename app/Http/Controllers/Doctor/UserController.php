@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Doctor;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Specialization;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -25,7 +28,6 @@ class UserController extends Controller
      */
     public function create()
     {
-
     }
 
     /**
@@ -47,7 +49,22 @@ class UserController extends Controller
      */
     public function show(int $profile)
     {
-        return view('doctor.profile.show');
+        if ($profile === Auth::id()) {
+            //$user = User::where('id', $profile);
+            $users = User::all();
+            foreach ($users as $user) {
+                if ($user->id === $profile) {
+                    $myUser = $user;
+                }
+            }
+            $specializations = Specialization::all();
+            return view('doctor.profile.show', [
+                'user' => $myUser,
+                'specializations' => $specializations
+            ]);
+        } else {
+            return view('doctor.dashboard');
+        }
     }
 
     /**
