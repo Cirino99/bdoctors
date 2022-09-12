@@ -1,6 +1,5 @@
 <?php
 
-use DateInterval;
 use App\Models\User;
 use App\Models\Sponsorship;
 use Faker\Generator as Faker;
