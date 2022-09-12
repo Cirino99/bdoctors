@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function sponsorships()
+    {
+        return $this->belongsToMany('App\Models\Sponsorship')->withPivot('sponsorship_id', 'starting_date', 'ending_date', 'id_paymant');
+    }
 }
