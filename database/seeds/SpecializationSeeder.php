@@ -17,6 +17,7 @@ class SpecializationSeeder extends Seeder
 
         foreach ($specializations as $specialization) {
             Specialization::create($specialization);
+
         }
     }
 }
