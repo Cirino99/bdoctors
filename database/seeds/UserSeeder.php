@@ -45,19 +45,20 @@ class UserSeeder extends Seeder
 
         
         for ($i = 0; $i < 5; $i++) {
-            $User = new User();
+            $user = new User();
 
-            $User->name = $users[$i]['name'];
-            $User->lastname = $faker->lastName();
-            $User->email = $users[$i]['email'];
-            $User->address = $faker->streetAddress();
-            $User->passowrd = Hash::make($users[$i]['name']);
-            $User->phone_number = $faker->phoneNumber();
-            $User->city = $faker->city();
-            $User->postal_code = $faker->postcode();
-            $User->cv = $faker->paragraphs(3);
-            $User->service = $faker->word();
+            $user->name = $users[$i]['name'];
+            $user->lastname = $faker->lastName();
+            $user->email = $users[$i]['email'];
+            $user->address = $faker->streetAddress();
+            $user->password = Hash::make($users[$i]['name']);
+            $user->phone = $faker->phoneNumber();
+            $user->city = $faker->city();
+            $user->postal_code = (int)$faker->postcode();
+            $user->cv = implode($faker->paragraphs(3));
+            $user->service = $faker->word();
             // $User->photo = $faker->streetAddress();
+            $user->save();
         }
     }
 }

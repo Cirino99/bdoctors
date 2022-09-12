@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->mediumInteger('postal_code');
             $table->text('cv');
             $table->string('service', 255);
-            $table->string('photo', 255);
+            $table->string('photo', 255)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
