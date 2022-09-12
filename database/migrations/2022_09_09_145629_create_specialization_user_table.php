@@ -16,7 +16,6 @@ class CreateSpecializationUserTable extends Migration
         Schema::create('specialization_user', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained();
             $table->foreignId('specialization_id')->constrained();
-            $table->timestamps();
         });
     }
 

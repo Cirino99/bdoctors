@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Models\Sponsorship')->withPivot('sponsorship_id', 'starting_date', 'ending_date', 'id_paymant');
     }
+
+    public function specializations()
+    {
+        return $this->belongsToMany('App\Models\Specialization');
+    }
 }
