@@ -27,5 +27,3 @@ Route::middleware('auth')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('dashboard');
     });
-
-//Route::get('/home', 'Admin\HomeController@index')->name('home');
