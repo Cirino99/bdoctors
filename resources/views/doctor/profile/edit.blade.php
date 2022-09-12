@@ -14,14 +14,7 @@
                         </div>
                     @endif
 
-                    <ul>
-                        <li>
-                            <a href="{{ route('doctor.profile.edit', ['profile' => Auth::id()]) }}">Edit</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('doctor.profile.show', ['profile' => Auth::id()]) }}">Show</a>
-                        </li>
-                    </ul>
+                    <h1>Edit</h1>
                 </div>
             </div>
         </div>

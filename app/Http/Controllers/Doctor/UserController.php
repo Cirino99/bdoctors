@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -45,9 +45,9 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(int $profile)
     {
-        //
+        return view('doctor.profile.show');
     }
 
     /**
@@ -56,9 +56,9 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(int $profile)
     {
-        //
+        return view('doctor.profile.edit');
     }
 
     /**

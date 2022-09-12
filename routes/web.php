@@ -26,4 +26,5 @@ Route::middleware('auth')
     ->prefix('doctor')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('dashboard');
+        Route::resource('profile', 'UserController');
     });
