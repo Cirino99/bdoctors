@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use App\Models\Message;
 use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
@@ -13,12 +14,16 @@ class MessageTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $messages = Message::all();
+        $users_ids = User::all()->pluck('id');
 
-        foreach ($messages as $message) {
-            $message->message = $faker->paragraphs(3);
+        foreach ($users_ids as $user_id) {
+            $message = new Message();
+            $message->message = implode($faker->paragraphs(3));
             $message->date = $faker->date('d_m_y');
             $message->email = $faker->freeEmail();
+            $message->user_id = $user_id;
+            $message->sender_receiver = "receiver";
+            $message->save();
         }
     }
 }
