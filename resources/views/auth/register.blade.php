@@ -81,6 +81,31 @@
                             </div>
                         </div>
 
+                        <fieldset class="mb-3">
+                            <legend>Specializzazioni</legend>
+                            @foreach ($specializations as $specialization)
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="specializations[]"
+                                        value="{{ $specialization->id }}"
+                                        id="specialization-{{ $specialization->id }}"
+                                        @if(in_array($specialization->id, old('specializations') ?: [])) checked @endif
+                                    >
+                                    <label class="form-check-label" for="specialization-{{ $specialization->id }}">{{ $specialization->name }}</label>
+                                </div>
+                            @endforeach
+                
+                            @foreach ($errors->get('specializations.*') as $messages)
+                                @foreach ($messages as $message)
+                                    <div class="invalid-feedback d-block">
+                                        {{ $message }}
+                                    </div>
+                                @endforeach
+                            @endforeach
+                        </fieldset>
+
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
