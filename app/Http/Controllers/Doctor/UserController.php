@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Specialization;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,18 +13,18 @@ class UserController extends Controller
 {
 
     protected $validation_rules = [
-        'name'              => 'required|string|max:255',
-        'lastname'          => 'required|string|max:255',
-        'email'             => ['required', 'string', 'max:255'],
-        'photo'             => 'nullable|string|max:255',
-        'phone'             => 'nullable|string|max:255',
-        'service'           => 'required|string|max:255',
-        'address'           => 'required|string|max:255',
-        'city'              => 'required|string|max:255',
-        'postal_code'       => 'required|integer',
-        'cv'                => 'required|min:10|max:500',
-        'specializations'    => 'required|array',
-        'specializations.*'    => 'required|integer|exists:specializations,id'
+        'name' => 'required|string|max:255',
+        'lastname' => 'required|string|max:255',
+        'email' => ['required', 'string', 'max:255'],
+        'photo' => 'nullable|string|max:255',
+        'phone' => 'nullable|string|max:255',
+        'service' => 'required|string|max:255',
+        'address' => 'required|string|max:255',
+        'city' => 'required|string|max:255',
+        'postal_code' => 'required|integer',
+        'cv' => 'required|min:10|max:500',
+        'specializations' => 'required|array',
+        'specializations.*' => 'required|integer|exists:specializations,id'
     ];
 
     /**
@@ -87,16 +86,17 @@ class UserController extends Controller
      */
     public function update(Request $request, User $profile)
     {
-        $this->validation_rules['email'] [] = Rule::unique('users')->ignore($profile->id);
-        $request->validate($this->validation_rules);
+        if ($profile->id === Auth::id()) {
+            $this->validation_rules['email'][] = Rule::unique('users')->ignore($profile->id);
+            $request->validate($this->validation_rules);
+            $data = $request->all();
+            $profile->update($data);
+            $profile->specializations()->sync($data['specializations']);
 
-        $data = $request->all();
-
-        $profile->update($data);
-
-        $profile->specializations()->sync($data['specializations']);
-
-        return redirect()->route('doctor.profile.show', $profile);
+            return redirect()->route('doctor.profile.show', $profile);
+        } else {
+            return view('doctor.dashboard');
+        }
     }
 
     /**
