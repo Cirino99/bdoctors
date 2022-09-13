@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Doctor;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Specialization;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -15,14 +16,16 @@ class UserController extends Controller
     protected $validation_rules = [
         'name'              => 'required|string|max:255',
         'lastname'          => 'required|string|max:255',
-        // 'email'             => 'required|string|max:255|unique:users|exists:users,email',
-        'photo'             => 'string|max:255',
-        'phone'             => 'string|max:255',
+        'email'             => ['required', 'string', 'max:255'],
+        'photo'             => 'nullable|string|max:255',
+        'phone'             => 'nullable|string|max:255',
         'service'           => 'required|string|max:255',
         'address'           => 'required|string|max:255',
         'city'              => 'required|string|max:255',
         'postal_code'       => 'required|integer',
-        // 'cv'             =>'text'
+        'cv'                => 'required|min:10|max:500',
+        'specializations'    => 'required|array',
+        'specializations.*'    => 'required|integer|exists:specializations,id'
     ];
 
     /**
@@ -96,8 +99,10 @@ class UserController extends Controller
                     $myUser = $user;
                 }
             }
+            $specializations = Specialization::all();
             return view('doctor.profile.edit', [
-                'user' => $myUser
+                'user' => $myUser,
+                'specializations' => $specializations
             ]);
         } else {
             return view('doctor.dashboard');
@@ -113,13 +118,14 @@ class UserController extends Controller
      */
     public function update(Request $request, User $profile)
     {
+        $this->validation_rules['email'] [] = Rule::unique('users')->ignore($profile->id);
         $request->validate($this->validation_rules);
 
         $data = $request->all();
 
         $profile->update($data);
 
-        // $user->save();
+        $profile->specializations()->sync($data['specializations']);
 
         return redirect()->route('doctor.profile.show', $profile);
     }

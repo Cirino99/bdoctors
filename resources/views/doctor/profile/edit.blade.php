@@ -48,7 +48,7 @@
                             @enderror
                         </div>
 
-                        {{-- <div class="mb-3">
+                        <div class="mb-3">
                             <label class="form-label" for="email">Email</label>
                             <input class="form-control @error('email') is-invalid @enderror"
                                 type="text"
@@ -60,7 +60,7 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div> --}}
+                        </div>
                 
                         <div class="mb-3">
                             <label class="form-label" for="photo">Photo</label>
@@ -68,7 +68,7 @@
                                 type="text"
                                 name="photo"
                                 id="photo"
-                                {{-- value="{{ old('name', $user->name) }}"                             --}}
+                                value="{{ old('photo', $user->photo) }}"                            
                                 >
                             @error('photo')
                                 <div class="invalid-feedback">
@@ -83,7 +83,7 @@
                                 type="text"
                                 name="phone"
                                 id="phone"
-                                 {{-- value="{{ old('name', $user->name) }}"                             --}}
+                                 value="{{ old('phone', $user->phone) }}"                            
                                 > 
                             @error('phone')
                                 <div class="invalid-feedback">
@@ -98,7 +98,7 @@
                                 type="text"
                                 name="service"
                                 id="service"
-                                {{-- value="{{ old('name', $user->name) }}"                             --}}
+                                value="{{ old('service', $user->service) }}"                            
                                 >
                             @error('service')
                                 <div class="invalid-feedback">
@@ -149,15 +149,40 @@
                             @enderror
                         </div>
                 
-                        {{-- <div class="mb-3">
-                            <label class="form-label" for="excerpt">Excerpt</label>
-                            <textarea class="form-control @error('excerpt') is-invalid @enderror" name="excerpt" id="excerpt">{{ old('excerpt', $post->excerpt) }}</textarea>
-                            @error('excerpt')
+                        <div class="mb-3">
+                            <label class="form-label" for="cv">CV</label>
+                            <textarea class="form-control @error('cv') is-invalid @enderror" name="cv" id="cv">{{ old('cv', $user->cv) }}</textarea>
+                            @error('cv')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div> --}}
+                        </div> 
+
+                        <fieldset class="mb-3">
+                            <legend>Specializzazioni</legend>
+                            @foreach ($specializations as $specialization)
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        name="specializations[]"
+                                        value="{{ $specialization->id }}"
+                                        id="specialization-{{ $specialization->id }}"
+                                        @if(in_array($specialization->id, old('specializations', $user->specializations->pluck('id')->all()) ?: [])) checked @endif
+                                    >
+                                    <label class="form-check-label" for="specialization-{{ $specialization->id }}">{{ $specialization->name }}</label>
+                                </div>
+                            @endforeach
+                
+                            @foreach ($errors->get('specializations.*') as $messages)
+                                @foreach ($messages as $message)
+                                    <div class="invalid-feedback d-block">
+                                        {{ $message }}
+                                    </div>
+                                @endforeach
+                            @endforeach
+                        </fieldset>
                 
                        <button type="submit" class="btn btn-primary">Save</button>
                     </form>
