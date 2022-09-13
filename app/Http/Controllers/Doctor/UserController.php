@@ -57,10 +57,8 @@ class UserController extends Controller
                     $myUser = $user;
                 }
             }
-            $specializations = Specialization::all();
             return view('doctor.profile.show', [
-                'user' => $myUser,
-                'specializations' => $specializations
+                'user' => $myUser
             ]);
         } else {
             return view('doctor.dashboard');

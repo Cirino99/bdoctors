@@ -18,7 +18,7 @@
                     <span>Nome: {{ $user->name }}</span><br>
                     <span>Cognome: {{ $user->lastname }}</span>
                     <ul>
-                        @foreach ($specializations as $specialization)
+                        @foreach ($user->specializations as $specialization)
                             <li>{{ $specialization->specializations }}</li>
                         @endforeach
                     </ul>
