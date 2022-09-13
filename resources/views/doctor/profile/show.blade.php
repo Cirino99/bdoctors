@@ -19,7 +19,7 @@
                     <span>Cognome: {{ $user->lastname }}</span>
                     <ul>
                         @foreach ($user->specializations as $specialization)
-                            <li>{{ $specialization->specializations }}</li>
+                            <li>{{ $specialization->name }}</li>
                         @endforeach
                     </ul>
                 </div>
