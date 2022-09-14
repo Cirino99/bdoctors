@@ -37,15 +37,9 @@ class UserController extends Controller
     public function show(int $profile)
     {
         if ($profile === Auth::id()) {
-            //$user = User::where('id', $profile);
-            $users = User::all();
-            foreach ($users as $user) {
-                if ($user->id === $profile) {
-                    $myUser = $user;
-                }
-            }
+            $user = User::all()->where('id', $profile)->first();
             return view('doctor.profile.show', [
-                'user' => $myUser
+                'user' => $user
             ]);
         } else {
             return view('doctor.dashboard');
@@ -61,16 +55,10 @@ class UserController extends Controller
     public function edit(int $profile)
     {
         if ($profile === Auth::id()) {
-            //$user = User::where('id', $profile);
-            $users = User::all();
-            foreach ($users as $user) {
-                if ($user->id === $profile) {
-                    $myUser = $user;
-                }
-            }
+            $user = User::all()->where('id', $profile)->first();
             $specializations = Specialization::all();
             return view('doctor.profile.edit', [
-                'user' => $myUser,
+                'user' => $user,
                 'specializations' => $specializations
             ]);
         } else {

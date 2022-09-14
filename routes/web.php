@@ -27,4 +27,6 @@ Route::middleware('auth')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('dashboard');
         Route::resource('profile', 'UserController');
+        Route::resource('messages', 'MessageController');
+        Route::resource('reviews', 'ReviewController');
     });

@@ -15,15 +15,13 @@ class ReviewSeeder extends Seeder
     public function run(Faker $faker)
     {
         $users_ids = User::all()->pluck('id');
-
-        for ($i = 0; $i < 20; $i++) {
+        foreach ($users_ids as $user_id) {
             $review = new Review;
-
-            $review->review = $faker->paragraphs(3);
+            $review->user_id = $user_id;
+            $review->review = implode($faker->paragraphs(3));
             $review->vote = $faker->numberBetween(1, 5);
-            $review->date = $faker->date('d_m_y');
+            $review->date = $faker->date('Y_m_d');
             $review->name = $faker->firstName();
-
             $review->save();
         }
     }

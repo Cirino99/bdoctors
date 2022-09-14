@@ -21,6 +21,12 @@
                         <li>
                             <a href="{{ route('doctor.profile.show', ['profile' => Auth::id()]) }}">Show</a>
                         </li>
+                        <li>
+                            <a href="{{ route('doctor.messages.index') }}">Messaggi</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('doctor.reviews.index') }}">Recensioni</a>
+                        </li>
                     </ul>
                 </div>
             </div>
