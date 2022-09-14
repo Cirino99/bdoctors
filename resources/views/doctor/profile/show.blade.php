@@ -15,13 +15,24 @@
                     @endif
 
                     <h1>Show</h1>
-                    <span>Nome: {{ $user->name }}</span><br>
-                    <span>Cognome: {{ $user->lastname }}</span>
+                    @if ($user->photo != null)
+                        <img id="preview" class="img-fluid rounded-circle" src="{{ asset('storage/' . $user->photo) }}">
+                    @endif
+                    <div><strong>Nome:</strong> {{ $user->name }}</div>
+                    <div><strong>Cognome:</strong> {{ $user->lastname }}</div>
+                    <div><strong>Specializzazioni:</strong></div>
                     <ul>
                         @foreach ($user->specializations as $specialization)
                             <li>{{ $specialization->name }}</li>
                         @endforeach
                     </ul>
+
+                    <div><strong>Email:</strong> {{ $user->email}}</div>
+                    <div><strong>Via:</strong> {{ $user->address}}</div>
+                    <div><strong>Città:</strong> {{ $user->city}}</div>
+                    <div><strong>CAP:</strong> {{ $user->postal_code}}</div>
+                    <div><strong>Servizi:</strong> {{ $user->service}}</div>
+                    <div><strong>CV:</strong> {{ $user->cv}}</div>
 
                     <div class="d-flex justify-content-end">
                         <form data-action="{{ route('doctor.profile.destroy', ['profile' => $user]) }}" method="post">
