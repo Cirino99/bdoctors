@@ -27862,14 +27862,49 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-document.getElementById("form-register").onsubmit = function () {
-  return myFunction();
-};
+var form_register = document.getElementById("form-register");
+
+if (form_register) {
+  form_register.onsubmit = function () {
+    return myFunction();
+  };
+}
 
 function myFunction() {
-  password = document.getElementById('password').value;
+  var name = document.getElementById('name').value;
+  var lastname = document.getElementById('lastname').value;
+  var address = document.getElementById('address').value;
+  var city = document.getElementById('city').value;
+  var postal_code = document.getElementById('postal_code').value;
+  var mySpecializations = document.getElementById('mySpecialization');
+  var specializations = mySpecializations.querySelectorAll('input');
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+  var password_confirm = document.getElementById('password-confirm').value;
+  var mySpecialization;
+  specializations.forEach(function (specialization) {
+    if (specialization.checked) {
+      mySpecialization = true;
+    }
+  });
 
-  if (password.length < 8) {
+  if (name != "" & lastname != "" & address != "" & city != "" & postal_code != "" & mySpecialization & email != "" & password != "" & password_confirm != "") {
+    if (password.length < 8) {
+      alert('password troppo corta');
+      return false;
+    }
+
+    if (password != password_confirm) {
+      alert('le due password non coincidono');
+      return false;
+    }
+
+    if (!email.includes('@') || !email.includes('.')) {
+      alert('email non corretta');
+      return false;
+    }
+  } else {
+    alert('compila tutti i campi');
     return false;
   }
 

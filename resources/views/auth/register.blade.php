@@ -81,7 +81,7 @@
                             </div>
                         </div>
 
-                        <fieldset class="mb-3">
+                        <fieldset class="mb-3" id="mySpecialization">
                             <legend>Specializzazioni</legend>
                             @foreach ($specializations as $specialization)
                                 <div class="form-check">
