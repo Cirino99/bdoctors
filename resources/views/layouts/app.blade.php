@@ -24,10 +24,8 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <a class="navbar-brand" href="{{ route('doctor.dashboard') }}">
-                    {{ __('Dashboard') }}
+                    {{-- {{ config('app.name', 'Laravel') }} --}}
+                    <img class="logo" src="{{ asset('img/BDoctors_logo.svg')}}" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -75,9 +73,50 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
+        <main class="py-4 d-flex">
+            <section class="left-menu">
+                
+                <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" >
+                    <ul class="nav nav-pills flex-column mb-auto">
+                      <li class="side-nav-li">
+                        <a href="{{ route('doctor.dashboard') }}" class="nav-link link-dark" aria-current="page">
+                          Dashboard
+                        </a>
+                      </li>
+                      <li class="side-nav-li">
+                        <a href="{{ route('doctor.profile.edit', ['profile' => Auth::id()]) }}" class="nav-link link-dark">
+                          Edit
+                        </a>
+                      </li>
+                      <li class="side-nav-li">
+                        <a href="{{ route('doctor.profile.show', ['profile' => Auth::id()]) }}" class="nav-link link-dark">
+                          Show
+                        </a>
+                      </li>
+                      <li class="side-nav-li">
+                        <a href="{{ route('doctor.messages.index') }}" class="nav-link link-dark">
+                          Messaggi
+                        </a>
+                      </li>
+                      <li class="side-nav-li">
+                        <a href="{{ route('doctor.reviews.index') }}" class="nav-link link-dark">
+                          Recensioni
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+            </section>
+            <section class="right-content">
+                @yield('content')
+            </section>
+            
         </main>
     </div>
 </body>
 </html>
+
+
+
+
+
