@@ -23,7 +23,7 @@
         }
 
         .full-height {
-            height: 100vh;
+            height: calc(100vh - 80px);
         }
 
         .flex-center {
@@ -82,16 +82,15 @@
 
         <img class="logo" src="{{ asset('img/BDoctors_logo.svg') }}" alt="logo">
 
-
         <div class="flex-center">
-  
+
             @if (Route::has('login'))
                 <div class="links">
                     @auth
                         <a href="{{ route('doctor.dashboard') }}">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
-    
+
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
                         @endif
@@ -102,7 +101,6 @@
         </div>
     </nav>
     <div class="flex-center position-ref full-height">
-
         <div class="content">
             <div class="title m-b-md">
                 BDoctors
