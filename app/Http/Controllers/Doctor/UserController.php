@@ -114,8 +114,16 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(User $profile)
     {
-        //
+        if (Auth::id() === $profile->id) {
+            $profile->specializations()->detach();
+
+            $profile->sponsorships()->detach();
+
+            $profile->delete();
+
+            return redirect()->route('welcome');
+        }
     }
 }
