@@ -13,21 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    <ul>
-                        <li>
-                            <a href="{{ route('doctor.profile.edit', ['profile' => Auth::id()]) }}">Edit</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('doctor.profile.show', ['profile' => Auth::id()]) }}">Show</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('doctor.messages.index') }}">Messaggi</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('doctor.reviews.index') }}">Recensioni</a>
-                        </li>
-                    </ul>
+                    <h1>Benvenuto!</h1>
                 </div>
             </div>
         </div>
