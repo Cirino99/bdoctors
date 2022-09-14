@@ -82,7 +82,7 @@
                         </div>
 
                         <fieldset class="mb-3" id="mySpecialization">
-                            <label for="specializations" class="col-md-4 col-form-label text-md-right">{{ __('Specializzazioni*') }}</label>
+                            <legend class="col-md-4 col-form-label text-md-right">{{ __('Specializzazioni*') }}</legend>
                             @foreach ($specializations as $specialization)
                                 <div class="form-check">
                                     <input
