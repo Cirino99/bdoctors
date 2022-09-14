@@ -98,8 +98,6 @@ class UserController extends Controller
                 // aggiornare il valore della chiave image con il nome dell'immagine appena creata
                 $data['photo'] = $img_path;
             };
-
-            //dd($data['photo']);
             $profile->update($data);
             $profile->specializations()->sync($data['specializations']);
             return redirect()->route('doctor.profile.show', $profile);
