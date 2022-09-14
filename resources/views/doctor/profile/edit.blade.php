@@ -40,7 +40,8 @@
                                 type="text"
                                 name="lastname"
                                 id="lastname"
-                                value="{{ old('lastname', $user->lastname) }}"                            >
+                                value="{{ old('lastname', $user->lastname) }}"
+                            >
                             @error('lastname')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -54,7 +55,8 @@
                                 type="text"
                                 name="email"
                                 id="email"
-                                value="{{ old('email', $user->email) }}"                            >
+                                value="{{ old('email', $user->email) }}"
+                            >
                             @error('email')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -69,7 +71,7 @@
                                 name="photo"
                                 id="photo"
                                 value="{{ old('photo', $user->photo) }}"                            
-                                >
+                            >
                             @error('photo')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -83,8 +85,8 @@
                                 type="text"
                                 name="phone"
                                 id="phone"
-                                 value="{{ old('phone', $user->phone) }}"                            
-                                > 
+                                value="{{ old('phone', $user->phone) }}"                            
+                            > 
                             @error('phone')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -99,7 +101,7 @@
                                 name="service"
                                 id="service"
                                 value="{{ old('service', $user->service) }}"                            
-                                >
+                            >
                             @error('service')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -113,7 +115,8 @@
                                 type="text"
                                 name="address"
                                 id="address"
-                                value="{{ old('address', $user->address) }}"                            >
+                                value="{{ old('address', $user->address) }}"
+                            >
                             @error('address')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -127,7 +130,8 @@
                                 type="text"
                                 name="city"
                                 id="city"
-                                value="{{ old('city', $user->city) }}"                            >
+                                value="{{ old('city', $user->city) }}"
+                            >
                             @error('city')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -141,7 +145,8 @@
                                 type="text"
                                 name="postal_code"
                                 id="postal_code"
-                                value="{{ old('postal_code', $user->postal_code) }}"                            >
+                                value="{{ old('postal_code', $user->postal_code) }}"
+                            >
                             @error('postal_code')
                                 <div class="invalid-feedback">
                                     {{ $message }}
