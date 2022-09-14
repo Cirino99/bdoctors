@@ -91,20 +91,17 @@ class UserController extends Controller
             $this->validation_rules['email'][] = Rule::unique('users')->ignore($profile->id);
             $request->validate($this->validation_rules);
             $data = $request->all();
-        if (key_exists('photo', $data)) {
-            // salvare l'immagine in public
-            $img_path = Storage::put('uploads', $data['photo']);
+            if (key_exists('photo', $data)) {
+                // salvare l'immagine in public
+                $img_path = Storage::put('uploads', $data['photo']);
 
-            // aggiornare il valore della chiave image con il nome dell'immagine appena creata
-            $data['photo'] = $img_path;
+                // aggiornare il valore della chiave image con il nome dell'immagine appena creata
+                $data['photo'] = $img_path;
+            };
 
-        };
-
-        // dd($data['photo']);
-
+            //dd($data['photo']);
             $profile->update($data);
             $profile->specializations()->sync($data['specializations']);
-
             return redirect()->route('doctor.profile.show', $profile);
         } else {
             return view('doctor.dashboard');
