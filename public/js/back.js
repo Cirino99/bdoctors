@@ -27860,20 +27860,21 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // form = document.getElementById('form-register');
-// if (form) {
-//     console.log('marioooooo');
-//     console.log(form);
-//     form.addEventListener("click", (event) => {
-//         console.log('marioooooo2');
-//     });
-// }
-// function validateFormRegister() {
-//     const name = document.getElementById('name');
-//     console.log(name);
-//     alert(name);
-//     return false;
-// }
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+document.getElementById("form-register").onsubmit = function () {
+  return myFunction();
+};
+
+function myFunction() {
+  password = document.getElementById('password').value;
+
+  if (password.length < 8) {
+    return false;
+  }
+
+  return true;
+}
 
 /***/ }),
 
@@ -27926,7 +27927,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\back.js */"./resources/js/back.js");
+module.exports = __webpack_require__(/*! /Users/cirox/Programmazione/Boolean/Esercizi/bdoctors/resources/js/back.js */"./resources/js/back.js");
 
 
 /***/ })

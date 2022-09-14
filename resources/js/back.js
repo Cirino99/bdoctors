@@ -1,16 +1,11 @@
 require('./bootstrap');
 
-// form = document.getElementById('form-register');
-// if (form) {
-//     console.log('marioooooo');
-//     console.log(form);
-//     form.addEventListener("click", (event) => {
-//         console.log('marioooooo2');
-//     });
-// }
-// function validateFormRegister() {
-//     const name = document.getElementById('name');
-//     console.log(name);
-//     alert(name);
-//     return false;
-// }
+document.getElementById("form-register").onsubmit = function () { return myFunction() };
+
+function myFunction() {
+    password = document.getElementById('password').value;
+    if (password.length < 8) {
+        return false;
+    }
+    return true;
+}
