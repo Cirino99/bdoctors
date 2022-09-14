@@ -58,6 +58,8 @@ class RegisterController extends Controller
             'postal_code' => ['required', 'integer'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'specializations' => 'required|array',
+            'specializations.*' => 'required|integer|exists:specializations,id'
         ]);
     }
 
@@ -76,7 +78,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'lastname' => $data['lastname'],
             'address' => $data['address'],
@@ -84,6 +86,10 @@ class RegisterController extends Controller
             'postal_code' => $data['postal_code'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'specializations' => $data['specializations'],
         ]);
+        
+        $user->specializations()->sync($data['specializations']);
+        return $user;
     }
 }
