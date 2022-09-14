@@ -10855,6 +10855,10 @@ textarea.form-control-lg {
   }
 }
 #preview {
-  width: 100px;
-  height: auto;
+  width: 150px;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
