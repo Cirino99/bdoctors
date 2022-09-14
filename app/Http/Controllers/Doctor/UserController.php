@@ -9,6 +9,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -17,7 +18,7 @@ class UserController extends Controller
         'name'              => 'required|string|max:255',
         'lastname'          => 'required|string|max:255',
         'email'             => ['required', 'string', 'max:255'],
-        'photo'             => 'nullable|string|max:255',
+        'photo'             => 'nullable|file|image|max:2056',
         'phone'             => 'nullable|string|max:255',
         'service'           => 'required|string|max:255',
         'address'           => 'required|string|max:255',
@@ -91,6 +92,17 @@ class UserController extends Controller
         $request->validate($this->validation_rules);
 
         $data = $request->all();
+
+        if (key_exists('photo', $data)) {
+            // salvare l'immagine in public
+            $img_path = Storage::put('uploads', $data['photo']);
+
+            // aggiornare il valore della chiave image con il nome dell'immagine appena creata
+            $data['photo'] = $img_path;
+
+        };
+
+        // dd($data['photo']);
 
         $profile->update($data);
 
