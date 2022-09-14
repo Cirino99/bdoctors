@@ -83,7 +83,9 @@
                                 </div>
                             @enderror
 
-                            <img id="preview" class="img-fluid rounded-circle" src="{{ asset('storage/' . $user->photo) }}">
+                            @if ($user->photo != null)
+                                <img id="preview" class="img-fluid rounded-circle" src="{{ asset('storage/' . $user->photo) }}">
+                            @endif                        
                         </div>
 
                         <div class="mb-3">

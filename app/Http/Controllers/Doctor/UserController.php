@@ -105,6 +105,8 @@ class UserController extends Controller
         if (Auth::id() === $profile->id) {
             $profile->specializations()->detach();
             $profile->sponsorships()->detach();
+            $profile->messages()->delete();
+            $profile->reviews()->delete();
             $profile->delete();
 
             return redirect()->route('welcome');
