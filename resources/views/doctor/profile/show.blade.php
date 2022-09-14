@@ -22,6 +22,15 @@
                             <li>{{ $specialization->name }}</li>
                         @endforeach
                     </ul>
+
+                    <div class="d-flex justify-content-end">
+                        <form data-action="{{ route('doctor.profile.destroy', ['profile' => $user]) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+
+                            <button class="btn btn-sm btn-secondary">Delete</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
