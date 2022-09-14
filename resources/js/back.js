@@ -2,10 +2,15 @@ require('./bootstrap');
 
 const form_register = document.getElementById("form-register");
 if (form_register) {
-    form_register.onsubmit = function () { return myFunction() };
+    form_register.onsubmit = function () { return validationRegister() };
 }
 
-function myFunction() {
+const form_edit = document.getElementById("form-edit");
+if (form_edit) {
+    form_edit.onsubmit = function () { return validationEdit() };
+}
+
+function validationRegister() {
     const name = document.getElementById('name').value;
     const lastname = document.getElementById('lastname').value;
     const address = document.getElementById('address').value;
@@ -33,6 +38,45 @@ function myFunction() {
         }
         if (!email.includes('@') || !email.includes('.')) {
             alert('email non corretta');
+            return false;
+        }
+    } else {
+        alert('compila tutti i campi');
+        return false;
+    }
+    return true;
+}
+
+function validationEdit() {
+    const name = document.getElementById('name').value;
+    const lastname = document.getElementById('lastname').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const service = document.getElementById('service').value;
+    const address = document.getElementById('address').value;
+    const city = document.getElementById('city').value;
+    const postal_code = document.getElementById('postal_code').value;
+    const cv = document.getElementById('cv').value;
+    const mySpecializations = document.getElementById('mySpecialization');
+    const specializations = mySpecializations.querySelectorAll('input');
+    let mySpecialization;
+
+    specializations.forEach(specialization => {
+        if (specialization.checked) {
+            mySpecialization = true;
+        }
+    });
+    if (name != "" & lastname != "" & email != "" & service != "" & address != "" & city != "" & postal_code != "" & cv != "" & mySpecialization) {
+        if (!email.includes('@') || !email.includes('.')) {
+            alert('email non corretta');
+            return false;
+        }
+        if (cv.length < 10) {
+            alert('cv troppo corto');
+            return false;
+        }
+        if (cv.length > 500) {
+            alert('cv troppo lungo');
             return false;
         }
     } else {

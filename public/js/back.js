@@ -27866,11 +27866,19 @@ var form_register = document.getElementById("form-register");
 
 if (form_register) {
   form_register.onsubmit = function () {
-    return myFunction();
+    return validationRegister();
   };
 }
 
-function myFunction() {
+var form_edit = document.getElementById("form-edit");
+
+if (form_edit) {
+  form_edit.onsubmit = function () {
+    return validationEdit();
+  };
+}
+
+function validationRegister() {
   var name = document.getElementById('name').value;
   var lastname = document.getElementById('lastname').value;
   var address = document.getElementById('address').value;
@@ -27901,6 +27909,48 @@ function myFunction() {
 
     if (!email.includes('@') || !email.includes('.')) {
       alert('email non corretta');
+      return false;
+    }
+  } else {
+    alert('compila tutti i campi');
+    return false;
+  }
+
+  return true;
+}
+
+function validationEdit() {
+  var name = document.getElementById('name').value;
+  var lastname = document.getElementById('lastname').value;
+  var email = document.getElementById('email').value;
+  var phone = document.getElementById('phone').value;
+  var service = document.getElementById('service').value;
+  var address = document.getElementById('address').value;
+  var city = document.getElementById('city').value;
+  var postal_code = document.getElementById('postal_code').value;
+  var cv = document.getElementById('cv').value;
+  var mySpecializations = document.getElementById('mySpecialization');
+  var specializations = mySpecializations.querySelectorAll('input');
+  var mySpecialization;
+  specializations.forEach(function (specialization) {
+    if (specialization.checked) {
+      mySpecialization = true;
+    }
+  });
+
+  if (name != "" & lastname != "" & email != "" & service != "" & address != "" & city != "" & postal_code != "" & cv != "" & mySpecialization) {
+    if (!email.includes('@') || !email.includes('.')) {
+      alert('email non corretta');
+      return false;
+    }
+
+    if (cv.length < 10) {
+      alert('cv troppo corto');
+      return false;
+    }
+
+    if (cv.length > 500) {
+      alert('cv troppo lungo');
       return false;
     }
   } else {
@@ -27962,7 +28012,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\back.js */"./resources/js/back.js");
+module.exports = __webpack_require__(/*! /Users/cirox/Programmazione/Boolean/Esercizi/bdoctors/resources/js/back.js */"./resources/js/back.js");
 
 
 /***/ })

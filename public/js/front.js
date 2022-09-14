@@ -40222,13 +40222,8 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
-=======
 __webpack_require__(/*! /Users/cirox/Programmazione/Boolean/Esercizi/bdoctors/resources/js/front.js */"./resources/js/front.js");
 module.exports = __webpack_require__(/*! /Users/cirox/Programmazione/Boolean/Esercizi/bdoctors/resources/sass/back.scss */"./resources/sass/back.scss");
->>>>>>> ccd78f7f176758e769bc13fba8773fdd470d39c0
 
 
 /***/ })
