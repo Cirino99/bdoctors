@@ -79,23 +79,8 @@
                                 </div>
                             @enderror
 
-                            <img id="preview" class="img-fluid" src="{{ asset('storage/' . $user->photo) }}">
+                            <img id="preview" class="img-fluid rounded-circle" src="{{ asset('storage/' . $user->photo) }}">
                         </div>
-
-
-                        {{-- <div class="mb-3">
-                            <label class="form-label" for="image">Image</label>
-                            <input class="form-control @error('image') is-invalid @enderror" type="file" name="image" id="image" accept="image/*">
-                            @error('image')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                
-                            <img id="preview" class="img-fluid" src="{{ asset('storage/' . $post->image) }}">
-                        </div> --}}
-
-
 
                         <div class="mb-3">
                             <label class="form-label" for="phone">Numero di telefono</label>

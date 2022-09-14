@@ -10854,3 +10854,7 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+#preview {
+  width: 100px;
+  height: auto;
+}
