@@ -28030,4 +28030,9 @@ module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdo
 
 /***/ })
 
+<<<<<<< HEAD
 /******/ });
+=======
+    /******/
+});
+>>>>>>> 40496a7476bd19b963515b552e2f49b0796d5c03
