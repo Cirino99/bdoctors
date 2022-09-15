@@ -14,26 +14,21 @@ class SponsorshipUserSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $users = User::all();
+        $users = User::all()->where('id', '<', 3);
         $sponsorships = Sponsorship::all();
         $nSponsorships = count($sponsorships);
 
         foreach ($users as $user) {
-            if ($user->id % 2 == 0) {
-                //$sponsorship = $faker->randomElements($sponsorships, rand(0, $nSponsorships));
-                $sponsorship = $sponsorships[1];
-                $date = date('Y-m-d H:i:s');
-                //$date_add = $date->add($sponsorship->time);
-                $date_add = date("Y-m-d H:i:s", strtotime('+' . $sponsorship->time . 'hours'));
-                //$date_add = $date->add(new DateInterval('P' . $sponsorship->time . 'H'));
-                $attach_data[$user->id] = [
-                    'sponsorship_id' => $sponsorship->id,
-                    'starting_date' => $date,
-                    'ending_date' => $date_add,
-                    'id_paymant' => 1
-                ];
-                $user->sponsorships()->attach($attach_data);
-            }
+            $sponsorship = $faker->randomElement($sponsorships, rand(0, $nSponsorships));
+            $date = date('Y-m-d H:i:s');
+            $date_add = date("Y-m-d H:i:s", strtotime('+' . $sponsorship->time . 'hours'));
+            $attach_data[1] = [
+                'sponsorship_id' => $sponsorship->id,
+                'starting_date' => $date,
+                'ending_date' => $date_add,
+                'id_paymant' => 1
+            ];
+            $user->sponsorships()->attach($attach_data);
         }
     }
 }
