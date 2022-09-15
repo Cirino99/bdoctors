@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Il tuo Profilo') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,6 @@
                         </div>
                     @endif
 
-                    <h1>Show</h1>
                     @if ($user->photo != null)
                         <img id="preview" class="img-fluid rounded-circle" src="{{ asset('storage/' . $user->photo) }}">
                     @endif
