@@ -4,7 +4,15 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './App.vue';
 
-const routes = [];
+import PageShow from './pages/PageShow';
+
+const routes = [
+    {
+        path: '/profile',
+        name: 'profile',
+        component: PageShow
+    },
+];
 
 const router = new VueRouter({
     routes,
