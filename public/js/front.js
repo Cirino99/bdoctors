@@ -5244,12 +5244,135 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("input", {
+  return _c("div", {}, [_c("div", {
+    staticClass: "d-flex justify-content-center mt-3 mb-5"
+  }, [_c("input", {
     attrs: {
       type: "text",
       placeholder: "Search..."
     }
-  })]);
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-4"
+  }, [_c("div", {
+    staticClass: "card",
+    staticStyle: {
+      width: "18rem"
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "#",
+      alt: "photo"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("Card title")]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Some quick example text to build on the card title and make up the bulk\n                            of the card's content.")])]), _vm._v(" "), _c("ul", {
+    staticClass: "list-group list-group-flush"
+  }, [_c("li", {
+    staticClass: "list-group-item"
+  }, [_vm._v("An item")]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item"
+  }, [_vm._v("A second item")]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item"
+  }, [_vm._v("A third item")])]), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("a", {
+    staticClass: "card-link",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Card link")]), _vm._v(" "), _c("a", {
+    staticClass: "card-link",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Another link")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-4"
+  }, [_c("div", {
+    staticClass: "card",
+    staticStyle: {
+      width: "18rem"
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "#",
+      alt: "photo"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("Card title")]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Some quick example text to build on the card title and make up the bulk\n                            of the card's content.")])]), _vm._v(" "), _c("ul", {
+    staticClass: "list-group list-group-flush"
+  }, [_c("li", {
+    staticClass: "list-group-item"
+  }, [_vm._v("An item")]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item"
+  }, [_vm._v("A second item")]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item"
+  }, [_vm._v("A third item")])]), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("a", {
+    staticClass: "card-link",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Card link")]), _vm._v(" "), _c("a", {
+    staticClass: "card-link",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Another link")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-4"
+  }, [_c("div", {
+    staticClass: "card",
+    staticStyle: {
+      width: "18rem"
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "#",
+      alt: "photo"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("Card title")]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Some quick example text to build on the card title and make up the bulk\n                            of the card's content.")])]), _vm._v(" "), _c("ul", {
+    staticClass: "list-group list-group-flush"
+  }, [_c("li", {
+    staticClass: "list-group-item"
+  }, [_vm._v("An item")]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item"
+  }, [_vm._v("A second item")]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item"
+  }, [_vm._v("A third item")])]), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("a", {
+    staticClass: "card-link",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Card link")]), _vm._v(" "), _c("a", {
+    staticClass: "card-link",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Another link")])])])])])])]);
 }];
 render._withStripped = true;
 
