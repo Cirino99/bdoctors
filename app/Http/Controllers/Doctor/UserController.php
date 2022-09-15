@@ -8,6 +8,7 @@ use App\Models\Specialization;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
@@ -100,16 +101,22 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $profile)
+    public function destroy(Request $request, User $profile)
     {
         if (Auth::id() === $profile->id) {
-            $profile->specializations()->detach();
-            $profile->sponsorships()->detach();
-            $profile->messages()->delete();
-            $profile->reviews()->delete();
-            $profile->delete();
-
-            return redirect()->route('welcome');
+            $password = Hash::make($request['password']);
+            ddd($password, $profile->password);
+            if($profile->password === $password){
+                $profile->specializations()->detach();
+                $profile->sponsorships()->detach();
+                $profile->messages()->delete();
+                $profile->reviews()->delete();
+                $profile->delete();
+                return redirect()->route('welcome');
+            } else {
+                return redirect()->route('doctor.profile.show', $profile);
+            }
         }
+        return redirect()->route('doctor.dashboard');
     }
 }

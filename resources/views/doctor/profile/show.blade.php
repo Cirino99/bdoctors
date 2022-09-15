@@ -35,14 +35,24 @@
                     <div><strong>CV:</strong> {{ $user->cv}}</div>
 
                     <div class="d-flex justify-content-end">
-                        <form data-action="{{ route('doctor.profile.destroy', ['profile' => $user]) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-
-                            <button class="btn btn-sm btn-secondary">Delete</button>
-                        </form>
+                        <button class="btn btn-sm btn-secondary" id="delete-js">Delete</button>
                     </div>
                 </div>
+            </div>
+            <div class="my-delete d-none">
+                <form data-action="{{ route('doctor.profile.destroy', ['profile' => $user]) }}" method="post" class="popup">
+                    @csrf
+                    @method('DELETE')
+                    
+                    <label for="password" class="col-form-label text-md-right">Inserisci la tua password per eliminare il tuo profilo</label>
+                    <input id="password" type="password" class="form-control mb-3" name="password" required autocomplete="current-password">
+                    <button type="submit" class="btn btn-danger">
+                        Si
+                    </button>
+                    <button id="cancel-btn" type="button" class="btn btn-warning">
+                        Annulla
+                    </button>
+                </form>
             </div>
         </div>
     </div>

@@ -27878,6 +27878,19 @@ if (form_edit) {
   };
 }
 
+var delete_js = document.getElementById('delete-js');
+
+if (delete_js) {
+  delete_js.addEventListener('click', function () {
+    var delete_popup = document.querySelector('div.my-delete');
+    delete_popup.classList.remove('d-none');
+    document.getElementById('cancel-btn').addEventListener('click', function () {
+      document.getElementById('password').value = "";
+      delete_popup.classList.add('d-none');
+    });
+  });
+}
+
 function validationRegister() {
   var name = document.getElementById('name').value;
   var lastname = document.getElementById('lastname').value;
