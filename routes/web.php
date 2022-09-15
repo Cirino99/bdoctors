@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-
 Auth::routes();
 
 Route::middleware('auth')
@@ -30,3 +26,7 @@ Route::middleware('auth')
         Route::resource('messages', 'MessageController');
         Route::resource('reviews', 'ReviewController');
     });
+
+Route::get("{any?}", function () {
+    return view("guest.home");
+})->where("any", ".*")->name('home');

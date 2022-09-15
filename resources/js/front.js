@@ -1,7 +1,18 @@
 require('./bootstrap');
 
-window.Vue = require('vue');
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import App from './App.vue';
+
+const routes = [];
+
+const router = new VueRouter({
+    routes,
+    mode: 'history',
+});
+
 const app = new Vue({
-    el: '#app',
+    el: '#root',
+    render: h => h(App),
+    router
 });

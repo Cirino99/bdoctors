@@ -4,12 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>BDoctors</title>
-
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
     <!-- Styles -->
     <style>
         html,
@@ -18,12 +15,7 @@
             color: #636b6f;
             font-family: 'Nunito', sans-serif;
             font-weight: 200;
-            height: 100vh;
             margin: 0;
-        }
-
-        .full-height {
-            height: calc(100vh - 80px);
         }
 
         .flex-center {
@@ -35,21 +27,6 @@
         .position-ref {
             position: relative;
         }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
         .links>a {
             color: #636b6f;
             padding: 0 25px;
@@ -59,11 +36,6 @@
             text-decoration: none;
             text-transform: uppercase;
         }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }
-
         .logo {
             width: auto;
             height: 60px;
@@ -79,11 +51,8 @@
 
 <body>
     <nav class="navbar">
-
         <img class="logo" src="{{ asset('img/BDoctors_logo.svg') }}" alt="logo">
-
         <div class="flex-center">
-
             @if (Route::has('login'))
                 <div class="links">
                     @auth
@@ -97,16 +66,10 @@
                     @endauth
                 </div>
             @endif
-
         </div>
     </nav>
-    <div class="flex-center position-ref full-height">
-        <div class="content">
-            <div class="title m-b-md">
-                BDoctors
-            </div>
-        </div>
-    </div>
+    <div id="root"></div>
+    <script src="{{ asset('js/front.js') }}"></script>
 </body>
 
 </html>
