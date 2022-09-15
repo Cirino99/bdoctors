@@ -85,12 +85,12 @@
                       </li>
                       <li class="side-nav-li">
                         <a href="{{ route('doctor.profile.edit', ['profile' => Auth::id()]) }}" class="nav-link link-dark">
-                          Edit
+                          Modifica Profilo
                         </a>
                       </li>
                       <li class="side-nav-li">
                         <a href="{{ route('doctor.profile.show', ['profile' => Auth::id()]) }}" class="nav-link link-dark">
-                          Show
+                          Visualizza Profilo
                         </a>
                       </li>
                       <li class="side-nav-li">
