@@ -1,7 +1,7 @@
 <template>
-    <h1>
+    <div>
         Search
-    </h1>
+    </div>
 </template>
 
 <script>
