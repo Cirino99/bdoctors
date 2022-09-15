@@ -104,9 +104,7 @@ class UserController extends Controller
     public function destroy(Request $request, User $profile)
     {
         if (Auth::id() === $profile->id) {
-            $password = Hash::make($request['password']);
-            ddd($password, $profile->password);
-            if($profile->password === $password){
+            if(Hash::check($request['password'], $profile->password)){
                 $profile->specializations()->detach();
                 $profile->sponsorships()->detach();
                 $profile->messages()->delete();
