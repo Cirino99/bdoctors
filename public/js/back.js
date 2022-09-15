@@ -27878,6 +27878,19 @@ if (form_edit) {
   };
 }
 
+var delete_js = document.getElementById('delete-js');
+
+if (delete_js) {
+  delete_js.addEventListener('click', function () {
+    var delete_popup = document.querySelector('div.my-delete');
+    delete_popup.classList.remove('d-none');
+    document.getElementById('cancel-btn').addEventListener('click', function () {
+      document.getElementById('password').value = "";
+      delete_popup.classList.add('d-none');
+    });
+  });
+}
+
 function validationRegister() {
   var name = document.getElementById('name').value;
   var lastname = document.getElementById('lastname').value;
@@ -28012,7 +28025,11 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\back.js */"./resources/js/back.js");
+=======
+module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\back.js */"./resources/js/back.js");
+>>>>>>> 984392ab880604566c92231924d88da39d85e220
 
 
 /***/ })
