@@ -5317,18 +5317,19 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "container-fluid"
+    staticClass: "container mt-5"
   }, [_c("div", {
-    staticClass: "row d-flex justify-content-between"
-  }, [_c("div", [_c("ul", [_c("li")])]), _vm._v(" "), _c("div", {
-    staticClass: "rounded-circle"
-  }, [_c("img", {
+    staticClass: "d-flex justify-content-between mb-5"
+  }, [_c("ul", {
+    staticClass: "col-2"
+  }, [_c("li")]), _vm._v(" "), _c("img", {
+    staticClass: "col-4 img-fluid img-thumbnail rounded-circle",
     attrs: {
-      src: "",
+      src: "https://www.limontasport.com/wp-content/uploads/2016/03/landscape-test.jpg",
       alt: ""
     }
-  })])]), _vm._v(" "), _c("div", {
-    staticClass: "d-flex justify-content-between m-auto"
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-between align-items-center"
   }, [_c("button", {
     staticClass: "btn btn-secondary"
   }, [_vm._v("Contatta")]), _vm._v(" "), _c("button", {
@@ -10614,7 +10615,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "li[data-v-1ca8e6b5] {\n  list-style-type: none;\n}", ""]);
+exports.push([module.i, "li[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\nimg[data-v-1ca8e6b5] {\n  width: 300px;\n}", ""]);
 
 // exports
 
@@ -44584,8 +44585,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\Administrator\Documents\VSC\Progetto-Finale\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Administrator\Documents\VSC\Progetto-Finale\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })
