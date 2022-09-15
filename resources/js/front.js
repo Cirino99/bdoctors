@@ -7,6 +7,8 @@ import Home from './pages/PageHome.vue';
 
 import AdvanceSearch from './pages/PageAdvanceSearch.vue';
 
+import PageShow from './pages/PageShow';
+
 const routes = [
     {
         path: '/search',
@@ -19,6 +21,12 @@ const routes = [
         name: 'home',
         component: Home,
     }
+
+    {
+        path: '/profile',
+        name: 'profile',
+        component: PageShow
+    },
 ];
 
 const router = new VueRouter({
