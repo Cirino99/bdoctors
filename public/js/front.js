@@ -5178,10 +5178,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Home',
-  created: function created() {
-    axios.get('/');
-  }
+  name: 'Home' // created() {
+  //     axios.get('/api/doctors')      
+  // }
+
 });
 
 /***/ }),
@@ -5283,18 +5283,62 @@ var staticRenderFns = [function () {
 
   return _c("div", [_c("div", {
     staticClass: "d-flex justify-content-center mt-5"
+  }, [_c("form", {
+    staticClass: "d-flex form-inline my-2 my-lg-0"
   }, [_c("input", {
+    staticClass: "form-control mr-sm-2",
     attrs: {
-      type: "text",
-      id: "search-bar"
+      type: "search",
+      placeholder: "Search",
+      "aria-label": "Search"
     }
-  }), _vm._v(" "), _c("button", [_vm._v("CERCA")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-outline-primary my-2 my-sm-0",
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v("Search")])])]), _vm._v(" "), _c("div", {
     staticClass: "mt-5"
   }, [_c("div", [_c("h3", [_vm._v("\n        MEDICI SPONSORIZZATI\n      ")])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center"
   }, [_c("div", {
-    staticClass: "card"
-  }, [_c("div", [_vm._v("\n          FOTO\n        ")]), _vm._v(" "), _c("div", [_vm._v("\n          NOME\n        ")]), _vm._v(" "), _c("div", [_vm._v("\n          COGNOME\n        ")]), _vm._v(" "), _c("div", [_vm._v("\n          SPECIALIZZAZIONE\n        ")]), _vm._v(" "), _c("div", [_vm._v("\n          VALUTAZIONE\n        ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "card",
+    staticStyle: {
+      width: "18rem"
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "",
+      alt: "Card image cap"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("Nome")]), _vm._v(" "), _c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("Cognome")]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Testo")])]), _vm._v(" "), _c("ul", {
+    staticClass: "list-group list-group-flush"
+  }, [_c("li", {
+    staticClass: "list-group-item"
+  }, [_vm._v("SPECIALIZZAZIONE")]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item"
+  }, [_vm._v("VALUTAZIONE")])]), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("a", {
+    staticClass: "card-link",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Visualizza")]), _vm._v(" "), _c("a", {
+    staticClass: "card-link",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Contatta")])])])]), _vm._v(" "), _c("div", {
     staticClass: "mt-5"
   }, [_c("h2", [_vm._v("\n        PERCHÉ SCEGLIERCI\n      ")])])])]);
 }];
@@ -10642,7 +10686,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#search-bar {\n  width: 300px;\n}\n.card {\n  width: 20%;\n}\n", ""]);
+exports.push([module.i, "\n#search-bar {\n  width: 300px;\n}\n.card {\n  width: 20%;\n}\n#photo-doctor-home {\n  height: 100%;\n  width: 100%;\n}\n", ""]);
 
 // exports
 
