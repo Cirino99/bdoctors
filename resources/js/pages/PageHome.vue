@@ -17,7 +17,7 @@
         <div class="card" style="width: 18rem;">
           <img class="card-img-top" src="" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">Nome</h5>
+            <h5 class="card-title"> {{ doctors.name }} </h5>
             <h5 class="card-title">Cognome</h5>
             <p class="card-text">Testo</p>
           </div>
@@ -27,7 +27,6 @@
           </ul>
           <div class="card-body">
             <a href="#" class="card-link">Visualizza</a>
-            <a href="#" class="card-link">Contatta</a>
           </div>
         </div>
       </div>
@@ -44,22 +43,23 @@
   export default {
     name: 'Home',
 
-    // created() {
-    //     axios.get('/api/doctors')      
-    // }
+    data() {
+      return {
+        doctors: [],
+      }
+    },
+
+    created() {
+      axios.get('/api/doctors')
+        .then(res => {
+          if (res.data.success) {
+            this.doctors = res.data.result
+          }
+        })     
+    }
   }
 </script>
   
 <style>
-  #search-bar {
-    width: 300px;
-  }
-  .card {
-    width: 20%;
-  }
-
-  #photo-doctor-home {
-    height: 100%;
-    width: 100%;
-  }
+  
 </style>
