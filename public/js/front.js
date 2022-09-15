@@ -5178,7 +5178,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Home'
+  name: 'Home',
+  created: function created() {
+    axios.get('/');
+  }
 });
 
 /***/ }),
@@ -5402,15 +5405,21 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", [_c("div", {
-    attrs: {
-      id: "search-section"
-    }
+    staticClass: "d-flex justify-content-center mt-5"
   }, [_c("input", {
     attrs: {
       type: "text",
       id: "search-bar"
     }
-  }), _vm._v(" "), _c("button", [_vm._v("CERCA")])])]);
+  }), _vm._v(" "), _c("button", [_vm._v("CERCA")])]), _vm._v(" "), _c("div", {
+    staticClass: "mt-5"
+  }, [_c("div", [_c("h3", [_vm._v("\n        MEDICI SPONSORIZZATI\n      ")])]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-center"
+  }, [_c("div", {
+    staticClass: "card"
+  }, [_c("div", [_vm._v("\n          FOTO\n        ")]), _vm._v(" "), _c("div", [_vm._v("\n          NOME\n        ")]), _vm._v(" "), _c("div", [_vm._v("\n          COGNOME\n        ")]), _vm._v(" "), _c("div", [_vm._v("\n          SPECIALIZZAZIONE\n        ")]), _vm._v(" "), _c("div", [_vm._v("\n          VALUTAZIONE\n        ")])])]), _vm._v(" "), _c("div", {
+    staticClass: "mt-5"
+  }, [_c("h2", [_vm._v("\n        PERCHÉ SCEGLIERCI\n      ")])])])]);
 }];
 render._withStripped = true;
 
@@ -10756,7 +10765,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#search-bar {\n    width: 300px;\n}\n", ""]);
+exports.push([module.i, "\n#search-bar {\n  width: 300px;\n}\n.card {\n  width: 20%;\n}\n", ""]);
 
 // exports
 
@@ -44707,8 +44716,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })
