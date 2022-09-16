@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Specialization;
 
 class DoctorController extends Controller
 {
@@ -31,10 +32,12 @@ class DoctorController extends Controller
             $doctor->photo = $this->fixImageUrl($doctor->photo);
             array_push($doctors, $doctor);
         }
+        $specializations = Specialization::get()->pluck('name');
 
         return response()->json([
             'success'   => true,
             'result'    => $doctors,
+            'specializations' => $specializations
         ]);
     }
 
@@ -57,39 +60,5 @@ class DoctorController extends Controller
                 'success'   => false,
             ]);
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }
