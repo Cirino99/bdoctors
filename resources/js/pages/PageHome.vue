@@ -3,11 +3,11 @@
     <div class="d-flex justify-content-center mt-5">
       <!-- serchbar -->
       <form class="d-flex form-inline my-2 my-lg-0">
-        <input v-model="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input @click="displayComponent" @focusout="handleFocusOut" v-model="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center" v-if="display">
       <ul>
         <!-- <li v-for="specialization in spec.specializations" :key="specialization.id">
           {{ specialization }}
@@ -53,7 +53,9 @@ import CardDoctor from '../components/CardDoctor.vue'
         doctors: [],
 
         // array per le specializzazioni
-        spec: []
+        spec: [],
+
+        display: false
       }
     },
 
@@ -92,10 +94,22 @@ import CardDoctor from '../components/CardDoctor.vue'
         return this.spec.filter(specialization => 
           specialization.name.toLowerCase().includes(this.search.toLowerCase()))
       }
+    },
+
+    methods: {
+        displayComponent() {
+          this.display = true;
+        },
+
+        handleFocusOut() {
+          this.display = false;
+        }
     }
   }
 </script>
   
 <style>
-  
+  li:hover {
+    background-color: aquamarine;
+  }
 </style>
