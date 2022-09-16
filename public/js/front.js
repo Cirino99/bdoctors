@@ -5201,7 +5201,10 @@ __webpack_require__.r(__webpack_exports__);
   name: 'Home',
   data: function data() {
     return {
-      doctors: []
+      doctors: [],
+      // array temporaneo per le specializzazioni
+      specializations: ["Pediatria", "Chirurgia", "Radiologia", "Neurochirurgia"],
+      searching: ""
     };
   },
   components: {
@@ -5216,6 +5219,16 @@ __webpack_require__.r(__webpack_exports__);
         console.log(_this.doctors);
       }
     });
+  },
+  methods: {
+    searchMovie: function searchMovie() {
+      var _this2 = this;
+
+      axios.get('/api/doctors').then(function (result) {
+        _this2.doctors = result.data.results;
+        console.log(_this2.doctors);
+      });
+    }
   }
 });
 
@@ -5493,9 +5506,44 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_vm._m(0), _vm._v(" "), _c("div", {
+  return _c("div", [_c("div", {
+    staticClass: "d-flex justify-content-center mt-5"
+  }, [_c("form", {
+    staticClass: "d-flex form-inline my-2 my-lg-0"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.searching,
+      expression: "searching"
+    }],
+    staticClass: "form-control mr-sm-2",
+    attrs: {
+      type: "search",
+      placeholder: "Search",
+      "aria-label": "Search"
+    },
+    domProps: {
+      value: _vm.searching
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.searching = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-outline-primary my-2 my-sm-0",
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v("Search")])]), _vm._v(" "), _vm._l(_vm.specializations, function (specialization) {
+    return _c("div", {
+      key: specialization
+    }, [_c("p", [_vm._v(_vm._s(specialization))])]);
+  })], 2), _vm._v(" "), _c("div", {
     staticClass: "mt-5"
-  }, [_vm._m(1), _vm._v(" "), _c("div", {
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center"
   }, _vm._l(_vm.doctors, function (doctor, index) {
     return _c("CardDoctor", {
@@ -5504,31 +5552,10 @@ var render = function render() {
         doctor: doctor
       }
     });
-  }), 1), _vm._v(" "), _vm._m(2)])]);
+  }), 1), _vm._v(" "), _vm._m(1)])]);
 };
 
 var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "d-flex justify-content-center mt-5"
-  }, [_c("form", {
-    staticClass: "d-flex form-inline my-2 my-lg-0"
-  }, [_c("input", {
-    staticClass: "form-control mr-sm-2",
-    attrs: {
-      type: "search",
-      placeholder: "Search",
-      "aria-label": "Search"
-    }
-  }), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-outline-primary my-2 my-sm-0",
-    attrs: {
-      type: "submit"
-    }
-  }, [_vm._v("Search")])])]);
-}, function () {
   var _vm = this,
       _c = _vm._self._c;
 
@@ -5572,15 +5599,19 @@ var staticRenderFns = [function () {
     staticClass: "container mt-5"
   }, [_c("div", {
     staticClass: "d-flex justify-content-between mb-5"
-  }, [_c("ul", {
-    staticClass: "col-2"
-  }, [_c("li")]), _vm._v(" "), _c("img", {
-    staticClass: "col-4 img-fluid img-thumbnail rounded-circle",
+  }, [_c("div", {
+    staticClass: "row"
+  }, [_c("ul", [_c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")])])]), _vm._v(" "), _c("div", {
+    staticClass: "row d-flex justify-content-center align-items-center"
+  }, [_c("div", {
+    staticClass: "col-12 col-sm-12 col-md-12 col-lg-12"
+  }, [_c("img", {
+    staticClass: "img-fluid img-thumbnail rounded-circle",
     attrs: {
       src: "https://www.limontasport.com/wp-content/uploads/2016/03/landscape-test.jpg",
       alt: ""
     }
-  })]), _vm._v(" "), _c("div", {
+  })])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-between align-items-center"
   }, [_c("button", {
     staticClass: "btn btn-secondary"
@@ -10867,7 +10898,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "li[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\nimg[data-v-1ca8e6b5] {\n  width: 300px;\n}", ""]);
+exports.push([module.i, "li[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\nimg[data-v-1ca8e6b5] {\n  min-width: 150px;\n  min-height: 150px;\n  width: 30vw;\n  height: 30vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}", ""]);
 
 // exports
 
