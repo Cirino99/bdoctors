@@ -5221,10 +5221,10 @@ __webpack_require__.r(__webpack_exports__);
   name: 'Home',
   data: function data() {
     return {
+      search: "",
       doctors: [],
       // array temporaneo per le specializzazioni
-      specializations: ["Pediatria", "Chirurgia", "Radiologia", "Neurochirurgia"],
-      searching: ""
+      specializations: ["Pediatria", "Chirurgia", "Radiologia", "Neurochirurgia"]
     };
   },
   components: {
@@ -5240,15 +5240,8 @@ __webpack_require__.r(__webpack_exports__);
       }
     });
   },
-  methods: {
-    searchMovie: function searchMovie() {
-      var _this2 = this;
-
-      axios.get('/api/doctors').then(function (result) {
-        _this2.doctors = result.data.results;
-        console.log(_this2.doctors);
-      });
-    }
+  computed: {
+    filteredCards: function filteredCards() {}
   }
 });
 
@@ -5588,8 +5581,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.searching,
-      expression: "searching"
+      value: _vm.search,
+      expression: "search"
     }],
     staticClass: "form-control mr-sm-2",
     attrs: {
@@ -5598,12 +5591,16 @@ var render = function render() {
       "aria-label": "Search"
     },
     domProps: {
-      value: _vm.searching
+      value: _vm.search
     },
     on: {
+      keyup: function keyup($event) {
+        if (!$event.type.indexOf("key") && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) return null;
+        return _vm.searchDoctor.apply(null, arguments);
+      },
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.searching = $event.target.value;
+        _vm.search = $event.target.value;
       }
     }
   }), _vm._v(" "), _c("button", {
@@ -5614,7 +5611,7 @@ var render = function render() {
   }, [_vm._v("Search")])]), _vm._v(" "), _vm._l(_vm.specializations, function (specialization) {
     return _c("div", {
       key: specialization
-    }, [_c("p", [_vm._v(_vm._s(specialization))])]);
+    }, [_c("p", [_vm._v(" " + _vm._s(specialization) + " ")])]);
   })], 2), _vm._v(" "), _c("div", {
     staticClass: "mt-5"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
