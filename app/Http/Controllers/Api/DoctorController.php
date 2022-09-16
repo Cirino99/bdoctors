@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class DoctorController extends Controller
 {
@@ -15,7 +16,14 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctors = User::with('name', 'lastname', 'photo', 'specializations')->where('ending_date', '>', date('Y-m-d H:i:s'));
+        $doctors = DB::table('users')
+            ->join('specialization_user', 'users.id', '=', 'specialization_user.user_id')
+            ->join('specializations', 'specialization_user.specialization_id', '=', 'specializations.id')
+            ->join('sponsorship_user', 'users.id', '=', 'sponsorship_user.user_id')
+            ->join('sponsorships', 'sponsorship_user.sponsorship_id', '=', 'sponsorships.id')
+            ->where('sponsorship_user.ending_date', '>', date('Y-m-d H:i:s'))
+            ->select('users.id', 'users.name', 'users.lastname', 'sponsorship_user.ending_date', 'specializations.name as specialization')
+            ->get();
         return response()->json([
             'success'   => true,
             'result'    => $doctors,
