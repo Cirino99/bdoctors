@@ -6,11 +6,6 @@
         <input v-model="search" @keyup.enter="searchDoctor" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
       </form>
-      <!-- debug per vedere l'array -->
-      <div v-for="specialization in specializations" :key="specialization">
-        <p> {{ specialization }} </p>
-      </div>
-
     </div>
 
     <div class="mt-5">
@@ -47,12 +42,7 @@ import CardDoctor from '../components/CardDoctor.vue'
         doctors: [],
 
         // array temporaneo per le specializzazioni
-        specializations: [
-          "Pediatria",
-          "Chirurgia",
-          "Radiologia",
-          "Neurochirurgia"
-        ]
+        specializations: []
       }
     },
 
@@ -65,14 +55,16 @@ import CardDoctor from '../components/CardDoctor.vue'
         .then(res => {
             if (res.data.success) {
               this.doctors = res.data.result;
+              this.specializations = res.data.specializations;
               console.log(this.doctors);
+              console.log(this.specializations);
             }
           })
     },
 
     computed: {
       filteredCards() {
-        
+
       }
     }
   }
