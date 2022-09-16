@@ -8,14 +8,16 @@
         <div>
           {{ search }}
         </div>
-        <div>
-          <ul>
-            <li v-for="specialization in spec" :key="specialization.id">
-              {{ specialization.name }}
-            </li>
-          </ul>
-        </div>
       </form>
+
+      <div>
+        <ul>
+          <li v-for="specialization in spec.specializations" :key="specialization.id">
+            {{ specialization.result }}
+          </li>
+        </ul>
+      </div>
+
     </div>
 
     <div class="mt-5">
@@ -66,11 +68,18 @@ import CardDoctor from '../components/CardDoctor.vue'
         .then(res => {
             if (res.data.success) {
               this.doctors = res.data.result;
-              this.specializations = res.data.specializations;
-              console.log(this.doctors);
-              console.log(this.specializations);
+              // this.specializations = res.data.specializations;
+              // console.log(this.doctors);
+              // console.log(this.specializations);
             }
           });
+      axios.get('/api/search/specialization')
+        .then(res => {
+          if (res.data.success) {
+            this.spec = res.data.result;
+            console.log(this.spec); 
+          }
+        });
     },
 
     methods: {
