@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="d-flex">
 
-                <div class="col-2 m-2" style="min-width: 200px;">
+                <div class="col-2 m-2" style="min-width: 250px;">
 
 
                     <div class="card">
@@ -12,35 +12,11 @@
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><strong>Città:</strong><br>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault1">
-                                    <label class="form-check-label" for="flexRadioDefault1">
-                                        Roma
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault2" checked>
-                                    <label class="form-check-label" for="flexRadioDefault2">
-                                        Milano
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault2" checked>
-                                    <label class="form-check-label" for="flexRadioDefault2">
-                                        Napoli
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault2" checked>
-                                    <label class="form-check-label" for="flexRadioDefault2">
-                                        Venezia
-                                    </label>
-                                </div>
+                                <form class="d-flex form-inline my-2 my-lg-0">
+                                    <input v-model="search" @keyup.enter="searchDoctor" class="form-control mr-sm-2"
+                                        type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                                </form>
                             </li>
 
                             <li class="list-group-item"><strong>Specializzazione:</strong><br>

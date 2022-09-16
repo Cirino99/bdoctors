@@ -5389,7 +5389,51 @@ var render = function render() {
     staticClass: "container-fluid"
   }, [_c("div", {
     staticClass: "d-flex"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
+  }, [_c("div", {
+    staticClass: "col-2 m-2",
+    staticStyle: {
+      "min-width": "250px"
+    }
+  }, [_c("div", {
+    staticClass: "card"
+  }, [_vm._m(0), _vm._v(" "), _c("ul", {
+    staticClass: "list-group list-group-flush"
+  }, [_c("li", {
+    staticClass: "list-group-item"
+  }, [_c("strong", [_vm._v("Città:")]), _c("br"), _vm._v(" "), _c("form", {
+    staticClass: "d-flex form-inline my-2 my-lg-0"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.search,
+      expression: "search"
+    }],
+    staticClass: "form-control mr-sm-2",
+    attrs: {
+      type: "search",
+      placeholder: "Search",
+      "aria-label": "Search"
+    },
+    domProps: {
+      value: _vm.search
+    },
+    on: {
+      keyup: function keyup($event) {
+        if (!$event.type.indexOf("key") && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) return null;
+        return _vm.searchDoctor.apply(null, arguments);
+      },
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.search = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-outline-primary my-2 my-sm-0",
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v("Search")])])]), _vm._v(" "), _vm._m(1)])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex flex-wrap justify-content-center col-9 ms-5"
   }, _vm._l(_vm.doctors, function (doctor, index) {
     return _c("CardDoctor", {
@@ -5406,78 +5450,13 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "col-2 m-2",
-    staticStyle: {
-      "min-width": "200px"
-    }
-  }, [_c("div", {
-    staticClass: "card"
-  }, [_c("div", {
     staticClass: "card-header"
-  }, [_c("h3", [_vm._v("Filtra per:")])]), _vm._v(" "), _c("ul", {
-    staticClass: "list-group list-group-flush"
-  }, [_c("li", {
-    staticClass: "list-group-item"
-  }, [_c("strong", [_vm._v("Città:")]), _c("br"), _vm._v(" "), _c("div", {
-    staticClass: "form-check"
-  }, [_c("input", {
-    staticClass: "form-check-input",
-    attrs: {
-      type: "radio",
-      name: "flexRadioDefault",
-      id: "flexRadioDefault1"
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "form-check-label",
-    attrs: {
-      "for": "flexRadioDefault1"
-    }
-  }, [_vm._v("\n                                    Roma\n                                ")])]), _vm._v(" "), _c("div", {
-    staticClass: "form-check"
-  }, [_c("input", {
-    staticClass: "form-check-input",
-    attrs: {
-      type: "radio",
-      name: "flexRadioDefault",
-      id: "flexRadioDefault2",
-      checked: ""
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "form-check-label",
-    attrs: {
-      "for": "flexRadioDefault2"
-    }
-  }, [_vm._v("\n                                    Milano\n                                ")])]), _vm._v(" "), _c("div", {
-    staticClass: "form-check"
-  }, [_c("input", {
-    staticClass: "form-check-input",
-    attrs: {
-      type: "radio",
-      name: "flexRadioDefault",
-      id: "flexRadioDefault2",
-      checked: ""
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "form-check-label",
-    attrs: {
-      "for": "flexRadioDefault2"
-    }
-  }, [_vm._v("\n                                    Napoli\n                                ")])]), _vm._v(" "), _c("div", {
-    staticClass: "form-check"
-  }, [_c("input", {
-    staticClass: "form-check-input",
-    attrs: {
-      type: "radio",
-      name: "flexRadioDefault",
-      id: "flexRadioDefault2",
-      checked: ""
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "form-check-label",
-    attrs: {
-      "for": "flexRadioDefault2"
-    }
-  }, [_vm._v("\n                                    Venezia\n                                ")])])]), _vm._v(" "), _c("li", {
+  }, [_c("h3", [_vm._v("Filtra per:")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("li", {
     staticClass: "list-group-item"
   }, [_c("strong", [_vm._v("Specializzazione:")]), _c("br"), _vm._v(" "), _c("div", {
     staticClass: "form-check"
@@ -5553,7 +5532,7 @@ var staticRenderFns = [function () {
     attrs: {
       "for": "flexRadioDefault2"
     }
-  }, [_vm._v("\n                                    Neurochirurgia\n                                ")])])])])])]);
+  }, [_vm._v("\n                                    Neurochirurgia\n                                ")])])]);
 }];
 render._withStripped = true;
 
