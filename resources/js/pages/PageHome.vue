@@ -5,19 +5,17 @@
       <form class="d-flex form-inline my-2 my-lg-0">
         <input v-model="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-        <div>
-          {{ search }}
-        </div>
       </form>
-
-      <div>
-        <ul>
-          <li v-for="specialization in spec.specializations" :key="specialization.id">
-            {{ specialization.result }}
-          </li>
-        </ul>
-      </div>
-
+    </div>
+    <div class="d-flex justify-content-center">
+      <ul>
+        <!-- <li v-for="specialization in spec.specializations" :key="specialization.id">
+          {{ specialization }}
+        </li> -->
+        <li v-for="specialization in filteredSpecialization" :key="specialization.id">
+          {{ specialization.name }}
+        </li>
+      </ul>
     </div>
 
     <div class="mt-5">
@@ -82,11 +80,17 @@ import CardDoctor from '../components/CardDoctor.vue'
         });
     },
 
-    methods: {
-      searchInput() {
-        this.search.foreach(result => {
-          result.specializations.toLowerCase().includes(this.search.toLowerCase())
-        })
+    // methods: {
+    //   searchInput() {
+    //     this.search.foreach(result => {
+    //       result.specializations.toLowerCase().includes(this.search.toLowerCase())
+    //     })
+    //   }
+    // }
+    computed: {
+      filteredSpecialization() {
+        return this.spec.filter(specialization => 
+          specialization.name.toLowerCase().includes(this.search.toLowerCase()))
       }
     }
   }

@@ -7,7 +7,9 @@
         <p class="card-text">Testo</p>
         </div>
         <ul class="list-group list-group-flush">
-        <li v-for="specialization in doctor.specializations" :key="specialization.id" class="list-group-item"> {{ specialization.name }} </li>
+        <li v-for="specialization in doctor.specializations" :key="specialization.id" class="list-group-item">
+            {{ specialization.name }} 
+        </li>
         <li class="list-group-item">VALUTAZIONE</li>
         </ul>
         <div class="card-body">

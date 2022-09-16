@@ -5248,12 +5248,19 @@ __webpack_require__.r(__webpack_exports__);
       }
     });
   },
-  methods: {
-    searchInput: function searchInput() {
+  // methods: {
+  //   searchInput() {
+  //     this.search.foreach(result => {
+  //       result.specializations.toLowerCase().includes(this.search.toLowerCase())
+  //     })
+  //   }
+  // }
+  computed: {
+    filteredSpecialization: function filteredSpecialization() {
       var _this2 = this;
 
-      this.search.foreach(function (result) {
-        result.specializations.toLowerCase().includes(_this2.search.toLowerCase());
+      return this.spec.filter(function (specialization) {
+        return specialization.name.toLowerCase().includes(_this2.search.toLowerCase());
       });
     }
   }
@@ -5358,7 +5365,7 @@ var render = function render() {
     return _c("li", {
       key: specialization.id,
       staticClass: "list-group-item"
-    }, [_vm._v(" " + _vm._s(specialization.name) + " ")]);
+    }, [_vm._v("\n        " + _vm._s(specialization.name) + " \n    ")]);
   }), _vm._v(" "), _c("li", {
     staticClass: "list-group-item"
   }, [_vm._v("VALUTAZIONE")])], 2), _vm._v(" "), _vm._m(0)]);
@@ -5597,11 +5604,13 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Search")]), _vm._v(" "), _c("div", [_vm._v("\n        " + _vm._s(_vm.search) + "\n      ")])]), _vm._v(" "), _c("div", [_c("ul", _vm._l(_vm.spec.specializations, function (specialization) {
+  }, [_vm._v("Search")])])]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-center"
+  }, [_c("ul", _vm._l(_vm.filteredSpecialization, function (specialization) {
     return _c("li", {
       key: specialization.id
-    }, [_vm._v("\n          " + _vm._s(specialization.result) + "\n        ")]);
-  }), 0)])]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n        " + _vm._s(specialization.name) + "\n      ")]);
+  }), 0)]), _vm._v(" "), _c("div", {
     staticClass: "mt-5"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center"
@@ -45043,8 +45052,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })
