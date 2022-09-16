@@ -5288,7 +5288,7 @@ var staticRenderFns = [function () {
     staticClass: "card-title"
   }, [_vm._v("Card title")]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
-  }, [_vm._v("Some quick example text to build on the card title and make up the bulk\n                            of the card's content.")])]), _vm._v(" "), _c("ul", {
+  }, [_vm._v("Ciao Some quick example text to build on the card title and make up the bulk\n                            of the card's content.")])]), _vm._v(" "), _c("ul", {
     staticClass: "list-group list-group-flush"
   }, [_c("li", {
     staticClass: "list-group-item"
@@ -44718,8 +44718,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })
