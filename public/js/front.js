@@ -5222,8 +5222,9 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       search: "",
+      // array per il dottori 
       doctors: [],
-      // array temporaneo per le specializzazioni
+      // array per le specializzazioni
       specializations: []
     };
   },
@@ -5243,7 +5244,13 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   computed: {
-    filteredCards: function filteredCards() {}
+    filteredDoctors: function filteredDoctors() {
+      var _this2 = this;
+
+      return this.doctors.filter(function (doctor) {
+        return doctor.name.toLowerCase().includes(_this2.search.toLowerCase());
+      });
+    }
   }
 });
 
@@ -5614,7 +5621,7 @@ var render = function render() {
     staticClass: "mt-5"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center"
-  }, _vm._l(_vm.doctors, function (doctor, index) {
+  }, _vm._l(_vm.filteredDoctors, function (doctor, index) {
     return _c("CardDoctor", {
       key: index,
       attrs: {
@@ -45026,8 +45033,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })
