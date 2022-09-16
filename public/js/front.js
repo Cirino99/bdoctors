@@ -5225,7 +5225,7 @@ __webpack_require__.r(__webpack_exports__);
       // array per il dottori 
       doctors: [],
       // array per le specializzazioni
-      specializations: []
+      spec: []
     };
   },
   components: {
@@ -5243,12 +5243,12 @@ __webpack_require__.r(__webpack_exports__);
       }
     });
   },
-  computed: {
-    filteredDoctors: function filteredDoctors() {
+  methods: {
+    searchInput: function searchInput() {
       var _this2 = this;
 
-      return this.doctors.filter(function (doctor) {
-        return doctor.name.toLowerCase().includes(_this2.search.toLowerCase());
+      this.search.foreach(function (result) {
+        result.specializations.toLowerCase().includes(_this2.search.toLowerCase());
       });
     }
   }
@@ -5603,10 +5603,6 @@ var render = function render() {
       value: _vm.search
     },
     on: {
-      keyup: function keyup($event) {
-        if (!$event.type.indexOf("key") && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) return null;
-        return _vm.searchDoctor.apply(null, arguments);
-      },
       input: function input($event) {
         if ($event.target.composing) return;
         _vm.search = $event.target.value;
@@ -5617,11 +5613,15 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Search")])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Search")]), _vm._v(" "), _c("div", [_vm._v("\n        " + _vm._s(_vm.search) + "\n      ")]), _vm._v(" "), _c("div", [_c("ul", _vm._l(_vm.spec, function (specialization) {
+    return _c("li", {
+      key: specialization.id
+    }, [_vm._v("\n            " + _vm._s(specialization.name) + "\n          ")]);
+  }), 0)])])]), _vm._v(" "), _c("div", {
     staticClass: "mt-5"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center"
-  }, _vm._l(_vm.filteredDoctors, function (doctor, index) {
+  }, _vm._l(_vm.doctors, function (doctor, index) {
     return _c("CardDoctor", {
       key: index,
       attrs: {
@@ -44863,14 +44863,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************!*\
   !*** ./resources/js/pages/PageHome.vue ***!
   \*****************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _PageHome_vue_vue_type_template_id_13e03f97___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PageHome.vue?vue&type=template&id=13e03f97& */ "./resources/js/pages/PageHome.vue?vue&type=template&id=13e03f97&");
 /* harmony import */ var _PageHome_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PageHome.vue?vue&type=script&lang=js& */ "./resources/js/pages/PageHome.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _PageHome_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _PageHome_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -44900,7 +44901,7 @@ component.options.__file = "resources/js/pages/PageHome.vue"
 /*!******************************************************************!*\
   !*** ./resources/js/pages/PageHome.vue?vue&type=script&lang=js& ***!
   \******************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

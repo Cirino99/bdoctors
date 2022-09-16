@@ -3,8 +3,18 @@
     <div class="d-flex justify-content-center mt-5">
       <!-- serchbar -->
       <form class="d-flex form-inline my-2 my-lg-0">
-        <input v-model="search" @keyup.enter="searchDoctor" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input v-model="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        <div>
+          {{ search }}
+        </div>
+        <div>
+          <ul>
+            <li v-for="specialization in spec" :key="specialization.id">
+              {{ specialization.name }}
+            </li>
+          </ul>
+        </div>
       </form>
     </div>
 
@@ -16,7 +26,7 @@
       </div>
       <div class="d-flex justify-content-center"> 
         <!-- card singolo dottore -->
-          <CardDoctor v-for="(doctor, index) in filteredDoctors" :key="index" :doctor="doctor"/>
+          <CardDoctor v-for="(doctor, index) in doctors" :key="index" :doctor="doctor"/>
       </div>
       <div class="mt-5">
         <h2>
@@ -43,7 +53,7 @@ import CardDoctor from '../components/CardDoctor.vue'
         doctors: [],
 
         // array per le specializzazioni
-        specializations: []
+        spec: []
       }
     },
 
@@ -60,18 +70,19 @@ import CardDoctor from '../components/CardDoctor.vue'
               console.log(this.doctors);
               console.log(this.specializations);
             }
-          })
+          });
     },
 
-    computed: {
-      filteredDoctors() {
-        return this.doctors.filter(doctor => 
-          doctor.name.toLowerCase().includes(this.search.toLowerCase()))
+    methods: {
+      searchInput() {
+        this.search.foreach(result => {
+          result.specializations.toLowerCase().includes(this.search.toLowerCase())
+        })
       }
     }
   }
 </script>
   
 <style>
-
+  
 </style>
