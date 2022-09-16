@@ -16,14 +16,22 @@ class DoctorController extends Controller
 
     public function index()
     {
-        $doctors = DB::table('users')
-            ->join('specialization_user', 'users.id', '=', 'specialization_user.user_id')
-            ->join('specializations', 'specialization_user.specialization_id', '=', 'specializations.id')
+        $doctors_ids = DB::table('users')
             ->join('sponsorship_user', 'users.id', '=', 'sponsorship_user.user_id')
-            ->join('sponsorships', 'sponsorship_user.sponsorship_id', '=', 'sponsorships.id')
             ->where('sponsorship_user.ending_date', '>', date('Y-m-d H:i:s'))
-            ->select('users.id', 'users.name', 'users.lastname', 'sponsorship_user.ending_date', 'specializations.name as specialization')
+            ->select('users.id')
             ->get();
+        $doctors = [];
+        foreach ($doctors_ids as $doctor_id) {
+            $doctor = User::with(['specializations'])->where('id', $doctor_id->id)->first();
+            unset($doctor->email_verified_at, $doctor->created_at, $doctor->updated_at);
+            foreach ($doctor->specializations as $specialization) {
+                unset($specialization->created_at, $specialization->updated_at, $specialization->pivot);
+            }
+            $doctor->photo = $this->fixImageUrl($doctor->photo);
+            array_push($doctors, $doctor);
+        }
+
         return response()->json([
             'success'   => true,
             'result'    => $doctors,
@@ -39,9 +47,7 @@ class DoctorController extends Controller
             foreach ($doctor->specializations as $specialization) {
                 unset($specialization->created_at, $specialization->updated_at, $specialization->pivot);
             }
-            if ($doctor->image) {
-                $doctor->image = $this->fixImageUrl($doctor->image);
-            }
+            $doctor->photo = $this->fixImageUrl($doctor->photo);
             return response()->json([
                 'success'   => true,
                 'result'    => $doctor
