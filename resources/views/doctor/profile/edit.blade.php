@@ -17,7 +17,7 @@
                     <form action="{{ route('doctor.profile.update', ['profile' => $user]) }}" method="post" id="form-edit" enctype="multipart/form-data">
                         @csrf
                         @method('put')
-                
+
                         <div class="mb-3">
                             <label class="form-label" for="name">Nome*</label>
                             <input class="form-control @error('name') is-invalid @enderror"
@@ -65,7 +65,7 @@
                                 </div>
                             @enderror
                         </div>
-                
+
                         <div class="mb-3">
                             <label class="form-label" for="photo">Photo</label>
                             <input class="form-control @error('photo') is-invalid @enderror"
@@ -74,7 +74,7 @@
                                 id="photo"
                                 accept="image/*"
                                 value="{{ old('photo', $user->photo) }}"
-                                autofocus                           
+                                autofocus
                             >
                             @error('photo')
                                 <div class="invalid-feedback">
@@ -83,8 +83,8 @@
                             @enderror
 
                             @if ($user->photo != null)
-                                <img id="preview" class="img-fluid rounded-circle" src="{{ asset('storage/' . $user->photo) }}">
-                            @endif                        
+                                <img id="preview" class="img-fluid rounded-circle my-3" src="{{ asset('storage/' . $user->photo) }}">
+                            @endif
                         </div>
 
                         <div class="mb-3">
@@ -93,9 +93,9 @@
                                 type="text"
                                 name="phone"
                                 id="phone"
-                                value="{{ old('phone', $user->phone) }}" 
-                                autocomplete="phone" autofocus                           
-                            > 
+                                value="{{ old('phone', $user->phone) }}"
+                                autocomplete="phone" autofocus
+                            >
                             @error('phone')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -166,7 +166,7 @@
                                 </div>
                             @enderror
                         </div>
-                
+
                         <div class="mb-3">
                             <label class="form-label" for="cv">CV*</label>
                             <textarea class="form-control @error('cv') is-invalid @enderror" name="cv" id="cv" autofocus>{{ old('cv', $user->cv) }}</textarea>
@@ -175,7 +175,7 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div> 
+                        </div>
 
                         <fieldset class="mb-3" id="mySpecialization">
                             <legend class="col-md-4 col-form-label text-md-right">{{ __('Specializzazioni*') }}</legend>
@@ -192,7 +192,7 @@
                                     <label class="form-check-label" for="specialization-{{ $specialization->id }}">{{ $specialization->name }}</label>
                                 </div>
                             @endforeach
-                
+
                             @foreach ($errors->get('specializations.*') as $messages)
                                 @foreach ($messages as $message)
                                     <div class="invalid-feedback d-block">
@@ -201,7 +201,7 @@
                                 @endforeach
                             @endforeach
                         </fieldset>
-                
+
                        <button type="submit" class="btn btn-primary">Save</button>
                     </form>
                 </div>
