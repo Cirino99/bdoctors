@@ -9,11 +9,11 @@ use App\Http\Controllers\Controller;
 
 class DoctorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private function fixImageUrl($imgPath)
+    {
+        return $imgPath ? asset('/storage/' . $imgPath) : null;
+    }
+
     public function index()
     {
         $doctors = DB::table('users')
@@ -30,36 +30,27 @@ class DoctorController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $doctor = User::with(['specializations'])->where('id', $id)->first();
+
+        if ($doctor) {
+            unset($doctor->email_verified_at, $doctor->created_at, $doctor->updated_at);
+            foreach ($doctor->specializations as $specialization) {
+                unset($specialization->created_at, $specialization->updated_at, $specialization->pivot);
+            }
+            if ($doctor->image) {
+                $doctor->image = $this->fixImageUrl($doctor->image);
+            }
+            return response()->json([
+                'success'   => true,
+                'result'    => $doctor
+            ]);
+        } else {
+            return response()->json([
+                'success'   => false,
+            ]);
+        }
     }
 
     /**
