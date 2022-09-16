@@ -11,7 +11,7 @@
                         <img src="#" class="card-img-top" alt="photo">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                            <p class="card-text">Ciao Some quick example text to build on the card title and make up the bulk
                                 of the card's content.</p>
                         </div>
                         <ul class="list-group list-group-flush">
@@ -70,7 +70,7 @@
 
 <script>
 export default {
-    name: 'PageAdvanceSearch'
+    name: 'PageAdvanceSearch',
 }
 </script>
 
