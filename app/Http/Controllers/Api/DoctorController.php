@@ -44,7 +44,6 @@ class DoctorController extends Controller
     public function show($id)
     {
         $doctor = User::with(['specializations'])->where('id', $id)->first();
-
         if ($doctor) {
             unset($doctor->email_verified_at, $doctor->created_at, $doctor->updated_at);
             foreach ($doctor->specializations as $specialization) {
@@ -85,8 +84,6 @@ class DoctorController extends Controller
     {
         $specialization = $request->get('specialization');
         $city = $request->get('city');
-        //$search = User::with(['specializations'])->where('specializations', 'like', $data)->first();
-        //$search = User::where('id', 'like', "%{$data}%")->get();
         if ($city == 'all') {
             $doctors_ids = DB::table('users')
                 ->join('specialization_user', 'users.id', '=', 'specialization_user.user_id')
@@ -101,8 +98,6 @@ class DoctorController extends Controller
                 ->select('users.id')
                 ->get();
         }
-
-        //dump($specialization, $city, $doctors_ids);
         $doctors = [];
         foreach ($doctors_ids as $doctor_id) {
             $doctor = User::with(['specializations'])->where('id', $doctor_id->id)->first();
