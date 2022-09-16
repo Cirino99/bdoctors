@@ -16,7 +16,7 @@
       </div>
       <div class="d-flex justify-content-center"> 
         <!-- card singolo dottore -->
-          <CardDoctor v-for="(doctor, index) in doctors" :key="index" :doctor="doctor"/>
+          <CardDoctor v-for="(doctor, index) in filteredDoctors" :key="index" :doctor="doctor"/>
       </div>
       <div class="mt-5">
         <h2>
@@ -39,9 +39,10 @@ import CardDoctor from '../components/CardDoctor.vue'
 
         search: "",
 
+        // array per il dottori 
         doctors: [],
 
-        // array temporaneo per le specializzazioni
+        // array per le specializzazioni
         specializations: []
       }
     },
@@ -63,8 +64,9 @@ import CardDoctor from '../components/CardDoctor.vue'
     },
 
     computed: {
-      filteredCards() {
-
+      filteredDoctors() {
+        return this.doctors.filter(doctor => 
+          doctor.name.toLowerCase().includes(this.search.toLowerCase()))
       }
     }
   }
