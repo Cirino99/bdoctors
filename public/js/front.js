@@ -5263,8 +5263,26 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'PageShow'
+  name: 'PageShow',
+  data: function data() {
+    return {
+      showProfile: []
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/doctors/2').then(function (res) {
+      if (res.data.success) {
+        _this.showProfile = res.data.result;
+        console.log(_this.showProfile);
+      }
+    });
+  }
 });
 
 /***/ }),
@@ -5644,7 +5662,43 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
+  return _c("div", {
+    staticClass: "container mt-5"
+  }, [_c("div", {
+    staticClass: "d-flex justify-content-between mb-5"
+  }, [_c("div", {
+    staticClass: "col-6 col-sm-6 col-md-6 col-lg-6"
+  }, [_c("ul", {
+    staticClass: "d-flex flex-column gap-2"
+  }, [_c("li", [_c("b", {
+    staticClass: "fst-italic"
+  }, [_vm._v("Nome: ")]), _vm._v(" " + _vm._s(_vm.showProfile.name) + "\n                  ")]), _vm._v(" "), _c("li", [_c("b", {
+    staticClass: "fst-italic"
+  }, [_vm._v("Cognome: ")]), _vm._v(" " + _vm._s(_vm.showProfile.lastname) + "\n                  ")]), _vm._v(" "), _c("li", [_c("b", {
+    staticClass: "fst-italic"
+  }, [_vm._v("Email: ")]), _vm._v(" " + _vm._s(_vm.showProfile.email) + "\n                  ")]), _vm._v(" "), _c("li", [_c("b", {
+    staticClass: "fst-italic"
+  }, [_vm._v("Via: ")]), _vm._v(" " + _vm._s(_vm.showProfile.address) + "\n                  ")]), _vm._v(" "), _c("li", [_c("b", {
+    staticClass: "fst-italic"
+  }, [_vm._v("Numero di telefono: ")]), _vm._v(" " + _vm._s(_vm.showProfile.phone) + "\n                  ")]), _vm._v(" "), _c("li", [_c("b", {
+    staticClass: "fst-italic"
+  }, [_vm._v("Città: ")]), _vm._v(" " + _vm._s(_vm.showProfile.city) + "\n                  ")]), _vm._v(" "), _c("li", [_c("b", {
+    staticClass: "fst-italic"
+  }, [_vm._v("CAP: ")]), _vm._v(" " + _vm._s(_vm.showProfile.postal_code) + "\n                  ")]), _vm._v(" "), _c("li", [_c("b", {
+    staticClass: "fst-italic"
+  }, [_vm._v("Specializzazione: ")]), _vm._v(" "), _vm._l(_vm.showProfile.specializations, function (specialization) {
+    return _c("span", {
+      key: specialization.id
+    }, [_vm._v("\n                          " + _vm._s(specialization.name) + "\n                      ")]);
+  })], 2)])]), _vm._v(" "), _c("div", {
+    staticClass: "col-6 col-sm-4 col-md-4 col-lg-4"
+  }, [_c("img", {
+    staticClass: "img-fluid img-thumbnail rounded-circle",
+    attrs: {
+      src: _vm.showProfile.photo,
+      alt: _vm.showProfile.name
+    }
+  })])]), _vm._v(" "), _vm._m(0)]);
 };
 
 var staticRenderFns = [function () {
@@ -5652,28 +5706,12 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "container mt-5"
-  }, [_c("div", {
-    staticClass: "d-flex justify-content-between mb-5"
-  }, [_c("div", {
-    staticClass: "row"
-  }, [_c("ul", [_c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")]), _vm._v(" "), _c("li", [_vm._v("questo è un testo")])])]), _vm._v(" "), _c("div", {
-    staticClass: "row d-flex justify-content-center align-items-center"
-  }, [_c("div", {
-    staticClass: "col-12 col-sm-12 col-md-12 col-lg-12"
-  }, [_c("img", {
-    staticClass: "img-fluid img-thumbnail rounded-circle",
-    attrs: {
-      src: "https://www.limontasport.com/wp-content/uploads/2016/03/landscape-test.jpg",
-      alt: ""
-    }
-  })])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-between align-items-center"
   }, [_c("button", {
     staticClass: "btn btn-secondary"
   }, [_vm._v("Contatta")]), _vm._v(" "), _c("button", {
     staticClass: "btn btn-success"
-  }, [_vm._v("Scrivi una recensione")])])]);
+  }, [_vm._v("Scrivi una recensione")])]);
 }];
 render._withStripped = true;
 
@@ -44993,8 +45031,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })
