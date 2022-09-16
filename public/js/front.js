@@ -5153,6 +5153,24 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CardDoctor.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CardDoctor.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'CardDoctors',
+  props: {
+    doctor: Object
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/PageAdvanceSearch.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/PageAdvanceSearch.vue?vue&type=script&lang=js& ***!
@@ -5177,6 +5195,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_CardDoctor_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/CardDoctor.vue */ "./resources/js/components/CardDoctor.vue");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Home',
   data: function data() {
@@ -5184,12 +5204,16 @@ __webpack_require__.r(__webpack_exports__);
       doctors: []
     };
   },
+  components: {
+    CardDoctor: _components_CardDoctor_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   created: function created() {
     var _this = this;
 
     axios.get('/api/doctors').then(function (res) {
       if (res.data.success) {
         _this.doctors = res.data.result;
+        console.log(_this.doctors);
       }
     });
   }
@@ -5231,6 +5255,67 @@ var render = function render() {
 };
 
 var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CardDoctor.vue?vue&type=template&id=20294d0c&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CardDoctor.vue?vue&type=template&id=20294d0c&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "card",
+    staticStyle: {
+      width: "18rem"
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "",
+      alt: "Card image cap"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v(" " + _vm._s(_vm.doctor.name) + " ")]), _vm._v(" "), _c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v(" " + _vm._s(_vm.doctor.lastname) + " ")]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Testo")])]), _vm._v(" "), _c("ul", {
+    staticClass: "list-group list-group-flush"
+  }, [_c("li", {
+    staticClass: "list-group-item"
+  }, [_vm._v(" " + _vm._s(_vm.doctor.specialization) + " ")]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item"
+  }, [_vm._v("VALUTAZIONE")])]), _vm._v(" "), _vm._m(0)]);
+};
+
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "card-body"
+  }, [_c("a", {
+    staticClass: "card-link",
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Visualizza")])]);
+}];
 render._withStripped = true;
 
 
@@ -5443,34 +5528,13 @@ var render = function render() {
   }, [_vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center"
   }, _vm._l(_vm.doctors, function (doctor, index) {
-    return _c("div", {
+    return _c("CardDoctor", {
       key: index,
-      staticClass: "card",
-      staticStyle: {
-        width: "18rem"
-      }
-    }, [_c("img", {
-      staticClass: "card-img-top",
       attrs: {
-        src: "",
-        alt: "Card image cap"
+        doctor: doctor
       }
-    }), _vm._v(" "), _c("div", {
-      staticClass: "card-body"
-    }, [_c("h5", {
-      staticClass: "card-title"
-    }, [_vm._v(" " + _vm._s(doctor.name) + " ")]), _vm._v(" "), _c("h5", {
-      staticClass: "card-title"
-    }, [_vm._v(" " + _vm._s(doctor.lastname) + " ")]), _vm._v(" "), _c("p", {
-      staticClass: "card-text"
-    }, [_vm._v("Testo")])]), _vm._v(" "), _c("ul", {
-      staticClass: "list-group list-group-flush"
-    }, [_c("li", {
-      staticClass: "list-group-item"
-    }, [_vm._v(" " + _vm._s(doctor.specialization) + " ")]), _vm._v(" "), _c("li", {
-      staticClass: "list-group-item"
-    }, [_vm._v("VALUTAZIONE")])]), _vm._v(" "), _vm._m(2, true)]);
-  }), 0), _vm._v(" "), _vm._m(3)])]);
+    });
+  }), 1), _vm._v(" "), _vm._m(2)])]);
 };
 
 var staticRenderFns = [function () {
@@ -5499,18 +5563,6 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", [_c("h3", [_vm._v("\n        MEDICI SPONSORIZZATI\n      ")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "card-body"
-  }, [_c("a", {
-    staticClass: "card-link",
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Visualizza")])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -44453,6 +44505,75 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/components/CardDoctor.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/CardDoctor.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CardDoctor_vue_vue_type_template_id_20294d0c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardDoctor.vue?vue&type=template&id=20294d0c&scoped=true& */ "./resources/js/components/CardDoctor.vue?vue&type=template&id=20294d0c&scoped=true&");
+/* harmony import */ var _CardDoctor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardDoctor.vue?vue&type=script&lang=js& */ "./resources/js/components/CardDoctor.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CardDoctor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CardDoctor_vue_vue_type_template_id_20294d0c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CardDoctor_vue_vue_type_template_id_20294d0c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "20294d0c",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/CardDoctor.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/CardDoctor.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/CardDoctor.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDoctor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./CardDoctor.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CardDoctor.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDoctor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/CardDoctor.vue?vue&type=template&id=20294d0c&scoped=true&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/CardDoctor.vue?vue&type=template&id=20294d0c&scoped=true& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDoctor_vue_vue_type_template_id_20294d0c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../node_modules/vue-loader/lib??vue-loader-options!./CardDoctor.vue?vue&type=template&id=20294d0c&scoped=true& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CardDoctor.vue?vue&type=template&id=20294d0c&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDoctor_vue_vue_type_template_id_20294d0c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDoctor_vue_vue_type_template_id_20294d0c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/front.js":
 /*!*******************************!*\
   !*** ./resources/js/front.js ***!
@@ -44748,8 +44869,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })
