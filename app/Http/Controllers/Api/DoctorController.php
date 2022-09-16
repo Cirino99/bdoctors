@@ -9,57 +9,54 @@ use App\Http\Controllers\Controller;
 
 class DoctorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private function fixImageUrl($imgPath)
+    {
+        return $imgPath ? asset('/storage/' . $imgPath) : null;
+    }
+
     public function index()
     {
-        $doctors = DB::table('users')
-            ->join('specialization_user', 'users.id', '=', 'specialization_user.user_id')
-            ->join('specializations', 'specialization_user.specialization_id', '=', 'specializations.id')
+        $doctors_ids = DB::table('users')
             ->join('sponsorship_user', 'users.id', '=', 'sponsorship_user.user_id')
-            ->join('sponsorships', 'sponsorship_user.sponsorship_id', '=', 'sponsorships.id')
             ->where('sponsorship_user.ending_date', '>', date('Y-m-d H:i:s'))
-            ->select('users.id', 'users.name', 'users.lastname', 'sponsorship_user.ending_date', 'specializations.name as specialization')
+            ->select('users.id')
             ->get();
+        $doctors = [];
+        foreach ($doctors_ids as $doctor_id) {
+            $doctor = User::with(['specializations'])->where('id', $doctor_id->id)->first();
+            unset($doctor->email_verified_at, $doctor->created_at, $doctor->updated_at);
+            foreach ($doctor->specializations as $specialization) {
+                unset($specialization->created_at, $specialization->updated_at, $specialization->pivot);
+            }
+            $doctor->photo = $this->fixImageUrl($doctor->photo);
+            array_push($doctors, $doctor);
+        }
+
         return response()->json([
             'success'   => true,
             'result'    => $doctors,
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $doctor = User::with(['specializations'])->where('id', $id)->first();
+
+        if ($doctor) {
+            unset($doctor->email_verified_at, $doctor->created_at, $doctor->updated_at);
+            foreach ($doctor->specializations as $specialization) {
+                unset($specialization->created_at, $specialization->updated_at, $specialization->pivot);
+            }
+            $doctor->photo = $this->fixImageUrl($doctor->photo);
+            return response()->json([
+                'success'   => true,
+                'result'    => $doctor
+            ]);
+        } else {
+            return response()->json([
+                'success'   => false,
+            ]);
+        }
     }
 
     /**
