@@ -5344,13 +5344,43 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {}, [_c("div", {
-    staticClass: "d-flex justify-content-center mt-3 mb-5"
+    staticClass: "d-flex justify-content-center mt-5 mb-3"
+  }, [_c("form", {
+    staticClass: "d-flex form-inline my-2 my-lg-0"
   }, [_c("input", {
+    staticClass: "form-control mr-sm-2",
     attrs: {
-      type: "text",
-      placeholder: "Search..."
+      type: "search",
+      placeholder: "Search",
+      "aria-label": "Search"
     }
-  })]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-outline-primary my-2 my-sm-0",
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v("Search")]), _vm._v(" "), _c("select", {
+    staticClass: "form-select ms-3",
+    attrs: {
+      "aria-label": "Default select example"
+    }
+  }, [_c("option", {
+    attrs: {
+      selected: ""
+    }
+  }, [_vm._v("Tutti")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: ""
+    }
+  }, [_vm._v("Pediatra")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: ""
+    }
+  }, [_vm._v("Ginecologo")]), _vm._v(" "), _c("option", {
+    attrs: {
+      value: ""
+    }
+  }, [_vm._v("Cardiologo")])])])]), _vm._v(" "), _c("div", {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "row"
@@ -5373,7 +5403,7 @@ var staticRenderFns = [function () {
     staticClass: "card-title"
   }, [_vm._v("Card title")]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
-  }, [_vm._v("Ciao Some quick example text to build on the card title and make up the bulk\n                            of the card's content.")])]), _vm._v(" "), _c("ul", {
+  }, [_vm._v("Ciao Some quick example text to build on the card title and make up the\n                            bulk\n                            of the card's content.")])]), _vm._v(" "), _c("ul", {
     staticClass: "list-group list-group-flush"
   }, [_c("li", {
     staticClass: "list-group-item"
