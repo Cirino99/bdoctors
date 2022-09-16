@@ -5329,11 +5329,14 @@ var render = function render() {
     staticClass: "card-text"
   }, [_vm._v("Testo")])]), _vm._v(" "), _c("ul", {
     staticClass: "list-group list-group-flush"
-  }, [_c("li", {
+  }, [_vm._l(_vm.doctor.specializations, function (specialization) {
+    return _c("li", {
+      key: specialization.id,
+      staticClass: "list-group-item"
+    }, [_vm._v(" " + _vm._s(specialization.name) + " ")]);
+  }), _vm._v(" "), _c("li", {
     staticClass: "list-group-item"
-  }, [_vm._v(" " + _vm._s(_vm.doctor.specialization) + " ")]), _vm._v(" "), _c("li", {
-    staticClass: "list-group-item"
-  }, [_vm._v("VALUTAZIONE")])]), _vm._v(" "), _vm._m(0)]);
+  }, [_vm._v("VALUTAZIONE")])], 2), _vm._v(" "), _vm._m(0)]);
 };
 
 var staticRenderFns = [function () {
@@ -44990,8 +44993,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })
