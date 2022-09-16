@@ -5412,8 +5412,9 @@ var render = function render() {
     staticClass: "mt-5"
   }, [_vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center"
-  }, _vm._l(_vm.doctors, function (doctor) {
+  }, _vm._l(_vm.doctors, function (doctor, index) {
     return _c("div", {
+      key: index,
       staticClass: "card",
       staticStyle: {
         width: "18rem"

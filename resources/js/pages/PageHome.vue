@@ -14,7 +14,7 @@
         </h3>
       </div>
       <div class="d-flex justify-content-center">
-        <div v-for="doctor in doctors" class="card" style="width: 18rem;">
+        <div v-for="(doctor, index) in doctors" :key="index" class="card" style="width: 18rem;">
           <img class="card-img-top" src="" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title"> {{ doctor.name }} </h5>
