@@ -2,10 +2,7 @@
     <div class="">
         <div class="container-fluid">
             <div class="d-flex">
-
                 <div class="col-2 m-2" style="min-width: 250px;">
-
-
                     <div class="card">
                         <div class="card-header">
                             <h3>Filtra per:</h3>
@@ -18,7 +15,6 @@
                                     <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
                                 </form>
                             </li>
-
                             <li class="list-group-item"><strong>Specializzazione:</strong><br>
                                 <div v-for="specialization in specializations" :key="specialization.id" class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault"
@@ -32,14 +28,10 @@
                             <!-- <li class="list-group-item">A third item</li> -->
                         </ul>
                     </div>
-
-
                 </div>
-
                 <div class="d-flex flex-wrap justify-content-center col-9 ms-5">
                     <CardDoctor v-for="(doctor, index) in doctors" :key="index" :doctor="doctor" />
                 </div>
-
             </div>
         </div>
     </div>
