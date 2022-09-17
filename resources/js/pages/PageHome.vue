@@ -80,7 +80,7 @@ import CardDoctor from '../components/CardDoctor.vue'
       },
       selectSpecialization(specialization,id) {
         this.mySpecialization = id;
-        this.search = specialization;
+        this.search = specialization.name;
       },
       displayComponent() {
           this.display = true;

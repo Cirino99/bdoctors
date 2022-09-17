@@ -5276,7 +5276,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     selectSpecialization: function selectSpecialization(specialization, id) {
       this.mySpecialization = id;
-      this.search = specialization;
+      this.search = specialization.name;
     },
     displayComponent: function displayComponent() {
       this.display = true;
