@@ -25,7 +25,8 @@ const routes = [
     {
         path: '/profile',
         name: 'profile',
-        component: PageShow
+        component: PageShow,
+        props: true,
     },
 ];
 

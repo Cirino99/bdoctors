@@ -5275,6 +5275,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'PageShow',
+  props: {
+    id: String
+  },
   data: function data() {
     return {
       showProfile: []
@@ -5283,7 +5286,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/doctors/2').then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/doctors/' + this.id).then(function (res) {
       if (res.data.success) {
         _this.showProfile = res.data.result;
         console.log(_this.showProfile);
@@ -5361,22 +5364,27 @@ var render = function render() {
     }, [_vm._v("\n        " + _vm._s(specialization.name) + " \n    ")]);
   }), _vm._v(" "), _c("li", {
     staticClass: "list-group-item"
-  }, [_vm._v("VALUTAZIONE")])], 2), _vm._v(" "), _vm._m(0)]);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
+  }, [_vm._v("VALUTAZIONE")])], 2), _vm._v(" "), _c("div", {
     staticClass: "card-body"
   }, [_c("a", {
     staticClass: "card-link",
     attrs: {
       href: "#"
     }
-  }, [_vm._v("Visualizza")])]);
-}];
+  }, [_vm._v("Visualizza")]), _vm._v(" "), _c("router-link", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      to: {
+        name: "profile",
+        params: {
+          slug: _vm.doctor.id
+        }
+      }
+    }
+  }, [_vm._v("Visualizza")])], 1)]);
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -5587,8 +5595,6 @@ var render = function render() {
       value: _vm.search
     },
     on: {
-      click: _vm.displayComponent,
-      focusout: _vm.handleFocusOut,
       input: [function ($event) {
         if ($event.target.composing) return;
         _vm.search = $event.target.value;
@@ -5599,7 +5605,7 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Search")]), _vm._v(" "), _c("div", [_vm._v("\n        " + _vm._s(_vm.search) + "\n      ")])]), _vm._v(" "), _c("div", [_c("ul", _vm._l(_vm.specializations, function (specialization) {
+  }, [_vm._v("Search")])]), _vm._v(" "), _c("div", [_c("ul", _vm._l(_vm.specializations, function (specialization) {
     return _c("li", {
       key: specialization.id,
       on: {
@@ -44821,7 +44827,8 @@ var routes = [{
 }, {
   path: '/profile',
   name: 'profile',
-  component: _pages_PageShow__WEBPACK_IMPORTED_MODULE_5__["default"]
+  component: _pages_PageShow__WEBPACK_IMPORTED_MODULE_5__["default"],
+  props: true
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: routes,
