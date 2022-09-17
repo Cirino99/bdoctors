@@ -5243,7 +5243,8 @@ __webpack_require__.r(__webpack_exports__);
       search: "",
       mySpecialization: "",
       doctors: [],
-      specializations: []
+      specializations: [],
+      display: false
     };
   },
   components: {
@@ -5276,6 +5277,12 @@ __webpack_require__.r(__webpack_exports__);
     selectSpecialization: function selectSpecialization(specialization, id) {
       this.mySpecialization = id;
       this.search = specialization;
+    },
+    displayComponent: function displayComponent() {
+      this.display = true;
+    },
+    handleFocusOut: function handleFocusOut() {
+      this.display = false;
     }
   }
 });
@@ -5565,7 +5572,9 @@ var render = function render() {
       input: [function ($event) {
         if ($event.target.composing) return;
         _vm.search = $event.target.value;
-      }, _vm.searchInput]
+      }, _vm.searchInput],
+      click: _vm.displayComponent,
+      focusout: _vm.handleFocusOut
     }
   }), _vm._v(" "), _c("router-link", {
     staticClass: "btn btn-outline-primary my-2 my-sm-0",
@@ -5577,7 +5586,9 @@ var render = function render() {
         }
       }
     }
-  }, [_vm._v("Search")])], 1), _vm._v(" "), _c("div", [_c("ul", _vm._l(_vm.specializations, function (specialization) {
+  }, [_vm._v("Search")])], 1)]), _vm._v(" "), _vm.display ? _c("div", {
+    staticClass: "d-flex justify-content-center"
+  }, [_c("ul", _vm._l(_vm.specializations, function (specialization) {
     return _c("li", {
       key: specialization.id,
       on: {
@@ -5585,8 +5596,8 @@ var render = function render() {
           return _vm.selectSpecialization(specialization.name, specialization.id);
         }
       }
-    }, [_vm._v("\n          " + _vm._s(specialization.name) + "\n        ")]);
-  }), 0)])]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n              " + _vm._s(specialization.name) + "\n          ")]);
+  }), 0)]) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "mt-5"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center"

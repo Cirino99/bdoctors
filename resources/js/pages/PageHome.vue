@@ -3,17 +3,16 @@
     <div class="d-flex justify-content-center flex-row mt-5">
       <!-- serchbar -->
       <form class="d-flex form-inline my-2 my-lg-0">
-        <input v-model="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" @input="searchInput">
+        <input v-model="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" @input="searchInput" @click="displayComponent" @focusout="handleFocusOut">
         <router-link :to="{name: 'AdvanceSearch', params: {specializationSelect: mySpecialization} }" class="btn btn-outline-primary my-2 my-sm-0">Search</router-link>
       </form>
-
-      <div>
+    </div>
+    <div class="d-flex justify-content-center" v-if="display">
         <ul>
-          <li v-for="specialization in specializations" :key="specialization.id" @click="selectSpecialization(specialization.name,specialization.id)">
-            {{ specialization.name }}
-          </li>
-        </ul>
-      </div>
+            <li v-for="specialization in specializations" :key="specialization.id" @click="selectSpecialization(specialization.name,specialization.id)">
+                {{ specialization.name }}
+            </li>
+        </ul>  
     </div>
     <div class="mt-5">
       <div>
@@ -46,7 +45,8 @@ import CardDoctor from '../components/CardDoctor.vue'
         search: "",
         mySpecialization: "",
         doctors: [],
-        specializations: []
+        specializations: [],
+        display: false
       }
     },
 
@@ -78,11 +78,16 @@ import CardDoctor from '../components/CardDoctor.vue'
         }
        
       },
-
       selectSpecialization(specialization,id) {
         this.mySpecialization = id;
         this.search = specialization;
-      }
+      },
+      displayComponent() {
+          this.display = true;
+        },
+        handleFocusOut() {
+          this.display = false;
+        }
     }
   }
 </script>
