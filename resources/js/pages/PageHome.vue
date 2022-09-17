@@ -4,12 +4,12 @@
       <!-- serchbar -->
       <form class="d-flex form-inline my-2 my-lg-0">
         <input v-model="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" @input="searchInput">
-        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        <router-link :to="{name: 'AdvanceSearch', params: {specializationSelect: mySpecialization} }" class="btn btn-outline-primary my-2 my-sm-0">Search</router-link>
       </form>
 
       <div>
         <ul>
-          <li v-for="specialization in specializations" :key="specialization.id" @click="selectSpecialization(specialization.name)">
+          <li v-for="specialization in specializations" :key="specialization.id" @click="selectSpecialization(specialization.name,specialization.id)">
             {{ specialization.name }}
           </li>
         </ul>
@@ -46,6 +46,7 @@ import CardDoctor from '../components/CardDoctor.vue'
     data() {
       return {
         search: "",
+        mySpecialization: "",
         doctors: [],
         specializations: []
       }
@@ -80,7 +81,8 @@ import CardDoctor from '../components/CardDoctor.vue'
        
       },
 
-      selectSpecialization(specialization) {
+      selectSpecialization(specialization,id) {
+        this.mySpecialization = id;
         this.search = specialization;
       }
     }

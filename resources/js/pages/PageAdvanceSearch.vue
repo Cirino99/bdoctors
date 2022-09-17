@@ -20,39 +20,12 @@
                             </li>
 
                             <li class="list-group-item"><strong>Specializzazione:</strong><br>
-                                <div class="form-check">
+                                <div v-for="specialization in specializations" :key="specialization.id" class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault1">
+                                        id="flexRadioDefault1" :checked=" specializationSelect === specialization.id"
+                                        @click="changeSpecialization(specialization.id)">
                                     <label class="form-check-label" for="flexRadioDefault1">
-                                        Radiologia
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault2" checked>
-                                    <label class="form-check-label" for="flexRadioDefault2">
-                                        Chirurgia
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault2" checked>
-                                    <label class="form-check-label" for="flexRadioDefault2">
-                                        Pediatria
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault2" checked>
-                                    <label class="form-check-label" for="flexRadioDefault2">
-                                        Oncologia
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                        id="flexRadioDefault2" checked>
-                                    <label class="form-check-label" for="flexRadioDefault2">
-                                        Neurochirurgia
+                                        {{specialization.name}}
                                     </label>
                                 </div>
                             </li>
@@ -77,25 +50,40 @@ import CardDoctor from '../components/CardDoctor.vue'
 
 export default {
     name: 'PageAdvanceSearch',
-
-    data() {
-        return {
-            doctors: [],
-        }
+    props: {
+        specializationSelect: String,
     },
-
     components: {
         CardDoctor,
     },
-
+    data() {
+        return {
+            doctors: [],
+            specializations: []
+        }
+    },
     created() {
-        axios.get('/api/doctors')
+        axios.get('/api/search/specialization?specialization=')
+            .then(res => {
+                if (res.data.success) {
+                    this.specializations = res.data.result;
+                }
+            });
+        this.searchDoctor();
+    },
+    methods: {
+        searchDoctor(){
+            axios.get('api/search?specialization=' + this.specializationSelect + '&city=all')
             .then(res => {
                 if (res.data.success) {
                     this.doctors = res.data.result;
-                    console.log(this.doctors);
                 }
             })
+        },
+        changeSpecialization(id){
+            this.specializationSelect = id;
+            this.searchDoctor();
+        }
     }
 }
 </script>

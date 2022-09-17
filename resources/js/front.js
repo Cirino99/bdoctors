@@ -14,6 +14,7 @@ const routes = [
         path: '/search',
         name: 'AdvanceSearch',
         component: AdvanceSearch,
+        props: true,
     },
 
     {

@@ -5184,23 +5184,42 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'PageAdvanceSearch',
-  data: function data() {
-    return {
-      doctors: []
-    };
+  props: {
+    specializationSelect: String
   },
   components: {
     CardDoctor: _components_CardDoctor_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
+  data: function data() {
+    return {
+      doctors: [],
+      specializations: []
+    };
+  },
   created: function created() {
     var _this = this;
 
-    axios.get('/api/doctors').then(function (res) {
+    axios.get('/api/search/specialization?specialization=').then(function (res) {
       if (res.data.success) {
-        _this.doctors = res.data.result;
-        console.log(_this.doctors);
+        _this.specializations = res.data.result;
       }
     });
+    this.searchDoctor();
+  },
+  methods: {
+    searchDoctor: function searchDoctor() {
+      var _this2 = this;
+
+      axios.get('api/search?specialization=' + this.specializationSelect + '&city=all').then(function (res) {
+        if (res.data.success) {
+          _this2.doctors = res.data.result;
+        }
+      });
+    },
+    changeSpecialization: function changeSpecialization(id) {
+      this.specializationSelect = id;
+      this.searchDoctor();
+    }
   }
 });
 
@@ -5222,6 +5241,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       search: "",
+      mySpecialization: "",
       doctors: [],
       specializations: []
     };
@@ -5253,7 +5273,8 @@ __webpack_require__.r(__webpack_exports__);
         this.specializations = [];
       }
     },
-    selectSpecialization: function selectSpecialization(specialization) {
+    selectSpecialization: function selectSpecialization(specialization, id) {
+      this.mySpecialization = id;
       this.search = specialization;
     }
   }
@@ -5377,7 +5398,7 @@ var render = function render() {
       to: {
         name: "profile",
         params: {
-          slug: _vm.doctor.id
+          id: _vm.doctor.id
         }
       }
     }
@@ -5453,7 +5474,34 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Search")])])]), _vm._v(" "), _vm._m(1)])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Search")])])]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item"
+  }, [_c("strong", [_vm._v("Specializzazione:")]), _c("br"), _vm._v(" "), _vm._l(_vm.specializations, function (specialization) {
+    return _c("div", {
+      key: specialization.id,
+      staticClass: "form-check"
+    }, [_c("input", {
+      staticClass: "form-check-input",
+      attrs: {
+        type: "radio",
+        name: "flexRadioDefault",
+        id: "flexRadioDefault1"
+      },
+      domProps: {
+        checked: _vm.specializationSelect === specialization.id
+      },
+      on: {
+        click: function click($event) {
+          return _vm.changeSpecialization(specialization.id);
+        }
+      }
+    }), _vm._v(" "), _c("label", {
+      staticClass: "form-check-label",
+      attrs: {
+        "for": "flexRadioDefault1"
+      }
+    }, [_vm._v("\n                                    " + _vm._s(specialization.name) + "\n                                ")])]);
+  })], 2)])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex flex-wrap justify-content-center col-9 ms-5"
   }, _vm._l(_vm.doctors, function (doctor, index) {
     return _c("CardDoctor", {
@@ -5472,87 +5520,6 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "card-header"
   }, [_c("h3", [_vm._v("Filtra per:")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("li", {
-    staticClass: "list-group-item"
-  }, [_c("strong", [_vm._v("Specializzazione:")]), _c("br"), _vm._v(" "), _c("div", {
-    staticClass: "form-check"
-  }, [_c("input", {
-    staticClass: "form-check-input",
-    attrs: {
-      type: "radio",
-      name: "flexRadioDefault",
-      id: "flexRadioDefault1"
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "form-check-label",
-    attrs: {
-      "for": "flexRadioDefault1"
-    }
-  }, [_vm._v("\n                                    Radiologia\n                                ")])]), _vm._v(" "), _c("div", {
-    staticClass: "form-check"
-  }, [_c("input", {
-    staticClass: "form-check-input",
-    attrs: {
-      type: "radio",
-      name: "flexRadioDefault",
-      id: "flexRadioDefault2",
-      checked: ""
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "form-check-label",
-    attrs: {
-      "for": "flexRadioDefault2"
-    }
-  }, [_vm._v("\n                                    Chirurgia\n                                ")])]), _vm._v(" "), _c("div", {
-    staticClass: "form-check"
-  }, [_c("input", {
-    staticClass: "form-check-input",
-    attrs: {
-      type: "radio",
-      name: "flexRadioDefault",
-      id: "flexRadioDefault2",
-      checked: ""
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "form-check-label",
-    attrs: {
-      "for": "flexRadioDefault2"
-    }
-  }, [_vm._v("\n                                    Pediatria\n                                ")])]), _vm._v(" "), _c("div", {
-    staticClass: "form-check"
-  }, [_c("input", {
-    staticClass: "form-check-input",
-    attrs: {
-      type: "radio",
-      name: "flexRadioDefault",
-      id: "flexRadioDefault2",
-      checked: ""
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "form-check-label",
-    attrs: {
-      "for": "flexRadioDefault2"
-    }
-  }, [_vm._v("\n                                    Oncologia\n                                ")])]), _vm._v(" "), _c("div", {
-    staticClass: "form-check"
-  }, [_c("input", {
-    staticClass: "form-check-input",
-    attrs: {
-      type: "radio",
-      name: "flexRadioDefault",
-      id: "flexRadioDefault2",
-      checked: ""
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "form-check-label",
-    attrs: {
-      "for": "flexRadioDefault2"
-    }
-  }, [_vm._v("\n                                    Neurochirurgia\n                                ")])])]);
 }];
 render._withStripped = true;
 
@@ -5600,17 +5567,22 @@ var render = function render() {
         _vm.search = $event.target.value;
       }, _vm.searchInput]
     }
-  }), _vm._v(" "), _c("button", {
+  }), _vm._v(" "), _c("router-link", {
     staticClass: "btn btn-outline-primary my-2 my-sm-0",
     attrs: {
-      type: "submit"
+      to: {
+        name: "AdvanceSearch",
+        params: {
+          specializationSelect: _vm.mySpecialization
+        }
+      }
     }
-  }, [_vm._v("Search")])]), _vm._v(" "), _c("div", [_c("ul", _vm._l(_vm.specializations, function (specialization) {
+  }, [_vm._v("Search")])], 1), _vm._v(" "), _c("div", [_c("ul", _vm._l(_vm.specializations, function (specialization) {
     return _c("li", {
       key: specialization.id,
       on: {
         click: function click($event) {
-          return _vm.selectSpecialization(specialization.name);
+          return _vm.selectSpecialization(specialization.name, specialization.id);
         }
       }
     }, [_vm._v("\n          " + _vm._s(specialization.name) + "\n        ")]);
@@ -44819,7 +44791,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 var routes = [{
   path: '/search',
   name: 'AdvanceSearch',
-  component: _pages_PageAdvanceSearch_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+  component: _pages_PageAdvanceSearch_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+  props: true
 }, {
   path: '/',
   name: 'home',
