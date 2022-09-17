@@ -3,8 +3,11 @@
     <div class="d-flex justify-content-center flex-row mt-5">
       <!-- serchbar -->
       <form class="d-flex form-inline my-2 my-lg-0">
-        <input v-model="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" @input="searchInput">
+        <input @click="displayComponent" @focusout="handleFocusOut" v-model="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" @input="searchInput">
         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        <div>
+          {{ search }}
+        </div>
       </form>
 
       <div>
@@ -88,5 +91,7 @@ import CardDoctor from '../components/CardDoctor.vue'
 </script>
   
 <style>
-  
+  li:hover {
+    background-color: aquamarine;
+  }
 </style>
