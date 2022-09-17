@@ -5222,10 +5222,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       search: "",
-      // array per il dottori 
       doctors: [],
-      // array per le specializzazioni
-      spec: []
+      specializations: []
     };
   },
   components: {
@@ -5236,15 +5234,7 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get('/api/doctors').then(function (res) {
       if (res.data.success) {
-        _this.doctors = res.data.result; // this.specializations = res.data.specializations;
-        // console.log(this.doctors);
-        // console.log(this.specializations);
-      }
-    });
-    axios.get('/api/search/specialization').then(function (res) {
-      if (res.data.success) {
-        _this.spec = res.data.result;
-        console.log(_this.spec);
+        _this.doctors = res.data.result;
       }
     });
   },
@@ -5252,9 +5242,19 @@ __webpack_require__.r(__webpack_exports__);
     searchInput: function searchInput() {
       var _this2 = this;
 
-      this.search.foreach(function (result) {
-        result.specializations.toLowerCase().includes(_this2.search.toLowerCase());
-      });
+      if (this.search != '') {
+        axios.get('/api/search/specialization?specialization=' + this.search).then(function (res) {
+          if (res.data.success) {
+            _this2.specializations = res.data.result;
+            console.log(_this2.specializations);
+          }
+        });
+      } else {
+        this.specializations = [];
+      }
+    },
+    selectSpecialization: function selectSpecialization(specialization) {
+      this.search = specialization;
     }
   }
 });
@@ -5567,7 +5567,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", [_c("div", {
-    staticClass: "d-flex justify-content-center mt-5"
+    staticClass: "d-flex justify-content-center flex-row mt-5"
   }, [_c("form", {
     staticClass: "d-flex form-inline my-2 my-lg-0"
   }, [_c("input", {
@@ -5587,20 +5587,25 @@ var render = function render() {
       value: _vm.search
     },
     on: {
-      input: function input($event) {
+      input: [function ($event) {
         if ($event.target.composing) return;
         _vm.search = $event.target.value;
-      }
+      }, _vm.searchInput]
     }
   }), _vm._v(" "), _c("button", {
     staticClass: "btn btn-outline-primary my-2 my-sm-0",
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Search")]), _vm._v(" "), _c("div", [_vm._v("\n        " + _vm._s(_vm.search) + "\n      ")])]), _vm._v(" "), _c("div", [_c("ul", _vm._l(_vm.spec.specializations, function (specialization) {
+  }, [_vm._v("Search")])]), _vm._v(" "), _c("div", [_c("ul", _vm._l(_vm.specializations, function (specialization) {
     return _c("li", {
-      key: specialization.id
-    }, [_vm._v("\n          " + _vm._s(specialization.result) + "\n        ")]);
+      key: specialization.id,
+      on: {
+        click: function click($event) {
+          return _vm.selectSpecialization(specialization.name);
+        }
+      }
+    }, [_vm._v("\n          " + _vm._s(specialization.name) + "\n        ")]);
   }), 0)])]), _vm._v(" "), _c("div", {
     staticClass: "mt-5"
   }, [_vm._m(0), _vm._v(" "), _c("div", {
@@ -45043,8 +45048,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! /Users/cirox/Programmazione/Boolean/Esercizi/bdoctors/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/cirox/Programmazione/Boolean/Esercizi/bdoctors/resources/sass/back.scss */"./resources/sass/back.scss");
 
 
 /***/ })

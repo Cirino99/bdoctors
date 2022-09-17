@@ -1,19 +1,16 @@
 <template>
   <div>
-    <div class="d-flex justify-content-center mt-5">
+    <div class="d-flex justify-content-center flex-row mt-5">
       <!-- serchbar -->
       <form class="d-flex form-inline my-2 my-lg-0">
-        <input v-model="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input v-model="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" @input="searchInput">
         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-        <div>
-          {{ search }}
-        </div>
       </form>
 
       <div>
         <ul>
-          <li v-for="specialization in spec.specializations" :key="specialization.id">
-            {{ specialization.result }}
+          <li v-for="specialization in specializations" :key="specialization.id" @click="selectSpecialization(specialization.name)">
+            {{ specialization.name }}
           </li>
         </ul>
       </div>
@@ -48,14 +45,9 @@ import CardDoctor from '../components/CardDoctor.vue'
 
     data() {
       return {
-
         search: "",
-
-        // array per il dottori 
         doctors: [],
-
-        // array per le specializzazioni
-        spec: []
+        specializations: []
       }
     },
 
@@ -68,25 +60,28 @@ import CardDoctor from '../components/CardDoctor.vue'
         .then(res => {
             if (res.data.success) {
               this.doctors = res.data.result;
-              // this.specializations = res.data.specializations;
-              // console.log(this.doctors);
-              // console.log(this.specializations);
             }
           });
-      axios.get('/api/search/specialization')
-        .then(res => {
-          if (res.data.success) {
-            this.spec = res.data.result;
-            console.log(this.spec); 
-          }
-        });
     },
 
     methods: {
       searchInput() {
-        this.search.foreach(result => {
-          result.specializations.toLowerCase().includes(this.search.toLowerCase())
-        })
+        if(this.search != ''){
+            axios.get('/api/search/specialization?specialization=' + this.search)
+        .then(res => {
+          if (res.data.success) {
+            this.specializations = res.data.result;
+            console.log(this.specializations); 
+          }
+        });
+        } else {
+            this.specializations = [];
+        }
+       
+      },
+
+      selectSpecialization(specialization) {
+        this.search = specialization;
       }
     }
   }
