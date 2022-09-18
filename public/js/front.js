@@ -5185,7 +5185,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'PageAdvanceSearch',
   props: {
-    specializationSelect: String
+    specializationSelect: Number
   },
   components: {
     CardDoctor: _components_CardDoctor_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -5193,7 +5193,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       doctors: [],
-      specializations: []
+      specializations: [],
+      search: ''
     };
   },
   created: function created() {
@@ -5241,7 +5242,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       search: "",
-      mySpecialization: "",
+      mySpecialization: null,
       doctors: [],
       specializations: [],
       display: false
@@ -5274,8 +5275,8 @@ __webpack_require__.r(__webpack_exports__);
         this.specializations = [];
       }
     },
-    selectSpecialization: function selectSpecialization(specialization, id) {
-      this.mySpecialization = id;
+    selectSpecialization: function selectSpecialization(specialization) {
+      this.mySpecialization = specialization.id;
       this.search = specialization.name;
     },
     displayComponent: function displayComponent() {
@@ -5574,7 +5575,7 @@ var render = function render() {
         _vm.search = $event.target.value;
       }, _vm.searchInput],
       click: _vm.displayComponent,
-      focusout: _vm.handleFocusOut
+      keyup: _vm.displayComponent
     }
   }), _vm._v(" "), _c("router-link", {
     staticClass: "btn btn-outline-primary my-2 my-sm-0",
@@ -5587,13 +5588,16 @@ var render = function render() {
       }
     }
   }, [_vm._v("Search")])], 1)]), _vm._v(" "), _vm.display ? _c("div", {
-    staticClass: "d-flex justify-content-center"
+    staticClass: "d-flex justify-content-center",
+    on: {
+      mouseleave: _vm.handleFocusOut
+    }
   }, [_c("ul", _vm._l(_vm.specializations, function (specialization) {
     return _c("li", {
       key: specialization.id,
       on: {
         click: function click($event) {
-          return _vm.selectSpecialization(specialization.name, specialization.id);
+          return _vm.selectSpecialization(specialization);
         }
       }
     }, [_vm._v("\n              " + _vm._s(specialization.name) + "\n          ")]);

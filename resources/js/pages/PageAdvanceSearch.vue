@@ -43,7 +43,7 @@ import CardDoctor from '../components/CardDoctor.vue'
 export default {
     name: 'PageAdvanceSearch',
     props: {
-        specializationSelect: String,
+        specializationSelect: Number,
     },
     components: {
         CardDoctor,
@@ -51,7 +51,8 @@ export default {
     data() {
         return {
             doctors: [],
-            specializations: []
+            specializations: [],
+            search: ''
         }
     },
     created() {
