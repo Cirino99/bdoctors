@@ -50,10 +50,10 @@
             </div>
             <div class="d-flex justify-content-between align-items-center">
                 <button class="btn btn-secondary">Prenota</button>
-                <button class="btn" style="background: #23A3B3; color: #fff" @click="newReview(showProfile.id)">Scrivi una recensione</button>
+                <button class="btn" style="background: #23A3B3; color: #fff" @click="displayComponent">Scrivi una recensione</button>
             </div>
             <!-- campo per la recensione temporaneo TODO: da sistemare -->
-            <div class="form-floating my-4">
+            <div class="form-floating my-4" v-if="display">
                 <!-- voto -->
                 <input type="text" v-model="name" placeholder="Il tuo nome...">
                 <input id="voto" type="number" v-model="vote" placeholder="voto...">
@@ -62,6 +62,7 @@
                 <div class="mt-4">
                     <textarea class="form-control" placeholder="Lascia una recensione..." id="floatingTextarea2" v-model="text" style="height: 100px"></textarea>
                     <label for="floatingTextarea2"></label>
+                    <button class="btn mt-4" style="background: #23A3B3; color: #fff" @click="newReview(showProfile.id)">Invia</button>
                 </div>
             </div>
         </div>
@@ -81,7 +82,8 @@ export default {
             showProfile: [],
             name: '',
             vote: '',
-            text: ''
+            text: '',
+            display: false
         }
     },
     created() {
@@ -112,6 +114,10 @@ export default {
                 console.log(error);
             });
             }
+        },
+
+        displayComponent() {
+            this.display = true;
         }
     }
 }
