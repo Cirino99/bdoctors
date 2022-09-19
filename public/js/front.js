@@ -5249,13 +5249,6 @@ __webpack_require__.r(__webpack_exports__);
       }
     });
   },
-  // methods: {
-  //   searchInput() {
-  //     this.search.foreach(result => {
-  //       result.specializations.toLowerCase().includes(this.search.toLowerCase())
-  //     })
-  //   }
-  // }
   computed: {
     filteredSpecialization: function filteredSpecialization() {
       var _this2 = this;
