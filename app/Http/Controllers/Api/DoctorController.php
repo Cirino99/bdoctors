@@ -94,7 +94,8 @@ class DoctorController extends Controller
                 ->get();
         }
         foreach ($doctors as $i => $doctor) {
-            if ($doctor->reviews->avg('vote') >= $vote) {
+            $doctor->vote = $doctor->reviews->avg('vote');
+            if ($doctor->vote >= $vote) {
                 unset($doctor->email_verified_at, $doctor->created_at, $doctor->updated_at, $doctor->reviews);
                 foreach ($doctor->specializations as $specialization) {
                     unset($specialization->created_at, $specialization->updated_at, $specialization->pivot);
