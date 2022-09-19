@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Review;
 use App\Models\Specialization;
 
 class DoctorController extends Controller
@@ -77,9 +78,7 @@ class DoctorController extends Controller
         $specialization = $request->get('specialization');
         $city = $request->get('city');
         $reviews = $request->get('reviews');
-        //$vote = $request->get('vote');
-        //$doctors = User::with(['reviews'])->avg('reviews.vote')->get();
-        //ddd($doctors);
+        $vote = $request->get('vote');
         if ($city == 'all') {
             $doctors = User::with(['specializations'])->whereHas('specializations', function ($q) use ($specialization) {
                 $q->where('specialization_id', 'like', $specialization);
@@ -94,12 +93,16 @@ class DoctorController extends Controller
                 ->having('reviews_count', '>=', $reviews)
                 ->get();
         }
-        foreach ($doctors as $doctor) {
-            unset($doctor->email_verified_at, $doctor->created_at, $doctor->updated_at);
-            foreach ($doctor->specializations as $specialization) {
-                unset($specialization->created_at, $specialization->updated_at, $specialization->pivot);
+        foreach ($doctors as $i => $doctor) {
+            if ($doctor->reviews->avg('vote') >= $vote) {
+                unset($doctor->email_verified_at, $doctor->created_at, $doctor->updated_at, $doctor->reviews);
+                foreach ($doctor->specializations as $specialization) {
+                    unset($specialization->created_at, $specialization->updated_at, $specialization->pivot);
+                }
+                $doctor->photo = $this->fixImageUrl($doctor->photo);
+            } else {
+                unset($doctors[$i]);
             }
-            $doctor->photo = $this->fixImageUrl($doctor->photo);
         }
         if ($doctors) {
             return response()->json([
