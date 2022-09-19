@@ -52,9 +52,12 @@
 <body>
     <nav class="navbar shadow-sm">
         {{-- <img class="logo mx-3" src="{{ asset('img/BDoctors_logo_2.svg') }}" alt="logo"> --}}
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand mx-3" href="{{ url('/') }}">
             {{-- {{ config('app.name', 'Laravel') }} --}}
-            <img class="logo" src="{{ asset('img/BDoctors_logo_2.svg')}}" alt="logo">
+            {{-- logo main --}}
+            <img class="logo d-none d-sm-flex d-lg-flex" src="{{ asset('img/BDoctors_logo_2.svg') }}" alt="logo">
+            {{-- logo responsive --}}
+            <img class="logo d-flex d-sm-none d-lg-none" src="{{ asset('img/BDoctors_logo_2_resp.svg') }}" alt="logo-resp">
         </a>
         <div class="flex-center">
             @if (Route::has('login'))
