@@ -20967,6 +20967,8 @@ var render = function render() {
     }
   }, [_vm._v("Scrivi una recensione")])]), _vm._v(" "), _vm.display ? _c("div", {
     staticClass: "form-floating my-4"
+  }, [_c("div", {
+    staticClass: "d-flex justify-content-start"
   }, [_c("input", {
     directives: [{
       name: "model",
@@ -20974,7 +20976,9 @@ var render = function render() {
       value: _vm.name,
       expression: "name"
     }],
+    staticClass: "form-control",
     attrs: {
+      id: "review-nome",
       type: "text",
       placeholder: "Il tuo nome..."
     },
@@ -20994,6 +20998,7 @@ var render = function render() {
       value: _vm.vote,
       expression: "vote"
     }],
+    staticClass: "form-control",
     attrs: {
       id: "voto",
       type: "number",
@@ -21008,7 +21013,7 @@ var render = function render() {
         _vm.vote = $event.target.value;
       }
     }
-  }), _vm._v(" "), _c("div", {
+  })]), _vm._v(" "), _c("div", {
     staticClass: "mt-4"
   }, [_c("textarea", {
     directives: [{
@@ -26391,7 +26396,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#sez-nome[data-v-1ca8e6b5] {\n  height: 10vh;\n}\n#sez-nome h2[data-v-1ca8e6b5] {\n  margin: 0.5%;\n  font-size: 50px;\n}\nli[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n#user-img[data-v-1ca8e6b5] {\n  width: 200px;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#voto[data-v-1ca8e6b5] {\n  width: 70px;\n}\n.blu-scuro[data-v-1ca8e6b5] {\n  color: #00acff;\n}\n.blu-chiaro[data-v-1ca8e6b5] {\n  color: #00c7ff;\n}\n.blu-chiaro2[data-v-1ca8e6b5] {\n  color: #8ce6ff;\n}\n.nero[data-v-1ca8e6b5] {\n  color: #2a2d45;\n}\n.bg-blu-scuro[data-v-1ca8e6b5] {\n  background-color: #00acff;\n}\n.bg-blu-chiaro[data-v-1ca8e6b5] {\n  background-color: #00c7ff;\n}\n.bg-blu-chiaro2[data-v-1ca8e6b5] {\n  background-color: #8ce6ff;\n}\n.bg-nero[data-v-1ca8e6b5] {\n  background-color: #2a2d45;\n}", ""]);
+exports.push([module.i, "#sez-nome[data-v-1ca8e6b5] {\n  height: 10vh;\n}\n#sez-nome h2[data-v-1ca8e6b5] {\n  margin: 0.5%;\n  font-size: 50px;\n}\nli[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n#user-img[data-v-1ca8e6b5] {\n  width: 200px;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#review-nome[data-v-1ca8e6b5] {\n  width: 200px;\n}\n#voto[data-v-1ca8e6b5] {\n  width: 80px;\n  margin-left: 20px;\n}\n.blu-scuro[data-v-1ca8e6b5] {\n  color: #00acff;\n}\n.blu-chiaro[data-v-1ca8e6b5] {\n  color: #00c7ff;\n}\n.blu-chiaro2[data-v-1ca8e6b5] {\n  color: #8ce6ff;\n}\n.nero[data-v-1ca8e6b5] {\n  color: #2a2d45;\n}\n.bg-blu-scuro[data-v-1ca8e6b5] {\n  background-color: #00acff;\n}\n.bg-blu-chiaro[data-v-1ca8e6b5] {\n  background-color: #00c7ff;\n}\n.bg-blu-chiaro2[data-v-1ca8e6b5] {\n  background-color: #8ce6ff;\n}\n.bg-nero[data-v-1ca8e6b5] {\n  background-color: #2a2d45;\n}", ""]);
 
 // exports
 

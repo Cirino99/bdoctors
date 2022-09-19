@@ -55,8 +55,10 @@
             <!-- campo per la recensione temporaneo TODO: da sistemare -->
             <div class="form-floating my-4" v-if="display">
                 <!-- voto -->
-                <input type="text" v-model="name" placeholder="Il tuo nome...">
-                <input id="voto" type="number" v-model="vote" placeholder="voto...">
+                <div class="d-flex justify-content-start">
+                    <input id="review-nome" class="form-control" type="text" v-model="name" placeholder="Il tuo nome...">
+                    <input id="voto" class="form-control" type="number" v-model="vote" placeholder="voto...">
+                </div>
 
                 <!-- recensione  -->
                 <div class="mt-4">
@@ -149,8 +151,13 @@ export default {
         object-position: center;
     }
 
+    #review-nome {
+        width: 200px;
+    }
+
     #voto {
-        width: 70px;
+        width: 80px;
+        margin-left: 20px;
     }
 
     // colors
