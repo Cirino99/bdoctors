@@ -2,9 +2,9 @@
     <div class="container">
       <div class="d-flex justify-content-center flex-row mt-5">
         <!-- serchbar -->
-        <form class="d-flex form-inline my-2 my-lg-0">
-          <input v-model="search" class="form-control mr-sm-2 rounded-3" type="search" placeholder="Scrivi qui.." aria-label="Search" @input="searchInput" @click="displayComponent" @keyup="displayComponent">
-          <router-link :to="{name: 'AdvanceSearch', params: {specializationSelect: mySpecialization} }" class="btn btn-outline-primary my-2 my-sm-0 w-75 rounded-3">
+        <form class="d-flex form-inline my-2 my-lg-0 w-75">
+          <input v-model="search" class="form-control mr-sm-2 rounded-start" type="search" placeholder="Scrivi qui.." aria-label="Search" @input="searchInput" @click="displayComponent" @keyup="displayComponent">
+          <router-link :to="{name: 'AdvanceSearch', params: {specializationSelect: mySpecialization} }" class="btn btn-outline-primary my-2 my-sm-0 w-25 rounded-end">
               <img src="img/BDoctors_lens_search.svg" alt="lens-search">
           </router-link>
         </form>
@@ -34,7 +34,7 @@
       </div>
     </div>
   </template>
-  
+
   <script>
   import CardDoctor from '../components/CardDoctor.vue'
     export default {
@@ -86,15 +86,20 @@
       }
     }
   </script>
-  
+
   <style lang="scss" scoped>
-      img {
-          max-width: 100px;
+    .form-control {
+        border-width: 1px 0 1px 1px;
+
+        img {
+          max-width: 5px;
           min-height: 10px;
-          width: 2vw;
-          height: 2vw;
+        //   width: 1.6vw;
+        //   height: 1.6vw;
       }
-      li:hover {
+    }
+
+    li:hover {
       background-color: aquamarine;
     }
   </style>
