@@ -27962,7 +27962,7 @@ function validationEdit() {
       return false;
     }
 
-    if (cv.length > 500) {
+    if (cv.length > 1000) {
       alert('cv troppo lungo');
       return false;
     }

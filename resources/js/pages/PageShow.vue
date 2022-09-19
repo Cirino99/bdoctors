@@ -1,7 +1,7 @@
 <template>
     <div>
         <div id="sez-nome" class="bg-blu-chiaro text-white d-flex justify-content-center align-items-center">
-            <h2>{{ showProfile.name }} {{ showProfile.lastname }}</h2>       
+            <h2> Dr. {{ showProfile.name }} {{ showProfile.lastname }}</h2>       
         </div>
         <div class="container mt-5">
             <div class="d-flex justify-content-start flex-wrap mb-5">
@@ -11,7 +11,7 @@
                     <ul class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex flex-column justify-content-center gap-2 order-2">
                         <li>
                             <h3>
-                                {{ showProfile.name }} {{ showProfile.lastname }}
+                                Dr. {{ showProfile.name }} {{ showProfile.lastname }}
                             </h3>
                         </li>
                         <li>

@@ -20370,7 +20370,7 @@ __webpack_require__.r(__webpack_exports__);
     searchDoctor: function searchDoctor() {
       var _this2 = this;
 
-      axios.get('api/search?specialization=' + this.specializationSelect + '&city=all&reviews=0&vote=1').then(function (res) {
+      axios.get('api/search?specialization=' + this.specializationSelect + '&city=all&reviews= ' + this.review + '  &vote=' + this.vote).then(function (res) {
         if (res.data.success) {
           _this2.doctors = res.data.result;
         }
@@ -20378,6 +20378,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     changeSpecialization: function changeSpecialization(id) {
       this.specializationSelect = id;
+      this.searchDoctor();
+    },
+    changeVote: function changeVote(id) {
+      this.vote = id;
+      this.searchDoctor();
+    },
+    changeReview: function changeReview(id) {
+      this.review = id;
       this.searchDoctor();
     }
   }
@@ -20705,6 +20713,11 @@ var render = function render() {
       },
       domProps: {
         checked: _vm.vote === item
+      },
+      on: {
+        click: function click($event) {
+          return _vm.changeVote(item);
+        }
       }
     }), _vm._v(" "), _c("label", {
       staticClass: "form-check-label",
@@ -20726,6 +20739,11 @@ var render = function render() {
       },
       domProps: {
         checked: _vm.review === item
+      },
+      on: {
+        click: function click($event) {
+          return _vm.changeReview(item);
+        }
       }
     }), _vm._v(" "), _c("label", {
       staticClass: "form-check-label",
@@ -20898,7 +20916,7 @@ var render = function render() {
     attrs: {
       id: "sez-nome"
     }
-  }, [_c("h2", [_vm._v(_vm._s(_vm.showProfile.name) + " " + _vm._s(_vm.showProfile.lastname))])]), _vm._v(" "), _c("div", {
+  }, [_c("h2", [_vm._v(" Dr. " + _vm._s(_vm.showProfile.name) + " " + _vm._s(_vm.showProfile.lastname))])]), _vm._v(" "), _c("div", {
     staticClass: "container mt-5"
   }, [_c("div", {
     staticClass: "d-flex justify-content-start flex-wrap mb-5"
@@ -20913,7 +20931,7 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("ul", {
     staticClass: "col-12 col-sm-12 col-md-12 col-lg-12 d-flex flex-column justify-content-center gap-2 order-2"
-  }, [_c("li", [_c("h3", [_vm._v("\n                            " + _vm._s(_vm.showProfile.name) + " " + _vm._s(_vm.showProfile.lastname) + "\n                        ")])]), _vm._v(" "), _c("li", [_c("b", {
+  }, [_c("li", [_c("h3", [_vm._v("\n                            Dr. " + _vm._s(_vm.showProfile.name) + " " + _vm._s(_vm.showProfile.lastname) + "\n                        ")])]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic blu-scuro"
   }, [_vm._v("Email: ")]), _vm._v(" " + _vm._s(_vm.showProfile.email) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic blu-scuro"
@@ -60501,8 +60519,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })
