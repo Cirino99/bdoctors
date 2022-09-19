@@ -92,7 +92,7 @@ import CardDoctor from '../components/CardDoctor.vue'
   }
 </script>
   
-<style>
+<style lang="scss" scoped>
   li:hover {
     background-color: aquamarine;
   }
