@@ -20,6 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/doctors', 'Api\DoctorController@index')->name('api.doctors.index');
 Route::get('/doctors/{doctor}', 'Api\DoctorController@show')->name('api.doctors.show');
-Route::get('/search/', 'Api\DoctorController@search')->name('api.doctors.search');
+Route::get('/search', 'Api\DoctorController@search')->name('api.doctors.search');
 Route::get('/search/city', 'Api\DoctorController@city')->name('api.doctors.city');
 Route::get('/search/specialization', 'Api\DoctorController@specialization')->name('api.doctors.specialization');
+Route::post('/review', 'Api\ReviewController@store')->name('api.doctors.review');
