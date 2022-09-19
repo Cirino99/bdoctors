@@ -27,13 +27,20 @@
             </div>
         </div>
         <div class="my-card-content">
-            <big class="card-title"><b> {{ doctor.name }} </b></big>
-            <big class="card-title"><b> {{ doctor.lastname }} </b></big>
-            <ul class="list-group list-group-flush fst-italic">
+            <div>
+                <big><strong>Dr.</strong></big>
+                <big class="card-title"><b> {{ doctor.name }} </b></big>
+                <big class="card-title"><b> {{ doctor.lastname }} </b></big>
+            </div>
+            <div>
+                <big><strong>Città:</strong></big>
+                <big>{{ doctor.city}}</big>
+            </div>
+            <ul class="list-group list-group-flush">
                 <li v-for="specialization in doctor.specializations" :key="specialization.id" class="list-group-item">
                     {{ specialization.name }}
                 </li>
-                <li class="list-group-item">VALUTAZIONE</li>
+                <li class="list-group-item">Voto: <i class="fa-solid fa-star"></i></li>
             </ul>
             <div class="card-body d-flex flex-column justify-content-end">
                 <router-link :to="{name: 'profile', params: {id: doctor.id} }" class="btn btn-primary col-12">Visualizza
@@ -56,18 +63,23 @@ export default {
 @import "../../sass/bdoctor-palette.scss";
 
 .my-card {
-    width: 300px;
+    width: 250px;
     border-radius: 25px;
     background-color: #FFF;
     color: $dark;
     margin-bottom: 5px;
 }
 
-.my-image-content,
-.my-card-content {
+.my-image-content{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.my-card-content {
+    text-align: center;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
 }
 
 .my-image-content {
@@ -104,8 +116,8 @@ export default {
 
 .my-card-image {
     position: relative;
-    height: 150px;
-    width: 150px;
+    height: 130px;
+    width: 130px;
     border-radius: 50%;
     background: #FFF;
     padding: 3px;
