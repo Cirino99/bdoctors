@@ -25,7 +25,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{-- {{ config('app.name', 'Laravel') }} --}}
-                    <img class="logo" src="{{ asset('img/BDoctors_logo.svg')}}" alt="logo">
+                    <img class="logo" src="{{ asset('img/BDoctors_logo_2.svg')}}" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -75,7 +75,7 @@
 
         <main class="py-4 d-flex">
             <section class="left-menu">
-                
+
                 <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" >
                     <ul class="nav nav-pills flex-column mb-auto">
                       <li class="side-nav-li">
@@ -110,7 +110,7 @@
             <section class="right-content">
                 @yield('content')
             </section>
-            
+
         </main>
     </div>
 </body>

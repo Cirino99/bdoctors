@@ -15,7 +15,7 @@
                     @endif
 
                     @if ($user->photo != null)
-                        <img id="preview" class="img-fluid rounded-circle" src="{{ asset('storage/' . $user->photo) }}">
+                        <img id="preview" class="img-fluid rounded-circle my-4" src="{{ asset('storage/' . $user->photo) }}">
                     @endif
                     <div><strong>Nome:</strong> {{ $user->name }}</div>
                     <div><strong>Cognome:</strong> {{ $user->lastname }}</div>
@@ -34,7 +34,7 @@
                     <div><strong>CV:</strong> {{ $user->cv}}</div>
 
                     <div class="d-flex justify-content-end">
-                        <button class="btn btn-sm btn-secondary" id="delete-js">Delete</button>
+                        <button class="btn btn-sm btn-secondary mt-4" id="delete-js">Delete</button>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 <form data-action="{{ route('doctor.profile.destroy', ['profile' => $user]) }}" method="post" class="popup">
                     @csrf
                     @method('DELETE')
-                    
+
                     <label for="password" class="col-form-label text-md-right">Inserisci la tua password per eliminare il tuo profilo</label>
                     <input id="password" type="password" class="form-control mb-3" name="password" required autocomplete="current-password">
                     <button type="submit" class="btn btn-danger">

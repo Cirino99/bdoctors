@@ -50,8 +50,8 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <img class="logo" src="{{ asset('img/BDoctors_logo.svg') }}" alt="logo">
+    <nav class="navbar shadow-sm">
+        <img class="logo mx-3" src="{{ asset('img/BDoctors_logo_2.svg') }}" alt="logo">
         <div class="flex-center">
             @if (Route::has('login'))
                 <div class="links">
