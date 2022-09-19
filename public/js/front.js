@@ -5211,7 +5211,7 @@ __webpack_require__.r(__webpack_exports__);
     searchDoctor: function searchDoctor() {
       var _this2 = this;
 
-      axios.get('api/search?specialization=' + this.specializationSelect + '&city=all').then(function (res) {
+      axios.get('api/search?specialization=' + this.specializationSelect + '&city=all&reviews=0').then(function (res) {
         if (res.data.success) {
           _this2.doctors = res.data.result;
         }
