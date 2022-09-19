@@ -81,8 +81,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+    @import "../../sass/bdoctor-palette.scss"; 
     .card {
         width: 60vw;
+        color: $primary;
         .form-check {
             display: inline-block;
         }

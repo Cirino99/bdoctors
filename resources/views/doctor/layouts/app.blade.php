@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/back.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
     <div id="app">
@@ -80,26 +81,31 @@
                     <ul class="nav nav-pills flex-column mb-auto">
                       <li class="side-nav-li">
                         <a href="{{ route('doctor.dashboard') }}" class="nav-link link-dark" aria-current="page">
+                          <i class="fa-solid fa-house-user"></i>
                           Dashboard
                         </a>
                       </li>
                       <li class="side-nav-li">
                         <a href="{{ route('doctor.profile.edit', ['profile' => Auth::id()]) }}" class="nav-link link-dark">
+                          <i class="fa-solid fa-pen"></i>
                           Modifica Profilo
                         </a>
                       </li>
                       <li class="side-nav-li">
                         <a href="{{ route('doctor.profile.show', ['profile' => Auth::id()]) }}" class="nav-link link-dark">
+                          <i class="fa-solid fa-eye"></i>
                           Visualizza Profilo
                         </a>
                       </li>
                       <li class="side-nav-li">
                         <a href="{{ route('doctor.messages.index') }}" class="nav-link link-dark">
+                          <i class="fa-solid fa-envelope"></i>
                           Messaggi
                         </a>
                       </li>
                       <li class="side-nav-li">
                         <a href="{{ route('doctor.reviews.index') }}" class="nav-link link-dark">
+                          <i class="fa-solid fa-message"></i>
                           Recensioni
                         </a>
                       </li>

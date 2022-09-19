@@ -39,11 +39,13 @@
         </div>
         <div class="d-flex justify-content-between align-items-center">
             <button class="btn btn-secondary">Prenota</button>
-            <button class="btn" style="background: #23A3B3; color: #fff">Scrivi una recensione</button>
+            <button class="btn" style="background: #23A3B3; color: #fff" @click="newReview(showProfile.id)">Scrivi una recensione</button>
         </div>
         <!-- campo per la recensione temporaneo TODO: da sistemare -->
         <div class="form-floating my-4">
-            <textarea class="form-control" placeholder="Lascia una recensione" id="floatingTextarea2" style="height: 100px"></textarea>
+            <input type="text" v-model="name">
+            <input type="number" v-model="vote">
+            <textarea class="form-control" placeholder="Lascia una recensione" id="floatingTextarea2" v-model="text" style="height: 100px"></textarea>
             <label for="floatingTextarea2" style="color: #cecece">Digita qui..</label>
         </div>
     </div>
@@ -59,7 +61,10 @@ export default {
     },
     data() {
         return {
-            showProfile: []
+            showProfile: [],
+            name: '',
+            vote: '',
+            text: ''
         }
     },
     created() {
@@ -70,6 +75,27 @@ export default {
                     console.log(this.showProfile);
                 }
             })
+    },
+    methods: {
+        newReview($id){
+            if(this.name != '' && this.vote != '' &&  this.text != ''){
+                axios.post('/api/review', {
+                id: $id,
+                name: this.name ,
+                vote: this.vote,
+                text: this.text
+            })
+            .then(res => {
+                if (res.data.success) {
+                    this.name = '';
+                    this.vote = '';
+                    this.text = '';
+                }
+            }).catch(function (error) {
+                console.log(error);
+            });
+            }
+        }
     }
 }
 </script>

@@ -5309,7 +5309,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      showProfile: []
+      showProfile: [],
+      name: '',
+      vote: '',
+      text: ''
     };
   },
   created: function created() {
@@ -5321,6 +5324,28 @@ __webpack_require__.r(__webpack_exports__);
         console.log(_this.showProfile);
       }
     });
+  },
+  methods: {
+    newReview: function newReview($id) {
+      var _this2 = this;
+
+      if (this.name != '' && this.vote != '' && this.text != '') {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/review', {
+          id: $id,
+          name: this.name,
+          vote: this.vote,
+          text: this.text
+        }).then(function (res) {
+          if (res.data.success) {
+            _this2.name = '';
+            _this2.vote = '';
+            _this2.text = '';
+          }
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      }
+    }
   }
 });
 
@@ -5687,14 +5712,7 @@ var render = function render() {
       src: _vm.showProfile.photo,
       alt: _vm.showProfile.name
     }
-  })])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)]);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
+  })])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-between align-items-center"
   }, [_c("button", {
     staticClass: "btn btn-secondary"
@@ -5703,15 +5721,59 @@ var staticRenderFns = [function () {
     staticStyle: {
       background: "#23A3B3",
       color: "#fff"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.newReview(_vm.showProfile.id);
+      }
     }
-  }, [_vm._v("Scrivi una recensione")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
+  }, [_vm._v("Scrivi una recensione")])]), _vm._v(" "), _c("div", {
     staticClass: "form-floating my-4"
-  }, [_c("textarea", {
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.name,
+      expression: "name"
+    }],
+    attrs: {
+      type: "text"
+    },
+    domProps: {
+      value: _vm.name
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.name = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.vote,
+      expression: "vote"
+    }],
+    attrs: {
+      type: "number"
+    },
+    domProps: {
+      value: _vm.vote
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.vote = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("textarea", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.text,
+      expression: "text"
+    }],
     staticClass: "form-control",
     staticStyle: {
       height: "100px"
@@ -5719,6 +5781,15 @@ var staticRenderFns = [function () {
     attrs: {
       placeholder: "Lascia una recensione",
       id: "floatingTextarea2"
+    },
+    domProps: {
+      value: _vm.text
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.text = $event.target.value;
+      }
     }
   }), _vm._v(" "), _c("label", {
     staticStyle: {
@@ -5727,8 +5798,10 @@ var staticRenderFns = [function () {
     attrs: {
       "for": "floatingTextarea2"
     }
-  }, [_vm._v("Digita qui..")])]);
-}];
+  }, [_vm._v("Digita qui..")])])]);
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -11027,7 +11100,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card[data-v-4d587a7c] {\n  width: 60vw;\n}\n.card .form-check[data-v-4d587a7c] {\n  display: inline-block;\n}", ""]);
+exports.push([module.i, ".card[data-v-4d587a7c] {\n  width: 60vw;\n  color: #00acff;\n}\n.card .form-check[data-v-4d587a7c] {\n  display: inline-block;\n}", ""]);
 
 // exports
 
@@ -45183,8 +45256,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/cirox/Programmazione/Boolean/Esercizi/bdoctors/resources/js/front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! /Users/cirox/Programmazione/Boolean/Esercizi/bdoctors/resources/sass/back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })
