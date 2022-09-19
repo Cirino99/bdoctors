@@ -29,7 +29,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="d-flex flex-wrap justify-content-start col-9">
+                <div class="d-flex flex-wrap justify-content-evenly col-12">
                     <CardDoctor v-for="(doctor, index) in doctors" :key="index" :doctor="doctor" />
                 </div>
             </div>
