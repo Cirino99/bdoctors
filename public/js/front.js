@@ -20671,7 +20671,7 @@ var render = function render() {
       staticClass: "form-check-input",
       attrs: {
         type: "radio",
-        name: "flexRadioDefault",
+        name: "specialization",
         id: "flexRadioDefault1"
       },
       domProps: {
@@ -20685,7 +20685,7 @@ var render = function render() {
     }), _vm._v(" "), _c("label", {
       staticClass: "form-check-label",
       attrs: {
-        "for": "flexRadioDefault1"
+        "for": "specialization"
       }
     }, [_vm._v("\n                                    " + _vm._s(specialization.name) + "\n                                ")])]);
   })], 2), _vm._v(" "), _c("li", {
@@ -20697,7 +20697,7 @@ var render = function render() {
       staticClass: "form-check-input",
       attrs: {
         type: "radio",
-        name: "flexRadioDefault",
+        name: "vote",
         id: "flexRadioDefault1"
       },
       domProps: {
@@ -20706,7 +20706,7 @@ var render = function render() {
     }), _vm._v(" "), _c("label", {
       staticClass: "form-check-label",
       attrs: {
-        "for": "flexRadioDefault1"
+        "for": "vote"
       }
     }, [_vm._v("\n                                    " + _vm._s(item) + "\n                                ")])]);
   })], 2), _vm._v(" "), _c("li", {
@@ -20718,7 +20718,7 @@ var render = function render() {
       staticClass: "form-check-input",
       attrs: {
         type: "radio",
-        name: "flexRadioDefault",
+        name: "review",
         id: "flexRadioDefault1"
       },
       domProps: {
@@ -20727,7 +20727,7 @@ var render = function render() {
     }), _vm._v(" "), _c("label", {
       staticClass: "form-check-label",
       attrs: {
-        "for": "flexRadioDefault1"
+        "for": "review"
       }
     }, [_vm._v("\n                                    " + _vm._s(item) + "\n                                ")])]);
   })], 2)])])]), _vm._v(" "), _c("div", {

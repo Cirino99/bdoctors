@@ -21,10 +21,10 @@
                                 <strong>Specializzazione:</strong><br>
                                 <div v-for="specialization in specializations" :key="specialization.id"
                                     class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    <input class="form-check-input" type="radio" name="specialization"
                                         id="flexRadioDefault1" :checked=" specializationSelect === specialization.id"
                                         @click="changeSpecialization(specialization.id)">
-                                    <label class="form-check-label" for="flexRadioDefault1">
+                                    <label class="form-check-label" for="specialization">
                                         {{ specialization.name }}
                                     </label>
                                 </div>
@@ -32,9 +32,9 @@
                             <li class="list-group-item">
                                 <strong>Media Voto:</strong>
                                 <span v-for="item in 5" :key="item">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    <input class="form-check-input" type="radio" name="vote"
                                         id="flexRadioDefault1" :checked="vote === item">
-                                    <label class="form-check-label" for="flexRadioDefault1">
+                                    <label class="form-check-label" for="vote">
                                         {{item}}
                                     </label>
                                 </span>
@@ -42,9 +42,9 @@
                             <li class="list-group-item">
                                 <strong>Numero Recensioni:</strong>
                                 <span v-for="item in 4" :key="item">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    <input class="form-check-input" type="radio" name="review"
                                         id="flexRadioDefault1" :checked="review === item">
-                                    <label class="form-check-label" for="flexRadioDefault1">
+                                    <label class="form-check-label" for="review">
                                         {{item}}
                                     </label>
                                 </span>
