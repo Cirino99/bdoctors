@@ -43,7 +43,7 @@ import CardDoctor from '../components/CardDoctor.vue'
 export default {
     name: 'PageAdvanceSearch',
     props: {
-        specializationSelect: Number,
+        specializationSelect: String,
     },
     components: {
         CardDoctor,
@@ -51,8 +51,7 @@ export default {
     data() {
         return {
             doctors: [],
-            specializations: [],
-            search: ''
+            specializations: []
         }
     },
     created() {
@@ -66,7 +65,7 @@ export default {
     },
     methods: {
         searchDoctor(){
-            axios.get('api/search?specialization=' + this.specializationSelect + '&city=all&reviews=0')
+            axios.get('api/search?specialization=' + this.specializationSelect + '&city=all')
             .then(res => {
                 if (res.data.success) {
                     this.doctors = res.data.result;

@@ -5185,7 +5185,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'PageAdvanceSearch',
   props: {
-    specializationSelect: Number
+    specializationSelect: String
   },
   components: {
     CardDoctor: _components_CardDoctor_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -5193,8 +5193,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       doctors: [],
-      specializations: [],
-      search: ''
+      specializations: []
     };
   },
   created: function created() {
@@ -5211,7 +5210,7 @@ __webpack_require__.r(__webpack_exports__);
     searchDoctor: function searchDoctor() {
       var _this2 = this;
 
-      axios.get('api/search?specialization=' + this.specializationSelect + '&city=all&reviews=0').then(function (res) {
+      axios.get('api/search?specialization=' + this.specializationSelect + '&city=all').then(function (res) {
         if (res.data.success) {
           _this2.doctors = res.data.result;
         }
@@ -5242,7 +5241,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       search: "",
-      mySpecialization: null,
+      mySpecialization: "",
       doctors: [],
       specializations: [],
       display: false
@@ -5275,9 +5274,9 @@ __webpack_require__.r(__webpack_exports__);
         this.specializations = [];
       }
     },
-    selectSpecialization: function selectSpecialization(specialization) {
-      this.mySpecialization = specialization.id;
-      this.search = specialization.name;
+    selectSpecialization: function selectSpecialization(specialization, id) {
+      this.mySpecialization = id;
+      this.search = specialization;
     },
     displayComponent: function displayComponent() {
       this.display = true;
@@ -5574,7 +5573,7 @@ var render = function render() {
         _vm.search = $event.target.value;
       }, _vm.searchInput],
       click: _vm.displayComponent,
-      keyup: _vm.displayComponent
+      focusout: _vm.handleFocusOut
     }
   }), _vm._v(" "), _c("router-link", {
     staticClass: "btn btn-outline-primary my-2 my-sm-0 w-75 rounded-3",
@@ -5592,16 +5591,13 @@ var render = function render() {
       alt: "lens-search"
     }
   })])], 1)]), _vm._v(" "), _vm.display ? _c("div", {
-    staticClass: "d-flex justify-content-center",
-    on: {
-      mouseleave: _vm.handleFocusOut
-    }
+    staticClass: "d-flex justify-content-center"
   }, [_c("ul", _vm._l(_vm.specializations, function (specialization) {
     return _c("li", {
       key: specialization.id,
       on: {
         click: function click($event) {
-          return _vm.selectSpecialization(specialization);
+          return _vm.selectSpecialization(specialization.name, specialization.id);
         }
       }
     }, [_vm._v("\n              " + _vm._s(specialization.name) + "\n          ")]);
@@ -45183,8 +45179,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/cirox/Programmazione/Boolean/Esercizi/bdoctors/resources/js/front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! /Users/cirox/Programmazione/Boolean/Esercizi/bdoctors/resources/sass/back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\Administrator\Documents\VSC\Progetto-Finale\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Administrator\Documents\VSC\Progetto-Finale\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })
