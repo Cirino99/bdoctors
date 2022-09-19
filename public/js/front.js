@@ -20578,11 +20578,7 @@ var render = function render() {
       key: specialization.id,
       staticClass: "list-group-item"
     }, [_vm._v("\n                " + _vm._s(specialization.name) + "\n            ")]);
-  }), 0), _vm._v(" "), _vm._l(_vm.doctor.reviews, function (review) {
-    return _c("span", {
-      key: review.id
-    }, [_vm._v(" " + _vm._s(review.vote))]);
-  }), _vm._v(" "), _c("div", {
+  }), 0), _vm._v(" "), _c("span", [_vm._v(" " + _vm._s(_vm.doctor.vote))]), _vm._v(" "), _c("div", {
     staticClass: "card-body d-flex flex-column justify-content-end"
   }, [_c("router-link", {
     staticClass: "btn btn-primary col-12",
@@ -20594,7 +20590,7 @@ var render = function render() {
         }
       }
     }
-  }, [_vm._v("Visualizza\n            ")])], 1)], 2)]);
+  }, [_vm._v("Visualizza\n            ")])], 1)])]);
 };
 
 var staticRenderFns = [];
