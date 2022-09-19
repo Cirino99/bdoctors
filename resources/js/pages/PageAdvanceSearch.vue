@@ -33,7 +33,8 @@
                                 <strong>Media Voto:</strong>
                                 <span v-for="item in 5" :key="item">
                                     <input class="form-check-input" type="radio" name="vote"
-                                        id="flexRadioDefault1" :checked="vote === item">
+                                        id="flexRadioDefault1" :checked="vote === item"
+                                        @click="changeVote(item)">
                                     <label class="form-check-label" for="vote">
                                         {{item}}
                                     </label>
@@ -43,7 +44,8 @@
                                 <strong>Numero Recensioni:</strong>
                                 <span v-for="item in 4" :key="item">
                                     <input class="form-check-input" type="radio" name="review"
-                                        id="flexRadioDefault1" :checked="review === item">
+                                        id="flexRadioDefault1" :checked="review === item"
+                                        @click="changeReview(item)">
                                     <label class="form-check-label" for="review">
                                         {{item}}
                                     </label>
@@ -90,7 +92,7 @@ export default {
     },
     methods: {
         searchDoctor() {
-            axios.get('api/search?specialization=' + this.specializationSelect + '&city=all&reviews=0&vote=1')
+            axios.get('api/search?specialization=' + this.specializationSelect + '&city=all&reviews= ' + this.review + '  &vote=' + this.vote)
                 .then(res => {
                     if (res.data.success) {
                         this.doctors = res.data.result;
@@ -99,6 +101,14 @@ export default {
         },
         changeSpecialization(id) {
             this.specializationSelect = id;
+            this.searchDoctor();
+        },
+        changeVote(id) {
+            this.vote = id;
+            this.searchDoctor();
+        },
+        changeReview(id) {
+            this.review = id;
             this.searchDoctor();
         }
     }
