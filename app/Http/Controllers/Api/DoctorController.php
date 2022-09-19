@@ -79,14 +79,23 @@ class DoctorController extends Controller
     {
         $specialization = $request->get('specialization');
         $city = $request->get('city');
+        $reviews = $request->get('reviews');
+        //$vote = $request->get('vote');
+        //$doctors = User::with(['reviews'])->avg('reviews.vote')->get();
+        //ddd($doctors);
         if ($city == 'all') {
             $doctors = User::with(['specializations'])->whereHas('specializations', function ($q) use ($specialization) {
                 $q->where('specialization_id', 'like', $specialization);
-            })->get();
+            })->withCount('reviews')
+                ->having('reviews_count', '>=', $reviews)
+                ->get();
         } else {
             $doctors = User::with(['specializations'])->whereHas('specializations', function ($q) use ($specialization) {
                 $q->where('specialization_id', 'like', $specialization);
-            })->where('city', 'like', $city)->get();
+            })->where('city', 'like', $city)
+                ->withCount('reviews')
+                ->having('reviews_count', '>=', $reviews)
+                ->get();
         }
         foreach ($doctors as $doctor) {
             unset($doctor->email_verified_at, $doctor->created_at, $doctor->updated_at);
