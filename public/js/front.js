@@ -5684,9 +5684,9 @@ var render = function render() {
   }, [_c("h2", [_vm._v(_vm._s(_vm.showProfile.name) + " " + _vm._s(_vm.showProfile.lastname))])]), _vm._v(" "), _c("div", {
     staticClass: "container mt-5"
   }, [_c("div", {
-    staticClass: "d-flex flex-row-reverse flex-wrap mb-5"
+    staticClass: "d-flex justify-content-start flex-wrap mb-5"
   }, [_c("div", {
-    staticClass: "col-12 col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center order-md-2 flex-column"
+    staticClass: "col-12 col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center flex-column align-items-center"
   }, [_c("img", {
     staticClass: "img-fluid img-thumbnail rounded-circle mb-4",
     attrs: {
@@ -5696,19 +5696,15 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("ul", {
     staticClass: "col-12 col-sm-12 col-md-12 col-lg-12 d-flex flex-column justify-content-center gap-2 order-2"
-  }, [_c("li", [_c("b", {
-    staticClass: "fst-italic blu-scuro"
-  }, [_vm._v("Nome: ")]), _vm._v(" " + _vm._s(_vm.showProfile.name) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
-    staticClass: "fst-italic blu-scuro"
-  }, [_vm._v("Cognome: ")]), _vm._v(" " + _vm._s(_vm.showProfile.lastname) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
+  }, [_c("li", [_c("h3", [_vm._v("\n                            " + _vm._s(_vm.showProfile.name) + " " + _vm._s(_vm.showProfile.lastname) + "\n                        ")])]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic blu-scuro"
   }, [_vm._v("Email: ")]), _vm._v(" " + _vm._s(_vm.showProfile.email) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
-    staticClass: "fst-italic blu-scuro"
-  }, [_vm._v("Via: ")]), _vm._v(" " + _vm._s(_vm.showProfile.address) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic blu-scuro"
   }, [_vm._v("Numero di telefono: ")]), _vm._v(" " + _vm._s(_vm.showProfile.phone) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic blu-scuro"
   }, [_vm._v("Città: ")]), _vm._v(" " + _vm._s(_vm.showProfile.city) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
+    staticClass: "fst-italic blu-scuro"
+  }, [_vm._v("Via: ")]), _vm._v(" " + _vm._s(_vm.showProfile.address) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic blu-scuro"
   }, [_vm._v("CAP: ")]), _vm._v(" " + _vm._s(_vm.showProfile.postal_code) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic blu-scuro"
@@ -5719,7 +5715,7 @@ var render = function render() {
     }, [_vm._v("\n                            " + _vm._s(specialization.name) + "\n                        ")]);
   })], 2)])]), _vm._v(" "), _c("div", {
     staticClass: "fst-italic col-12 col-sm-12 col-md-6 col-lg-8"
-  }, [_vm._v("\n                CV: " + _vm._s(_vm.showProfile.cv) + "\n            ")])]), _vm._v(" "), _c("div", {
+  }, [_c("h4", [_vm._v("\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dolorem rerum, tempore quaerat quasi quisquam! Delectus, fuga laboriosam voluptatem quos eveniet blanditiis eum quidem et dolorum eaque earum iure neque!\n                ")]), _vm._v(" "), _c("div", [_vm._v("\n                    CV: " + _vm._s(_vm.showProfile.cv) + "\n                ")])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-between align-items-center"
   }, [_c("button", {
     staticClass: "btn btn-secondary"
@@ -5744,7 +5740,8 @@ var render = function render() {
       expression: "name"
     }],
     attrs: {
-      type: "text"
+      type: "text",
+      placeholder: "Il tuo nome..."
     },
     domProps: {
       value: _vm.name
@@ -5763,7 +5760,9 @@ var render = function render() {
       expression: "vote"
     }],
     attrs: {
-      type: "number"
+      id: "voto",
+      type: "number",
+      placeholder: "voto..."
     },
     domProps: {
       value: _vm.vote
@@ -5774,7 +5773,9 @@ var render = function render() {
         _vm.vote = $event.target.value;
       }
     }
-  }), _vm._v(" "), _c("textarea", {
+  }), _vm._v(" "), _c("div", {
+    staticClass: "mt-4"
+  }, [_c("textarea", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -5786,7 +5787,7 @@ var render = function render() {
       height: "100px"
     },
     attrs: {
-      placeholder: "Lascia una recensione",
+      placeholder: "Lascia una recensione...",
       id: "floatingTextarea2"
     },
     domProps: {
@@ -5799,13 +5800,10 @@ var render = function render() {
       }
     }
   }), _vm._v(" "), _c("label", {
-    staticStyle: {
-      color: "#cecece"
-    },
     attrs: {
       "for": "floatingTextarea2"
     }
-  }, [_vm._v("Digita qui..")])])])]);
+  })])])])]);
 };
 
 var staticRenderFns = [];
@@ -11145,7 +11143,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#sez-nome[data-v-1ca8e6b5] {\n  height: 10vh;\n}\n#sez-nome h2[data-v-1ca8e6b5] {\n  margin: 0.5%;\n  font-size: 50px;\n}\nli[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n#user-img[data-v-1ca8e6b5] {\n  min-width: 150px;\n  min-height: 150px;\n  width: 20vw;\n  height: 20vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n.blu-scuro[data-v-1ca8e6b5] {\n  color: #00acff;\n}\n.blu-chiaro[data-v-1ca8e6b5] {\n  color: #00c7ff;\n}\n.blu-chiaro2[data-v-1ca8e6b5] {\n  color: #8ce6ff;\n}\n.nero[data-v-1ca8e6b5] {\n  color: #2a2d45;\n}\n.bg-blu-scuro[data-v-1ca8e6b5] {\n  background-color: #00acff;\n}\n.bg-blu-chiaro[data-v-1ca8e6b5] {\n  background-color: #00c7ff;\n}\n.bg-blu-chiaro2[data-v-1ca8e6b5] {\n  background-color: #8ce6ff;\n}\n.bg-nero[data-v-1ca8e6b5] {\n  background-color: #2a2d45;\n}", ""]);
+exports.push([module.i, "#sez-nome[data-v-1ca8e6b5] {\n  height: 10vh;\n}\n#sez-nome h2[data-v-1ca8e6b5] {\n  margin: 0.5%;\n  font-size: 50px;\n}\nli[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n#user-img[data-v-1ca8e6b5] {\n  width: 200px;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#voto[data-v-1ca8e6b5] {\n  width: 70px;\n}\n.blu-scuro[data-v-1ca8e6b5] {\n  color: #00acff;\n}\n.blu-chiaro[data-v-1ca8e6b5] {\n  color: #00c7ff;\n}\n.blu-chiaro2[data-v-1ca8e6b5] {\n  color: #8ce6ff;\n}\n.nero[data-v-1ca8e6b5] {\n  color: #2a2d45;\n}\n.bg-blu-scuro[data-v-1ca8e6b5] {\n  background-color: #00acff;\n}\n.bg-blu-chiaro[data-v-1ca8e6b5] {\n  background-color: #00c7ff;\n}\n.bg-blu-chiaro2[data-v-1ca8e6b5] {\n  background-color: #8ce6ff;\n}\n.bg-nero[data-v-1ca8e6b5] {\n  background-color: #2a2d45;\n}", ""]);
 
 // exports
 
