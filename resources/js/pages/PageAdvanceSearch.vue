@@ -30,32 +30,24 @@
                                 </div>
                             </li>
                             <li class="list-group-item">
-                                <strong>Voto:</strong>
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    1
-                                </label>
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    2
-                                </label>
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    3
-                                </label>
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    4
-                                </label>
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    5
-                                </label>
+                                <strong>Media Voto:</strong>
+                                <span v-for="item in 5" :key="item">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1" :checked="vote === item">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        {{item}}
+                                    </label>
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Numero Recensioni:</strong>
+                                <span v-for="item in 4" :key="item">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1" :checked="review === item">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        {{item}}
+                                    </label>
+                                </span>
                             </li>
                         </ul>
                     </div>
@@ -82,7 +74,9 @@ export default {
         return {
             doctors: [],
             specializations: [],
-            search: ''
+            search: '',
+            vote: 0,
+            review: 0
         }
     },
     created() {
