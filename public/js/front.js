@@ -5677,42 +5677,50 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", {
+  return _c("div", [_c("div", {
+    staticClass: "bg-blu-chiaro text-white d-flex justify-content-center align-items-center",
+    attrs: {
+      id: "sez-nome"
+    }
+  }, [_c("h2", [_vm._v(_vm._s(_vm.showProfile.name) + " " + _vm._s(_vm.showProfile.lastname))])]), _vm._v(" "), _c("div", {
     staticClass: "container mt-5"
   }, [_c("div", {
-    staticClass: "d-flex justify-content-between flex-wrap mb-5"
-  }, [_c("ul", {
-    staticClass: "col-12 col-sm-12 col-md-6 col-lg-6 d-flex flex-column justify-content-center gap-2 order-2"
+    staticClass: "d-flex flex-row-reverse flex-wrap mb-5"
+  }, [_c("div", {
+    staticClass: "col-12 col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center order-md-2 flex-column"
+  }, [_c("img", {
+    staticClass: "img-fluid img-thumbnail rounded-circle mb-4",
+    attrs: {
+      id: "user-img",
+      src: _vm.showProfile.photo,
+      alt: _vm.showProfile.name
+    }
+  }), _vm._v(" "), _c("ul", {
+    staticClass: "col-12 col-sm-12 col-md-12 col-lg-12 d-flex flex-column justify-content-center gap-2 order-2"
   }, [_c("li", [_c("b", {
-    staticClass: "fst-italic"
-  }, [_vm._v("Nome: ")]), _vm._v(" " + _vm._s(_vm.showProfile.name) + "\n              ")]), _vm._v(" "), _c("li", [_c("b", {
-    staticClass: "fst-italic"
-  }, [_vm._v("Cognome: ")]), _vm._v(" " + _vm._s(_vm.showProfile.lastname) + "\n              ")]), _vm._v(" "), _c("li", [_c("b", {
-    staticClass: "fst-italic"
-  }, [_vm._v("Email: ")]), _vm._v(" " + _vm._s(_vm.showProfile.email) + "\n              ")]), _vm._v(" "), _c("li", [_c("b", {
-    staticClass: "fst-italic"
-  }, [_vm._v("Via: ")]), _vm._v(" " + _vm._s(_vm.showProfile.address) + "\n              ")]), _vm._v(" "), _c("li", [_c("b", {
-    staticClass: "fst-italic"
-  }, [_vm._v("Numero di telefono: ")]), _vm._v(" " + _vm._s(_vm.showProfile.phone) + "\n              ")]), _vm._v(" "), _c("li", [_c("b", {
-    staticClass: "fst-italic"
-  }, [_vm._v("Città: ")]), _vm._v(" " + _vm._s(_vm.showProfile.city) + "\n              ")]), _vm._v(" "), _c("li", [_c("b", {
-    staticClass: "fst-italic"
-  }, [_vm._v("CAP: ")]), _vm._v(" " + _vm._s(_vm.showProfile.postal_code) + "\n              ")]), _vm._v(" "), _c("li", [_c("b", {
-    staticClass: "fst-italic"
+    staticClass: "fst-italic blu-scuro"
+  }, [_vm._v("Nome: ")]), _vm._v(" " + _vm._s(_vm.showProfile.name) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
+    staticClass: "fst-italic blu-scuro"
+  }, [_vm._v("Cognome: ")]), _vm._v(" " + _vm._s(_vm.showProfile.lastname) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
+    staticClass: "fst-italic blu-scuro"
+  }, [_vm._v("Email: ")]), _vm._v(" " + _vm._s(_vm.showProfile.email) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
+    staticClass: "fst-italic blu-scuro"
+  }, [_vm._v("Via: ")]), _vm._v(" " + _vm._s(_vm.showProfile.address) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
+    staticClass: "fst-italic blu-scuro"
+  }, [_vm._v("Numero di telefono: ")]), _vm._v(" " + _vm._s(_vm.showProfile.phone) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
+    staticClass: "fst-italic blu-scuro"
+  }, [_vm._v("Città: ")]), _vm._v(" " + _vm._s(_vm.showProfile.city) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
+    staticClass: "fst-italic blu-scuro"
+  }, [_vm._v("CAP: ")]), _vm._v(" " + _vm._s(_vm.showProfile.postal_code) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
+    staticClass: "fst-italic blu-scuro"
   }, [_vm._v("Specializzazione: ")]), _vm._v(" "), _vm._l(_vm.showProfile.specializations, function (specialization) {
     return _c("span", {
       key: specialization.id,
       staticClass: "badge bg-warning mx-1"
-    }, [_vm._v("\n                      " + _vm._s(specialization.name) + "\n                  ")]);
-  })], 2)]), _vm._v(" "), _c("div", {
-    staticClass: "col-12 col-sm-12 col-md-6 d-flex justify-content-center order-md-2"
-  }, [_c("img", {
-    staticClass: "img-fluid img-thumbnail rounded-circle mb-4",
-    attrs: {
-      src: _vm.showProfile.photo,
-      alt: _vm.showProfile.name
-    }
-  })])]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n                            " + _vm._s(specialization.name) + "\n                        ")]);
+  })], 2)])]), _vm._v(" "), _c("div", {
+    staticClass: "fst-italic col-12 col-sm-12 col-md-6 col-lg-8"
+  }, [_vm._v("\n                CV: " + _vm._s(_vm.showProfile.cv) + "\n            ")])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-between align-items-center"
   }, [_c("button", {
     staticClass: "btn btn-secondary"
@@ -5798,7 +5806,7 @@ var render = function render() {
     attrs: {
       "for": "floatingTextarea2"
     }
-  }, [_vm._v("Digita qui..")])])]);
+  }, [_vm._v("Digita qui..")])])])]);
 };
 
 var staticRenderFns = [];
@@ -11138,7 +11146,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "li[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\nli b[data-v-1ca8e6b5] {\n  color: #008ecf;\n}\nimg[data-v-1ca8e6b5] {\n  min-width: 150px;\n  min-height: 150px;\n  width: 30vw;\n  height: 30vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}", ""]);
+exports.push([module.i, "#sez-nome[data-v-1ca8e6b5] {\n  height: 10vh;\n}\n#sez-nome h2[data-v-1ca8e6b5] {\n  margin: 0.5%;\n  font-size: 50px;\n}\nli[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n#user-img[data-v-1ca8e6b5] {\n  min-width: 150px;\n  min-height: 150px;\n  width: 20vw;\n  height: 20vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n.blu-scuro[data-v-1ca8e6b5] {\n  color: #00acff;\n}\n.blu-chiaro[data-v-1ca8e6b5] {\n  color: #00c7ff;\n}\n.blu-chiaro2[data-v-1ca8e6b5] {\n  color: #8ce6ff;\n}\n.nero[data-v-1ca8e6b5] {\n  color: #2a2d45;\n}\n.bg-blu-scuro[data-v-1ca8e6b5] {\n  background-color: #00acff;\n}\n.bg-blu-chiaro[data-v-1ca8e6b5] {\n  background-color: #00c7ff;\n}\n.bg-blu-chiaro2[data-v-1ca8e6b5] {\n  background-color: #8ce6ff;\n}\n.bg-nero[data-v-1ca8e6b5] {\n  background-color: #2a2d45;\n}", ""]);
 
 // exports
 
