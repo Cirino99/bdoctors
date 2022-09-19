@@ -29,7 +29,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="d-flex flex-wrap justify-content-start col-9">
+                <div class="d-flex flex-wrap justify-content-evenly col-12">
                     <CardDoctor v-for="(doctor, index) in doctors" :key="index" :doctor="doctor" />
                 </div>
             </div>
@@ -65,7 +65,7 @@ export default {
     },
     methods: {
         searchDoctor(){
-            axios.get('api/search?specialization=' + this.specializationSelect + '&city=all&reviews=0')
+            axios.get('api/search?specialization=' + this.specializationSelect + '&city=all&reviews=0&vote=1')
             .then(res => {
                 if (res.data.success) {
                     this.doctors = res.data.result;
