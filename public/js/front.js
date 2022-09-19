@@ -5412,12 +5412,16 @@ var render = function render() {
     staticClass: "card-title"
   }, [_c("b", [_vm._v(" " + _vm._s(_vm.doctor.lastname) + " ")])])], 1), _vm._v(" "), _c("div", [_c("big", [_c("strong", [_vm._v("Città:")])]), _vm._v(" "), _c("big", [_vm._v(_vm._s(_vm.doctor.city))])], 1), _vm._v(" "), _c("ul", {
     staticClass: "list-group list-group-flush"
-  }, [_vm._l(_vm.doctor.specializations, function (specialization) {
+  }, _vm._l(_vm.doctor.specializations, function (specialization) {
     return _c("li", {
       key: specialization.id,
       staticClass: "list-group-item"
     }, [_vm._v("\n                " + _vm._s(specialization.name) + "\n            ")]);
-  }), _vm._v(" "), _vm._m(0)], 2), _vm._v(" "), _c("div", {
+  }), 0), _vm._v(" "), _vm._l(_vm.doctor.reviews, function (review) {
+    return _c("span", {
+      key: review.id
+    }, [_vm._v(" " + _vm._s(review.vote))]);
+  }), _vm._v(" "), _c("div", {
     staticClass: "card-body d-flex flex-column justify-content-end"
   }, [_c("router-link", {
     staticClass: "btn btn-primary col-12",
@@ -5429,19 +5433,10 @@ var render = function render() {
         }
       }
     }
-  }, [_vm._v("Visualizza\n            ")])], 1)])]);
+  }, [_vm._v("Visualizza\n            ")])], 1)], 2)]);
 };
 
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("li", {
-    staticClass: "list-group-item"
-  }, [_vm._v("Voto: "), _c("i", {
-    staticClass: "fa-solid fa-star"
-  })]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -5534,7 +5529,7 @@ var render = function render() {
         "for": "flexRadioDefault1"
       }
     }, [_vm._v("\n                                    " + _vm._s(specialization.name) + "\n                                ")])]);
-  })], 2)])])]), _vm._v(" "), _c("div", {
+  })], 2), _vm._v(" "), _vm._m(1)])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex flex-wrap justify-content-evenly col-12"
   }, _vm._l(_vm.doctors, function (doctor, index) {
     return _c("CardDoctor", {
@@ -5553,6 +5548,77 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "card-header"
   }, [_c("h4", [_vm._v("Filtra per:")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("li", {
+    staticClass: "list-group-item"
+  }, [_c("strong", [_vm._v("Voto:")]), _vm._v(" "), _c("input", {
+    staticClass: "form-check-input",
+    attrs: {
+      type: "radio",
+      name: "flexRadioDefault",
+      id: "flexRadioDefault1"
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "flexRadioDefault1"
+    }
+  }, [_vm._v("\n                                1\n                            ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-check-input",
+    attrs: {
+      type: "radio",
+      name: "flexRadioDefault",
+      id: "flexRadioDefault2",
+      checked: ""
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "flexRadioDefault2"
+    }
+  }, [_vm._v("\n                                2\n                            ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-check-input",
+    attrs: {
+      type: "radio",
+      name: "flexRadioDefault",
+      id: "flexRadioDefault2",
+      checked: ""
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "flexRadioDefault2"
+    }
+  }, [_vm._v("\n                                3\n                            ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-check-input",
+    attrs: {
+      type: "radio",
+      name: "flexRadioDefault",
+      id: "flexRadioDefault2",
+      checked: ""
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "flexRadioDefault2"
+    }
+  }, [_vm._v("\n                                4\n                            ")]), _vm._v(" "), _c("input", {
+    staticClass: "form-check-input",
+    attrs: {
+      type: "radio",
+      name: "flexRadioDefault",
+      id: "flexRadioDefault2",
+      checked: ""
+    }
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
+    attrs: {
+      "for": "flexRadioDefault2"
+    }
+  }, [_vm._v("\n                                5\n                            ")])]);
 }];
 render._withStripped = true;
 
@@ -5574,12 +5640,12 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", {
+  return _c("div", [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "d-flex justify-content-center flex-row mt-5"
   }, [_c("form", {
-    staticClass: "d-flex form-inline my-2 my-lg-0 w-75"
+    staticClass: "d-flex justify-content-center form-inline my-2 my-lg-0 w-75"
   }, [_c("input", {
     directives: [{
       name: "model",
@@ -5587,7 +5653,7 @@ var render = function render() {
       value: _vm.search,
       expression: "search"
     }],
-    staticClass: "form-control mr-sm-2 rounded-start",
+    staticClass: "form-control mr-sm-2 w-50",
     attrs: {
       type: "search",
       placeholder: "Scrivi qui..",
@@ -5605,17 +5671,19 @@ var render = function render() {
       keyup: _vm.displayComponent
     }
   }), _vm._v(" "), _c("router-link", {
-    staticClass: "btn btn-outline-primary my-2 my-sm-0 w-25 rounded-end",
+    staticClass: "btn btn-outline-primary my-2 my-sm-0",
     attrs: {
       to: {
         name: "AdvanceSearch",
         params: {
           specializationSelect: _vm.mySpecialization
         }
-      }
+      },
+      id: "search-button"
     }
   }, [_c("img", {
     attrs: {
+      id: "search-icon",
       src: "img/BDoctors_lens_search.svg",
       alt: "lens-search"
     }
@@ -5632,7 +5700,7 @@ var render = function render() {
           return _vm.selectSpecialization(specialization);
         }
       }
-    }, [_vm._v("\n              " + _vm._s(specialization.name) + "\n          ")]);
+    }, [_vm._v("\n                        " + _vm._s(specialization.name) + "\n                    ")]);
   }), 0)]) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "mt-5"
   }, [_c("div", [_c("big", {
@@ -5640,8 +5708,8 @@ var render = function render() {
     staticStyle: {
       color: "#00334e"
     }
-  }, [_vm._v("\n          MEDICI SPONSORIZZATI\n      ")])], 1), _vm._v(" "), _c("div", {
-    staticClass: "d-flex justify-content-center my-5"
+  }, [_vm._v("\n                        MEDICI SPONSORIZZATI\n                    ")])], 1), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-center gap-5 my-5"
   }, _vm._l(_vm.doctors, function (doctor, index) {
     return _c("CardDoctor", {
       key: index,
@@ -5656,10 +5724,22 @@ var render = function render() {
     staticStyle: {
       color: "#00334e"
     }
-  }, [_vm._v("\n        PERCHÉ SCEGLIERCI\n      ")])], 1)])]);
+  }, [_vm._v("\n                        PERCHÉ SCEGLIERCI\n                    ")])], 1)])])]);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_c("img", {
+    staticClass: "img-fluid",
+    attrs: {
+      src: "img/jumbotron-2.jpg",
+      alt: "jumbotron",
+      id: "jumbotron"
+    }
+  })]);
+}];
 render._withStripped = true;
 
 
@@ -11128,7 +11208,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".form-control[data-v-13e03f97] {\n  border-width: 1px 0 1px 1px;\n}\n.form-control img[data-v-13e03f97] {\n  max-width: 5px;\n  min-height: 10px;\n}\nli[data-v-13e03f97]:hover {\n  background-color: aquamarine;\n}", ""]);
+exports.push([module.i, "#jumbotron[data-v-13e03f97] {\n  min-width: 100%;\n  min-height: 150px;\n  width: 20vw;\n  height: 30vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#search-button[data-v-13e03f97] {\n  width: 100px;\n}\n#search-icon[data-v-13e03f97] {\n  max-width: 20px;\n}\nli[data-v-13e03f97]:hover {\n  background-color: aquamarine;\n}", ""]);
 
 // exports
 
@@ -44948,7 +45028,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_PageHome_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/PageHome.vue */ "./resources/js/pages/PageHome.vue");
 /* harmony import */ var _pages_PageAdvanceSearch_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/PageAdvanceSearch.vue */ "./resources/js/pages/PageAdvanceSearch.vue");
 /* harmony import */ var _pages_PageShow__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/PageShow */ "./resources/js/pages/PageShow.vue");
+!(function webpackMissingModule() { var e = new Error("Cannot find module '@fortawesome/fontawesome-svg-core'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module '@fortawesome/vue-fontawesome'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+!(function webpackMissingModule() { var e = new Error("Cannot find module '@fortawesome/free-solid-svg-icons'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+
+
 
 
 
@@ -44976,6 +45062,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history'
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+/* add icons to the library */
+
+!(function webpackMissingModule() { var e = new Error("Cannot find module '@fortawesome/fontawesome-svg-core'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()).add(!(function webpackMissingModule() { var e = new Error("Cannot find module '@fortawesome/free-solid-svg-icons'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+/* add font awesome icon component */
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('font-awesome-icon', !(function webpackMissingModule() { var e = new Error("Cannot find module '@fortawesome/vue-fontawesome'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#root',
   render: function render(h) {
