@@ -2,7 +2,7 @@
     <div class="">
         <div class="container">
             <div class="d-flex flex-column justify-content-center">
-                <div class="col-2 col-md-12 m-2 p-2" style="min-width: 250px;">
+                <div class="col-12 m-2 p-2">
                     <div class="card w-100 m-auto">
                         <div class="card-header">
                             <h4>Filtra per:</h4>
