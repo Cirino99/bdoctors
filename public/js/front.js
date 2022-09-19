@@ -20839,11 +20839,13 @@ var render = function render() {
       alt: "lens-search"
     }
   })])], 1)]), _vm._v(" "), _vm.display ? _c("div", {
-    staticClass: "d-flex justify-content-center",
+    staticClass: "collapse position-absolute top- d-flex justify-content-center",
     on: {
       mouseleave: _vm.handleFocusOut
     }
-  }, [_c("ul", _vm._l(_vm.specializations, function (specialization) {
+  }, [_c("ul", {
+    staticClass: "card overflow-auto"
+  }, _vm._l(_vm.specializations, function (specialization) {
     return _c("li", {
       key: specialization.id,
       on: {
@@ -20860,7 +20862,7 @@ var render = function render() {
       color: "#00334e"
     }
   }, [_vm._v("\n                        MEDICI SPONSORIZZATI\n                    ")])], 1), _vm._v(" "), _c("div", {
-    staticClass: "d-flex justify-content-center gap-5 my-5"
+    staticClass: "d-flex flex-wrap justify-content-center gap-5 my-5"
   }, _vm._l(_vm.doctors, function (doctor, index) {
     return _c("CardDoctor", {
       key: index,
@@ -26370,7 +26372,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#jumbotron[data-v-13e03f97] {\n  min-width: 100%;\n  min-height: 150px;\n  width: 20vw;\n  height: 30vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#search-button[data-v-13e03f97] {\n  width: 100px;\n}\n#search-icon[data-v-13e03f97] {\n  max-width: 20px;\n}\nli[data-v-13e03f97]:hover {\n  background-color: aquamarine;\n}", ""]);
+exports.push([module.i, "#jumbotron[data-v-13e03f97] {\n  min-width: 100%;\n  min-height: 150px;\n  width: 20vw;\n  height: 30vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#search-button[data-v-13e03f97] {\n  width: 100px;\n}\n#search-icon[data-v-13e03f97] {\n  max-width: 20px;\n}\nli[data-v-13e03f97] {\n  list-style-type: none;\n}\nli[data-v-13e03f97]:hover {\n  background-color: aquamarine;\n}", ""]);
 
 // exports
 

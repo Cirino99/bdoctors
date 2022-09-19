@@ -13,20 +13,21 @@
                     </router-link>
                 </form>
                 </div>
-                <div class="d-flex justify-content-center" v-if="display" @mouseleave="handleFocusOut">
-                    <ul>
+                <div class="collapse position-absolute top- d-flex justify-content-center" v-if="display" @mouseleave="handleFocusOut">
+                    <ul class="card overflow-auto">
                         <li v-for="specialization in specializations" :key="specialization.id" @click="selectSpecialization(specialization)">
                             {{ specialization.name }}
                         </li>
                     </ul>
                 </div>
+                <!-- schede dottori -->
                 <div class="mt-5">
                     <div>
                         <big class="fs-2" style="color: #00334e">
                             MEDICI SPONSORIZZATI
                         </big>
                     </div>
-                    <div class="d-flex justify-content-center gap-5 my-5">
+                    <div class="d-flex flex-wrap justify-content-center gap-5 my-5">
                         <!-- card singolo dottore -->
                         <CardDoctor v-for="(doctor, index) in doctors" :key="index" :doctor="doctor"/>
                     </div>
@@ -109,6 +110,10 @@
 
     #search-icon {
         max-width: 20px;
+    }
+
+    li {
+        list-style-type: none;
     }
 
     li:hover {
