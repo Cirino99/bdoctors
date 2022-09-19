@@ -43,7 +43,7 @@
                 <!-- <li class="list-group-item">Voto: {{ doctor.vote}} <font-awesome-icon icon="fas fa-star" /></li> -->
             </ul>
 
-            <span v-for="review in doctor.reviews" :key="review.id"> {{review.vote}}</span>
+            <span> {{doctor.vote}}</span>
 
             <div class="card-body d-flex flex-column justify-content-end">
                 <router-link :to="{name: 'profile', params: {id: doctor.id} }" class="btn btn-primary col-12">Visualizza
