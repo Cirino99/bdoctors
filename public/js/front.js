@@ -20351,7 +20351,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       doctors: [],
       specializations: [],
-      search: ''
+      search: '',
+      vote: 0,
+      review: 0
     };
   },
   created: function created() {
@@ -20581,7 +20583,7 @@ var render = function render() {
       key: specialization.id,
       staticClass: "list-group-item"
     }, [_vm._v("\n                " + _vm._s(specialization.name) + "\n            ")]);
-  }), 0), _vm._v(" "), _c("span", [_vm._v(" " + _vm._s(_vm.doctor.vote))]), _vm._v(" "), _c("div", {
+  }), 0), _vm._v(" "), _c("span", [_c("strong", [_vm._v("Voto:")]), _vm._v(" " + _vm._s(_vm.doctor.vote))]), _vm._v(" "), _c("div", {
     staticClass: "card-body d-flex flex-column justify-content-end"
   }, [_c("router-link", {
     staticClass: "btn btn-primary col-12",
@@ -20672,7 +20674,7 @@ var render = function render() {
       staticClass: "form-check-input",
       attrs: {
         type: "radio",
-        name: "flexRadioDefault",
+        name: "specialization",
         id: "flexRadioDefault1"
       },
       domProps: {
@@ -20686,10 +20688,52 @@ var render = function render() {
     }), _vm._v(" "), _c("label", {
       staticClass: "form-check-label",
       attrs: {
-        "for": "flexRadioDefault1"
+        "for": "specialization"
       }
     }, [_vm._v("\n                                    " + _vm._s(specialization.name) + "\n                                ")])]);
-  })], 2), _vm._v(" "), _vm._m(1)])])]), _vm._v(" "), _c("div", {
+  })], 2), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item"
+  }, [_c("strong", [_vm._v("Media Voto:")]), _vm._v(" "), _vm._l(5, function (item) {
+    return _c("span", {
+      key: item
+    }, [_c("input", {
+      staticClass: "form-check-input",
+      attrs: {
+        type: "radio",
+        name: "vote",
+        id: "flexRadioDefault1"
+      },
+      domProps: {
+        checked: _vm.vote === item
+      }
+    }), _vm._v(" "), _c("label", {
+      staticClass: "form-check-label",
+      attrs: {
+        "for": "vote"
+      }
+    }, [_vm._v("\n                                    " + _vm._s(item) + "\n                                ")])]);
+  })], 2), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item"
+  }, [_c("strong", [_vm._v("Numero Recensioni:")]), _vm._v(" "), _vm._l(4, function (item) {
+    return _c("span", {
+      key: item
+    }, [_c("input", {
+      staticClass: "form-check-input",
+      attrs: {
+        type: "radio",
+        name: "review",
+        id: "flexRadioDefault1"
+      },
+      domProps: {
+        checked: _vm.review === item
+      }
+    }), _vm._v(" "), _c("label", {
+      staticClass: "form-check-label",
+      attrs: {
+        "for": "review"
+      }
+    }, [_vm._v("\n                                    " + _vm._s(item) + "\n                                ")])]);
+  })], 2)])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex flex-wrap justify-content-evenly col-12"
   }, _vm._l(_vm.doctors, function (doctor, index) {
     return _c("CardDoctor", {
@@ -20708,77 +20752,6 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "card-header"
   }, [_c("h4", [_vm._v("Filtra per:")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("li", {
-    staticClass: "list-group-item"
-  }, [_c("strong", [_vm._v("Voto:")]), _vm._v(" "), _c("input", {
-    staticClass: "form-check-input",
-    attrs: {
-      type: "radio",
-      name: "flexRadioDefault",
-      id: "flexRadioDefault1"
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "form-check-label",
-    attrs: {
-      "for": "flexRadioDefault1"
-    }
-  }, [_vm._v("\n                                1\n                            ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-check-input",
-    attrs: {
-      type: "radio",
-      name: "flexRadioDefault",
-      id: "flexRadioDefault2",
-      checked: ""
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "form-check-label",
-    attrs: {
-      "for": "flexRadioDefault2"
-    }
-  }, [_vm._v("\n                                2\n                            ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-check-input",
-    attrs: {
-      type: "radio",
-      name: "flexRadioDefault",
-      id: "flexRadioDefault2",
-      checked: ""
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "form-check-label",
-    attrs: {
-      "for": "flexRadioDefault2"
-    }
-  }, [_vm._v("\n                                3\n                            ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-check-input",
-    attrs: {
-      type: "radio",
-      name: "flexRadioDefault",
-      id: "flexRadioDefault2",
-      checked: ""
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "form-check-label",
-    attrs: {
-      "for": "flexRadioDefault2"
-    }
-  }, [_vm._v("\n                                4\n                            ")]), _vm._v(" "), _c("input", {
-    staticClass: "form-check-input",
-    attrs: {
-      type: "radio",
-      name: "flexRadioDefault",
-      id: "flexRadioDefault2",
-      checked: ""
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "form-check-label",
-    attrs: {
-      "for": "flexRadioDefault2"
-    }
-  }, [_vm._v("\n                                5\n                            ")])]);
 }];
 render._withStripped = true;
 
@@ -60528,8 +60501,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })

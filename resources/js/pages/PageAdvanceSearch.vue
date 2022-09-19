@@ -21,41 +21,35 @@
                                 <strong>Specializzazione:</strong><br>
                                 <div v-for="specialization in specializations" :key="specialization.id"
                                     class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    <input class="form-check-input" type="radio" name="specialization"
                                         id="flexRadioDefault1" :checked=" specializationSelect === specialization.id"
                                         @click="changeSpecialization(specialization.id)">
-                                    <label class="form-check-label" for="flexRadioDefault1">
+                                    <label class="form-check-label" for="specialization">
                                         {{ specialization.name }}
                                     </label>
                                 </div>
                             </li>
                             <li class="list-group-item">
-                                <strong>Voto:</strong>
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault1">
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                    1
-                                </label>
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    2
-                                </label>
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    3
-                                </label>
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    4
-                                </label>
-                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                    id="flexRadioDefault2" checked>
-                                <label class="form-check-label" for="flexRadioDefault2">
-                                    5
-                                </label>
+                                <strong>Media Voto:</strong>
+                                <span v-for="item in 5" :key="item">
+                                    <input class="form-check-input" type="radio" name="vote"
+                                        id="flexRadioDefault1" :checked="vote === item"
+                                        @click="changeVote(item)">
+                                    <label class="form-check-label" for="vote">
+                                        {{item}}
+                                    </label>
+                                </span>
+                            </li>
+                            <li class="list-group-item">
+                                <strong>Numero Recensioni:</strong>
+                                <span v-for="item in 4" :key="item">
+                                    <input class="form-check-input" type="radio" name="review"
+                                        id="flexRadioDefault1" :checked="review === item"
+                                        @click="changeReview(item)">
+                                    <label class="form-check-label" for="review">
+                                        {{item}}
+                                    </label>
+                                </span>
                             </li>
                         </ul>
                     </div>
@@ -82,7 +76,9 @@ export default {
         return {
             doctors: [],
             specializations: [],
-            search: ''
+            search: '',
+            vote: 0,
+            review: 0
         }
     },
     created() {
@@ -96,7 +92,7 @@ export default {
     },
     methods: {
         searchDoctor() {
-            axios.get('api/search?specialization=' + this.specializationSelect + '&city=all&reviews=0&vote=1')
+            axios.get('api/search?specialization=' + this.specializationSelect + '&city=all&reviews= ' + this.review + '  &vote=' + this.vote)
                 .then(res => {
                     if (res.data.success) {
                         this.doctors = res.data.result;
@@ -105,6 +101,14 @@ export default {
         },
         changeSpecialization(id) {
             this.specializationSelect = id;
+            this.searchDoctor();
+        },
+        changeVote(id) {
+            this.vote = id;
+            this.searchDoctor();
+        },
+        changeReview(id) {
+            this.review = id;
             this.searchDoctor();
         }
     }
