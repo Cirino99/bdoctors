@@ -20506,6 +20506,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     displayComponent: function displayComponent() {
       this.display = true;
+    },
+    hideComponent: function hideComponent() {
+      this.display = false;
     }
   }
 });
@@ -21050,7 +21053,9 @@ var render = function render() {
     },
     on: {
       click: function click($event) {
-        return _vm.newReview(_vm.showProfile.id);
+        _vm.newReview(_vm.showProfile.id);
+
+        _vm.hideComponent();
       }
     }
   }, [_vm._v("Invia")])])]) : _vm._e()])]);

@@ -62,7 +62,7 @@
                 <div class="mt-4">
                     <textarea class="form-control" placeholder="Lascia una recensione..." id="floatingTextarea2" v-model="text" style="height: 100px"></textarea>
                     <label for="floatingTextarea2"></label>
-                    <button class="btn mt-4" style="background: #23A3B3; color: #fff" @click="newReview(showProfile.id)">Invia</button>
+                    <button class="btn mt-4" style="background: #23A3B3; color: #fff" @click="newReview(showProfile.id); hideComponent()">Invia</button>
                 </div>
             </div>
         </div>
@@ -117,7 +117,11 @@ export default {
         },
 
         displayComponent() {
-            this.display = true;
+            this.display = true
+        },
+
+        hideComponent() {
+            this.display = false;
         }
     }
 }
