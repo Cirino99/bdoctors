@@ -17,20 +17,15 @@ class DoctorController extends Controller
 
     public function index()
     {
-        $doctors_ids = DB::table('users')
-            ->join('sponsorship_user', 'users.id', '=', 'sponsorship_user.user_id')
-            ->where('sponsorship_user.ending_date', '>', date('Y-m-d H:i:s'))
-            ->select('users.id')
-            ->get();
-        $doctors = [];
-        foreach ($doctors_ids as $doctor_id) {
-            $doctor = User::with(['specializations'])->where('id', $doctor_id->id)->first();
+        $doctors = User::with(['specializations'])->whereHas('sponsorships', function ($q) {
+            $q->where('ending_date', '>', date('Y-m-d H:i:s'));
+        })->get();
+        foreach ($doctors as $doctor) {
             unset($doctor->email_verified_at, $doctor->created_at, $doctor->updated_at);
             foreach ($doctor->specializations as $specialization) {
                 unset($specialization->created_at, $specialization->updated_at, $specialization->pivot);
             }
             $doctor->photo = $this->fixImageUrl($doctor->photo);
-            array_push($doctors, $doctor);
         }
         $specializations = Specialization::get()->pluck('name');
 
@@ -84,29 +79,30 @@ class DoctorController extends Controller
     {
         $specialization = $request->get('specialization');
         $city = $request->get('city');
+        $reviews = $request->get('reviews');
+        //$vote = $request->get('vote');
+        //$doctors = User::with(['reviews'])->avg('reviews.vote')->get();
+        //ddd($doctors);
         if ($city == 'all') {
-            $doctors_ids = DB::table('users')
-                ->join('specialization_user', 'users.id', '=', 'specialization_user.user_id')
-                ->where('specialization_user.specialization_id', 'like', $specialization)
-                ->select('users.id')
+            $doctors = User::with(['specializations'])->whereHas('specializations', function ($q) use ($specialization) {
+                $q->where('specialization_id', 'like', $specialization);
+            })->withCount('reviews')
+                ->having('reviews_count', '>=', $reviews)
                 ->get();
         } else {
-            $doctors_ids = DB::table('users')
-                ->join('specialization_user', 'users.id', '=', 'specialization_user.user_id')
-                ->where('users.city', 'like', $city)
-                ->where('specialization_user.specialization_id', 'like', $specialization)
-                ->select('users.id')
+            $doctors = User::with(['specializations'])->whereHas('specializations', function ($q) use ($specialization) {
+                $q->where('specialization_id', 'like', $specialization);
+            })->where('city', 'like', $city)
+                ->withCount('reviews')
+                ->having('reviews_count', '>=', $reviews)
                 ->get();
         }
-        $doctors = [];
-        foreach ($doctors_ids as $doctor_id) {
-            $doctor = User::with(['specializations'])->where('id', $doctor_id->id)->first();
+        foreach ($doctors as $doctor) {
             unset($doctor->email_verified_at, $doctor->created_at, $doctor->updated_at);
             foreach ($doctor->specializations as $specialization) {
                 unset($specialization->created_at, $specialization->updated_at, $specialization->pivot);
             }
             $doctor->photo = $this->fixImageUrl($doctor->photo);
-            array_push($doctors, $doctor);
         }
         if ($doctors) {
             return response()->json([
