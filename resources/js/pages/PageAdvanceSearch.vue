@@ -1,27 +1,27 @@
 <template>
     <div class="">
-        <div class="container-fluid">
-            <div class="d-flex">
-                <div class="col-2 m-2" style="min-width: 250px;">
-                    <div class="card">
+        <div class="container">
+            <div class="d-flex flex-column justify-content-center">
+                <div class="col-2 col-md-12 m-2 p-2" style="min-width: 250px;">
+                    <div class="card w-100 m-auto">
                         <div class="card-header">
-                            <h3>Filtra per:</h3>
+                            <h4>Filtra per:</h4>
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><strong>Città:</strong><br>
-                                <form class="d-flex form-inline my-2 my-lg-0">
-                                    <input v-model="search" @keyup.enter="searchDoctor" class="form-control mr-sm-2"
-                                        type="search" placeholder="Search" aria-label="Search">
-                                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                                <form class="d-flex form-inline py-2 my-lg-0">
+                                    <input v-model="search" @keyup.enter="searchDoctor" class="form-control mr-sm-2 rounded-3 w-50 me-2"
+                                        type="search" placeholder="Scrivi qui.." aria-label="Search">
+                                    <button class="btn btn-outline-primary my-2 m my-sm-0 rounded-3" type="submit">Filtra</button>
                                 </form>
                             </li>
-                            <li class="list-group-item"><strong>Specializzazione:</strong><br>
+                            <li class="list-group-item d-flex flex-column flex-wrap flex-md-row gap-2"><strong>Specializzazione:</strong><br>
                                 <div v-for="specialization in specializations" :key="specialization.id" class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault"
                                         id="flexRadioDefault1" :checked=" specializationSelect === specialization.id"
                                         @click="changeSpecialization(specialization.id)">
                                     <label class="form-check-label" for="flexRadioDefault1">
-                                        {{specialization.name}}
+                                        {{ specialization.name }}
                                     </label>
                                 </div>
                             </li>
@@ -29,7 +29,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="d-flex flex-wrap justify-content-center col-9 ms-5">
+                <div class="d-flex flex-wrap justify-content-start col-9">
                     <CardDoctor v-for="(doctor, index) in doctors" :key="index" :doctor="doctor" />
                 </div>
             </div>
@@ -81,7 +81,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.form-check {
-    display: inline-block;
-}
+    .card {
+        width: 60vw;
+
+        .form-check {
+            display: inline-block;
+        }
+    }
 </style>
