@@ -11027,7 +11027,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card[data-v-4d587a7c] {\n  width: 60vw;\n}\n.card .form-check[data-v-4d587a7c] {\n  display: inline-block;\n}", ""]);
+exports.push([module.i, ".card[data-v-4d587a7c] {\n  width: 60vw;\n  color: #00acff;\n}\n.card .form-check[data-v-4d587a7c] {\n  display: inline-block;\n}", ""]);
 
 // exports
 
