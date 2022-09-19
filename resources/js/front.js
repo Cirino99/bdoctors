@@ -24,7 +24,7 @@ const routes = [
     },
 
     {
-        path: '/profile',
+        path: '/profile/:id',
         name: 'profile',
         component: PageShow,
         props: true,
