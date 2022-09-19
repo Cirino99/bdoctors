@@ -55,7 +55,7 @@ import axios from 'axios';
 export default {
     name: 'PageShow',
     props: {
-        id: String,
+        id: Number,
     },
     data() {
         return {
