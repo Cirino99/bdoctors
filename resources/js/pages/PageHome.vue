@@ -1,23 +1,19 @@
 <template>
   <div>
-    <div class="d-flex justify-content-center mt-5">
+    <div class="d-flex justify-content-center flex-row mt-5">
       <!-- serchbar -->
       <form class="d-flex form-inline my-2 my-lg-0">
-        <input @click="displayComponent" @focusout="handleFocusOut" v-model="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        <input v-model="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" @input="searchInput" @click="displayComponent" @keyup="displayComponent">
+        <router-link :to="{name: 'AdvanceSearch', params: {specializationSelect: mySpecialization} }" class="btn btn-outline-primary my-2 my-sm-0">Search</router-link>
       </form>
     </div>
-    <div class="d-flex justify-content-center" v-if="display">
-      <ul>
-        <!-- <li v-for="specialization in spec.specializations" :key="specialization.id">
-          {{ specialization }}
-        </li> -->
-        <li v-for="specialization in filteredSpecialization" :key="specialization.id">
-          {{ specialization.name }}
-        </li>
-      </ul>
+    <div class="d-flex justify-content-center" v-if="display" @mouseleave="handleFocusOut">
+        <ul>
+            <li v-for="specialization in specializations" :key="specialization.id" @click="selectSpecialization(specialization)">
+                {{ specialization.name }}
+            </li>
+        </ul>  
     </div>
-
     <div class="mt-5">
       <div>
         <h3>
@@ -46,15 +42,10 @@ import CardDoctor from '../components/CardDoctor.vue'
 
     data() {
       return {
-
         search: "",
-
-        // array per il dottori 
+        mySpecialization: null,
         doctors: [],
-
-        // array per le specializzazioni
-        spec: [],
-
+        specializations: [],
         display: false
       }
     },
@@ -68,39 +59,32 @@ import CardDoctor from '../components/CardDoctor.vue'
         .then(res => {
             if (res.data.success) {
               this.doctors = res.data.result;
-              // this.specializations = res.data.specializations;
-              // console.log(this.doctors);
-              // console.log(this.specializations);
             }
           });
-      axios.get('/api/search/specialization')
-        .then(res => {
-          if (res.data.success) {
-            this.spec = res.data.result;
-            console.log(this.spec); 
-          }
-        });
-    },
-
-    // methods: {
-    //   searchInput() {
-    //     this.search.foreach(result => {
-    //       result.specializations.toLowerCase().includes(this.search.toLowerCase())
-    //     })
-    //   }
-    // }
-    computed: {
-      filteredSpecialization() {
-        return this.spec.filter(specialization => 
-          specialization.name.toLowerCase().includes(this.search.toLowerCase()))
-      }
     },
 
     methods: {
-        displayComponent() {
+      searchInput() {
+        if(this.search != ''){
+            axios.get('/api/search/specialization?specialization=' + this.search)
+        .then(res => {
+          if (res.data.success) {
+            this.specializations = res.data.result;
+            console.log(this.specializations); 
+          }
+        });
+        } else {
+            this.specializations = [];
+        }
+       
+      },
+      selectSpecialization(specialization) {
+        this.mySpecialization = specialization.id;
+        this.search = specialization.name;
+      },
+      displayComponent() {
           this.display = true;
         },
-
         handleFocusOut() {
           this.display = false;
         }

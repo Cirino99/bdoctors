@@ -14,6 +14,7 @@ const routes = [
         path: '/search',
         name: 'AdvanceSearch',
         component: AdvanceSearch,
+        props: true,
     },
 
     {
@@ -25,7 +26,8 @@ const routes = [
     {
         path: '/profile',
         name: 'profile',
-        component: PageShow
+        component: PageShow,
+        props: true,
     },
 ];
 

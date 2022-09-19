@@ -14,6 +14,7 @@
         </ul>
         <div class="card-body">
         <a href="#" class="card-link">Visualizza</a>
+        <router-link :to="{name: 'profile', params: {id: doctor.id} }" class="btn btn-primary">Visualizza</router-link>
         </div>
     </div>
 </template>

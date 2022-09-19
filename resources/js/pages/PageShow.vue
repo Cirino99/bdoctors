@@ -54,13 +54,16 @@ import axios from 'axios';
 
 export default {
     name: 'PageShow',
+    props: {
+        id: String,
+    },
     data() {
         return {
             showProfile: []
         }
     },
     created() {
-        axios.get('/api/doctors/2')
+        axios.get('/api/doctors/' + this.id)
             .then(res =>{
                 if (res.data.success) {
                     this.showProfile = res.data.result
