@@ -27,12 +27,9 @@ class DoctorController extends Controller
             }
             $doctor->photo = $this->fixImageUrl($doctor->photo);
         }
-        $specializations = Specialization::get()->pluck('name');
-
         return response()->json([
             'success'   => true,
-            'result'    => $doctors,
-            'specializations' => $specializations
+            'result'    => $doctors
         ]);
     }
 
