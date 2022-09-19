@@ -5,7 +5,7 @@
         </div>
         <div class="container mt-5">
             <div class="d-flex justify-content-start flex-wrap mb-5">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center flex-column align-items-center">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center flex-column">
                     <!-- foto profilo -->
                     <img id="user-img" class="img-fluid img-thumbnail rounded-circle mb-4" :src="showProfile.photo" :alt="showProfile.name">
                     <ul class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex flex-column justify-content-center gap-2 order-2">

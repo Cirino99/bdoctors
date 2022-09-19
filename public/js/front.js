@@ -5406,20 +5406,18 @@ var render = function render() {
     }
   })])]), _vm._v(" "), _c("div", {
     staticClass: "my-card-content"
-  }, [_c("big", {
+  }, [_c("div", [_c("big", [_c("strong", [_vm._v("Dr.")])]), _vm._v(" "), _c("big", {
     staticClass: "card-title"
   }, [_c("b", [_vm._v(" " + _vm._s(_vm.doctor.name) + " ")])]), _vm._v(" "), _c("big", {
     staticClass: "card-title"
-  }, [_c("b", [_vm._v(" " + _vm._s(_vm.doctor.lastname) + " ")])]), _vm._v(" "), _c("ul", {
-    staticClass: "list-group list-group-flush fst-italic"
+  }, [_c("b", [_vm._v(" " + _vm._s(_vm.doctor.lastname) + " ")])])], 1), _vm._v(" "), _c("div", [_c("big", [_c("strong", [_vm._v("Città:")])]), _vm._v(" "), _c("big", [_vm._v(_vm._s(_vm.doctor.city))])], 1), _vm._v(" "), _c("ul", {
+    staticClass: "list-group list-group-flush"
   }, [_vm._l(_vm.doctor.specializations, function (specialization) {
     return _c("li", {
       key: specialization.id,
       staticClass: "list-group-item"
     }, [_vm._v("\n                " + _vm._s(specialization.name) + "\n            ")]);
-  }), _vm._v(" "), _c("li", {
-    staticClass: "list-group-item"
-  }, [_vm._v("VALUTAZIONE")])], 2), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _vm._m(0)], 2), _vm._v(" "), _c("div", {
     staticClass: "card-body d-flex flex-column justify-content-end"
   }, [_c("router-link", {
     staticClass: "btn btn-primary col-12",
@@ -5431,10 +5429,19 @@ var render = function render() {
         }
       }
     }
-  }, [_vm._v("Visualizza\n            ")])], 1)], 1)]);
+  }, [_vm._v("Visualizza\n            ")])], 1)])]);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("li", {
+    staticClass: "list-group-item"
+  }, [_vm._v("Voto: "), _c("i", {
+    staticClass: "fa-solid fa-star"
+  })]);
+}];
 render._withStripped = true;
 
 
@@ -5460,10 +5467,7 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "d-flex flex-column justify-content-center"
   }, [_c("div", {
-    staticClass: "col-2 col-md-12 m-2 p-2",
-    staticStyle: {
-      "min-width": "250px"
-    }
+    staticClass: "col-12 m-2 p-2"
   }, [_c("div", {
     staticClass: "card w-100 m-auto"
   }, [_vm._m(0), _vm._v(" "), _c("ul", {
@@ -5686,7 +5690,7 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "d-flex justify-content-start flex-wrap mb-5"
   }, [_c("div", {
-    staticClass: "col-12 col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center flex-column align-items-center"
+    staticClass: "col-12 col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center flex-column"
   }, [_c("img", {
     staticClass: "img-fluid img-thumbnail rounded-circle mb-4",
     attrs: {
@@ -11086,7 +11090,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".my-card[data-v-20294d0c] {\n  width: 300px;\n  border-radius: 25px;\n  background-color: #FFF;\n  color: #2a2d45;\n  margin-bottom: 5px;\n}\n.my-image-content[data-v-20294d0c],\n.my-card-content[data-v-20294d0c] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.my-image-content[data-v-20294d0c] {\n  position: relative;\n  row-gap: 5px;\n  padding: 25px 0;\n}\n.my-overlay[data-v-20294d0c] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%;\n  background-color: #4070F4;\n  border-radius: 25px 25px 0 25px;\n}\n.my-overlay[data-v-20294d0c]::before,\n.my-overlay[data-v-20294d0c]::after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  bottom: -40px;\n  height: 40px;\n  width: 40px;\n  background-color: #4070F4;\n}\n.my-overlay[data-v-20294d0c]::after {\n  border-radius: 0 25px 0 0;\n  background-color: #FFF;\n}\n.my-card-image[data-v-20294d0c] {\n  position: relative;\n  height: 150px;\n  width: 150px;\n  border-radius: 50%;\n  background: #FFF;\n  padding: 3px;\n}\n.my-card-image .my-card-img[data-v-20294d0c] {\n  height: 100%;\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}\n.my-description[data-v-20294d0c] {\n  font-size: 14px;\n  color: #707070;\n  text-align: center;\n  z-index: 500;\n}", ""]);
+exports.push([module.i, ".my-card[data-v-20294d0c] {\n  width: 250px;\n  border-radius: 25px;\n  background-color: #FFF;\n  color: #2a2d45;\n  margin-bottom: 5px;\n}\n.my-image-content[data-v-20294d0c] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.my-card-content[data-v-20294d0c] {\n  text-align: center;\n}\n.my-image-content[data-v-20294d0c] {\n  position: relative;\n  row-gap: 5px;\n  padding: 25px 0;\n}\n.my-overlay[data-v-20294d0c] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%;\n  background-color: #4070F4;\n  border-radius: 25px 25px 0 25px;\n}\n.my-overlay[data-v-20294d0c]::before,\n.my-overlay[data-v-20294d0c]::after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  bottom: -40px;\n  height: 40px;\n  width: 40px;\n  background-color: #4070F4;\n}\n.my-overlay[data-v-20294d0c]::after {\n  border-radius: 0 25px 0 0;\n  background-color: #FFF;\n}\n.my-card-image[data-v-20294d0c] {\n  position: relative;\n  height: 130px;\n  width: 130px;\n  border-radius: 50%;\n  background: #FFF;\n  padding: 3px;\n}\n.my-card-image .my-card-img[data-v-20294d0c] {\n  height: 100%;\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}\n.my-description[data-v-20294d0c] {\n  font-size: 14px;\n  color: #707070;\n  text-align: center;\n  z-index: 500;\n}", ""]);
 
 // exports
 
