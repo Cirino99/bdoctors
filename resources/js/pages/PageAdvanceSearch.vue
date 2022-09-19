@@ -66,7 +66,7 @@ export default {
     },
     methods: {
         searchDoctor(){
-            axios.get('api/search?specialization=' + this.specializationSelect + '&city=all')
+            axios.get('api/search?specialization=' + this.specializationSelect + '&city=all&reviews=0')
             .then(res => {
                 if (res.data.success) {
                     this.doctors = res.data.result;
