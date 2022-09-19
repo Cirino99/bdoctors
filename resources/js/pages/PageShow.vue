@@ -4,28 +4,27 @@
             <h2>{{ showProfile.name }} {{ showProfile.lastname }}</h2>       
         </div>
         <div class="container mt-5">
-            <div class="d-flex flex-row-reverse flex-wrap mb-5">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center order-md-2 flex-column">
+            <div class="d-flex justify-content-start flex-wrap mb-5">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center flex-column align-items-center">
                     <!-- foto profilo -->
                     <img id="user-img" class="img-fluid img-thumbnail rounded-circle mb-4" :src="showProfile.photo" :alt="showProfile.name">
                     <ul class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex flex-column justify-content-center gap-2 order-2">
                         <li>
-                            <b class="fst-italic blu-scuro">Nome: </b> {{ showProfile.name }}
-                        </li>
-                        <li>
-                            <b class="fst-italic blu-scuro">Cognome: </b> {{ showProfile.lastname }}
+                            <h3>
+                                {{ showProfile.name }} {{ showProfile.lastname }}
+                            </h3>
                         </li>
                         <li>
                             <b class="fst-italic blu-scuro">Email: </b> {{ showProfile.email }}
-                        </li>
-                        <li>
-                            <b class="fst-italic blu-scuro">Via: </b> {{ showProfile.address }}
                         </li>
                         <li>
                             <b class="fst-italic blu-scuro">Numero di telefono: </b> {{ showProfile.phone }}
                         </li>
                         <li>
                             <b class="fst-italic blu-scuro">Città: </b> {{ showProfile.city }}
+                        </li>
+                        <li>
+                            <b class="fst-italic blu-scuro">Via: </b> {{ showProfile.address }}
                         </li>
                         <li>
                             <b class="fst-italic blu-scuro">CAP: </b> {{ showProfile.postal_code }}
@@ -41,7 +40,12 @@
                 </div>
                 <!-- lista info profilo -->
                 <div class="fst-italic col-12 col-sm-12 col-md-6 col-lg-8">
-                    CV: {{ showProfile.cv }}
+                    <h4>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dolorem rerum, tempore quaerat quasi quisquam! Delectus, fuga laboriosam voluptatem quos eveniet blanditiis eum quidem et dolorum eaque earum iure neque!
+                    </h4>
+                    <div>
+                        CV: {{ showProfile.cv }}
+                    </div>
                 </div>
             </div>
             <div class="d-flex justify-content-between align-items-center">
@@ -50,10 +54,15 @@
             </div>
             <!-- campo per la recensione temporaneo TODO: da sistemare -->
             <div class="form-floating my-4">
-                <input type="text" v-model="name">
-                <input type="number" v-model="vote">
-                <textarea class="form-control" placeholder="Lascia una recensione" id="floatingTextarea2" v-model="text" style="height: 100px"></textarea>
-                <label for="floatingTextarea2" style="color: #cecece">Digita qui..</label>
+                <!-- voto -->
+                <input type="text" v-model="name" placeholder="Il tuo nome...">
+                <input id="voto" type="number" v-model="vote" placeholder="voto...">
+
+                <!-- recensione  -->
+                <div class="mt-4">
+                    <textarea class="form-control" placeholder="Lascia una recensione..." id="floatingTextarea2" v-model="text" style="height: 100px"></textarea>
+                    <label for="floatingTextarea2"></label>
+                </div>
             </div>
         </div>
     </div>
@@ -110,6 +119,8 @@ export default {
 
 <style lang="scss" scoped>
 
+    @import "../../sass/bdoctor-palette.scss";
+
     #sez-nome {
         height: 10vh;
         h2 {
@@ -122,15 +133,19 @@ export default {
     }
   
     #user-img {
-        min-width: 150px;
-        min-height: 150px;
-        width: 20vw;
-        height: 20vw;
+        width: 200px;
+        height: 200px;
         object-fit: cover;
         object-position: center;
     }
 
+    #voto {
+        width: 70px;
+    }
+
     // colors
+
+    
     .blu-scuro {
         color: #00acff;
     }

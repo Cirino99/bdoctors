@@ -20797,12 +20797,12 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", {
+  return _c("div", [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "d-flex justify-content-center flex-row mt-5"
   }, [_c("form", {
-    staticClass: "d-flex form-inline my-2 my-lg-0 w-75"
+    staticClass: "d-flex justify-content-center form-inline my-2 my-lg-0 w-75"
   }, [_c("input", {
     directives: [{
       name: "model",
@@ -20810,7 +20810,7 @@ var render = function render() {
       value: _vm.search,
       expression: "search"
     }],
-    staticClass: "form-control mr-sm-2 rounded-start",
+    staticClass: "form-control mr-sm-2 w-50",
     attrs: {
       type: "search",
       placeholder: "Scrivi qui..",
@@ -20828,17 +20828,19 @@ var render = function render() {
       keyup: _vm.displayComponent
     }
   }), _vm._v(" "), _c("router-link", {
-    staticClass: "btn btn-outline-primary my-2 my-sm-0 w-25 rounded-end",
+    staticClass: "btn btn-outline-primary my-2 my-sm-0",
     attrs: {
       to: {
         name: "AdvanceSearch",
         params: {
           specializationSelect: _vm.mySpecialization
         }
-      }
+      },
+      id: "search-button"
     }
   }, [_c("img", {
     attrs: {
+      id: "search-icon",
       src: "img/BDoctors_lens_search.svg",
       alt: "lens-search"
     }
@@ -20855,7 +20857,7 @@ var render = function render() {
           return _vm.selectSpecialization(specialization);
         }
       }
-    }, [_vm._v("\n              " + _vm._s(specialization.name) + "\n          ")]);
+    }, [_vm._v("\n                        " + _vm._s(specialization.name) + "\n                    ")]);
   }), 0)]) : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "mt-5"
   }, [_c("div", [_c("big", {
@@ -20863,8 +20865,8 @@ var render = function render() {
     staticStyle: {
       color: "#00334e"
     }
-  }, [_vm._v("\n          MEDICI SPONSORIZZATI\n      ")])], 1), _vm._v(" "), _c("div", {
-    staticClass: "d-flex justify-content-center my-5"
+  }, [_vm._v("\n                        MEDICI SPONSORIZZATI\n                    ")])], 1), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-center gap-5 my-5"
   }, _vm._l(_vm.doctors, function (doctor, index) {
     return _c("CardDoctor", {
       key: index,
@@ -20879,10 +20881,22 @@ var render = function render() {
     staticStyle: {
       color: "#00334e"
     }
-  }, [_vm._v("\n        PERCHÉ SCEGLIERCI\n      ")])], 1)])]);
+  }, [_vm._v("\n                        PERCHÉ SCEGLIERCI\n                    ")])], 1)])])]);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_c("img", {
+    staticClass: "img-fluid",
+    attrs: {
+      src: "img/jumbotron-2.jpg",
+      alt: "jumbotron",
+      id: "jumbotron"
+    }
+  })]);
+}];
 render._withStripped = true;
 
 
@@ -20911,9 +20925,9 @@ var render = function render() {
   }, [_c("h2", [_vm._v(_vm._s(_vm.showProfile.name) + " " + _vm._s(_vm.showProfile.lastname))])]), _vm._v(" "), _c("div", {
     staticClass: "container mt-5"
   }, [_c("div", {
-    staticClass: "d-flex flex-row-reverse flex-wrap mb-5"
+    staticClass: "d-flex justify-content-start flex-wrap mb-5"
   }, [_c("div", {
-    staticClass: "col-12 col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center order-md-2 flex-column"
+    staticClass: "col-12 col-sm-12 col-md-6 col-lg-4 d-flex justify-content-center flex-column align-items-center"
   }, [_c("img", {
     staticClass: "img-fluid img-thumbnail rounded-circle mb-4",
     attrs: {
@@ -20923,19 +20937,15 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("ul", {
     staticClass: "col-12 col-sm-12 col-md-12 col-lg-12 d-flex flex-column justify-content-center gap-2 order-2"
-  }, [_c("li", [_c("b", {
-    staticClass: "fst-italic blu-scuro"
-  }, [_vm._v("Nome: ")]), _vm._v(" " + _vm._s(_vm.showProfile.name) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
-    staticClass: "fst-italic blu-scuro"
-  }, [_vm._v("Cognome: ")]), _vm._v(" " + _vm._s(_vm.showProfile.lastname) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
+  }, [_c("li", [_c("h3", [_vm._v("\n                            " + _vm._s(_vm.showProfile.name) + " " + _vm._s(_vm.showProfile.lastname) + "\n                        ")])]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic blu-scuro"
   }, [_vm._v("Email: ")]), _vm._v(" " + _vm._s(_vm.showProfile.email) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
-    staticClass: "fst-italic blu-scuro"
-  }, [_vm._v("Via: ")]), _vm._v(" " + _vm._s(_vm.showProfile.address) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic blu-scuro"
   }, [_vm._v("Numero di telefono: ")]), _vm._v(" " + _vm._s(_vm.showProfile.phone) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic blu-scuro"
   }, [_vm._v("Città: ")]), _vm._v(" " + _vm._s(_vm.showProfile.city) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
+    staticClass: "fst-italic blu-scuro"
+  }, [_vm._v("Via: ")]), _vm._v(" " + _vm._s(_vm.showProfile.address) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic blu-scuro"
   }, [_vm._v("CAP: ")]), _vm._v(" " + _vm._s(_vm.showProfile.postal_code) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic blu-scuro"
@@ -20946,7 +20956,7 @@ var render = function render() {
     }, [_vm._v("\n                            " + _vm._s(specialization.name) + "\n                        ")]);
   })], 2)])]), _vm._v(" "), _c("div", {
     staticClass: "fst-italic col-12 col-sm-12 col-md-6 col-lg-8"
-  }, [_vm._v("\n                CV: " + _vm._s(_vm.showProfile.cv) + "\n            ")])]), _vm._v(" "), _c("div", {
+  }, [_c("h4", [_vm._v("\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dolorem rerum, tempore quaerat quasi quisquam! Delectus, fuga laboriosam voluptatem quos eveniet blanditiis eum quidem et dolorum eaque earum iure neque!\n                ")]), _vm._v(" "), _c("div", [_vm._v("\n                    CV: " + _vm._s(_vm.showProfile.cv) + "\n                ")])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-between align-items-center"
   }, [_c("button", {
     staticClass: "btn btn-secondary"
@@ -20971,7 +20981,8 @@ var render = function render() {
       expression: "name"
     }],
     attrs: {
-      type: "text"
+      type: "text",
+      placeholder: "Il tuo nome..."
     },
     domProps: {
       value: _vm.name
@@ -20990,7 +21001,9 @@ var render = function render() {
       expression: "vote"
     }],
     attrs: {
-      type: "number"
+      id: "voto",
+      type: "number",
+      placeholder: "voto..."
     },
     domProps: {
       value: _vm.vote
@@ -21001,7 +21014,9 @@ var render = function render() {
         _vm.vote = $event.target.value;
       }
     }
-  }), _vm._v(" "), _c("textarea", {
+  }), _vm._v(" "), _c("div", {
+    staticClass: "mt-4"
+  }, [_c("textarea", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -21013,7 +21028,7 @@ var render = function render() {
       height: "100px"
     },
     attrs: {
-      placeholder: "Lascia una recensione",
+      placeholder: "Lascia una recensione...",
       id: "floatingTextarea2"
     },
     domProps: {
@@ -21026,13 +21041,10 @@ var render = function render() {
       }
     }
   }), _vm._v(" "), _c("label", {
-    staticStyle: {
-      color: "#cecece"
-    },
     attrs: {
       "for": "floatingTextarea2"
     }
-  }, [_vm._v("Digita qui..")])])])]);
+  })])])])]);
 };
 
 var staticRenderFns = [];
@@ -26353,7 +26365,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".form-control[data-v-13e03f97] {\n  border-width: 1px 0 1px 1px;\n}\n.form-control img[data-v-13e03f97] {\n  max-width: 5px;\n  min-height: 10px;\n}\nli[data-v-13e03f97]:hover {\n  background-color: aquamarine;\n}", ""]);
+exports.push([module.i, "#jumbotron[data-v-13e03f97] {\n  min-width: 100%;\n  min-height: 150px;\n  width: 20vw;\n  height: 30vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#search-button[data-v-13e03f97] {\n  width: 100px;\n}\n#search-icon[data-v-13e03f97] {\n  max-width: 20px;\n}\nli[data-v-13e03f97]:hover {\n  background-color: aquamarine;\n}", ""]);
 
 // exports
 
@@ -26372,7 +26384,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#sez-nome[data-v-1ca8e6b5] {\n  height: 10vh;\n}\n#sez-nome h2[data-v-1ca8e6b5] {\n  margin: 0.5%;\n  font-size: 50px;\n}\nli[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n#user-img[data-v-1ca8e6b5] {\n  min-width: 150px;\n  min-height: 150px;\n  width: 20vw;\n  height: 20vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n.blu-scuro[data-v-1ca8e6b5] {\n  color: #00acff;\n}\n.blu-chiaro[data-v-1ca8e6b5] {\n  color: #00c7ff;\n}\n.blu-chiaro2[data-v-1ca8e6b5] {\n  color: #8ce6ff;\n}\n.nero[data-v-1ca8e6b5] {\n  color: #2a2d45;\n}\n.bg-blu-scuro[data-v-1ca8e6b5] {\n  background-color: #00acff;\n}\n.bg-blu-chiaro[data-v-1ca8e6b5] {\n  background-color: #00c7ff;\n}\n.bg-blu-chiaro2[data-v-1ca8e6b5] {\n  background-color: #8ce6ff;\n}\n.bg-nero[data-v-1ca8e6b5] {\n  background-color: #2a2d45;\n}", ""]);
+exports.push([module.i, "#sez-nome[data-v-1ca8e6b5] {\n  height: 10vh;\n}\n#sez-nome h2[data-v-1ca8e6b5] {\n  margin: 0.5%;\n  font-size: 50px;\n}\nli[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n#user-img[data-v-1ca8e6b5] {\n  width: 200px;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#voto[data-v-1ca8e6b5] {\n  width: 70px;\n}\n.blu-scuro[data-v-1ca8e6b5] {\n  color: #00acff;\n}\n.blu-chiaro[data-v-1ca8e6b5] {\n  color: #00c7ff;\n}\n.blu-chiaro2[data-v-1ca8e6b5] {\n  color: #8ce6ff;\n}\n.nero[data-v-1ca8e6b5] {\n  color: #2a2d45;\n}\n.bg-blu-scuro[data-v-1ca8e6b5] {\n  background-color: #00acff;\n}\n.bg-blu-chiaro[data-v-1ca8e6b5] {\n  background-color: #00c7ff;\n}\n.bg-blu-chiaro2[data-v-1ca8e6b5] {\n  background-color: #8ce6ff;\n}\n.bg-nero[data-v-1ca8e6b5] {\n  background-color: #2a2d45;\n}", ""]);
 
 // exports
 
