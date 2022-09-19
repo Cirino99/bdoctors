@@ -9,6 +9,10 @@ import AdvanceSearch from './pages/PageAdvanceSearch.vue';
 
 import PageShow from './pages/PageShow';
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
+
 const routes = [
     {
         path: '/search',
@@ -37,6 +41,12 @@ const router = new VueRouter({
 });
 
 Vue.use(VueRouter);
+
+/* add icons to the library */
+library.add(faStar)
+
+/* add font awesome icon component */
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 const app = new Vue({
     el: '#root',
