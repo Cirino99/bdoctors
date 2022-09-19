@@ -5259,6 +5259,24 @@ __webpack_require__.r(__webpack_exports__);
         _this.doctors = res.data.result;
       }
     });
+<<<<<<< HEAD
+    axios.get('/api/search/specialization').then(function (res) {
+      if (res.data.success) {
+        _this.spec = res.data.result;
+        console.log(_this.spec);
+      }
+    });
+  },
+  computed: {
+    filteredSpecialization: function filteredSpecialization() {
+      var _this2 = this;
+
+      return this.spec.filter(function (specialization) {
+        return specialization.name.toLowerCase().includes(_this2.search.toLowerCase());
+      });
+    }
+=======
+>>>>>>> 109092f217212baa5805d04b526014a4e8af0bf1
   },
   methods: {
     searchInput: function searchInput() {
