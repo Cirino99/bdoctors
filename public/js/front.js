@@ -20342,7 +20342,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'PageAdvanceSearch',
   props: {
-    specializationSelect: Number
+    specializationSelect: {
+      "default": function _default() {
+        return {
+          'name': '',
+          'id': ''
+        };
+      },
+      type: Object
+    }
   },
   components: {
     CardDoctor: _components_CardDoctor_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -20351,34 +20359,27 @@ __webpack_require__.r(__webpack_exports__);
     return {
       doctors: [],
       specializations: [],
+      mySpecialization: null,
       search: '',
       vote: 0,
-      review: 0
+      review: 0,
+      display: false
     };
   },
   created: function created() {
-    var _this = this;
-
-    axios.get('/api/search/specialization?specialization=').then(function (res) {
-      if (res.data.success) {
-        _this.specializations = res.data.result;
-      }
-    });
     this.searchDoctor();
   },
   methods: {
     searchDoctor: function searchDoctor() {
-      var _this2 = this;
+      var _this = this;
 
-      axios.get('api/search?specialization=' + this.specializationSelect + '&city=all&reviews= ' + this.review + '  &vote=' + this.vote).then(function (res) {
-        if (res.data.success) {
-          _this2.doctors = res.data.result;
-        }
-      });
-    },
-    changeSpecialization: function changeSpecialization(id) {
-      this.specializationSelect = id;
-      this.searchDoctor();
+      if (this.specializationSelect.name != '') {
+        axios.get('api/search?specialization=' + this.specializationSelect.id + '&city=all&reviews= ' + this.review + '  &vote=' + this.vote).then(function (res) {
+          if (res.data.success) {
+            _this.doctors = res.data.result;
+          }
+        });
+      }
     },
     changeVote: function changeVote(id) {
       this.vote = id;
@@ -20387,6 +20388,30 @@ __webpack_require__.r(__webpack_exports__);
     changeReview: function changeReview(id) {
       this.review = id;
       this.searchDoctor();
+    },
+    searchInput: function searchInput() {
+      var _this2 = this;
+
+      if (this.specializationSelect.name != '') {
+        axios.get('/api/search/specialization?specialization=' + this.specializationSelect.name).then(function (res) {
+          if (res.data.success) {
+            _this2.specializations = res.data.result;
+            console.log(_this2.specializations);
+          }
+        });
+      } else {
+        this.specializations = [];
+      }
+    },
+    selectSpecialization: function selectSpecialization(specialization) {
+      this.specializationSelect.name = specialization.name;
+      this.specializationSelect.id = specialization.id;
+    },
+    displayComponent: function displayComponent() {
+      this.display = true;
+    },
+    handleFocusOut: function handleFocusOut() {
+      this.display = false;
     }
   }
 });
@@ -20443,7 +20468,10 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     selectSpecialization: function selectSpecialization(specialization) {
-      this.mySpecialization = specialization.id;
+      this.mySpecialization = {
+        'name': specialization.name,
+        'id': specialization.id
+      };
       this.search = specialization.name;
     },
     displayComponent: function displayComponent() {
@@ -20482,7 +20510,8 @@ __webpack_require__.r(__webpack_exports__);
       text: '',
       email: '',
       displayR: false,
-      displayM: false
+      displayM: false,
+      prova: false
     };
   },
   created: function created() {
@@ -20535,10 +20564,18 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     displayReview: function displayReview() {
-      this.displayR = true;
+      if (this.displayM = this.displayM) {
+        this.displayM = !this.displayM;
+      }
+
+      this.displayR = !this.displayR;
     },
     displayMessage: function displayMessage() {
-      this.displayM = true;
+      if (this.displayR = this.displayR) {
+        this.displayR = !this.displayR;
+      }
+
+      this.displayM = !this.displayM;
     },
     hideComponent: function hideComponent() {
       this.displayR = false;
@@ -20668,6 +20705,61 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
+      value: _vm.specializationSelect.name,
+      expression: "specializationSelect.name"
+    }],
+    staticClass: "form-control mr-sm-2 w-50",
+    attrs: {
+      type: "search_spec",
+      placeholder: "Scrivi qui..",
+      "aria-label": "Search_spec"
+    },
+    domProps: {
+      value: _vm.specializationSelect.name
+    },
+    on: {
+      input: [function ($event) {
+        if ($event.target.composing) return;
+
+        _vm.$set(_vm.specializationSelect, "name", $event.target.value);
+      }, _vm.searchInput],
+      click: _vm.displayComponent,
+      keyup: _vm.displayComponent
+    }
+  }), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-outline-primary my-2 m my-sm-0 rounded-3",
+    attrs: {
+      type: "button"
+    },
+    on: {
+      click: function click($event) {
+        return _vm.searchDoctor();
+      }
+    }
+  }, [_vm._v("Filtra")])]), _vm._v(" "), _vm.display ? _c("div", {
+    staticClass: "collapse position-absolute top- d-flex justify-content-center",
+    on: {
+      mouseleave: _vm.handleFocusOut
+    }
+  }, [_c("ul", {
+    staticClass: "card overflow-auto"
+  }, _vm._l(_vm.specializations, function (specialization) {
+    return _c("li", {
+      key: specialization.id,
+      on: {
+        click: function click($event) {
+          return _vm.selectSpecialization(specialization);
+        }
+      }
+    }, [_vm._v("\n                                " + _vm._s(specialization.name) + "\n                            ")]);
+  }), 0)]) : _vm._e()]), _vm._v(" "), _c("li", {
+    staticClass: "list-group-item"
+  }, [_c("strong", [_vm._v("Città:")]), _c("br"), _vm._v(" "), _c("form", {
+    staticClass: "d-flex form-inline py-2 my-lg-0"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
       value: _vm.search,
       expression: "search"
     }],
@@ -20696,33 +20788,6 @@ var render = function render() {
       type: "submit"
     }
   }, [_vm._v("Filtra")])])]), _vm._v(" "), _c("li", {
-    staticClass: "list-group-item d-flex flex-column flex-wrap flex-md-row gap-2"
-  }, [_c("strong", [_vm._v("Specializzazione:")]), _c("br"), _vm._v(" "), _vm._l(_vm.specializations, function (specialization) {
-    return _c("div", {
-      key: specialization.id,
-      staticClass: "form-check"
-    }, [_c("input", {
-      staticClass: "form-check-input",
-      attrs: {
-        type: "radio",
-        name: "specialization",
-        id: "flexRadioDefault1"
-      },
-      domProps: {
-        checked: _vm.specializationSelect === specialization.id
-      },
-      on: {
-        click: function click($event) {
-          return _vm.changeSpecialization(specialization.id);
-        }
-      }
-    }), _vm._v(" "), _c("label", {
-      staticClass: "form-check-label",
-      attrs: {
-        "for": "specialization"
-      }
-    }, [_vm._v("\n                                    " + _vm._s(specialization.name) + "\n                                ")])]);
-  })], 2), _vm._v(" "), _c("li", {
     staticClass: "list-group-item"
   }, [_c("strong", [_vm._v("Media Voto:")]), _vm._v(" "), _vm._l(5, function (item) {
     return _c("span", {
@@ -20991,7 +21056,13 @@ var render = function render() {
     on: {
       click: _vm.displayReview
     }
-  }, [_vm._v("Scrivi una recensione")])]), _vm._v(" "), _vm.displayR ? _c("div", {
+  }, [_vm._v("Scrivi una recensione")])]), _vm._v(" "), _c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.displayR,
+      expression: "displayR"
+    }],
     staticClass: "form-floating my-4"
   }, [_c("div", {
     staticClass: "d-flex justify-content-start"
@@ -21084,7 +21155,13 @@ var render = function render() {
         _vm.hideComponent();
       }
     }
-  }, [_vm._v("Invia")])])]) : _vm._e(), _vm._v(" "), _vm.displayM ? _c("div", {
+  }, [_vm._v("Invia")])])]), _vm._v(" "), _c("div", {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: _vm.displayM,
+      expression: "displayM"
+    }],
     staticClass: "form-floating my-4"
   }, [_c("div", {
     staticClass: "d-flex justify-content-start"
@@ -21155,7 +21232,7 @@ var render = function render() {
         _vm.hideComponent();
       }
     }
-  }, [_vm._v("Invia")])])]) : _vm._e()])]);
+  }, [_vm._v("Invia")])])])])]);
 };
 
 var staticRenderFns = [];
@@ -26457,7 +26534,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".card[data-v-4d587a7c] {\n  width: 60vw;\n  color: #00acff;\n}\n.card .form-check[data-v-4d587a7c] {\n  display: inline-block;\n}", ""]);
+exports.push([module.i, ".form-check[data-v-4d587a7c] {\n  display: inline-block;\n}\n#search-button[data-v-4d587a7c] {\n  width: 100px;\n}\n#search-icon[data-v-4d587a7c] {\n  max-width: 20px;\n}", ""]);
 
 // exports
 

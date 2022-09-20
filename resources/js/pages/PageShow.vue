@@ -53,7 +53,7 @@
                 <button class="btn" style="background: #23A3B3; color: #fff" @click="displayReview">Scrivi una recensione</button>
             </div>
             <!-- campo per la recensione temporaneo TODO: da sistemare -->
-            <div class="form-floating my-4" v-if="displayR">
+            <div class="form-floating my-4" v-show="displayR">
                 <!-- voto -->
                 <div class="d-flex justify-content-start">
                     <input required id="review-nome" class="form-control" type="text" v-model="name" placeholder="Il tuo nome...">
@@ -68,7 +68,7 @@
                 </div>
             </div>
             <!-- campo messaggio  -->
-            <div class="form-floating my-4" v-if="displayM">
+            <div class="form-floating my-4" v-show="displayM">
                 <!-- email -->
                 <div class="d-flex justify-content-start">
                     <input required id="message-email" class="form-control" type="email" v-model="email" placeholder="La tua email...">
@@ -101,7 +101,8 @@ export default {
             text: '',
             email: '',
             displayR: false,
-            displayM: false
+            displayM: false,
+            prova: false
         }
     },
     created() {
@@ -153,11 +154,17 @@ export default {
         },
 
         displayReview() {
-            this.displayR = true
+            if (this.displayM = this.displayM) {
+                this.displayM = !this.displayM
+            }
+            this.displayR = !this.displayR
         },
 
         displayMessage() {
-            this.displayM = true
+            if (this.displayR = this.displayR) {
+                this.displayR = !this.displayR
+            }
+            this.displayM = !this.displayM
         },
 
         hideComponent() {
