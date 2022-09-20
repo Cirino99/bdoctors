@@ -20699,7 +20699,7 @@ var render = function render() {
     staticClass: "list-group list-group-flush"
   }, [_c("li", {
     staticClass: "list-group-item"
-  }, [_c("strong", [_vm._v("Città:")]), _c("br"), _vm._v(" "), _c("form", {
+  }, [_c("strong", [_vm._v("Specializzazioni:")]), _c("br"), _vm._v(" "), _c("form", {
     staticClass: "d-flex form-inline py-2 my-lg-0"
   }, [_c("input", {
     directives: [{
@@ -20737,12 +20737,12 @@ var render = function render() {
       }
     }
   }, [_vm._v("Filtra")])]), _vm._v(" "), _vm.display ? _c("div", {
-    staticClass: "collapse position-absolute top- d-flex justify-content-center",
+    staticClass: "collapse position-absolute d-flex my-collapse",
     on: {
       mouseleave: _vm.handleFocusOut
     }
   }, [_c("ul", {
-    staticClass: "card overflow-auto"
+    staticClass: "card overflow-auto my-overflow"
   }, _vm._l(_vm.specializations, function (specialization) {
     return _c("li", {
       key: specialization.id,
@@ -26534,7 +26534,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".form-check[data-v-4d587a7c] {\n  display: inline-block;\n}\n#search-button[data-v-4d587a7c] {\n  width: 100px;\n}\n#search-icon[data-v-4d587a7c] {\n  max-width: 20px;\n}", ""]);
+exports.push([module.i, ".form-check[data-v-4d587a7c] {\n  display: inline-block;\n}\n#search-button[data-v-4d587a7c] {\n  width: 100px;\n}\n#search-icon[data-v-4d587a7c] {\n  max-width: 20px;\n}\n.my-collapse[data-v-4d587a7c] {\n  z-index: 500;\n  width: 47%;\n}\n.my-collapse ul[data-v-4d587a7c] {\n  padding: 0;\n}\n.my-collapse li[data-v-4d587a7c] {\n  list-style-type: none;\n  padding-left: 5px;\n}\n.my-collapse li[data-v-4d587a7c]:hover {\n  background-color: #00c7ff;\n}\n.my-collapse .my-overflow[data-v-4d587a7c] {\n  width: 100%;\n}", ""]);
 
 // exports
 
@@ -60702,8 +60702,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })

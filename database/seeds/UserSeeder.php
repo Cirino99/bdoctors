@@ -48,10 +48,8 @@ class UserSeeder extends Seeder
         for ($i = 0; $i < 20; $i++) {
             $user = new User();
 
-            // $user->name = $users[$i]['name'];
             $user->name = $faker->firstName();
             $user->lastname = $faker->lastName();
-            // $user->email = $users[$i]['email'];
             $user->email = $faker->freeEmail();
             $user->address = $faker->streetAddress();
             $user->password = Hash::make('asdf');
