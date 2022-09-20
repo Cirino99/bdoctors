@@ -8,6 +8,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
         html,
         body {
@@ -76,6 +77,84 @@
         </div>
     </nav>
     <div id="root"></div>
+ 
+    <!-- Footer -->
+    <footer class="text-center text-lg-start bg-secondary text-light">
+        
+        {{-- upper footer  --}}
+        <section class="pt-3">
+            <div class="container text-center text-md-start mt-5">
+                <div class="row mt-3">
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        {{-- logo --}}
+                        <a class="text-uppercase fw-bold mb-4" href="{{ url('/') }}">
+                            <img class="logo d-sm-flex d-md-flex d-lg-flex" src="{{ asset('img/BDoctors_logo_2_resp.svg') }}" alt="logo-resp">
+                        </a>
+                        <p class="mt-4">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam repudiandae ad impedit quisquam, repellendus molestias doloribus.
+                        </p>
+                    </div>
+                    {{-- contatti --}}
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">Contatti</h6>
+                        <p>
+                            <i class="fa-solid fa-location-dot me-3"></i> 
+                            Roma, RO 00123, IT
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope me-3"></i>
+                            info@bdoctors.com
+                        </p>
+                        <p>
+                            <i class="fas fa-phone me-3"></i>
+                            + 39 345 678 99
+                        </p>
+                        <p>
+                            <i class="fas fa-print me-3"></i>
+                            + 39 345 678 90
+                        </p>
+                    </div>
+                    
+                    {{-- azienda --}}
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                        Azienda
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">About Us</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Contact Us</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Privacy</a>
+                        </p>
+                    </div>
+
+                    {{-- link utili --}}
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-4">
+                        link utili
+                        </h6>
+                        <p>
+                            <a href="{{ url('/search') }}" class="text-reset">Ricerca avanzata</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Pricing</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Help</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- bottom footer -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2022 Copyright: BDoctors Tutti i diritti riservati
+        </div>
+    </footer>
     <script src="{{ asset('js/front.js') }}"></script>
 </body>
 
