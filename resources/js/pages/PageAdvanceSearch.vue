@@ -7,7 +7,26 @@
                         <div class="card-header">
                             <h4>Filtra per:</h4>
                         </div>
+                        <!-- searchbar -->
                         <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Città:</strong><br>
+                                <form class="d-flex form-inline py-2 my-lg-0">
+                            <input v-model="specializationSelect.name" class="form-control mr-sm-2 w-50" type="search_spec"
+                                placeholder="Scrivi qui.." aria-label="Search_spec" @input="searchInput"
+                                @click="displayComponent" @keyup="displayComponent">
+                            <button class="btn btn-outline-primary my-2 m my-sm-0 rounded-3" type="button" @click="searchDoctor()">Filtra</button>
+                        </form>
+
+                        <div class="collapse position-absolute top- d-flex justify-content-center" v-if="display"
+                            @mouseleave="handleFocusOut">
+                            <ul class="card overflow-auto">
+                                <li v-for="specialization in specializations" :key="specialization.id"
+                                    @click="selectSpecialization(specialization)">
+                                    {{ specialization.name }}
+                                </li>
+                            </ul>
+                        </div>
+                            </li>
                             <li class="list-group-item"><strong>Città:</strong><br>
                                 <form class="d-flex form-inline py-2 my-lg-0">
                                     <input v-model="search" @keyup.enter="searchDoctor"
@@ -17,24 +36,11 @@
                                         type="submit">Filtra</button>
                                 </form>
                             </li>
-                            <li class="list-group-item d-flex flex-column flex-wrap flex-md-row gap-2">
-                                <strong>Specializzazione:</strong><br>
-                                <div v-for="specialization in specializations" :key="specialization.id"
-                                    class="form-check">
-                                    <input class="form-check-input" type="radio" name="specialization"
-                                        id="flexRadioDefault1" :checked=" specializationSelect === specialization.id"
-                                        @click="changeSpecialization(specialization.id)">
-                                    <label class="form-check-label" for="specialization">
-                                        {{ specialization.name }}
-                                    </label>
-                                </div>
-                            </li>
                             <li class="list-group-item">
                                 <strong>Media Voto:</strong>
                                 <span v-for="item in 5" :key="item">
-                                    <input class="form-check-input" type="radio" name="vote"
-                                        id="flexRadioDefault1" :checked="vote === item"
-                                        @click="changeVote(item)">
+                                    <input class="form-check-input" type="radio" name="vote" id="flexRadioDefault1"
+                                        :checked="vote === item" @click="changeVote(item)">
                                     <label class="form-check-label" for="vote">
                                         {{item}}
                                     </label>
@@ -43,9 +49,8 @@
                             <li class="list-group-item">
                                 <strong>Numero Recensioni:</strong>
                                 <span v-for="item in 4" :key="item">
-                                    <input class="form-check-input" type="radio" name="review"
-                                        id="flexRadioDefault1" :checked="review === item"
-                                        @click="changeReview(item)">
+                                    <input class="form-check-input" type="radio" name="review" id="flexRadioDefault1"
+                                        :checked="review === item" @click="changeReview(item)">
                                     <label class="form-check-label" for="review">
                                         {{item}}
                                     </label>
@@ -67,7 +72,14 @@ import CardDoctor from '../components/CardDoctor.vue'
 export default {
     name: 'PageAdvanceSearch',
     props: {
-        specializationSelect: Number,
+        specializationSelect: {
+            default: function(){
+                return {
+                'name' : '',
+                'id' : ''
+            }},
+            type: Object
+        },
     },
     components: {
         CardDoctor,
@@ -76,32 +88,26 @@ export default {
         return {
             doctors: [],
             specializations: [],
+            mySpecialization: null,
             search: '',
             vote: 0,
-            review: 0
+            review: 0,
+            display: false
         }
     },
     created() {
-        axios.get('/api/search/specialization?specialization=')
-            .then(res => {
-                if (res.data.success) {
-                    this.specializations = res.data.result;
-                }
-            });
         this.searchDoctor();
     },
     methods: {
         searchDoctor() {
-            axios.get('api/search?specialization=' + this.specializationSelect + '&city=all&reviews= ' + this.review + '  &vote=' + this.vote)
+            if(this.specializationSelect.name != ''){
+                axios.get('api/search?specialization=' + this.specializationSelect.id + '&city=all&reviews= ' + this.review + '  &vote=' + this.vote)
                 .then(res => {
                     if (res.data.success) {
                         this.doctors = res.data.result;
                     }
                 })
-        },
-        changeSpecialization(id) {
-            this.specializationSelect = id;
-            this.searchDoctor();
+            }
         },
         changeVote(id) {
             this.vote = id;
@@ -110,6 +116,30 @@ export default {
         changeReview(id) {
             this.review = id;
             this.searchDoctor();
+        },
+
+        searchInput() {
+            if (this.specializationSelect.name != '') {
+                axios.get('/api/search/specialization?specialization=' + this.specializationSelect.name)
+                    .then(res => {
+                        if (res.data.success) {
+                            this.specializations = res.data.result;
+                            console.log(this.specializations);
+                        }
+                    });
+            } else {
+                this.specializations = [];
+            }
+        },
+        selectSpecialization(specialization) {
+          this.specializationSelect.name = specialization.name;
+          this.specializationSelect.id = specialization.id;
+        },
+        displayComponent() {
+            this.display = true;
+        },
+        handleFocusOut() {
+            this.display = false;
         }
     }
 }
@@ -118,12 +148,20 @@ export default {
 <style lang="scss" scoped>
 @import "../../sass/bdoctor-palette.scss";
 
-.card {
-    width: 60vw;
-    color: $primary;
+// .card {
+//     width: 60vw;
+//     color: $primary;
+// }
 
-    .form-check {
+.form-check {
         display: inline-block;
     }
-}
+
+    #search-button {
+        width: 100px;
+    }
+
+    #search-icon {
+        max-width: 20px;
+    }
 </style>
