@@ -9,7 +9,7 @@
                         </div>
                         <!-- searchbar -->
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><strong>Città:</strong><br>
+                            <li class="list-group-item"><strong>Specializzazioni:</strong><br>
                                 <form class="d-flex form-inline py-2 my-lg-0">
                             <input v-model="specializationSelect.name" class="form-control mr-sm-2 w-50" type="search_spec"
                                 placeholder="Scrivi qui.." aria-label="Search_spec" @input="searchInput"
@@ -17,9 +17,9 @@
                             <button class="btn btn-outline-primary my-2 m my-sm-0 rounded-3" type="button" @click="searchDoctor()">Filtra</button>
                         </form>
 
-                        <div class="collapse position-absolute top- d-flex justify-content-center" v-if="display"
+                        <div class="collapse position-absolute d-flex my-collapse" v-if="display"
                             @mouseleave="handleFocusOut">
-                            <ul class="card overflow-auto">
+                            <ul class="card overflow-auto my-overflow">
                                 <li v-for="specialization in specializations" :key="specialization.id"
                                     @click="selectSpecialization(specialization)">
                                     {{ specialization.name }}
@@ -148,11 +148,6 @@ export default {
 <style lang="scss" scoped>
 @import "../../sass/bdoctor-palette.scss";
 
-// .card {
-//     width: 60vw;
-//     color: $primary;
-// }
-
 .form-check {
         display: inline-block;
     }
@@ -163,5 +158,27 @@ export default {
 
     #search-icon {
         max-width: 20px;
+    }
+
+    .my-collapse{
+        z-index: 500;
+        width: 47%;
+
+        ul{
+            padding: 0;
+        }
+
+        li{
+            list-style-type:none;
+            padding-left: 5px;
+        }
+
+        li:hover{
+            background-color: $secondary;
+        }
+
+        .my-overflow{
+            width: 100%;
+        }
     }
 </style>
