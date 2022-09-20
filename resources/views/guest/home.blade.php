@@ -121,10 +121,10 @@
                         Azienda
                         </h6>
                         <p>
-                            <a href="#!" class="text-reset">About Us</a>
+                            <a href="{{ url('/about') }}" class="text-reset">About Us</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Contact Us</a>
+                            <a href="{{ url('/contacts') }}" class="text-reset">Contact Us</a>
                         </p>
                         <p>
                             <a href="#!" class="text-reset">Privacy</a>

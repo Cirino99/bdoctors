@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>
-            CONTATTACI
+            ABOUT US
         </h1>
     </div>
 </template>
@@ -9,7 +9,7 @@
 <script>
 
 export default {
-    name: 'PageContactUs',
+    name: 'PageAboutUs',
     
 }
 </script>
