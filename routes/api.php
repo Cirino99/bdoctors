@@ -24,3 +24,6 @@ Route::get('/search', 'Api\DoctorController@search')->name('api.doctors.search')
 Route::get('/search/city', 'Api\DoctorController@city')->name('api.doctors.city');
 Route::get('/search/specialization', 'Api\DoctorController@specialization')->name('api.doctors.specialization');
 Route::post('/review', 'Api\ReviewController@store')->name('api.doctors.review');
+Route::post('/message', 'Api\MessageController@store')->name('api.doctors.message');
+Route::get('/orders/generate', 'Api\SponsorshipController@generate');
+Route::post('/orders/make/payment', 'Api\SponsorshipController@makePayment');
