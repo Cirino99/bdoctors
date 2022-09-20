@@ -8,15 +8,13 @@
                             <h4>Filtra per:</h4>
                         </div>
                         <!-- searchbar -->
-                        <form class="d-flex justify-content-center form-inline my-2 my-lg-0 w-75">
-                            <input v-model="search_spec" class="form-control mr-sm-2 w-50" type="search_spec"
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Città:</strong><br>
+                                <form class="d-flex form-inline py-2 my-lg-0">
+                            <input v-model="specializationSelect.name" class="form-control mr-sm-2 w-50" type="search_spec"
                                 placeholder="Scrivi qui.." aria-label="Search_spec" @input="searchInput"
                                 @click="displayComponent" @keyup="displayComponent">
-                            <router-link
-                                :to="{name: 'AdvanceSearch', params: {specializationSelect: mySpecialization} }"
-                                id="search-button" class="btn btn-outline-primary my-2 my-sm-0">
-                                <img id="search-icon" src="img/BDoctors_lens_search.svg" alt="lens-search">
-                            </router-link>
+                            <button class="btn btn-outline-primary my-2 m my-sm-0 rounded-3" type="button" @click="searchDoctor()">Filtra</button>
                         </form>
 
                         <div class="collapse position-absolute top- d-flex justify-content-center" v-if="display"
@@ -28,8 +26,7 @@
                                 </li>
                             </ul>
                         </div>
-
-                        <ul class="list-group list-group-flush">
+                            </li>
                             <li class="list-group-item"><strong>Città:</strong><br>
                                 <form class="d-flex form-inline py-2 my-lg-0">
                                     <input v-model="search" @keyup.enter="searchDoctor"
@@ -39,19 +36,6 @@
                                         type="submit">Filtra</button>
                                 </form>
                             </li>
-                            <!-- <li class="list-group-item d-flex flex-column flex-wrap flex-md-row gap-2">
-                                <strong>Specializzazione:</strong><br>
-                                <div v-for="specialization in specializations" :key="specialization.id"
-                                    class="form-check">
-                                    <input class="form-check-input" type="radio" name="specialization"
-                                        id="flexRadioDefault1" :checked=" specializationSelect === specialization.id"
-                                        @click="changeSpecialization(specialization.id)">
-                                    <label class="form-check-label" for="specialization">
-                                        {{ specialization.name }}
-                                    </label>
-                                </div>
-                            </li> -->
-
                             <li class="list-group-item">
                                 <strong>Media Voto:</strong>
                                 <span v-for="item in 5" :key="item">
@@ -73,9 +57,6 @@
                                 </span>
                             </li>
                         </ul>
-
-
-
                     </div>
                 </div>
                 <div class="d-flex flex-wrap justify-content-evenly col-12">
@@ -91,7 +72,14 @@ import CardDoctor from '../components/CardDoctor.vue'
 export default {
     name: 'PageAdvanceSearch',
     props: {
-        specializationSelect: Number,
+        specializationSelect: {
+            default: function(){
+                return {
+                'name' : '',
+                'id' : ''
+            }},
+            type: Object
+        },
     },
     components: {
         CardDoctor,
@@ -102,33 +90,24 @@ export default {
             specializations: [],
             mySpecialization: null,
             search: '',
-            search_spec: '',
             vote: 0,
             review: 0,
             display: false
         }
     },
     created() {
-        axios.get('/api/search/specialization?specialization=')
-            .then(res => {
-                if (res.data.success) {
-                    this.specializations = res.data.result;
-                }
-            });
         this.searchDoctor();
     },
     methods: {
         searchDoctor() {
-            axios.get('api/search?specialization=' + this.specializationSelect + '&city=all&reviews= ' + this.review + '  &vote=' + this.vote)
+            if(this.specializationSelect.name != ''){
+                axios.get('api/search?specialization=' + this.specializationSelect.id + '&city=all&reviews= ' + this.review + '  &vote=' + this.vote)
                 .then(res => {
                     if (res.data.success) {
                         this.doctors = res.data.result;
                     }
                 })
-        },
-        changeSpecialization(id) {
-            this.specializationSelect = id;
-            this.searchDoctor();
+            }
         },
         changeVote(id) {
             this.vote = id;
@@ -140,8 +119,8 @@ export default {
         },
 
         searchInput() {
-            if (this.search_spec != '') {
-                axios.get('/api/search/specialization?specialization=' + this.search_spec)
+            if (this.specializationSelect.name != '') {
+                axios.get('/api/search/specialization?specialization=' + this.specializationSelect.name)
                     .then(res => {
                         if (res.data.success) {
                             this.specializations = res.data.result;
@@ -152,9 +131,9 @@ export default {
                 this.specializations = [];
             }
         },
-        selectSpecialization(specialization) { 
-            this.mySpecialization = specialization;
-            this.search_spec = specialization.name;
+        selectSpecialization(specialization) {
+          this.specializationSelect.name = specialization.name;
+          this.specializationSelect.id = specialization.id;
         },
         displayComponent() {
             this.display = true;

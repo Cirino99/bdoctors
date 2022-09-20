@@ -80,7 +80,10 @@
           }
         },
         selectSpecialization(specialization) {
-          this.mySpecialization = specialization.id;
+          this.mySpecialization = {
+            'name' : specialization.name,
+            'id' : specialization.id
+          };
           this.search = specialization.name;
         },
         displayComponent() {
