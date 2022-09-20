@@ -104,13 +104,13 @@ class UserController extends Controller
     public function destroy(Request $request, User $profile)
     {
         if (Auth::id() === $profile->id) {
-            if(Hash::check($request['password'], $profile->password)){
+            if (Hash::check($request['password'], $profile->password)) {
                 $profile->specializations()->detach();
                 $profile->sponsorships()->detach();
                 $profile->messages()->delete();
                 $profile->reviews()->delete();
                 $profile->delete();
-                return redirect()->route('welcome');
+                return redirect()->route('home');
             } else {
                 return redirect()->route('doctor.profile.show', $profile);
             }

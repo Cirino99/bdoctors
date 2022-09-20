@@ -96,14 +96,22 @@ class DoctorController extends Controller
         }
         foreach ($doctors as $i => $doctor) {
             $doctor->vote = $doctor->reviews->avg('vote');
-            if ($doctor->vote >= $vote) {
+            if ($vote > 0) {
+                if ($doctor->vote >= $vote) {
+                    unset($doctor->email_verified_at, $doctor->created_at, $doctor->updated_at, $doctor->reviews);
+                    foreach ($doctor->specializations as $specialization) {
+                        unset($specialization->created_at, $specialization->updated_at, $specialization->pivot);
+                    }
+                    $doctor->photo = $this->fixImageUrl($doctor->photo);
+                } else {
+                    unset($doctors[$i]);
+                }
+            } else {
                 unset($doctor->email_verified_at, $doctor->created_at, $doctor->updated_at, $doctor->reviews);
                 foreach ($doctor->specializations as $specialization) {
                     unset($specialization->created_at, $specialization->updated_at, $specialization->pivot);
                 }
                 $doctor->photo = $this->fixImageUrl($doctor->photo);
-            } else {
-                unset($doctors[$i]);
             }
         }
         if ($doctors) {
