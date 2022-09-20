@@ -7,6 +7,28 @@
                         <div class="card-header">
                             <h4>Filtra per:</h4>
                         </div>
+                        <!-- searchbar -->
+                        <form class="d-flex justify-content-center form-inline my-2 my-lg-0 w-75">
+                            <input v-model="search_spec" class="form-control mr-sm-2 w-50" type="search_spec"
+                                placeholder="Scrivi qui.." aria-label="Search_spec" @input="searchInput"
+                                @click="displayComponent" @keyup="displayComponent">
+                            <router-link
+                                :to="{name: 'AdvanceSearch', params: {specializationSelect: mySpecialization} }"
+                                id="search-button" class="btn btn-outline-primary my-2 my-sm-0">
+                                <img id="search-icon" src="img/BDoctors_lens_search.svg" alt="lens-search">
+                            </router-link>
+                        </form>
+
+                        <div class="collapse position-absolute top- d-flex justify-content-center" v-if="display"
+                            @mouseleave="handleFocusOut">
+                            <ul class="card overflow-auto">
+                                <li v-for="specialization in specializations" :key="specialization.id"
+                                    @click="selectSpecialization(specialization)">
+                                    {{ specialization.name }}
+                                </li>
+                            </ul>
+                        </div>
+
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><strong>Città:</strong><br>
                                 <form class="d-flex form-inline py-2 my-lg-0">
@@ -17,7 +39,7 @@
                                         type="submit">Filtra</button>
                                 </form>
                             </li>
-                            <li class="list-group-item d-flex flex-column flex-wrap flex-md-row gap-2">
+                            <!-- <li class="list-group-item d-flex flex-column flex-wrap flex-md-row gap-2">
                                 <strong>Specializzazione:</strong><br>
                                 <div v-for="specialization in specializations" :key="specialization.id"
                                     class="form-check">
@@ -28,13 +50,13 @@
                                         {{ specialization.name }}
                                     </label>
                                 </div>
-                            </li>
+                            </li> -->
+
                             <li class="list-group-item">
                                 <strong>Media Voto:</strong>
                                 <span v-for="item in 5" :key="item">
-                                    <input class="form-check-input" type="radio" name="vote"
-                                        id="flexRadioDefault1" :checked="vote === item"
-                                        @click="changeVote(item)">
+                                    <input class="form-check-input" type="radio" name="vote" id="flexRadioDefault1"
+                                        :checked="vote === item" @click="changeVote(item)">
                                     <label class="form-check-label" for="vote">
                                         {{item}}
                                     </label>
@@ -43,15 +65,17 @@
                             <li class="list-group-item">
                                 <strong>Numero Recensioni:</strong>
                                 <span v-for="item in 4" :key="item">
-                                    <input class="form-check-input" type="radio" name="review"
-                                        id="flexRadioDefault1" :checked="review === item"
-                                        @click="changeReview(item)">
+                                    <input class="form-check-input" type="radio" name="review" id="flexRadioDefault1"
+                                        :checked="review === item" @click="changeReview(item)">
                                     <label class="form-check-label" for="review">
                                         {{item}}
                                     </label>
                                 </span>
                             </li>
                         </ul>
+
+
+
                     </div>
                 </div>
                 <div class="d-flex flex-wrap justify-content-evenly col-12">
@@ -76,9 +100,12 @@ export default {
         return {
             doctors: [],
             specializations: [],
+            mySpecialization: null,
             search: '',
+            search_spec: '',
             vote: 0,
-            review: 0
+            review: 0,
+            display: false
         }
     },
     created() {
@@ -110,6 +137,30 @@ export default {
         changeReview(id) {
             this.review = id;
             this.searchDoctor();
+        },
+
+        searchInput() {
+            if (this.search_spec != '') {
+                axios.get('/api/search/specialization?specialization=' + this.search_spec)
+                    .then(res => {
+                        if (res.data.success) {
+                            this.specializations = res.data.result;
+                            console.log(this.specializations);
+                        }
+                    });
+            } else {
+                this.specializations = [];
+            }
+        },
+        selectSpecialization(specialization) { 
+            this.mySpecialization = specialization;
+            this.search_spec = specialization.name;
+        },
+        displayComponent() {
+            this.display = true;
+        },
+        handleFocusOut() {
+            this.display = false;
         }
     }
 }
@@ -118,12 +169,20 @@ export default {
 <style lang="scss" scoped>
 @import "../../sass/bdoctor-palette.scss";
 
-.card {
-    width: 60vw;
-    color: $primary;
+// .card {
+//     width: 60vw;
+//     color: $primary;
+// }
 
-    .form-check {
+.form-check {
         display: inline-block;
     }
-}
+
+    #search-button {
+        width: 100px;
+    }
+
+    #search-icon {
+        max-width: 20px;
+    }
 </style>
