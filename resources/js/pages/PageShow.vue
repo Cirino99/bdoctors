@@ -49,15 +49,15 @@
                 </div>
             </div>
             <div class="d-flex justify-content-between align-items-center">
-                <button class="btn btn-secondary" @click="displayMessage">Prenota</button>
+                <button class="btn btn-secondary" @click="displayMessage">Contatta</button>
                 <button class="btn" style="background: #23A3B3; color: #fff" @click="displayReview">Scrivi una recensione</button>
             </div>
             <!-- campo per la recensione temporaneo TODO: da sistemare -->
             <div class="form-floating my-4" v-if="displayR">
                 <!-- voto -->
                 <div class="d-flex justify-content-start">
-                    <input id="review-nome" class="form-control" type="text" v-model="name" placeholder="Il tuo nome...">
-                    <input id="voto" class="form-control" type="number" v-model="vote" placeholder="voto...">
+                    <input required id="review-nome" class="form-control" type="text" v-model="name" placeholder="Il tuo nome...">
+                    <input required id="voto" class="form-control" type="number" v-model="vote" placeholder="voto...">
                 </div>
 
                 <!-- recensione  -->
@@ -71,12 +71,12 @@
             <div class="form-floating my-4" v-if="displayM">
                 <!-- email -->
                 <div class="d-flex justify-content-start">
-                    <input id="message-email" class="form-control" type="text" v-model="email" placeholder="La tua email...">
+                    <input required id="message-email" class="form-control" type="email" v-model="email" placeholder="La tua email...">
                 </div>
 
                 <!-- messaggio  -->
                 <div class="mt-4">
-                    <textarea class="form-control" placeholder="Lascia un messaggio..." id="floatingTextarea2" v-model="message" style="height: 100px"></textarea>
+                    <textarea required class="form-control" placeholder="Lascia un messaggio..." id="floatingTextarea2" v-model="text" style="height: 100px"></textarea>
                     <label for="floatingTextarea2"></label>
                     <button class="btn mt-4" style="background: #23A3B3; color: #fff" @click="newMessage(showProfile.id); hideComponent()">Invia</button>
                 </div>
@@ -100,7 +100,6 @@ export default {
             vote: '',
             text: '',
             email: '',
-            message: '',
             displayR: false,
             displayM: false
         }
@@ -127,6 +126,24 @@ export default {
                 if (res.data.success) {
                     this.name = '';
                     this.vote = '';
+                    this.text = '';
+                }
+            }).catch(function (error) {
+                console.log(error);
+            });
+            }
+        },
+
+        newMessage($id){
+            if(this.email != '' && this.text != ''){
+                axios.post('/api/message', {
+                id: $id,
+                email: this.email ,
+                text: this.text
+            })
+            .then(res => {
+                if (res.data.success) {
+                    this.email = '';
                     this.text = '';
                 }
             }).catch(function (error) {

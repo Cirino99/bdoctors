@@ -20481,7 +20481,6 @@ __webpack_require__.r(__webpack_exports__);
       vote: '',
       text: '',
       email: '',
-      message: '',
       displayR: false,
       displayM: false
     };
@@ -20511,6 +20510,24 @@ __webpack_require__.r(__webpack_exports__);
             _this2.name = '';
             _this2.vote = '';
             _this2.text = '';
+          }
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      }
+    },
+    newMessage: function newMessage($id) {
+      var _this3 = this;
+
+      if (this.email != '' && this.text != '') {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/message', {
+          id: $id,
+          email: this.email,
+          text: this.text
+        }).then(function (res) {
+          if (res.data.success) {
+            _this3.email = '';
+            _this3.text = '';
           }
         })["catch"](function (error) {
           console.log(error);
@@ -20965,7 +20982,7 @@ var render = function render() {
     on: {
       click: _vm.displayMessage
     }
-  }, [_vm._v("Prenota")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("Contatta")]), _vm._v(" "), _c("button", {
     staticClass: "btn",
     staticStyle: {
       background: "#23A3B3",
@@ -20987,6 +21004,7 @@ var render = function render() {
     }],
     staticClass: "form-control",
     attrs: {
+      required: "",
       id: "review-nome",
       type: "text",
       placeholder: "Il tuo nome..."
@@ -21009,6 +21027,7 @@ var render = function render() {
     }],
     staticClass: "form-control",
     attrs: {
+      required: "",
       id: "voto",
       type: "number",
       placeholder: "voto..."
@@ -21078,8 +21097,9 @@ var render = function render() {
     }],
     staticClass: "form-control",
     attrs: {
+      required: "",
       id: "message-email",
-      type: "text",
+      type: "email",
       placeholder: "La tua email..."
     },
     domProps: {
@@ -21097,24 +21117,25 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.message,
-      expression: "message"
+      value: _vm.text,
+      expression: "text"
     }],
     staticClass: "form-control",
     staticStyle: {
       height: "100px"
     },
     attrs: {
+      required: "",
       placeholder: "Lascia un messaggio...",
       id: "floatingTextarea2"
     },
     domProps: {
-      value: _vm.message
+      value: _vm.text
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.message = $event.target.value;
+        _vm.text = $event.target.value;
       }
     }
   }), _vm._v(" "), _c("label", {
