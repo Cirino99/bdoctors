@@ -20480,7 +20480,10 @@ __webpack_require__.r(__webpack_exports__);
       name: '',
       vote: '',
       text: '',
-      display: false
+      email: '',
+      message: '',
+      displayR: false,
+      displayM: false
     };
   },
   created: function created() {
@@ -20514,11 +20517,14 @@ __webpack_require__.r(__webpack_exports__);
         });
       }
     },
-    displayComponent: function displayComponent() {
-      this.display = true;
+    displayReview: function displayReview() {
+      this.displayR = true;
+    },
+    displayMessage: function displayMessage() {
+      this.displayM = true;
     },
     hideComponent: function hideComponent() {
-      this.display = false;
+      this.displayR = false;
     }
   }
 });
@@ -20955,7 +20961,10 @@ var render = function render() {
   }, [_c("h4", [_vm._v("\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dolorem rerum, tempore quaerat quasi quisquam! Delectus, fuga laboriosam voluptatem quos eveniet blanditiis eum quidem et dolorum eaque earum iure neque!\n                ")]), _vm._v(" "), _c("div", [_vm._v("\n                    CV: " + _vm._s(_vm.showProfile.cv) + "\n                ")])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-between align-items-center"
   }, [_c("button", {
-    staticClass: "btn btn-secondary"
+    staticClass: "btn btn-secondary",
+    on: {
+      click: _vm.displayMessage
+    }
   }, [_vm._v("Prenota")]), _vm._v(" "), _c("button", {
     staticClass: "btn",
     staticStyle: {
@@ -20963,9 +20972,9 @@ var render = function render() {
       color: "#fff"
     },
     on: {
-      click: _vm.displayComponent
+      click: _vm.displayReview
     }
-  }, [_vm._v("Scrivi una recensione")])]), _vm._v(" "), _vm.display ? _c("div", {
+  }, [_vm._v("Scrivi una recensione")])]), _vm._v(" "), _vm.displayR ? _c("div", {
     staticClass: "form-floating my-4"
   }, [_c("div", {
     staticClass: "d-flex justify-content-start"
@@ -21052,6 +21061,75 @@ var render = function render() {
     on: {
       click: function click($event) {
         _vm.newReview(_vm.showProfile.id);
+
+        _vm.hideComponent();
+      }
+    }
+  }, [_vm._v("Invia")])])]) : _vm._e(), _vm._v(" "), _vm.displayM ? _c("div", {
+    staticClass: "form-floating my-4"
+  }, [_c("div", {
+    staticClass: "d-flex justify-content-start"
+  }, [_c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.email,
+      expression: "email"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      id: "message-email",
+      type: "text",
+      placeholder: "La tua email..."
+    },
+    domProps: {
+      value: _vm.email
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.email = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "mt-4"
+  }, [_c("textarea", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.message,
+      expression: "message"
+    }],
+    staticClass: "form-control",
+    staticStyle: {
+      height: "100px"
+    },
+    attrs: {
+      placeholder: "Lascia un messaggio...",
+      id: "floatingTextarea2"
+    },
+    domProps: {
+      value: _vm.message
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.message = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("label", {
+    attrs: {
+      "for": "floatingTextarea2"
+    }
+  }), _vm._v(" "), _c("button", {
+    staticClass: "btn mt-4",
+    staticStyle: {
+      background: "#23A3B3",
+      color: "#fff"
+    },
+    on: {
+      click: function click($event) {
+        _vm.newMessage(_vm.showProfile.id);
 
         _vm.hideComponent();
       }
@@ -26396,7 +26474,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#sez-nome[data-v-1ca8e6b5] {\n  height: 10vh;\n}\n#sez-nome h2[data-v-1ca8e6b5] {\n  margin: 0.5%;\n  font-size: 50px;\n}\nli[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n#user-img[data-v-1ca8e6b5] {\n  width: 200px;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#review-nome[data-v-1ca8e6b5] {\n  width: 200px;\n}\n#voto[data-v-1ca8e6b5] {\n  width: 80px;\n  margin-left: 20px;\n}\n.blu-scuro[data-v-1ca8e6b5] {\n  color: #00acff;\n}\n.blu-chiaro[data-v-1ca8e6b5] {\n  color: #00c7ff;\n}\n.blu-chiaro2[data-v-1ca8e6b5] {\n  color: #8ce6ff;\n}\n.nero[data-v-1ca8e6b5] {\n  color: #2a2d45;\n}\n.bg-blu-scuro[data-v-1ca8e6b5] {\n  background-color: #00acff;\n}\n.bg-blu-chiaro[data-v-1ca8e6b5] {\n  background-color: #00c7ff;\n}\n.bg-blu-chiaro2[data-v-1ca8e6b5] {\n  background-color: #8ce6ff;\n}\n.bg-nero[data-v-1ca8e6b5] {\n  background-color: #2a2d45;\n}", ""]);
+exports.push([module.i, "#sez-nome[data-v-1ca8e6b5] {\n  height: 10vh;\n}\n#sez-nome h2[data-v-1ca8e6b5] {\n  margin: 0.5%;\n  font-size: 50px;\n}\nli[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n#user-img[data-v-1ca8e6b5] {\n  width: 200px;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#review-nome[data-v-1ca8e6b5] {\n  width: 200px;\n}\n#message-email[data-v-1ca8e6b5] {\n  width: 300px;\n}\n#voto[data-v-1ca8e6b5] {\n  width: 80px;\n  margin-left: 20px;\n}\n.blu-scuro[data-v-1ca8e6b5] {\n  color: #00acff;\n}\n.blu-chiaro[data-v-1ca8e6b5] {\n  color: #00c7ff;\n}\n.blu-chiaro2[data-v-1ca8e6b5] {\n  color: #8ce6ff;\n}\n.nero[data-v-1ca8e6b5] {\n  color: #2a2d45;\n}\n.bg-blu-scuro[data-v-1ca8e6b5] {\n  background-color: #00acff;\n}\n.bg-blu-chiaro[data-v-1ca8e6b5] {\n  background-color: #00c7ff;\n}\n.bg-blu-chiaro2[data-v-1ca8e6b5] {\n  background-color: #8ce6ff;\n}\n.bg-nero[data-v-1ca8e6b5] {\n  background-color: #2a2d45;\n}", ""]);
 
 // exports
 
