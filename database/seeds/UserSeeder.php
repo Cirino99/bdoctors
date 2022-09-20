@@ -1,5 +1,6 @@
 <?php
 
+use Faker\Factory;
 use App\Models\User;
 use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
@@ -43,15 +44,17 @@ class UserSeeder extends Seeder
 
         ];
 
-        
-        for ($i = 0; $i < 5; $i++) {
+        $faker = Factory::create('it_IT');
+        for ($i = 0; $i < 20; $i++) {
             $user = new User();
 
-            $user->name = $users[$i]['name'];
+            // $user->name = $users[$i]['name'];
+            $user->name = $faker->firstName();
             $user->lastname = $faker->lastName();
-            $user->email = $users[$i]['email'];
+            // $user->email = $users[$i]['email'];
+            $user->email = $faker->freeEmail();
             $user->address = $faker->streetAddress();
-            $user->password = Hash::make($users[$i]['password']);
+            $user->password = Hash::make('asdf');
             $user->phone = $faker->phoneNumber();
             $user->city = $faker->city();
             $user->postal_code = (int)$faker->postcode();
