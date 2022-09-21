@@ -22183,8 +22183,10 @@ var staticRenderFns = [function () {
   return _c("div", [_c("div", {
     staticClass: "container mt-5 mb-5"
   }, [_c("h3", [_vm._v("\n            TEAM DI SVILUPPATORI\n        ")]), _vm._v(" "), _c("div", {
-    staticClass: "d-flex justify-content-between mt-4"
-  }, [_c("div", [_c("div", {
+    staticClass: "d-flex flex-wrap justify-content-center mt-4"
+  }, [_c("div", {
+    staticClass: "m-3"
+  }, [_c("div", {
     staticClass: "card",
     staticStyle: {
       width: "18rem"
@@ -22207,7 +22209,9 @@ var staticRenderFns = [function () {
       href: "https://www.linkedin.com/in/daniele-puccio-2b894324a/",
       target: "_blank"
     }
-  }, [_vm._v("Contatta")])])])]), _vm._v(" "), _c("div", [_c("div", {
+  }, [_vm._v("Contatta")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "m-3"
+  }, [_c("div", {
     staticClass: "card",
     staticStyle: {
       width: "18rem"
@@ -22230,7 +22234,9 @@ var staticRenderFns = [function () {
       href: "https://www.linkedin.com/in/andrea-guidotti-1a204224b/",
       target: "_blank"
     }
-  }, [_vm._v("Contatta")])])])]), _vm._v(" "), _c("div", [_c("div", {
+  }, [_vm._v("Contatta")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "m-3"
+  }, [_c("div", {
     staticClass: "card",
     staticStyle: {
       width: "18rem"
@@ -22253,7 +22259,9 @@ var staticRenderFns = [function () {
       href: "https://www.linkedin.com/in/simonecirino/",
       target: "_blank"
     }
-  }, [_vm._v("Contatta")])])])]), _vm._v(" "), _c("div", [_c("div", {
+  }, [_vm._v("Contatta")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "m-3"
+  }, [_c("div", {
     staticClass: "card",
     staticStyle: {
       width: "18rem"
@@ -62636,8 +62644,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })

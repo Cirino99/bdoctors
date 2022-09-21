@@ -4,8 +4,8 @@
             <h3>
                 TEAM DI SVILUPPATORI
             </h3>
-            <div class="d-flex justify-content-between mt-4">
-                <div>
+            <div class="d-flex flex-wrap justify-content-center mt-4">
+                <div class="m-3">
                     <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="https://media-exp1.licdn.com/dms/image/C5603AQGD5KhVePTZKA/profile-displayphoto-shrink_800_800/0/1662029867156?e=1669248000&v=beta&t=dTkuyVA1pmDrkhBWUNAUCfHA5vfzlSnB-zYBgx7zZyA" alt="Card image cap">
                     <div class="card-body">
@@ -15,7 +15,7 @@
                     </div>
                     </div>
                 </div>
-                <div>
+                <div class="m-3">
                     <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png" alt="Card image cap">
                     <div class="card-body">
@@ -25,7 +25,7 @@
                     </div>
                     </div>
                 </div>
-                <div>
+                <div class="m-3">
                     <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="https://media-exp1.licdn.com/dms/image/C4D03AQEx647HuYccOg/profile-displayphoto-shrink_800_800/0/1662389662911?e=1669248000&v=beta&t=XMO73GYkcOQ6vw6bRlAepMgQeFBswA_M0AsGUhuMa08" alt="Card image cap">
                     <div class="card-body">
@@ -35,7 +35,7 @@
                     </div>
                     </div>
                 </div>
-                <div>
+                <div class="m-3">
                     <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="https://media-exp1.licdn.com/dms/image/C4D03AQH1hbkUa3Jtpw/profile-displayphoto-shrink_800_800/0/1661961523599?e=1669248000&v=beta&t=aM84qVNBfQKwdmzg2Y3gLx3Do6vUDV4saM_gjHyeXRA" alt="Card image cap">
                     <div class="card-body">
