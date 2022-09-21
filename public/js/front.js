@@ -21766,11 +21766,6 @@ __webpack_require__.r(__webpack_exports__);
   name: 'CardDoctors',
   props: {
     doctor: Object
-  },
-  methods: {
-    rating: function rating() {
-      return this.doctor.vote;
-    }
   }
 });
 
@@ -22128,14 +22123,14 @@ var render = function render() {
     staticClass: "card-title"
   }, [_c("b", [_vm._v("Su di me")])]), _vm._v(" "), _c("p", {
     staticClass: "my-text-cv"
-  }, [_vm._v(_vm._s(_vm.doctor.cv))])], 1), _vm._v(" "), _c("span", [_c("strong", [_vm._v("Voto:")]), _vm._v(" "), _vm._l(_vm.rating(), function (myStar, i) {
+  }, [_vm._v(_vm._s(_vm.doctor.cv))])], 1), _vm._v(" "), _c("span", [_c("strong", [_vm._v("Voto:")]), _vm._v(" "), _vm._l(_vm.doctor.vote, function (myStar, i) {
     return _c("font-awesome-icon", {
       key: i,
       attrs: {
         icon: "fa-solid fa-star"
       }
     });
-  }), _vm._v(" "), _vm._l(5 - _vm.rating(), function (myEmptyStar, j) {
+  }), _vm._v(" "), _vm._l(5 - _vm.doctor.vote, function (myEmptyStar, j) {
     return _c("font-awesome-icon", {
       key: j,
       attrs: {
