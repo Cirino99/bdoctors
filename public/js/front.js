@@ -22474,7 +22474,7 @@ var render = function render() {
       }
     }, [_vm._v("\n                                    " + _vm._s(item) + "\n                                ")])]);
   })], 2)])])]), _vm._v(" "), _c("div", {
-    staticClass: "d-flex flex-wrap justify-content-evenly col-12"
+    staticClass: "d-flex flex-wrap justify-content-start"
   }, _vm._l(_vm.doctors, function (doctor, index) {
     return _c("CardDoctor", {
       key: index,
@@ -22715,13 +22715,14 @@ var render = function render() {
   }), 1)])]), _vm._v(" "), _c("div", {
     staticClass: "mt-5 full-container"
   }, [_vm._m(1), _vm._v(" "), _c("div", {
-    staticClass: "container"
+    staticClass: "container mt-5"
   }, [_c("big", {
-    staticClass: "fs-2",
-    staticStyle: {
-      color: "#00334e"
-    }
-  }, [_vm._v("\n                PERCHÉ SCEGLIERCI\n            ")]), _vm._v(" "), _vm._m(2)], 1)])]);
+    staticClass: "fs-2"
+  }, [_vm._v("\n                PERCHÉ SCEGLIERCI\n            ")]), _vm._v(" "), _vm._m(2)], 1)]), _vm._v(" "), _c("div", {
+    staticClass: "container text-center"
+  }, [_c("big", {
+    staticClass: "fs-1"
+  }, [_vm._v("\n            Facile e veloce!\n        ")]), _vm._v(" "), _vm._m(3)], 1)]);
 };
 
 var staticRenderFns = [function () {
@@ -22753,11 +22754,11 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "col-12 d-flex align-items-center"
+    staticClass: "col-12 d-flex align-items-center flex-wrap"
   }, [_c("div", {
-    staticClass: "col-6 col-xs-12"
+    staticClass: "col-md-6 col-sm-12"
   }, [_c("p", [_vm._v("Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore unde, corrupti maiores eos,\n                        itaque, facilis nulla reprehenderit laboriosam asperiores nobis ipsam. Nam explicabo ipsam\n                        quod alias fugiat saepe, sunt impedit!\n                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum atque necessitatibus tempora,\n                        facilis reiciendis ab exercitationem minus rerum nihil sequi et, pariatur temporibus placeat\n                        amet magni mollitia veniam aliquam reprehenderit!\n                    ")])]), _vm._v(" "), _c("div", {
-    staticClass: "col-6 col-xs-12"
+    staticClass: "col-md-6 col-sm-12"
   }, [_c("img", {
     staticClass: "img-fluid",
     attrs: {
@@ -22765,6 +22766,37 @@ var staticRenderFns = [function () {
       alt: ""
     }
   })])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-4 text-center"
+  }, [_c("img", {
+    staticClass: "my-img",
+    attrs: {
+      src: "img/consultazione-sito.svg",
+      alt: ""
+    }
+  }), _vm._v(" "), _c("h3", [_vm._v("Scegli il Medico")]), _vm._v(" "), _c("p", [_vm._v("Fai la scelta migliore secondo le tue esigenze: valuta curriculum, prezzo delle prestazioni, patologie trattate e recensioni degli altri pazienti.")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4 text-center"
+  }, [_c("img", {
+    staticClass: "my-img",
+    attrs: {
+      src: "img/prenotazione-online.svg",
+      alt: ""
+    }
+  }), _vm._v(" "), _c("h3", [_vm._v("Prenota la sisita")]), _vm._v(" "), _c("p", [_vm._v("Ti bastano pochi secondi: è facile e veloce, non serve telefonare e non è richiesta la carta di credito: pagherai direttamente al medico.")])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-4 text-center"
+  }, [_c("img", {
+    staticClass: "my-img",
+    attrs: {
+      src: "img/medico-e-paziente.svg",
+      alt: ""
+    }
+  }), _vm._v(" "), _c("h3", [_vm._v("Vai all'appuntamento")]), _vm._v(" "), _c("p", [_vm._v("Vai dal Medico scelto, nel giorno e nell'ora selezionati. Dopo la visita potrai lasciare una tua recensione che sarà utile per gli altri pazienti.")])])]);
 }];
 render._withStripped = true;
 
@@ -28411,7 +28443,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "*[data-v-20294d0c]::-webkit-scrollbar {\n  width: 5px;\n}\n*[data-v-20294d0c]::-webkit-scrollbar-track {\n  background: white;\n}\n*[data-v-20294d0c]::-webkit-scrollbar-thumb {\n  background-color: #4070F4;\n  border-radius: 20px;\n  border: 1px solid #4070F4;\n}\n.my-card[data-v-20294d0c] {\n  width: 250px;\n  border-radius: 25px;\n  background-color: #FFF;\n  color: #2a2d45;\n  margin-bottom: 5px;\n}\n.my-image-content[data-v-20294d0c] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.my-card-content[data-v-20294d0c] {\n  text-align: center;\n}\n.my-card-content .my-card-name[data-v-20294d0c] {\n  width: 87%;\n}\n.my-card-content .my-text-cv[data-v-20294d0c] {\n  height: 130px;\n  overflow: scroll;\n  margin: 0;\n  padding-top: 3px;\n}\n.my-card-content .fa-star[data-v-20294d0c] {\n  color: rgb(239, 203, 0);\n}\n.my-image-content[data-v-20294d0c] {\n  position: relative;\n  row-gap: 5px;\n  padding: 25px 0;\n}\n.my-overlay[data-v-20294d0c] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%;\n  background-color: #4070F4;\n  border-radius: 25px 25px 0 25px;\n}\n.my-overlay[data-v-20294d0c]::before,\n.my-overlay[data-v-20294d0c]::after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  bottom: -40px;\n  height: 40px;\n  width: 40px;\n  background-color: #4070F4;\n}\n.my-overlay[data-v-20294d0c]::after {\n  border-radius: 0 25px 0 0;\n  background-color: #FFF;\n}\n.my-card-image[data-v-20294d0c] {\n  position: relative;\n  height: 130px;\n  width: 130px;\n  border-radius: 50%;\n  background: #FFF;\n  padding: 3px;\n}\n.my-card-image .my-card-img[data-v-20294d0c] {\n  height: 100%;\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}", ""]);
+exports.push([module.i, "*[data-v-20294d0c]::-webkit-scrollbar {\n  width: 5px;\n}\n*[data-v-20294d0c]::-webkit-scrollbar-track {\n  background: white;\n}\n*[data-v-20294d0c]::-webkit-scrollbar-thumb {\n  background-color: #004d73;\n  border-radius: 20px;\n  border: 1px solid #004d73;\n}\n.my-card[data-v-20294d0c] {\n  width: 250px;\n  border-radius: 25px;\n  background-color: #FFF;\n  color: #2a2d45;\n  margin: 15px;\n}\n.my-image-content[data-v-20294d0c] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.my-card-content[data-v-20294d0c] {\n  text-align: center;\n}\n.my-card-content .my-card-name[data-v-20294d0c] {\n  width: 87%;\n}\n.my-card-content .my-text-cv[data-v-20294d0c] {\n  height: 130px;\n  overflow: scroll;\n  margin: 0;\n  padding-top: 3px;\n}\n.my-card-content .fa-star[data-v-20294d0c] {\n  color: rgb(239, 203, 0);\n}\n.my-image-content[data-v-20294d0c] {\n  position: relative;\n  row-gap: 5px;\n  padding: 25px 0;\n}\n.my-overlay[data-v-20294d0c] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%;\n  background-color: #004d73;\n  border-radius: 25px 25px 0 25px;\n}\n.my-overlay[data-v-20294d0c]::before,\n.my-overlay[data-v-20294d0c]::after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  bottom: -40px;\n  height: 40px;\n  width: 40px;\n  background-color: #004d73;\n}\n.my-overlay[data-v-20294d0c]::after {\n  border-radius: 0 25px 0 0;\n  background-color: #FFF;\n}\n.my-card-image[data-v-20294d0c] {\n  position: relative;\n  height: 130px;\n  width: 130px;\n  border-radius: 50%;\n  background: #FFF;\n  padding: 3px;\n}\n.my-card-image .my-card-img[data-v-20294d0c] {\n  height: 100%;\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}", ""]);
 
 // exports
 
@@ -28449,7 +28481,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".form-check[data-v-4d587a7c] {\n  display: inline-block;\n}\n#search-button[data-v-4d587a7c] {\n  width: 100px;\n}\n#search-icon[data-v-4d587a7c] {\n  max-width: 20px;\n}\n.my-collapse[data-v-4d587a7c] {\n  z-index: 500;\n  width: 47%;\n}\n.my-collapse ul[data-v-4d587a7c] {\n  padding: 0;\n}\n.my-collapse li[data-v-4d587a7c] {\n  list-style-type: none;\n  padding-left: 5px;\n}\n.my-collapse li[data-v-4d587a7c]:hover {\n  background-color: #00c7ff;\n}\n.my-collapse .my-overflow[data-v-4d587a7c] {\n  width: 100%;\n}", ""]);
+exports.push([module.i, ".form-check[data-v-4d587a7c] {\n  display: inline-block;\n}\n#search-button[data-v-4d587a7c] {\n  width: 100px;\n}\n#search-icon[data-v-4d587a7c] {\n  max-width: 20px;\n}\n.my-collapse[data-v-4d587a7c] {\n  z-index: 500;\n  width: 47%;\n}\n.my-collapse ul[data-v-4d587a7c] {\n  padding: 0;\n}\n.my-collapse li[data-v-4d587a7c] {\n  list-style-type: none;\n  padding-left: 5px;\n}\n.my-collapse li[data-v-4d587a7c]:hover {\n  background-color: #dbebfa;\n}\n.my-collapse .my-overflow[data-v-4d587a7c] {\n  width: 100%;\n}", ""]);
 
 // exports
 
@@ -28487,7 +28519,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#bg-searchbar #form[data-v-13e03f97] {\n  height: 60px;\n}\n.container-jumbo[data-v-13e03f97] {\n  position: relative;\n}\n.container-jumbo .cont-jumbo[data-v-13e03f97] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 500;\n  transform: translate(-50%, -50%);\n}\n.container-jumbo .cont-jumbo h2[data-v-13e03f97] {\n  color: #2a2d45;\n  font-size: 40px;\n}\n.bg-jumbo[data-v-13e03f97] {\n  background-color: rgba(0, 172, 255, 0.5);\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.wave_container[data-v-13e03f97] {\n  position: relative;\n}\n.wave_container img[data-v-13e03f97] {\n  width: 100%;\n  display: block;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n}\n.wawe[data-v-13e03f97] {\n  margin-bottom: -100px;\n}\n#jumbotron[data-v-13e03f97] {\n  min-width: 100%;\n  min-height: 150px;\n  height: 40vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#search-button[data-v-13e03f97] {\n  width: 100px;\n}\n#search-icon[data-v-13e03f97] {\n  max-width: 20px;\n}\nli[data-v-13e03f97] {\n  list-style-type: none;\n}\nli[data-v-13e03f97]:hover {\n  background-color: aquamarine;\n}\n.my-collapse[data-v-13e03f97] {\n  z-index: 500;\n  width: 60.5%;\n}\n.my-collapse ul[data-v-13e03f97] {\n  padding: 0;\n}\n.my-collapse li[data-v-13e03f97] {\n  list-style-type: none;\n  padding-left: 5px;\n}\n.my-collapse li[data-v-13e03f97]:hover {\n  background-color: #00c7ff;\n}\n.my-collapse .my-overflow[data-v-13e03f97] {\n  width: 100%;\n}\n.full-container[data-v-13e03f97] {\n  width: 100%;\n  background-color: #00acff;\n}", ""]);
+exports.push([module.i, "#bg-searchbar #form[data-v-13e03f97] {\n  height: 60px;\n}\n.container-jumbo[data-v-13e03f97] {\n  position: relative;\n}\n.container-jumbo .cont-jumbo[data-v-13e03f97] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 500;\n  transform: translate(-50%, -50%);\n}\n.container-jumbo .cont-jumbo h2[data-v-13e03f97] {\n  color: #2a2d45;\n  font-size: 40px;\n}\n.bg-jumbo[data-v-13e03f97] {\n  background-color: rgba(219, 235, 250, 0.6);\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.wave_container[data-v-13e03f97] {\n  position: relative;\n}\n.wave_container img[data-v-13e03f97] {\n  width: 100%;\n  display: block;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n}\n.wawe[data-v-13e03f97] {\n  margin-bottom: -100px;\n}\n#jumbotron[data-v-13e03f97] {\n  min-width: 100%;\n  min-height: 150px;\n  height: 40vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#search-button[data-v-13e03f97] {\n  width: 100px;\n}\n#search-icon[data-v-13e03f97] {\n  max-width: 20px;\n}\nli[data-v-13e03f97] {\n  list-style-type: none;\n}\nli[data-v-13e03f97]:hover {\n  background-color: aquamarine;\n}\n.my-collapse[data-v-13e03f97] {\n  z-index: 500;\n  width: 60.5%;\n}\n.my-collapse ul[data-v-13e03f97] {\n  padding: 0;\n}\n.my-collapse li[data-v-13e03f97] {\n  list-style-type: none;\n  padding-left: 5px;\n}\n.my-collapse li[data-v-13e03f97]:hover {\n  background-color: #dbebfa;\n}\n.my-collapse .my-overflow[data-v-13e03f97] {\n  width: 100%;\n}\n.full-container[data-v-13e03f97] {\n  width: 100%;\n  background-color: #dbebfa;\n}\n.row[data-v-13e03f97] {\n  color: #2a2d45;\n}\n.row .my-img[data-v-13e03f97] {\n  width: 200px;\n}", ""]);
 
 // exports
 
@@ -63026,8 +63058,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })

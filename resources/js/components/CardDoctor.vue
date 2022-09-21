@@ -56,9 +56,9 @@ export default {
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: #4070F4;
+    background-color: $bluedark;
     border-radius: 20px;
-    border: 1px solid #4070F4;
+    border: 1px solid $bluedark;
 }
 
 .my-card {
@@ -66,7 +66,7 @@ export default {
     border-radius: 25px;
     background-color: #FFF;
     color: $dark;
-    margin-bottom: 5px;
+    margin: 15px;
 }
 
 .my-image-content {
@@ -106,7 +106,7 @@ export default {
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: #4070F4;
+    background-color: $bluedark;
     border-radius: 25px 25px 0 25px;
 }
 
@@ -118,7 +118,7 @@ export default {
     bottom: -40px;
     height: 40px;
     width: 40px;
-    background-color: #4070F4;
+    background-color: $bluedark;
 }
 
 .my-overlay::after {
