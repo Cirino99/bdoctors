@@ -77,10 +77,10 @@
         </div>
     </nav>
     <div id="root"></div>
- 
+
     <!-- Footer -->
     <footer class="text-center text-lg-start bg-secondary text-light">
-        
+
         {{-- upper footer  --}}
         <section class="pt-3">
             <div class="container text-center text-md-start mt-5">
@@ -98,7 +98,7 @@
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                         <h6 class="text-uppercase fw-bold mb-4">Contatti</h6>
                         <p>
-                            <i class="fa-solid fa-location-dot me-3"></i> 
+                            <i class="fa-solid fa-location-dot me-3"></i>
                             Roma, RO 00123, IT
                         </p>
                         <p>
@@ -114,7 +114,7 @@
                             + 39 345 678 90
                         </p>
                     </div>
-                    
+
                     {{-- azienda --}}
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                         <h6 class="text-uppercase fw-bold mb-4">
@@ -149,7 +149,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- bottom footer -->
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
             © 2022 Copyright: BDoctors Tutti i diritti riservati

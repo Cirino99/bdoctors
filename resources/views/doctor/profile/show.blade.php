@@ -3,11 +3,11 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Il tuo Profilo') }}</div>
+        <div class="col-sm-10 col-md-8 col-lg-10">
+            <div class="card border-danger">
+                <div class="card-header bg-danger bg-gradient bg-opacity-75 border-bottom border-danger"><b>{{ __('Il tuo Profilo') }}</b></div>
 
-                <div class="card-body">
+                <div class="card-body d-flex flex-column gap-1">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -22,7 +22,7 @@
                     <div><strong>Specializzazioni:</strong></div>
                     <ul>
                         @foreach ($user->specializations as $specialization)
-                            <li>{{ $specialization->name }}</li>
+                            <li class="list-unstyled">- {{ $specialization->name }}</li>
                         @endforeach
                     </ul>
 
