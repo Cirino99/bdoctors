@@ -20724,7 +20724,103 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("h1", [_vm._v("\n        ABOUT US\n    ")])]);
+  return _c("div", [_c("div", {
+    staticClass: "container mt-5 mb-5"
+  }, [_c("h3", [_vm._v("\n            TEAM DI SVILUPPATORI\n        ")]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-between mt-4"
+  }, [_c("div", [_c("div", {
+    staticClass: "card",
+    staticStyle: {
+      width: "18rem"
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://media-exp1.licdn.com/dms/image/C5603AQGD5KhVePTZKA/profile-displayphoto-shrink_800_800/0/1662029867156?e=1669248000&v=beta&t=dTkuyVA1pmDrkhBWUNAUCfHA5vfzlSnB-zYBgx7zZyA",
+      alt: "Card image cap"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("Daniele Puccio")]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Jr. Full Stack Web Developer")]), _vm._v(" "), _c("a", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      href: "https://www.linkedin.com/in/daniele-puccio-2b894324a/",
+      target: "_blank"
+    }
+  }, [_vm._v("Contatta")])])])]), _vm._v(" "), _c("div", [_c("div", {
+    staticClass: "card",
+    staticStyle: {
+      width: "18rem"
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png",
+      alt: "Card image cap"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("Andrea Guidotti")]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Jr. Full Stack Web Developer")]), _vm._v(" "), _c("a", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      href: "https://www.linkedin.com/in/andrea-guidotti-1a204224b/",
+      target: "_blank"
+    }
+  }, [_vm._v("Contatta")])])])]), _vm._v(" "), _c("div", [_c("div", {
+    staticClass: "card",
+    staticStyle: {
+      width: "18rem"
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://media-exp1.licdn.com/dms/image/C4D03AQEx647HuYccOg/profile-displayphoto-shrink_800_800/0/1662389662911?e=1669248000&v=beta&t=XMO73GYkcOQ6vw6bRlAepMgQeFBswA_M0AsGUhuMa08",
+      alt: "Card image cap"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("Simone Cirino")]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Jr. Full Stack Web Developer")]), _vm._v(" "), _c("a", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      href: "https://www.linkedin.com/in/simonecirino/",
+      target: "_blank"
+    }
+  }, [_vm._v("Contatta")])])])]), _vm._v(" "), _c("div", [_c("div", {
+    staticClass: "card",
+    staticStyle: {
+      width: "18rem"
+    }
+  }, [_c("img", {
+    staticClass: "card-img-top",
+    attrs: {
+      src: "https://media-exp1.licdn.com/dms/image/C4D03AQH1hbkUa3Jtpw/profile-displayphoto-shrink_800_800/0/1661961523599?e=1669248000&v=beta&t=aM84qVNBfQKwdmzg2Y3gLx3Do6vUDV4saM_gjHyeXRA",
+      alt: "Card image cap"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "card-body"
+  }, [_c("h5", {
+    staticClass: "card-title"
+  }, [_vm._v("Mouhcine El Bakkali")]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Jr. Full Stack Web Developer")]), _vm._v(" "), _c("a", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      href: "https://www.linkedin.com/in/mouhcine-el-bakkali-b50096207/",
+      target: "_blank"
+    }
+  }, [_vm._v("Contatta")])])])])])])]);
 }];
 render._withStripped = true;
 
@@ -20967,12 +21063,16 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    staticClass: "d-flex justify-content-center flex-row mt-5"
+  return _c("div", [_c("div", {
+    staticClass: "d-flex justify-content-center flex-row p-5 bg-primary bg-gradient-bottom bg-opacity-50",
+    attrs: {
+      id: "bg-searchbar"
+    }
   }, [_c("form", {
-    staticClass: "d-flex justify-content-center form-inline my-2 my-lg-0 w-75"
+    staticClass: "d-flex justify-content-center gap-1 form-inline my-2 my-lg-0 w-75",
+    attrs: {
+      id: "form"
+    }
   }, [_c("input", {
     directives: [{
       name: "model",
@@ -20998,7 +21098,7 @@ var render = function render() {
       keyup: _vm.displayComponent
     }
   }), _vm._v(" "), _c("router-link", {
-    staticClass: "btn btn-outline-primary my-2 my-sm-0",
+    staticClass: "btn btn-warning bg-opacity-25 my-2 my-sm-0 d-flex justify-content-center",
     attrs: {
       to: {
         name: "AdvanceSearch",
@@ -21029,15 +21129,17 @@ var render = function render() {
           return _vm.selectSpecialization(specialization);
         }
       }
-    }, [_vm._v("\n                        " + _vm._s(specialization.name) + "\n                    ")]);
+    }, [_vm._v("\n                " + _vm._s(specialization.name) + "\n            ")]);
   }), 0)]) : _vm._e(), _vm._v(" "), _c("div", {
+    staticClass: "container"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
     staticClass: "mt-5"
   }, [_c("div", [_c("big", {
     staticClass: "fs-2",
     staticStyle: {
       color: "#00334e"
     }
-  }, [_vm._v("\n                        MEDICI SPONSORIZZATI\n                    ")])], 1), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                    MEDICI SPONSORIZZATI\n                ")])], 1), _vm._v(" "), _c("div", {
     staticClass: "d-flex flex-wrap justify-content-center gap-5 my-5"
   }, _vm._l(_vm.doctors, function (doctor, index) {
     return _c("CardDoctor", {
@@ -21053,14 +21155,16 @@ var render = function render() {
     staticStyle: {
       color: "#00334e"
     }
-  }, [_vm._v("\n                        PERCHÉ SCEGLIERCI\n                    ")])], 1)])])]);
+  }, [_vm._v("\n                    PERCHÉ SCEGLIERCI\n                ")])], 1)])])]);
 };
 
 var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("img", {
+  return _c("div", {
+    staticClass: "my-4"
+  }, [_c("img", {
     staticClass: "img-fluid",
     attrs: {
       src: "img/jumbotron-2.jpg",
@@ -26679,7 +26783,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#jumbotron[data-v-13e03f97] {\n  min-width: 100%;\n  min-height: 150px;\n  width: 20vw;\n  height: 30vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#search-button[data-v-13e03f97] {\n  width: 100px;\n}\n#search-icon[data-v-13e03f97] {\n  max-width: 20px;\n}\nli[data-v-13e03f97] {\n  list-style-type: none;\n}\nli[data-v-13e03f97]:hover {\n  background-color: aquamarine;\n}", ""]);
+exports.push([module.i, "#bg-searchbar #form[data-v-13e03f97] {\n  height: 60px;\n}\n#jumbotron[data-v-13e03f97] {\n  min-width: 100%;\n  min-height: 150px;\n  width: 20vw;\n  height: 30vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#search-button[data-v-13e03f97] {\n  width: 100px;\n}\n#search-icon[data-v-13e03f97] {\n  max-width: 20px;\n}\nli[data-v-13e03f97] {\n  list-style-type: none;\n}\nli[data-v-13e03f97]:hover {\n  background-color: aquamarine;\n}", ""]);
 
 // exports
 
