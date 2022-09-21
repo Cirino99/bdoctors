@@ -140,7 +140,7 @@
                             <a href="{{ url('/search') }}" class="text-reset">Ricerca avanzata</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Pricing</a>
+                            <a href="{{ url('/pricing') }}" class="text-reset">Pricing</a>
                         </p>
                         <p>
                             <a href="#!" class="text-reset">Help</a>
