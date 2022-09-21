@@ -22155,7 +22155,7 @@ var render = function render() {
   })], 2), _vm._v(" "), _c("div", {
     staticClass: "card-body d-flex flex-column justify-content-end"
   }, [_c("router-link", {
-    staticClass: "btn btn-primary col-12",
+    staticClass: "btn btn-primary col-12 my-btn",
     attrs: {
       to: {
         name: "profile",
@@ -22625,7 +22625,7 @@ var render = function render() {
       id: "jumbotron"
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "cont-jumbo col-12 col-md-6"
+    staticClass: "cont-jumbo col-12 col-md-6 ps-5"
   }, [_c("h2", {
     staticClass: "title-jumbo"
   }, [_vm._v("\n                Il tuo specialista a portata di click!\n            ")]), _vm._v(" "), _c("div", {
@@ -22698,7 +22698,9 @@ var render = function render() {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "mt-5"
-  }, [_c("div", [_c("big", {
+  }, [_c("div", {
+    staticClass: "text-center"
+  }, [_c("big", {
     staticClass: "fs-2",
     staticStyle: {
       color: "#00334e"
@@ -22715,11 +22717,11 @@ var render = function render() {
   }), 1)])]), _vm._v(" "), _c("div", {
     staticClass: "mt-5 full-container"
   }, [_vm._m(1), _vm._v(" "), _c("div", {
-    staticClass: "container mt-5"
+    staticClass: "container mt-5 text-center"
   }, [_c("big", {
     staticClass: "fs-2"
   }, [_vm._v("\n                PERCHÉ SCEGLIERCI\n            ")]), _vm._v(" "), _vm._m(2)], 1)]), _vm._v(" "), _c("div", {
-    staticClass: "container text-center"
+    staticClass: "container text-center mt-4 mb-5"
   }, [_c("big", {
     staticClass: "fs-1"
   }, [_vm._v("\n            Facile e veloce!\n        ")]), _vm._v(" "), _vm._m(3)], 1)]);
@@ -22757,7 +22759,7 @@ var staticRenderFns = [function () {
     staticClass: "col-12 d-flex align-items-center flex-wrap"
   }, [_c("div", {
     staticClass: "col-md-6 col-sm-12"
-  }, [_c("p", [_vm._v("Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore unde, corrupti maiores eos,\n                        itaque, facilis nulla reprehenderit laboriosam asperiores nobis ipsam. Nam explicabo ipsam\n                        quod alias fugiat saepe, sunt impedit!\n                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum atque necessitatibus tempora,\n                        facilis reiciendis ab exercitationem minus rerum nihil sequi et, pariatur temporibus placeat\n                        amet magni mollitia veniam aliquam reprehenderit!\n                    ")])]), _vm._v(" "), _c("div", {
+  }, [_c("p", [_vm._v("Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore unde, corrupti maiores eos,\n                        itaque, facilis nulla reprehenderit laboriosam asperiores nobis ipsam. Nam explicabo ipsam\n                        quod alias fugiat saepe, sunt impedit!\n                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum atque necessitatibus tempora,\n                        facilis reiciendis ab exercitationem minus rerum nihil sequi et, pariatur temporibus placeat\n                        amet magni mollitia veniam aliquam reprehenderit!\n                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eaque saepe minus architecto explicabo molestiae totam omnis ducimus doloremque? Et eaque velit quibusdam ratione dolorem assumenda ea nisi officiis itaque.\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, sit? Ex magnam illo nam, rerum neque, voluptatem eaque temporibus labore minus soluta ipsum dicta dolor dignissimos saepe eum quisquam laudantium?\n                    ")])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 col-sm-12"
   }, [_c("img", {
     staticClass: "img-fluid",
@@ -22780,7 +22782,9 @@ var staticRenderFns = [function () {
       src: "img/consultazione-sito.svg",
       alt: ""
     }
-  }), _vm._v(" "), _c("h3", [_vm._v("Scegli il Medico")]), _vm._v(" "), _c("p", [_vm._v("Fai la scelta migliore secondo le tue esigenze: valuta curriculum, prezzo delle prestazioni, patologie trattate e recensioni degli altri pazienti.")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("h3", {
+    staticClass: "mt-3"
+  }, [_vm._v("Scegli il Medico")]), _vm._v(" "), _c("p", [_vm._v("Fai la scelta migliore secondo le tue esigenze: valuta curriculum, prezzo delle prestazioni, patologie trattate e recensioni degli altri pazienti.")])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-4 text-center"
   }, [_c("img", {
     staticClass: "my-img",
@@ -22788,7 +22792,9 @@ var staticRenderFns = [function () {
       src: "img/prenotazione-online.svg",
       alt: ""
     }
-  }), _vm._v(" "), _c("h3", [_vm._v("Prenota la sisita")]), _vm._v(" "), _c("p", [_vm._v("Ti bastano pochi secondi: è facile e veloce, non serve telefonare e non è richiesta la carta di credito: pagherai direttamente al medico.")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("h3", {
+    staticClass: "mt-3"
+  }, [_vm._v("Prenota la sisita")]), _vm._v(" "), _c("p", [_vm._v("Ti bastano pochi secondi: è facile e veloce, non serve telefonare e non è richiesta la carta di credito: pagherai direttamente al medico.")])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-4 text-center"
   }, [_c("img", {
     staticClass: "my-img",
@@ -22796,7 +22802,9 @@ var staticRenderFns = [function () {
       src: "img/medico-e-paziente.svg",
       alt: ""
     }
-  }), _vm._v(" "), _c("h3", [_vm._v("Vai all'appuntamento")]), _vm._v(" "), _c("p", [_vm._v("Vai dal Medico scelto, nel giorno e nell'ora selezionati. Dopo la visita potrai lasciare una tua recensione che sarà utile per gli altri pazienti.")])])]);
+  }), _vm._v(" "), _c("h3", {
+    staticClass: "mt-3"
+  }, [_vm._v("Vai all'appuntamento")]), _vm._v(" "), _c("p", [_vm._v("Vai dal Medico scelto, nel giorno e nell'ora selezionati. Dopo la visita potrai lasciare una tua recensione che sarà utile per gli altri pazienti.")])])]);
 }];
 render._withStripped = true;
 
@@ -28443,7 +28451,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "*[data-v-20294d0c]::-webkit-scrollbar {\n  width: 5px;\n}\n*[data-v-20294d0c]::-webkit-scrollbar-track {\n  background: white;\n}\n*[data-v-20294d0c]::-webkit-scrollbar-thumb {\n  background-color: #004d73;\n  border-radius: 20px;\n  border: 1px solid #004d73;\n}\n.my-card[data-v-20294d0c] {\n  width: 250px;\n  border-radius: 25px;\n  background-color: #FFF;\n  color: #2a2d45;\n  margin: 15px;\n}\n.my-image-content[data-v-20294d0c] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.my-card-content[data-v-20294d0c] {\n  text-align: center;\n}\n.my-card-content .my-card-name[data-v-20294d0c] {\n  width: 87%;\n}\n.my-card-content .my-text-cv[data-v-20294d0c] {\n  height: 130px;\n  overflow: scroll;\n  margin: 0;\n  padding-top: 3px;\n}\n.my-card-content .fa-star[data-v-20294d0c] {\n  color: rgb(239, 203, 0);\n}\n.my-image-content[data-v-20294d0c] {\n  position: relative;\n  row-gap: 5px;\n  padding: 25px 0;\n}\n.my-overlay[data-v-20294d0c] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%;\n  background-color: #004d73;\n  border-radius: 25px 25px 0 25px;\n}\n.my-overlay[data-v-20294d0c]::before,\n.my-overlay[data-v-20294d0c]::after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  bottom: -40px;\n  height: 40px;\n  width: 40px;\n  background-color: #004d73;\n}\n.my-overlay[data-v-20294d0c]::after {\n  border-radius: 0 25px 0 0;\n  background-color: #FFF;\n}\n.my-card-image[data-v-20294d0c] {\n  position: relative;\n  height: 130px;\n  width: 130px;\n  border-radius: 50%;\n  background: #FFF;\n  padding: 3px;\n}\n.my-card-image .my-card-img[data-v-20294d0c] {\n  height: 100%;\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}", ""]);
+exports.push([module.i, "*[data-v-20294d0c]::-webkit-scrollbar {\n  width: 5px;\n}\n*[data-v-20294d0c]::-webkit-scrollbar-track {\n  background: white;\n}\n*[data-v-20294d0c]::-webkit-scrollbar-thumb {\n  background-color: #004d73;\n  border-radius: 20px;\n  border: 1px solid #004d73;\n}\n.my-btn[data-v-20294d0c] {\n  background-color: #004d73;\n  border: 1px solid #004d73;\n}\n.my-btn[data-v-20294d0c]:hover {\n  background-color: #00334e;\n  border: 1px solid #00334e;\n}\n.my-card[data-v-20294d0c] {\n  width: 250px;\n  border-radius: 25px;\n  background-color: #FFF;\n  color: #2a2d45;\n  margin: 15px;\n}\n.my-image-content[data-v-20294d0c] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.my-card-content[data-v-20294d0c] {\n  text-align: center;\n}\n.my-card-content .my-card-name[data-v-20294d0c] {\n  width: 87%;\n}\n.my-card-content .my-text-cv[data-v-20294d0c] {\n  height: 130px;\n  overflow: scroll;\n  margin: 0;\n  padding-top: 3px;\n}\n.my-card-content .fa-star[data-v-20294d0c] {\n  color: rgb(239, 203, 0);\n}\n.my-image-content[data-v-20294d0c] {\n  position: relative;\n  row-gap: 5px;\n  padding: 25px 0;\n}\n.my-overlay[data-v-20294d0c] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%;\n  background-color: #004d73;\n  border-radius: 25px 25px 0 25px;\n}\n.my-overlay[data-v-20294d0c]::before,\n.my-overlay[data-v-20294d0c]::after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  bottom: -40px;\n  height: 40px;\n  width: 40px;\n  background-color: #004d73;\n}\n.my-overlay[data-v-20294d0c]::after {\n  border-radius: 0 25px 0 0;\n  background-color: #FFF;\n}\n.my-card-image[data-v-20294d0c] {\n  position: relative;\n  height: 130px;\n  width: 130px;\n  border-radius: 50%;\n  background: #FFF;\n  padding: 3px;\n}\n.my-card-image .my-card-img[data-v-20294d0c] {\n  height: 100%;\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}", ""]);
 
 // exports
 
