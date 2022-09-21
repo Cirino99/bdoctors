@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-sm-10 col-md-8 col-lg-10">
             <div class="card border-primary">
-                <div class="card-header bg-primary bg-gradient bg-opacity-50 border-bottom border-primary"><b>{{ __('Modifica Profilo') }}</b></div>
+                <div class="card-header bg-primary bg-gradient bg-opacity-50 border-bottom border-primary fw-bold">{{ __('Modifica Profilo') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -201,8 +201,9 @@
                                 @endforeach
                             @endforeach
                         </fieldset>
-
-                       <button type="submit" class="btn btn-primary">Save</button>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary bg-gradient text-light rounded-pill">Salva</button>
+                        </div>
                     </form>
                 </div>
             </div>

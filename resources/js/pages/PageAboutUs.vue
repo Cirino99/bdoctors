@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container mt-5 mb-5">
+        <div class="container mt-5 mb-5 min-vh-100">
             <h3>
                 TEAM DI SVILUPPATORI
             </h3>

@@ -10865,6 +10865,7 @@ textarea.form-control-lg {
 
 .left-menu {
   width: 200px;
+  min-height: 100vh;
   background: #fff;
 }
 .left-menu i {
@@ -10901,7 +10902,7 @@ textarea.form-control-lg {
 .my-delete .popup {
   width: 30%;
   max-width: 400px;
-  min-width: 200px;
+  min-width: 300px;
   background-color: white;
   padding: 10px;
   border-radius: 10px;

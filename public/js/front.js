@@ -22196,7 +22196,7 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", [_c("div", {
-    staticClass: "container mt-5 mb-5"
+    staticClass: "container mt-5 mb-5 min-vh-100"
   }, [_c("h3", [_vm._v("\n            TEAM DI SVILUPPATORI\n        ")]), _vm._v(" "), _c("div", {
     staticClass: "d-flex flex-wrap justify-content-center mt-4"
   }, [_c("div", {
@@ -22321,7 +22321,9 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", {}, [_c("div", {
+  return _c("div", {
+    staticClass: "min-vh-100"
+  }, [_c("div", {
     staticClass: "container"
   }, [_c("div", {
     staticClass: "d-flex flex-column justify-content-center"
@@ -22521,7 +22523,7 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "container mt-5"
+    staticClass: "container mt-5 min-vh-100"
   }, [_c("section", {
     staticClass: "mb-4"
   }, [_c("h2", {
@@ -22834,7 +22836,7 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "container mt-5"
+    staticClass: "container mt-5 min-vh-100"
   }, [_c("div", {
     staticClass: "px-3 py-3 pt-md-4 text-center"
   }, [_c("h1", {
@@ -22937,7 +22939,9 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("div", {
+  return _c("div", {
+    staticClass: "min-vh-100"
+  }, [_c("div", {
     staticClass: "bg-blu-chiaro text-white d-flex justify-content-center align-items-center",
     attrs: {
       id: "sez-nome"
@@ -63066,8 +63070,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })
