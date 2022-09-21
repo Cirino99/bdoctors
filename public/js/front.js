@@ -22552,7 +22552,7 @@ var staticRenderFns = [function () {
     staticClass: "form-control",
     attrs: {
       type: "text",
-      placeholder: "Il tuo nome..."
+      placeholder: "La tua email..."
     }
   })])])]), _vm._v(" "), _c("div", {
     staticClass: "row mt-3"
@@ -22752,7 +22752,89 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("h1", [_vm._v("\n        PRICING\n    ")])]);
+  return _c("div", {
+    staticClass: "container mt-5"
+  }, [_c("div", {
+    staticClass: "px-3 py-3 pt-md-4 text-center"
+  }, [_c("h1", {
+    staticClass: "display-4"
+  }, [_vm._v("Pricing")]), _vm._v(" "), _c("h3", {
+    staticClass: "lead"
+  }, [_vm._v("\n            Sei un medico e vuoi sponsorizzarti? Compari nella homepage e durante la ricerca prima di tutti gli altri.\n            Ecco i nostri prezzi.\n        ")])]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-center flex-wrap text-center"
+  }, [_c("div", {
+    staticClass: "card bg-light shadow m-5 bg-white rounded",
+    staticStyle: {
+      "max-width": "18rem",
+      "min-width": "18rem"
+    }
+  }, [_c("div", {
+    staticClass: "card-header"
+  }, [_c("h4", {
+    staticClass: "my-0"
+  }, [_vm._v("Base")])]), _vm._v(" "), _c("div", {
+    staticClass: "card-body bg-white"
+  }, [_c("h1", {
+    staticClass: "card-title"
+  }, [_vm._v("€2,99 \n                    "), _c("small", {
+    staticClass: "text-muted h3"
+  }, [_vm._v("/ 24h")])]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Sponsorship")]), _vm._v(" "), _c("div", {
+    staticClass: "list-unstyled mt-3 mb-4"
+  }, [_c("li", [_vm._v("Comparsa in HomePage")]), _vm._v(" "), _c("li", {
+    staticClass: "mt-2"
+  }, [_vm._v("Comparsa tra i primi risultati di ricerca")]), _vm._v(" "), _c("li", {
+    staticClass: "mt-2"
+  }, [_vm._v("Durata vantaggi: 24 ore")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "card bg-light shadow m-5 bg-white rounded",
+    staticStyle: {
+      "max-width": "18rem",
+      "min-width": "18rem"
+    }
+  }, [_c("div", {
+    staticClass: "card-header"
+  }, [_c("h4", {
+    staticClass: "my-0"
+  }, [_vm._v("Avanzato")])]), _vm._v(" "), _c("div", {
+    staticClass: "card-body bg-white"
+  }, [_c("h1", {
+    staticClass: "card-title"
+  }, [_vm._v("€5,99 \n                    "), _c("small", {
+    staticClass: "text-muted h3"
+  }, [_vm._v("/ 72h")])]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Sponsorship")]), _vm._v(" "), _c("div", {
+    staticClass: "list-unstyled mt-3 mb-4"
+  }, [_c("li", [_vm._v("Comparsa in HomePage")]), _vm._v(" "), _c("li", {
+    staticClass: "mt-2"
+  }, [_vm._v("Comparsa tra i primi risultati di ricerca")]), _vm._v(" "), _c("li", {
+    staticClass: "mt-2"
+  }, [_vm._v("Durata vantaggi: 72 ore")])])])]), _vm._v(" "), _c("div", {
+    staticClass: "card bg-light shadow m-5 bg-white rounded",
+    staticStyle: {
+      "max-width": "18rem",
+      "min-width": "18rem"
+    }
+  }, [_c("div", {
+    staticClass: "card-header"
+  }, [_c("h4", {
+    staticClass: "my-0"
+  }, [_vm._v("Pro")])]), _vm._v(" "), _c("div", {
+    staticClass: "card-body bg-white"
+  }, [_c("h1", {
+    staticClass: "card-title"
+  }, [_vm._v("€9,99 \n                    "), _c("small", {
+    staticClass: "text-muted h3"
+  }, [_vm._v("/ 144h")])]), _vm._v(" "), _c("p", {
+    staticClass: "card-text"
+  }, [_vm._v("Sponsorship")]), _vm._v(" "), _c("div", {
+    staticClass: "list-unstyled mt-3 mb-4"
+  }, [_c("li", [_vm._v("Comparsa in HomePage")]), _vm._v(" "), _c("li", {
+    staticClass: "mt-2"
+  }, [_vm._v("Comparsa tra i primi risultati di ricerca")]), _vm._v(" "), _c("li", {
+    staticClass: "mt-2"
+  }, [_vm._v("Durata vantaggi: 144 ore")])])])])])]);
 }];
 render._withStripped = true;
 
