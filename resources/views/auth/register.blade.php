@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Registrazione') }}</div>
+            <div class="card border-primary">
+                <div class="card-header bg-primary bg-gradient bg-opacity-50 fw-bold border-primary">{{ __('Registrazione') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" id="form-register">
@@ -96,7 +96,7 @@
                                     <label class="form-check-label" for="specialization-{{ $specialization->id }}">{{ $specialization->name }}</label>
                                 </div>
                             @endforeach
-                
+
                             @foreach ($errors->get('specializations.*') as $messages)
                                 @foreach ($messages as $message)
                                     <div class="invalid-feedback d-block">
@@ -143,9 +143,9 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" value="Submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                            <div class="d-flex justify-content-end col-md-12 mt-4">
+                                <button type="submit" value="Submit" class="btn btn-primary bg-gradient rounded-pill text-light">
+                                    {{ __('Completa registrazione') }}
                                 </button>
                             </div>
                         </div>
