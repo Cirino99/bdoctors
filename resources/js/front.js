@@ -9,6 +9,7 @@ import AdvanceSearch from './pages/PageAdvanceSearch.vue';
 import PageShow from './pages/PageShow';
 import ContactUs from './pages/PageContactUs';
 import AboutUs from './pages/PageAboutUs';
+import Pricing from './pages/PagePricing';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -46,6 +47,12 @@ const routes = [
         path: '/about',
         name: 'AboutUs',
         component: AboutUs,
+    },
+
+    {
+        path: '/pricing',
+        name: 'Pricing',
+        component: Pricing,
     },
 ];
 

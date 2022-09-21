@@ -17,7 +17,7 @@
                             <!-- campo email -->
                             <div class="col-md-6 mt-3">
                                 <div class="md-form mb-0">
-                                    <input type="text" class="form-control" placeholder="Il tuo nome...">
+                                    <input type="text" class="form-control" placeholder="La tua email...">
                                 </div>
                             </div>
                         </div>

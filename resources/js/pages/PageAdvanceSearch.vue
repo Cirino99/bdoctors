@@ -59,7 +59,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="d-flex flex-wrap justify-content-evenly col-12">
+                <div class="d-flex flex-wrap justify-content-start">
                     <CardDoctor v-for="(doctor, index) in doctors" :key="index" :doctor="doctor" />
                 </div>
             </div>
@@ -174,7 +174,7 @@ export default {
         }
 
         li:hover{
-            background-color: $secondary;
+            background-color: $bluelight;
         }
 
         .my-overflow{

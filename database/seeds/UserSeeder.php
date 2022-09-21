@@ -2,9 +2,11 @@
 
 use Faker\Factory;
 use App\Models\User;
+use Illuminate\Http\File;
 use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserSeeder extends Seeder
 {
@@ -59,6 +61,8 @@ class UserSeeder extends Seeder
             $user->cv = implode($faker->paragraphs(3));
             $user->service = $faker->word();
             // $User->photo = $faker->streetAddress();
+            $contents = new File(__DIR__ . '/../../storage/app/img/'. rand(1, 13) . '.jpg');
+                $user->photo = Storage::put('uploads', $contents);
             $user->save();
         }
     }
