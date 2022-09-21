@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-5">
+    <div class="container mt-5 min-vh-100">
         <section class="mb-4">
             <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
             <p class="text-center w-responsive mx-auto mb-5">Hai qualche domanda? Non esitare a contattarci direttamente. Il nostro team ti ricontattera per aiutarti al meglio.</p>

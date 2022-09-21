@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-5">
+    <div class="container mt-5 min-vh-100">
         <div class="px-3 py-3 pt-md-4 text-center">
             <h1 class="display-4">Pricing</h1>
             <h3 class="lead">

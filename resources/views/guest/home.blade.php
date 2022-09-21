@@ -148,7 +148,7 @@
                             <a href="{{ url('/contacts') }}" class="text-reset">Contact Us</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Privacy</a>
+                            <a href="" class="text-reset">Privacy</a>
                         </p>
                     </div>
 
@@ -164,7 +164,7 @@
                             <a href="{{ url('/pricing') }}" class="text-reset">Pricing</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Help</a>
+                            <a href="" class="text-reset">Help</a>
                         </p>
                     </div>
                 </div>

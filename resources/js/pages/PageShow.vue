@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="min-vh-100">
         <div id="sez-nome" class="bg-blu-chiaro text-white d-flex justify-content-center align-items-center">
             <h2> Dr. {{ showProfile.name }} {{ showProfile.lastname }}</h2>       
         </div>
