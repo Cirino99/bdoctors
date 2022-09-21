@@ -1,8 +1,72 @@
 <template>
-    <div>
-        <h1>
-            CONTATTACI
-        </h1>
+    <div class="container mt-5">
+        <section class="mb-4">
+            <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+            <p class="text-center w-responsive mx-auto mb-5">Hai qualche domanda? Non esitare a contattarci direttamente. Il nostro team ti ricontattera per aiutarti al meglio.</p>
+
+            <div class="row">
+                <div class="col-md-9 mb-md-0 mb-5">
+                    <form>
+                        <div class="row">
+                            <!-- campo nome  -->
+                            <div class="col-md-6 mt-3">
+                                <div class="md-form mb-0">
+                                    <input type="text" class="form-control" placeholder="Il tuo nome...">
+                                </div>
+                            </div>
+                            <!-- campo email -->
+                            <div class="col-md-6 mt-3">
+                                <div class="md-form mb-0">
+                                    <input type="text" class="form-control" placeholder="Il tuo nome...">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- campo oggetto  -->
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <div class="md-form mb-0">
+                                    <input type="text" class="form-control" placeholder="Ogetto...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <div class="md-form">
+                                    <textarea type="text" rows="6" class="form-control md-textarea" placeholder="Scrivi messaggio..."></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="text-center text-md-left mt-3">
+                        <a class="btn btn-primary">Send</a>
+                    </div>
+                </div>
+
+                <!-- sezioe laterale -->
+                <div class="col-md-3 text-center">
+                    <ul class="list-unstyled mb-0">
+                        <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                            <p>Roma, RM 00123, IT</p>
+                        </li>
+
+                        <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                            <p>+ 39 345 678 99</p>
+                        </li>
+
+                        <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                            <p>contact@bdoctors.com</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+            </div>
+
+        </section>
+        <!--Section: Contact v.2-->
     </div>
 </template>
 

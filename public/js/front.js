@@ -22505,7 +22505,80 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("h1", [_vm._v("\n        CONTATTACI\n    ")])]);
+  return _c("div", {
+    staticClass: "container mt-5"
+  }, [_c("section", {
+    staticClass: "mb-4"
+  }, [_c("h2", {
+    staticClass: "h1-responsive font-weight-bold text-center my-4"
+  }, [_vm._v("Contact us")]), _vm._v(" "), _c("p", {
+    staticClass: "text-center w-responsive mx-auto mb-5"
+  }, [_vm._v("Hai qualche domanda? Non esitare a contattarci direttamente. Il nostro team ti ricontattera per aiutarti al meglio.")]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-9 mb-md-0 mb-5"
+  }, [_c("form", [_c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col-md-6 mt-3"
+  }, [_c("div", {
+    staticClass: "md-form mb-0"
+  }, [_c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      placeholder: "Il tuo nome..."
+    }
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-6 mt-3"
+  }, [_c("div", {
+    staticClass: "md-form mb-0"
+  }, [_c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      placeholder: "Il tuo nome..."
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "row mt-3"
+  }, [_c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "md-form mb-0"
+  }, [_c("input", {
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      placeholder: "Ogetto..."
+    }
+  })])])]), _vm._v(" "), _c("div", {
+    staticClass: "row mt-3"
+  }, [_c("div", {
+    staticClass: "col-md-12"
+  }, [_c("div", {
+    staticClass: "md-form"
+  }, [_c("textarea", {
+    staticClass: "form-control md-textarea",
+    attrs: {
+      type: "text",
+      rows: "6",
+      placeholder: "Scrivi messaggio..."
+    }
+  })])])])]), _vm._v(" "), _c("div", {
+    staticClass: "text-center text-md-left mt-3"
+  }, [_c("a", {
+    staticClass: "btn btn-primary"
+  }, [_vm._v("Send")])])]), _vm._v(" "), _c("div", {
+    staticClass: "col-md-3 text-center"
+  }, [_c("ul", {
+    staticClass: "list-unstyled mb-0"
+  }, [_c("li", [_c("i", {
+    staticClass: "fas fa-map-marker-alt fa-2x"
+  }), _vm._v(" "), _c("p", [_vm._v("Roma, RM 00123, IT")])]), _vm._v(" "), _c("li", [_c("i", {
+    staticClass: "fas fa-phone mt-4 fa-2x"
+  }), _vm._v(" "), _c("p", [_vm._v("+ 39 345 678 99")])]), _vm._v(" "), _c("li", [_c("i", {
+    staticClass: "fas fa-envelope mt-4 fa-2x"
+  }), _vm._v(" "), _c("p", [_vm._v("contact@bdoctors.com")])])])])])])]);
 }];
 render._withStripped = true;
 
