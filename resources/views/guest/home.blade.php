@@ -83,14 +83,14 @@
         </div>
         <div class="flex-center">
             @if (Route::has('login'))
-                <div class="links">
+                <div class="links mx-3">
                     @auth
-                        <a href="{{ route('doctor.dashboard') }}">Dashboard</a>
+                        <a href="{{ route('doctor.dashboard') }}" class="btn btn-primary p-2 px-3 mx-2 rounded-pill text-light">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}">Accedi</a>
+                        <a href="{{ route('login') }}" class="btn btn-primary p-2 px-3 mx-2 rounded-pill text-light">Accedi</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Registrati</a>
+                            <a href="{{ route('register') }}" class="btn btn-primary p-2 px-3 mx-2 rounded-pill text-light">Registrati</a>
                         @endif
                     @endauth
                 </div>

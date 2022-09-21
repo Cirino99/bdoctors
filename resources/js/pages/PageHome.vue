@@ -80,12 +80,12 @@
             <div class="wawe">
                 <img src="img/wave.svg" alt="">
             </div>
-            <div class="container">
-                <big class="fs-2" style="color: #00334e">
+            <div class="container mt-5">
+                <big class="fs-2">
                     PERCHÉ SCEGLIERCI
                 </big>
-                <div class="col-12 d-flex align-items-center">
-                    <div class="col-6 col-xs-12">
+                <div class="col-12 d-flex align-items-center flex-wrap">
+                    <div class="col-md-6 col-sm-12">
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore unde, corrupti maiores eos,
                             itaque, facilis nulla reprehenderit laboriosam asperiores nobis ipsam. Nam explicabo ipsam
                             quod alias fugiat saepe, sunt impedit!
@@ -94,9 +94,32 @@
                             amet magni mollitia veniam aliquam reprehenderit!
                         </p>
                     </div>
-                    <div class="col-6 col-xs-12">
+                    <div class="col-md-6 col-sm-12">
                         <img class="img-fluid" src="img/doctor-phone.png" alt="">
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container text-center">
+            <big class="fs-1">
+                Facile e veloce!
+            </big>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <img class="my-img" src="img/consultazione-sito.svg" alt="">
+                    <h3>Scegli il Medico</h3>
+                    <p>Fai la scelta migliore secondo le tue esigenze: valuta curriculum, prezzo delle prestazioni, patologie trattate e recensioni degli altri pazienti.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img class="my-img" src="img/prenotazione-online.svg" alt="">
+                    <h3>Prenota la sisita</h3>
+                    <p>Ti bastano pochi secondi: è facile e veloce, non serve telefonare e non è richiesta la carta di credito: pagherai direttamente al medico.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img class="my-img" src="img/medico-e-paziente.svg" alt="">
+                    <h3>Vai all'appuntamento</h3>
+                    <p>Vai dal Medico scelto, nel giorno e nell'ora selezionati. Dopo la visita potrai lasciare una tua recensione che sarà utile per gli altri pazienti.</p>
                 </div>
             </div>
         </div>
@@ -188,7 +211,7 @@ export default {
 }
 
 .bg-jumbo {
-    background-color: rgba($primary, $alpha: 0.5);
+    background-color: rgba($bluelight, $alpha: 0.6);
     position: absolute;
     top: 0;
     left: 0;
@@ -209,7 +232,7 @@ export default {
     }
 }
 
-.wawe{
+.wawe {
     margin-bottom: -100px;
 }
 
@@ -251,7 +274,7 @@ li {
     }
 
     li:hover {
-        background-color: $secondary;
+        background-color: $bluelight;
     }
 
     .my-overflow {
@@ -261,7 +284,14 @@ li {
 
 .full-container {
     width: 100%;
-    background-color: $primary;
+    background-color: $bluelight;
+}
 
+.row{
+    color: $dark;
+
+    .my-img{
+        width: 200px;
+    }
 }
 </style>
