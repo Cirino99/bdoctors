@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="my-card-content">
-            <div>
+            <div class="my-card-name">
                 <big><strong>Dr.</strong></big>
                 <big class="card-title"><b> {{ doctor.name }} </b></big>
                 <big class="card-title"><b> {{ doctor.lastname }} </b></big>
@@ -36,14 +36,16 @@
                 <big><strong>Città:</strong></big>
                 <big>{{ doctor.city}}</big>
             </div>
-            <ul class="list-group list-group-flush">
-                <li v-for="specialization in doctor.specializations" :key="specialization.id" class="list-group-item">
-                    {{ specialization.name }}
-                </li>
-                <!-- <li class="list-group-item">Voto: {{ doctor.vote}} <font-awesome-icon icon="fas fa-star" /></li> -->
-            </ul>
+            <div>
+                <big class="card-title"><b>Su di me</b></big>
+                <p class="my-text-cv">{{ doctor.cv }}</p>
+            </div>
 
-            <span><strong>Voto:</strong> {{doctor.vote}}</span>
+            <span>
+                <strong>Voto:</strong>
+                <font-awesome-icon v-for="(myStar, i) in rating()" :key="i" icon="fa-solid fa-star" />
+                <font-awesome-icon v-for="(myEmptyStar, j) in (5 - rating())" :key="j" icon="fa-regular fa-star" />            
+            </span>
 
             <div class="card-body d-flex flex-column justify-content-end">
                 <router-link :to="{name: 'profile', params: {id: doctor.id} }" class="btn btn-primary col-12">Visualizza
@@ -58,12 +60,32 @@ export default {
     name: 'CardDoctors',
     props: {
         doctor: Object,
+    },
+
+    methods: {
+        rating() {
+            return this.doctor.vote;
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
 @import "../../sass/bdoctor-palette.scss";
+
+*::-webkit-scrollbar {
+    width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: white;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #4070F4;
+    border-radius: 20px;
+    border: 1px solid #4070F4;
+}
 
 .my-card {
     width: 250px;
@@ -73,16 +95,29 @@ export default {
     margin-bottom: 5px;
 }
 
-.my-image-content{
+.my-image-content {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .my-card-content {
     text-align: center;
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
+
+    .my-card-name {
+        width: 87%;
+    }
+
+    .my-text-cv {
+        height: 130px;
+        overflow: scroll;
+        margin: 0;
+        padding-top: 3px;
+    }
+
+    .fa-star{
+        color: rgb(239, 203, 0);
+    }
 }
 
 .my-image-content {
@@ -131,12 +166,5 @@ export default {
     width: 100%;
     object-fit: cover;
     border-radius: 50%;
-}
-
-.my-description {
-    font-size: 14px;
-    color: #707070;
-    text-align: center;
-    z-index: 500;
 }
 </style>

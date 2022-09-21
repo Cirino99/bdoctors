@@ -10865,6 +10865,10 @@ textarea.form-control-lg {
 
 .left-menu {
   width: 200px;
+  background: #fff;
+}
+.left-menu i {
+  color: #2a2d45;
 }
 
 .right-content {
@@ -10872,7 +10876,7 @@ textarea.form-control-lg {
 }
 
 .side-nav-li:hover {
-  background-color: #3490dc;
+  background: linear-gradient(to right, #3490dc, #fff);
   border-radius: 0.375rem;
 }
 
@@ -10901,4 +10905,22 @@ textarea.form-control-lg {
   background-color: white;
   padding: 10px;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 575px) {
+  .left-menu {
+    width: 60px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    padding: 2px;
+  }
+  .left-menu i {
+    margin: 4px;
+  }
+  .right-content {
+    width: calc(100% - 60px);
+  }
 }

@@ -13,6 +13,7 @@ import AboutUs from './pages/PageAboutUs';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons'
 
 const routes = [
     {
@@ -56,7 +57,7 @@ const router = new VueRouter({
 Vue.use(VueRouter);
 
 /* add icons to the library */
-library.add(faStar)
+library.add(faStar, faStarRegular)
 
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', FontAwesomeIcon)
