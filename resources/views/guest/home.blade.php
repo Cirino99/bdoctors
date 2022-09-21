@@ -99,7 +99,7 @@
                         <h6 class="text-uppercase fw-bold mb-4">Contatti</h6>
                         <p>
                             <i class="fa-solid fa-location-dot me-3"></i>
-                            Roma, RO 00123, IT
+                            Roma, RM 00123, IT
                         </p>
                         <p>
                             <i class="fas fa-envelope me-3"></i>
@@ -140,7 +140,7 @@
                             <a href="{{ url('/search') }}" class="text-reset">Ricerca avanzata</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">Pricing</a>
+                            <a href="{{ url('/pricing') }}" class="text-reset">Pricing</a>
                         </p>
                         <p>
                             <a href="#!" class="text-reset">Help</a>
