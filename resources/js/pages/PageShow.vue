@@ -169,6 +169,7 @@ export default {
 
         hideComponent() {
             this.displayR = false;
+            this.displayM = false;
         }
     }
 }

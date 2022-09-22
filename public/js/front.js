@@ -21815,7 +21815,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      doctors: [],
+      doctors: '',
+      doctors_sponsorship: '',
       specializations: [],
       mySpecialization: null,
       search: '',
@@ -21834,7 +21835,8 @@ __webpack_require__.r(__webpack_exports__);
       if (this.specializationSelect.name != '') {
         axios.get('api/search?specialization=' + this.specializationSelect.id + '&city=all&reviews= ' + this.review + '  &vote=' + this.vote).then(function (res) {
           if (res.data.success) {
-            _this.doctors = res.data.result;
+            _this.doctors = res.data.result[0];
+            _this.doctors_sponsorship = res.data.result[1];
           }
         });
       }
@@ -21854,7 +21856,6 @@ __webpack_require__.r(__webpack_exports__);
         axios.get('/api/search/specialization?specialization=' + this.specializationSelect.name).then(function (res) {
           if (res.data.success) {
             _this2.specializations = res.data.result;
-            console.log(_this2.specializations);
           }
         });
       } else {
@@ -22067,6 +22068,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     hideComponent: function hideComponent() {
       this.displayR = false;
+      this.displayM = false;
     }
   }
 });
@@ -22475,8 +22477,18 @@ var render = function render() {
         "for": "review"
       }
     }, [_vm._v("\n                                    " + _vm._s(item) + "\n                                ")])]);
-  })], 2)])])]), _vm._v(" "), _c("div", {
-    staticClass: "d-flex flex-wrap justify-content-center my-4"
+  })], 2)])])]), _vm._v(" "), _vm.doctors_sponsorship !== "" ? _c("div", [_c("h2", [_vm._v("Scelti da noi:")]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex flex-wrap my-4"
+  }, _vm._l(_vm.doctors_sponsorship, function (doctor, index) {
+    return _c("CardDoctor", {
+      key: index,
+      staticClass: "m-2",
+      attrs: {
+        doctor: doctor
+      }
+    });
+  }), 1)]) : _vm._e(), _vm._v(" "), _vm.doctors !== "" ? _c("div", [_c("h2", [_vm._v("Tutti i medici:")]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex flex-wrap my-4"
   }, _vm._l(_vm.doctors, function (doctor, index) {
     return _c("CardDoctor", {
       key: index,
@@ -22485,7 +22497,7 @@ var render = function render() {
         doctor: doctor
       }
     });
-  }), 1)])])]);
+  }), 1)]) : _vm._e()])])]);
 };
 
 var staticRenderFns = [function () {
@@ -63071,8 +63083,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })
