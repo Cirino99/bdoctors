@@ -28,7 +28,7 @@
             </span>
 
             <div class="card-body d-flex flex-column justify-content-end">
-                <router-link :to="{name: 'profile', params: {id: doctor.id} }" class="btn btn-primary col-12">Visualizza
+                <router-link :to="{name: 'profile', params: {id: doctor.id} }" class="btn btn-primary col-12 my-btn">Visualizza
                 </router-link>
             </div>
         </div>
@@ -59,6 +59,16 @@ export default {
     background-color: $bluedark;
     border-radius: 20px;
     border: 1px solid $bluedark;
+}
+
+.my-btn{
+    background-color: $bluedark;
+    border: 1px solid $bluedark;
+
+    &:hover{
+        background-color: $ultradark;
+        border: 1px solid $ultradark;
+    }
 }
 
 .my-card {
