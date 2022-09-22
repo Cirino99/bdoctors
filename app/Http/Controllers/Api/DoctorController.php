@@ -6,8 +6,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\Review;
-use App\Models\Specialization;
 
 class DoctorController extends Controller
 {
@@ -20,7 +18,7 @@ class DoctorController extends Controller
     {
         $doctors = User::with(['specializations'])->whereHas('sponsorships', function ($q) {
             $q->where('ending_date', '>', date('Y-m-d H:i:s'));
-        })->get();
+        })->limit(4)->inRandomOrder()->get();
         foreach ($doctors as $doctor) {
             $doctor->vote = $doctor->reviews->avg('vote');
             unset($doctor->email_verified_at, $doctor->created_at, $doctor->updated_at);
@@ -81,6 +79,13 @@ class DoctorController extends Controller
         $reviews = $request->get('reviews');
         $vote = $request->get('vote');
         if ($city == 'all') {
+            $doctors_sponsorship = User::with(['specializations'])->whereHas('specializations', function ($q) use ($specialization) {
+                $q->where('specialization_id', 'like', $specialization);
+            })->whereHas('sponsorships', function ($q) {
+                $q->where('ending_date', '>', date('Y-m-d H:i:s'));
+            })->withCount('reviews')
+                ->having('reviews_count', '>=', $reviews)
+                ->get();
             $doctors = User::with(['specializations'])->whereHas('specializations', function ($q) use ($specialization) {
                 $q->where('specialization_id', 'like', $specialization);
             })->withCount('reviews')
@@ -93,6 +98,26 @@ class DoctorController extends Controller
                 ->withCount('reviews')
                 ->having('reviews_count', '>=', $reviews)
                 ->get();
+        }
+        foreach ($doctors_sponsorship as $i => $doctor) {
+            $doctor->vote = $doctor->reviews->avg('vote');
+            if ($vote > 0) {
+                if ($doctor->vote >= $vote) {
+                    unset($doctor->email_verified_at, $doctor->created_at, $doctor->updated_at, $doctor->reviews);
+                    foreach ($doctor->specializations as $specialization) {
+                        unset($specialization->created_at, $specialization->updated_at, $specialization->pivot);
+                    }
+                    $doctor->photo = $this->fixImageUrl($doctor->photo);
+                } else {
+                    unset($doctors_sponsorship[$i]);
+                }
+            } else {
+                unset($doctor->email_verified_at, $doctor->created_at, $doctor->updated_at, $doctor->reviews);
+                foreach ($doctor->specializations as $specialization) {
+                    unset($specialization->created_at, $specialization->updated_at, $specialization->pivot);
+                }
+                $doctor->photo = $this->fixImageUrl($doctor->photo);
+            }
         }
         foreach ($doctors as $i => $doctor) {
             $doctor->vote = $doctor->reviews->avg('vote');
@@ -115,10 +140,17 @@ class DoctorController extends Controller
             }
         }
         if ($doctors) {
-            return response()->json([
-                'success'   => true,
-                'result'    => $doctors
-            ]);
+            if ($doctors_sponsorship) {
+                return response()->json([
+                    'success'   => true,
+                    'result'    => [$doctors, $doctors_sponsorship]
+                ]);
+            } else {
+                return response()->json([
+                    'success'   => true,
+                    'result'    => [$doctors, '']
+                ]);
+            }
         } else {
             return response()->json([
                 'success'   => false,
