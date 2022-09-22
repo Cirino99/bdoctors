@@ -16,13 +16,19 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <h2>Il login è avvenuto con successo, benvenuto!</h2>
+                        <h2>Statistiche account</h2>
 
                         <div>
-                            <canvas id="myChart"></canvas>
+                            <canvas id="chartMessages"></canvas>
+                            <canvas id="chartReviews"></canvas>
                         </div>
 
                         <script>
+                            const messages = @json($messages);
+                            const reviews = @json($reviews);
+                            const numberMessages = Object.values(messages);
+                            const numberReviews = Object.values(reviews);
+
                             const labels = [
                                 'Gennaio',
                                 'Febbraio',
@@ -38,25 +44,46 @@
                                 'Dicembre'
                             ];
 
-                            const data = {
+                            const dataMessages = {
                                 labels: labels,
                                 datasets: [{
                                     label: 'Statistiche messaggi per mese',
                                     backgroundColor: 'rgb(255, 99, 132)',
                                     borderColor: 'rgb(255, 99, 132)',
-                                    data: [1,2,3,4],
+                                    data: numberMessages,
                                 }]
                             };
 
-                            const config = {
-                                type: 'line',
-                                data: data,
+                            const dataReviews = {
+                                labels: labels,
+                                datasets: [{
+                                    label: 'Statistiche recensioni per mese',
+                                    backgroundColor: 'rgb(255, 99, 132)',
+                                    borderColor: 'rgb(255, 99, 132)',
+                                    data: numberReviews,
+                                }]
+                            };
+
+                            const configMessages = {
+                                type: 'bar',
+                                data: dataMessages,
                                 options: {}
                             };
 
-                            const myChart = new Chart(
-                                document.getElementById('myChart'),
-                                config
+                            const configReviews = {
+                                type: 'bar',
+                                data: dataReviews,
+                                options: {}
+                            };
+
+                            const chartMessages = new Chart(
+                                document.getElementById('chartMessages'),
+                                configMessages
+                            );
+
+                            const chartReviews = new Chart(
+                                document.getElementById('chartReviews'),
+                                configReviews
                             );
                         </script>
                     </div>
