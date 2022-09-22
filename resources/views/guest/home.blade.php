@@ -85,12 +85,12 @@
             @if (Route::has('login'))
                 <div class="links mx-3">
                     @auth
-                        <a href="{{ route('doctor.dashboard') }}" class="btn btn-primary p-2 px-3 mx-2 rounded-pill text-light">Dashboard</a>
+                        <a href="{{ route('doctor.dashboard') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light" style="background: #004d73">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="btn btn-primary p-2 px-3 mx-2 rounded-pill text-light">Accedi</a>
+                        <a href="{{ route('login') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light" style="background: #004d73">Accedi</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="btn btn-primary p-2 px-3 mx-2 rounded-pill text-light">Registrati</a>
+                            <a href="{{ route('register') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light" style="background: #004d73">Registrati</a>
                         @endif
                     @endauth
                 </div>

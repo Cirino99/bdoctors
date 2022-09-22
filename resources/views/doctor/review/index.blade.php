@@ -6,10 +6,10 @@
         <div class="col-md-8">
             @foreach ($reviews as $review)
                 <div class="card border-success mb-3">
-                    <div class="card-header bg-success bg-gradient bg-opacity-50 border-bottom border-success d-flex justify-content-between">
+                    <div class="card-header bg-success bg-gradient bg-opacity-50 border-bottom border-success d-flex flex-wrap justify-content-between">
                         <div class="d-flex justify-content-baseline gap-2">
                             <img src="{{ asset('img/BDoctors_user_icon_2.svg') }}" alt="user-icon" style="max-width: 18px">
-                            {{ $review->name }}
+                            <span class="me-4">{{ $review->name }}</span>
                         </div>
                         {{ __('recensione del ' . $review->date) }}
                     </div>

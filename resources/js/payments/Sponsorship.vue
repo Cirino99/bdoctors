@@ -1,6 +1,8 @@
 <template>
     <div>
-        <h2>Stai acquistando la sponsorship con id: {{sponsorship}}</h2>
+        <h2 v-if="sponsorship == 1">Stai acquistando la sponsorizzazione base</h2>
+        <h2 v-if="sponsorship == 2">Stai acquistando la sponsorizzazione avanzata</h2>
+        <h2 v-if="sponsorship == 3">Stai acquistando la sponsorizzazione pro</h2>
         <div v-if="loading">
             <Payment
             ref="paymentRef"

@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm d-flex justify-content-between">
+        <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
             <a class="navbar-brand mx-3" href="{{ url('/') }}">
                 {{-- {{ config('app.name', 'Laravel') }} --}}
                 {{-- logo main --}}
@@ -34,7 +34,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
 
@@ -110,10 +110,10 @@
                             <h6 class="d-none d-sm-block d-lg-block my-auto">Recensioni</h6>
                         </a>
                       </li>
-                      <li class="side-nav-li">
-                        <a href="{{ route('doctor.sponsorships.index') }}" class="nav-link link-dark">
-                          <i class="fa-solid fa-message"></i>
-                          Sponsorizzazioni
+                      <li class="side-nav-li my-1">
+                        <a href="{{ route('doctor.sponsorships.index') }}" class="nav-link link-dark d-flex align-items-baseline gap-2">
+                          <i class="fa-solid fa-cart-shopping fs-5 my-auto"></i>
+                          <h6 class="d-none d-sm-block d-lg-block my-auto">Sponsorizzazioni</h6>
                         </a>
                       </li>
                     </ul>
