@@ -12,14 +12,14 @@ if (form_edit) {
 
 const delete_js = document.getElementById('delete-js');
 if (delete_js) {
-    delete_js.addEventListener('click', function(){
+    delete_js.addEventListener('click', function () {
         const delete_popup = document.querySelector('div.my-delete');
         delete_popup.classList.remove('d-none');
-        document.getElementById('cancel-btn').addEventListener('click', function(){
+        document.getElementById('cancel-btn').addEventListener('click', function () {
             document.getElementById('password').value = "";
             delete_popup.classList.add('d-none');
         });
-        
+
     });
 }
 

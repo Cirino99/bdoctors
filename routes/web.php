@@ -25,6 +25,7 @@ Route::middleware('auth')
         Route::resource('profile', 'UserController');
         Route::resource('messages', 'MessageController');
         Route::resource('reviews', 'ReviewController');
+        Route::resource('sponsorships', 'SponsorshipController');
     });
 
 Route::get("{any?}", function () {

@@ -109,6 +109,12 @@
                           Recensioni
                         </a>
                       </li>
+                      <li class="side-nav-li">
+                        <a href="{{ route('doctor.sponsorships.index') }}" class="nav-link link-dark">
+                          <i class="fa-solid fa-message"></i>
+                          Sponsorizzazioni
+                        </a>
+                      </li>
                     </ul>
                   </div>
 
