@@ -142,10 +142,10 @@
                         Azienda
                         </h6>
                         <p>
-                            <a href="{{ url('/about') }}" class="text-reset">About Us</a>
+                            <a href="{{ url('/about') }}" class="text-reset">Chi siamo</a>
                         </p>
                         <p>
-                            <a href="{{ url('/contacts') }}" class="text-reset">Contact Us</a>
+                            <a href="{{ url('/contacts') }}" class="text-reset">Contattaci</a>
                         </p>
                         <p>
                             <a href="" class="text-reset">Privacy</a>
@@ -161,10 +161,10 @@
                             <a href="{{ url('/search') }}" class="text-reset">Ricerca avanzata</a>
                         </p>
                         <p>
-                            <a href="{{ url('/pricing') }}" class="text-reset">Pricing</a>
+                            <a href="{{ url('/pricing') }}" class="text-reset">Prezzi</a>
                         </p>
                         <p>
-                            <a href="" class="text-reset">Help</a>
+                            <a href="" class="text-reset">Aiuto</a>
                         </p>
                     </div>
                 </div>
