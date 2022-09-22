@@ -22324,7 +22324,7 @@ var render = function render() {
   return _c("div", {
     staticClass: "min-vh-100"
   }, [_c("div", {
-    staticClass: "container"
+    staticClass: "container my-5"
   }, [_c("div", {
     staticClass: "d-flex flex-column justify-content-center"
   }, [_c("div", {
@@ -22344,7 +22344,7 @@ var render = function render() {
       value: _vm.specializationSelect.name,
       expression: "specializationSelect.name"
     }],
-    staticClass: "form-control mr-sm-2 w-50",
+    staticClass: "form-control mr-sm-2 w-50 me-2",
     attrs: {
       type: "search_spec",
       placeholder: "Scrivi qui..",
@@ -22476,10 +22476,11 @@ var render = function render() {
       }
     }, [_vm._v("\n                                    " + _vm._s(item) + "\n                                ")])]);
   })], 2)])])]), _vm._v(" "), _c("div", {
-    staticClass: "d-flex flex-wrap justify-content-start"
+    staticClass: "d-flex flex-wrap justify-content-center my-4"
   }, _vm._l(_vm.doctors, function (doctor, index) {
     return _c("CardDoctor", {
       key: index,
+      staticClass: "m-2",
       attrs: {
         doctor: doctor
       }

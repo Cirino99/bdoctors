@@ -1,6 +1,6 @@
 <template>
     <div class="min-vh-100">
-        <div class="container">
+        <div class="container my-5">
             <div class="d-flex flex-column justify-content-center">
                 <div class="col-12 m-2 p-2">
                     <div class="card w-100 m-auto">
@@ -11,7 +11,7 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><strong>Specializzazioni:</strong><br>
                                 <form class="d-flex form-inline py-2 my-lg-0">
-                            <input v-model="specializationSelect.name" class="form-control mr-sm-2 w-50" type="search_spec"
+                            <input v-model="specializationSelect.name" class="form-control mr-sm-2 w-50 me-2" type="search_spec"
                                 placeholder="Scrivi qui.." aria-label="Search_spec" @input="searchInput"
                                 @click="displayComponent" @keyup="displayComponent">
                             <button class="btn btn-outline-primary my-2 m my-sm-0 rounded-3" type="button" @click="searchDoctor()">Filtra</button>
@@ -59,8 +59,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="d-flex flex-wrap justify-content-start">
-                    <CardDoctor v-for="(doctor, index) in doctors" :key="index" :doctor="doctor" />
+                <div class="d-flex flex-wrap justify-content-center my-4">
+                    <CardDoctor v-for="(doctor, index) in doctors" :key="index" :doctor="doctor" class="m-2"/>
                 </div>
             </div>
         </div>
