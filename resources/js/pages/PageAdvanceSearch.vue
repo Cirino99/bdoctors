@@ -11,21 +11,21 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><strong>Specializzazioni:</strong><br>
                                 <form class="d-flex form-inline py-2 my-lg-0">
-                            <input v-model="specializationSelect.name" class="form-control mr-sm-2 w-50 me-2" type="search_spec"
-                                placeholder="Scrivi qui.." aria-label="Search_spec" @input="searchInput"
-                                @click="displayComponent" @keyup="displayComponent">
-                            <button class="btn btn-outline-primary my-2 m my-sm-0 rounded-3" type="button" @click="searchDoctor()">Filtra</button>
-                        </form>
+                                    <input v-model="specializationSelect.name" class="form-control mr-sm-2 w-50 me-2" type="search_spec"
+                                        placeholder="Scrivi qui.." aria-label="Search_spec" @input="searchInput"
+                                        @click="displayComponent" @keyup="displayComponent">
+                                    <button class="btn btn-outline-primary my-2 m my-sm-0 rounded-3" type="button" @click="searchDoctor()">Filtra</button>
+                                </form>
 
-                        <div class="collapse position-absolute d-flex my-collapse" v-if="display"
-                            @mouseleave="handleFocusOut">
-                            <ul class="card overflow-auto my-overflow">
-                                <li v-for="specialization in specializations" :key="specialization.id"
-                                    @click="selectSpecialization(specialization)">
-                                    {{ specialization.name }}
-                                </li>
-                            </ul>
-                        </div>
+                            <div class="collapse position-absolute d-flex my-collapse" v-if="display"
+                                @mouseleave="handleFocusOut">
+                                <ul class="card overflow-auto my-overflow">
+                                    <li v-for="specialization in specializations" :key="specialization.id"
+                                        @click="selectSpecialization(specialization)">
+                                        {{ specialization.name }}
+                                    </li>
+                                </ul>
+                            </div>
                             </li>
                             <li class="list-group-item"><strong>Città:</strong><br>
                                 <form class="d-flex form-inline py-2 my-lg-0">
