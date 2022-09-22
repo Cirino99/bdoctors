@@ -59,8 +59,17 @@
                         </ul>
                     </div>
                 </div>
-                <div class="d-flex flex-wrap justify-content-center my-4">
-                    <CardDoctor v-for="(doctor, index) in doctors" :key="index" :doctor="doctor" class="m-2"/>
+                <div v-if="doctors_sponsorship !== ''">
+                    <h2>Scelti da noi:</h2>
+                    <div class="d-flex flex-wrap my-4">
+                        <CardDoctor v-for="(doctor, index) in doctors_sponsorship" :key="index" :doctor="doctor" class="m-2"/>
+                    </div>
+                </div>
+                <div v-if="doctors !== ''">
+                    <h2>Tutti i medici:</h2>
+                    <div class="d-flex flex-wrap my-4">
+                        <CardDoctor v-for="(doctor, index) in doctors" :key="index" :doctor="doctor" class="m-2"/>
+                    </div>
                 </div>
             </div>
         </div>
@@ -86,7 +95,8 @@ export default {
     },
     data() {
         return {
-            doctors: [],
+            doctors: '',
+            doctors_sponsorship: '',
             specializations: [],
             mySpecialization: null,
             search: '',
@@ -104,7 +114,8 @@ export default {
                 axios.get('api/search?specialization=' + this.specializationSelect.id + '&city=all&reviews= ' + this.review + '  &vote=' + this.vote)
                 .then(res => {
                     if (res.data.success) {
-                        this.doctors = res.data.result;
+                        this.doctors = res.data.result[0];
+                        this.doctors_sponsorship = res.data.result[1];
                     }
                 })
             }
@@ -124,7 +135,6 @@ export default {
                     .then(res => {
                         if (res.data.success) {
                             this.specializations = res.data.result;
-                            console.log(this.specializations);
                         }
                     });
             } else {
