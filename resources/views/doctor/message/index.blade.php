@@ -4,23 +4,26 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Messaggi') }}</div>
+            @foreach ($messages as $message)
+                <div class="card border-primary mb-3">
+                    <div class="card-header bg-primary bg-gradient bg-opacity-50 border-bottom border-primary d-flex justify-content-between fst-italic">
+                        <span>{{ __('Messaggio inviato da: ') . $message->email }}</span>
+                        {{ __('il ') . $message->date }}
+                    </div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
 
-                    <ul>
-                        @foreach ($messages as $message)
-                            <li>{{$message->message}}</li>
-                        @endforeach
-                    </ul>
+                        <ul class="p-0">
+                            <li class="list-unstyled">{{$message->message}}</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
