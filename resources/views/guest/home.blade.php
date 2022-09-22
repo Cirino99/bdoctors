@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    
     {{-- Scripts --}}
     <script src="{{ asset('js/bootstrap.js') }}" defer></script>
 
