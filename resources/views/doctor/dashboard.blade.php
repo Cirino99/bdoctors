@@ -19,7 +19,7 @@
                         <h2>Statistiche account</h2>
 
                         <div>
-                            <canvas id="chartMessages"></canvas>
+                            <canvas class="mb-3 mt-2" id="chartMessages"></canvas>
                             <canvas id="chartReviews"></canvas>
                         </div>
 
@@ -48,8 +48,8 @@
                                 labels: labels,
                                 datasets: [{
                                     label: 'Statistiche messaggi per mese',
-                                    backgroundColor: 'rgb(255, 99, 132)',
-                                    borderColor: 'rgb(255, 99, 132)',
+                                    backgroundColor: '#00c7ff',
+                                    borderColor: '#00c7ff',
                                     data: numberMessages,
                                 }]
                             };
@@ -58,8 +58,8 @@
                                 labels: labels,
                                 datasets: [{
                                     label: 'Statistiche recensioni per mese',
-                                    backgroundColor: 'rgb(255, 99, 132)',
-                                    borderColor: 'rgb(255, 99, 132)',
+                                    backgroundColor: '#007fbd',
+                                    borderColor: '#007fbd',
                                     data: numberReviews,
                                 }]
                             };
