@@ -56,29 +56,39 @@
             <div class="form-floating my-4" v-show="displayR">
                 <!-- voto -->
                 <div class="d-flex justify-content-start">
-                    <input required id="review-nome" class="form-control" type="text" v-model="name" placeholder="Il tuo nome...">
-                    <input required id="voto" class="form-control" type="number" v-model="vote" placeholder="voto...">
+                    <div>
+                        <label for="floatingTextarea2">Nome*</label>
+                        <input required id="review-nome" class="form-control" type="text" v-model="name" placeholder="Il tuo nome...">
+                    </div>
+                    <div id="voto">
+                        <label for="floatingTextarea2">Voto*</label>
+                        <input required class="form-control" type="number" v-model="vote" placeholder="voto...">
+                    </div>
                 </div>
 
                 <!-- recensione  -->
                 <div class="mt-4">
+                    <label for="floatingTextarea2">Recensione*</label>
                     <textarea class="form-control" placeholder="Lascia una recensione..." id="floatingTextarea2" v-model="text" style="height: 100px"></textarea>
-                    <label for="floatingTextarea2"></label>
-                    <button class="btn mt-4" style="background: #23A3B3; color: #fff" @click="newReview(showProfile.id); hideComponent()">Invia</button>
+                    <button class="btn mt-4" style="background: #23A3B3; color: #fff" @click="newReview(showProfile.id)">Invia</button>
                 </div>
             </div>
             <!-- campo messaggio  -->
             <div class="form-floating my-4" v-show="displayM">
                 <!-- email -->
                 <div class="d-flex justify-content-start">
-                    <input required id="message-email" class="form-control" type="email" v-model="email" placeholder="La tua email...">
+                    <div>
+                        <label for="floatingTextarea2">Email*</label>
+                        <input required id="message-email" class="form-control" type="email" v-model="email" placeholder="La tua email...">
+                    </div>
                 </div>
 
                 <!-- messaggio  -->
                 <div class="mt-4">
+                    <label for="floatingTextarea2">Messaggio*</label>
                     <textarea required class="form-control" placeholder="Lascia un messaggio..." id="floatingTextarea2" v-model="text" style="height: 100px"></textarea>
                     <label for="floatingTextarea2"></label>
-                    <button class="btn mt-4" style="background: #23A3B3; color: #fff" @click="newMessage(showProfile.id); hideComponent()">Invia</button>
+                    <button class="btn mt-4" style="background: #23A3B3; color: #fff" @click="newMessage(showProfile.id)">Invia</button>
                 </div>
             </div>
         </div>
@@ -128,6 +138,7 @@ export default {
                     this.name = '';
                     this.vote = '';
                     this.text = '';
+                    this.displayR = false;
                 }
             }).catch(function (error) {
                 console.log(error);
@@ -146,6 +157,7 @@ export default {
                 if (res.data.success) {
                     this.email = '';
                     this.text = '';
+                    this.displayM = false;
                 }
             }).catch(function (error) {
                 console.log(error);
@@ -167,10 +179,10 @@ export default {
             this.displayM = !this.displayM
         },
 
-        hideComponent() {
-            this.displayR = false;
-            this.displayM = false;
-        }
+        // hideComponent() {
+        //     this.displayR = false;
+        //     this.displayM = false;
+        // }
     }
 }
 </script>
