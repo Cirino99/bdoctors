@@ -21923,6 +21923,7 @@ __webpack_require__.r(__webpack_exports__);
     axios.get('/api/doctors').then(function (res) {
       if (res.data.success) {
         _this.doctors = res.data.result;
+        console.log('Array medici: ', res.data.result);
       }
     });
   },
@@ -22153,7 +22154,7 @@ var render = function render() {
     });
   }), _vm._v(" "), _vm._l(5 - _vm.doctor.vote, function (myEmptyStar, j) {
     return _c("font-awesome-icon", {
-      key: j,
+      key: j + _vm.doctor.vote,
       attrs: {
         icon: "fa-regular fa-star"
       }
@@ -22545,7 +22546,7 @@ var staticRenderFns = [function () {
     staticClass: "mb-4"
   }, [_c("h2", {
     staticClass: "h1-responsive font-weight-bold text-center my-4"
-  }, [_vm._v("Contact us")]), _vm._v(" "), _c("p", {
+  }, [_vm._v("Contattaci")]), _vm._v(" "), _c("p", {
     staticClass: "text-center w-responsive mx-auto mb-5"
   }, [_vm._v("Hai qualche domanda? Non esitare a contattarci direttamente. Il nostro team ti ricontattera per aiutarti al meglio.")]), _vm._v(" "), _c("div", {
     staticClass: "row"
@@ -22728,7 +22729,7 @@ var render = function render() {
     staticClass: "d-flex flex-wrap justify-content-center gap-5 my-5"
   }, _vm._l(_vm.doctors, function (doctor, index) {
     return _c("CardDoctor", {
-      key: index,
+      key: index + 20,
       attrs: {
         doctor: doctor
       }
@@ -22778,9 +22779,13 @@ var staticRenderFns = [function () {
     staticClass: "col-12 d-flex align-items-center flex-wrap"
   }, [_c("div", {
     staticClass: "col-md-6 col-sm-12"
-  }, [_c("p", {
+  }, [_c("h4", {
+    staticClass: "mt-3"
+  }, [_vm._v("Incontra un Dottore ovunque tu sia")]), _vm._v(" "), _c("p", {
     staticClass: "lh-lg my-3"
-  }, [_vm._v("Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore unde, corrupti maiores eos,\n                        itaque, facilis nulla reprehenderit laboriosam asperiores nobis ipsam. Nam explicabo ipsam\n                        quod alias fugiat saepe, sunt impedit!\n                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum atque necessitatibus tempora,\n                        facilis reiciendis ab exercitationem minus rerum nihil sequi et, pariatur temporibus placeat\n                        amet magni mollitia veniam aliquam reprehenderit!\n                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eaque saepe minus architecto explicabo molestiae totam omnis ducimus doloremque? Et eaque velit quibusdam ratione dolorem assumenda ea nisi officiis itaque.\n                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, sit? Ex magnam illo nam, rerum neque, voluptatem eaque temporibus labore minus soluta ipsum dicta dolor dignissimos saepe eum quisquam laudantium?\n                    ")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                        Una soluzione per richiedere una consulenza medica, direttamente da casa tua, con il tuo\n                        smartphone o PC.\n                        Utili per una seconda opinione, per l'esame di un referto, per un colloquio preliminare a\n                        una visita, o per avere più informazioni su una possibile patologia.\n                        I Videoconsulti, disponibili su BDoctors già dal 2019, sono uno strumento utilizzato da\n                        molti medici per facilitare l'attività professionale e il follow-up del paziente.\n                    ")]), _vm._v(" "), _c("h4", [_vm._v("Con BDoctor:")]), _vm._v(" "), _c("div", {
+    staticClass: "my-list"
+  }, [_c("ul", [_c("li", [_vm._v("Ricevi prenotazioni da nuovi pazienti")]), _vm._v(" "), _c("li", [_vm._v("Migliori la tua visibilità e la tua reputazione online")]), _vm._v(" "), _c("li", [_vm._v("Organizzi al meglio il tuo lavoro con una suite completa di strumenti dedicati al\n                                Medico")]), _vm._v(" "), _c("li", [_vm._v("Puoi usare la nostra App multipiattaforma dedicata ai Medici")]), _vm._v(" "), _c("li", [_vm._v("Hai il nostro staff sempre disponibile ad aiutarti")])])])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-6 col-sm-12"
   }, [_c("img", {
     staticClass: "img-fluid",
@@ -22805,7 +22810,7 @@ var staticRenderFns = [function () {
     }
   }), _vm._v(" "), _c("h3", {
     staticClass: "mt-3"
-  }, [_vm._v("Scegli il medico")]), _vm._v(" "), _c("p", [_vm._v("Fai la scelta migliore secondo le tue esigenze: valuta curriculum, prezzo delle prestazioni, patologie trattate e recensioni degli altri pazienti.")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Scegli il medico")]), _vm._v(" "), _c("p", [_vm._v("Fai la scelta migliore secondo le tue esigenze: valuta curriculum, prezzo delle prestazioni,\n                    patologie trattate e recensioni degli altri pazienti.")])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-4 text-center"
   }, [_c("img", {
     staticClass: "my-img",
@@ -22815,7 +22820,7 @@ var staticRenderFns = [function () {
     }
   }), _vm._v(" "), _c("h3", {
     staticClass: "mt-3"
-  }, [_vm._v("Prenota la visita")]), _vm._v(" "), _c("p", [_vm._v("Ti bastano pochi secondi: è facile e veloce, non serve telefonare e non è richiesta la carta di credito: pagherai direttamente al medico.")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Prenota la visita")]), _vm._v(" "), _c("p", [_vm._v("Ti bastano pochi secondi: è facile e veloce, non serve telefonare e non è richiesta la carta di\n                    credito: pagherai direttamente al medico.")])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-4 text-center"
   }, [_c("img", {
     staticClass: "my-img",
@@ -22825,7 +22830,7 @@ var staticRenderFns = [function () {
     }
   }), _vm._v(" "), _c("h3", {
     staticClass: "mt-3"
-  }, [_vm._v("Vai all'appuntamento")]), _vm._v(" "), _c("p", [_vm._v("Vai dal Medico scelto, nel giorno e nell'ora selezionati. Dopo la visita potrai lasciare una tua recensione che sarà utile per gli altri pazienti.")])])]);
+  }, [_vm._v("Vai all'appuntamento")]), _vm._v(" "), _c("p", [_vm._v("Vai dal Medico scelto, nel giorno e nell'ora selezionati. Dopo la visita potrai lasciare una tua\n                    recensione che sarà utile per gli altri pazienti.")])])]);
 }];
 render._withStripped = true;
 
@@ -22860,7 +22865,7 @@ var staticRenderFns = [function () {
     staticClass: "px-3 py-3 pt-md-4 text-center"
   }, [_c("h1", {
     staticClass: "display-4"
-  }, [_vm._v("Pricing")]), _vm._v(" "), _c("h3", {
+  }, [_vm._v("Prezzi")]), _vm._v(" "), _c("h3", {
     staticClass: "lead"
   }, [_vm._v("\n            Sei un medico e vuoi sponsorizzarti? Compari nella homepage e durante la ricerca prima di tutti gli altri.\n            Ecco i nostri prezzi.\n        ")])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center flex-wrap text-center"
@@ -22999,7 +23004,7 @@ var render = function render() {
     }, [_vm._v("\n                            " + _vm._s(specialization.name) + "\n                        ")]);
   })], 2)])]), _vm._v(" "), _c("div", {
     staticClass: "fst-italic col-12 col-sm-12 col-md-6 col-lg-8"
-  }, [_c("h4", [_vm._v("\n                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dolorem rerum, tempore quaerat quasi quisquam! Delectus, fuga laboriosam voluptatem quos eveniet blanditiis eum quidem et dolorum eaque earum iure neque!\n                ")]), _vm._v(" "), _c("div", [_vm._v("\n                    CV: " + _vm._s(_vm.showProfile.cv) + "\n                ")])])]), _vm._v(" "), _c("div", {
+  }, [_c("div", [_c("h2", [_vm._v("Il mio curriculum")]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.showProfile.cv))])])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-between align-items-center mb-3"
   }, [_c("button", {
     staticClass: "btn btn-secondary",
@@ -28561,7 +28566,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#bg-searchbar #form[data-v-13e03f97] {\n  height: 60px;\n}\n.container-jumbo[data-v-13e03f97] {\n  position: relative;\n}\n.container-jumbo .cont-jumbo[data-v-13e03f97] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 500;\n  transform: translate(-50%, -50%);\n}\n.container-jumbo .cont-jumbo h2[data-v-13e03f97] {\n  color: #2a2d45;\n  font-size: 40px;\n}\n.bg-jumbo[data-v-13e03f97] {\n  background-color: rgba(219, 235, 250, 0.6);\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.wave_container[data-v-13e03f97] {\n  position: relative;\n}\n.wave_container img[data-v-13e03f97] {\n  width: 100%;\n  display: block;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n}\n.wawe[data-v-13e03f97] {\n  margin-bottom: -100px;\n}\n#jumbotron[data-v-13e03f97] {\n  min-width: 100%;\n  min-height: 150px;\n  height: 40vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#search-button[data-v-13e03f97] {\n  width: 100px;\n}\n#search-icon[data-v-13e03f97] {\n  max-width: 20px;\n}\nli[data-v-13e03f97] {\n  list-style-type: none;\n}\nli[data-v-13e03f97]:hover {\n  background-color: aquamarine;\n}\n.my-collapse[data-v-13e03f97] {\n  z-index: 500;\n  width: 60.5%;\n}\n.my-collapse ul[data-v-13e03f97] {\n  padding: 0;\n}\n.my-collapse li[data-v-13e03f97] {\n  list-style-type: none;\n  padding-left: 5px;\n}\n.my-collapse li[data-v-13e03f97]:hover {\n  background-color: #dbebfa;\n}\n.my-collapse .my-overflow[data-v-13e03f97] {\n  width: 100%;\n}\n.full-container[data-v-13e03f97] {\n  width: 100%;\n  background-color: #dbebfa;\n}\n.row[data-v-13e03f97] {\n  color: #2a2d45;\n}\n.row .my-img[data-v-13e03f97] {\n  width: 200px;\n}", ""]);
+exports.push([module.i, "#bg-searchbar #form[data-v-13e03f97] {\n  height: 60px;\n}\n.container-jumbo[data-v-13e03f97] {\n  position: relative;\n}\n.container-jumbo .cont-jumbo[data-v-13e03f97] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 500;\n  transform: translate(-50%, -50%);\n}\n.container-jumbo .cont-jumbo h2[data-v-13e03f97] {\n  color: #2a2d45;\n  font-size: 40px;\n}\n.bg-jumbo[data-v-13e03f97] {\n  background-color: rgba(219, 235, 250, 0.6);\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.wave_container[data-v-13e03f97] {\n  position: relative;\n}\n.wave_container img[data-v-13e03f97] {\n  width: 100%;\n  display: block;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n}\n.wawe[data-v-13e03f97] {\n  margin-bottom: -100px;\n}\n#jumbotron[data-v-13e03f97] {\n  min-width: 100%;\n  min-height: 150px;\n  height: 40vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#search-button[data-v-13e03f97] {\n  width: 100px;\n}\n#search-icon[data-v-13e03f97] {\n  max-width: 20px;\n}\nli[data-v-13e03f97] {\n  list-style-type: none;\n}\n.my-collapse[data-v-13e03f97] {\n  z-index: 500;\n  width: 60.5%;\n}\n.my-collapse ul[data-v-13e03f97] {\n  padding: 0;\n}\n.my-collapse li[data-v-13e03f97] {\n  list-style-type: none;\n  padding-left: 5px;\n}\n.my-collapse li[data-v-13e03f97]:hover {\n  background-color: #dbebfa;\n}\n.my-collapse .my-overflow[data-v-13e03f97] {\n  width: 100%;\n}\n.full-container[data-v-13e03f97] {\n  width: 100%;\n  background-color: #dbebfa;\n}\n.row[data-v-13e03f97] {\n  color: #2a2d45;\n}\n.row .my-img[data-v-13e03f97] {\n  width: 200px;\n}\n.my-list[data-v-13e03f97] {\n  text-align: start;\n}\n.my-list ul li[data-v-13e03f97] {\n  list-style-type: disc;\n}", ""]);
 
 // exports
 
@@ -63100,8 +63105,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })

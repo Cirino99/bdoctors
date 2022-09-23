@@ -5294,7 +5294,7 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("h2", [_vm._v("Stai acquistando la sponsorship con id: " + _vm._s(_vm.sponsorship))]), _vm._v(" "), _vm.loading ? _c("div", [_c("Payment", {
+  return _c("div", [_vm.sponsorship == 1 ? _c("h2", [_vm._v("Stai acquistando la sponsorizzazione base")]) : _vm._e(), _vm._v(" "), _vm.sponsorship == 2 ? _c("h2", [_vm._v("Stai acquistando la sponsorizzazione avanzata")]) : _vm._e(), _vm._v(" "), _vm.sponsorship == 3 ? _c("h2", [_vm._v("Stai acquistando la sponsorizzazione pro")]) : _vm._e(), _vm._v(" "), _vm.loading ? _c("div", [_c("Payment", {
     ref: "paymentRef",
     attrs: {
       authorization: _vm.tokenApi

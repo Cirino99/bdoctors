@@ -42,19 +42,19 @@ function validationRegister() {
     });
     if (name != "" & lastname != "" & address != "" & city != "" & postal_code != "" & mySpecialization & email != "" & password != "" & password_confirm != "") {
         if (password.length < 8) {
-            alert('password troppo corta');
+            swal('password troppo corta');
             return false;
         }
         if (password != password_confirm) {
-            alert('le due password non coincidono');
+            swal('le due password non coincidono');
             return false;
         }
         if (!email.includes('@') || !email.includes('.')) {
-            alert('email non corretta');
+            swal('email non corretta');
             return false;
         }
     } else {
-        alert('compila tutti i campi');
+        swal('compila tutti i campi');
         return false;
     }
     return true;
@@ -81,19 +81,19 @@ function validationEdit() {
     });
     if (name != "" & lastname != "" & email != "" & service != "" & address != "" & city != "" & postal_code != "" & cv != "" & mySpecialization) {
         if (!email.includes('@') || !email.includes('.')) {
-            alert('email non corretta');
+            swal('email non corretta');
             return false;
         }
         if (cv.length < 10) {
-            alert('cv troppo corto');
+            swal('cv troppo corto');
             return false;
         }
         if (cv.length > 1000) {
-            alert('cv troppo lungo');
+            swal('cv troppo lungo');
             return false;
         }
     } else {
-        alert('compila tutti i campi');
+        swal('compila tutti i campi');
         return false;
     }
     return true;
