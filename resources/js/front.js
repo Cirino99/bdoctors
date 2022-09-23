@@ -18,7 +18,7 @@ import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons'
 
 const routes = [
     {
-        path: '/search',
+        path: '/search/:specialization',
         name: 'AdvanceSearch',
         component: AdvanceSearch,
         props: true,
