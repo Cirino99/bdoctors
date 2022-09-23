@@ -65,7 +65,7 @@
                 </big>
                 <div class="col-12 d-flex align-items-center flex-wrap">
                     <div class="col-md-6 col-sm-12">
-                        <h3>Incontra un Dottore ovunque tu sia</h3>
+                        <h4 class="mt-3">Incontra un Dottore ovunque tu sia</h4>
                         <p class="lh-lg my-3">
                             Una soluzione per richiedere una consulenza medica, direttamente da casa tua, con il tuo
                             smartphone o PC.
@@ -74,14 +74,17 @@
                             I Videoconsulti, disponibili su BDoctors già dal 2019, sono uno strumento utilizzato da
                             molti medici per facilitare l'attività professionale e il follow-up del paziente.
                         </p>
-                        <strong>Con BDoctor:</strong>
-                        <ul>
-                            <li>Ricevi prenotazioni da nuovi pazienti</li>
-                            <li>Migliori la tua visibilità e la tua reputazione online</li>
-                            <li>Organizzi al meglio il tuo lavoro con una suite completa di strumenti dedicati al Medico</li>
-                            <li>Puoi usare la nostra App multipiattaforma dedicata ai Medici</li>
-                            <li>Hai il nostro staff sempre disponibile ad aiutarti</li>
-                        </ul>
+                        <h4>Con BDoctor:</h4>
+                        <div class="my-list">
+                            <ul>
+                                <li>Ricevi prenotazioni da nuovi pazienti</li>
+                                <li>Migliori la tua visibilità e la tua reputazione online</li>
+                                <li>Organizzi al meglio il tuo lavoro con una suite completa di strumenti dedicati al
+                                    Medico</li>
+                                <li>Puoi usare la nostra App multipiattaforma dedicata ai Medici</li>
+                                <li>Hai il nostro staff sempre disponibile ad aiutarti</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <img class="img-fluid" src="img/doctor-phone.png" alt="">
@@ -143,7 +146,7 @@ export default {
             .then(res => {
                 if (res.data.success) {
                     this.doctors = res.data.result;
-                    console.log('Array medici: ',res.data.result);
+                    console.log('Array medici: ', res.data.result);
                 }
             });
     },
@@ -283,6 +286,15 @@ li {
 
     .my-img {
         width: 200px;
+    }
+}
+
+.my-list{
+    text-align: start;
+    ul{
+        li{
+            list-style-type: disc;
+        }
     }
 }
 </style>

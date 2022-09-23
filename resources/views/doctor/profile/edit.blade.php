@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-sm-10 col-md-8 col-lg-10">
+        <div class="col-sm-10 col-md-10 col-lg-10">
             <div class="card border-primary">
                 <div class="card-header bg-primary bg-gradient bg-opacity-50 border-bottom border-primary fw-bold">{{ __('Modifica Profilo') }}</div>
 

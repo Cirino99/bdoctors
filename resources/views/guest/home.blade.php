@@ -57,38 +57,51 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm d-flex justify-content-between">
-        <div class="d-flex justify-content-between align-items-center">
-            {{-- <img class="logo mx-3" src="{{ asset('img/BDoctors_logo_2.svg') }}" alt="logo"> --}}
-            <a class="navbar-brand mx-3" href="{{ url('/') }}">
-                {{-- {{ config('app.name', 'Laravel') }} --}}
-                {{-- logo main --}}
-                <img class="logo d-none d-sm-flex d-lg-flex" src="{{ asset('img/BDoctors_logo_2.svg') }}"
-                    alt="logo">
-                {{-- logo responsive --}}
-                <img class="logo d-flex d-sm-none d-lg-none" src="{{ asset('img/BDoctors_logo_2_resp.svg') }}"
-                    alt="logo-resp">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse m-3" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="links nav-item">
-                        <a class="nav-link fw-normal" href="{{ url('/') }}">HOME</a>
-                    </li>
-                    <li class="links nav-item">
-                        <a class="nav-link fw-normal" href="{{ url('/search') }}">RICERCA AVANZATA</a>
-                    </li>
-                    <li class="links nav-item">
-                        <a class="nav-link fw-normal" href="{{ url('/pricing') }}">PREZZI</a>
-                    </li>
-                </ul>
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <a class="navbar-brand mx-3" href="{{ url('/') }}">
+            {{-- {{ config('app.name', 'Laravel') }} --}}
+            {{-- logo main --}}
+            <img class="logo d-none d-sm-flex d-lg-flex" src="{{ asset('img/BDoctors_logo_2.svg') }}" alt="logo">
+            {{-- logo responsive --}}
+            <img class="logo d-flex d-sm-none d-lg-none" src="{{ asset('img/BDoctors_logo_2_resp.svg') }}" alt="logo-resp">
+        </a>
+        {{-- pulsante hamburger menu --}}
+        <button class="navbar-toggler mx-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        {{-- tendina a comparsa --}}
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header bg-gradient text-light mb-3" style="background: #00334e">
+                <h5 class="pt-2" id="offcanvasRightLabel">Menu</h5>
+                <button type="button" class="btn-close text-reset bg-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
+            <ul class="navbar-nav ml-auto flex-wrap flex-column flex-md-row flex-center align-items-start gap-2 text-start">
+                <li class="links nav-item d-flex flex-column gap-4 d-md-none d-lg-none my-2 my-md-0">
+                    @if (Route::has('login'))
+                        @auth
+                            <a href="{{ route('doctor.dashboard') }}" class="fw-normal">Dashboard</a>
+                        @else
+                            <a href="{{ route('login') }}" class="fw-normal">Accedi</a>
+
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="fw-normal">Registrati</a>
+                            @endif
+                        @endauth
+                    @endif
+                </li>
+                <li class="links nav-item my-2 my-md-0">
+                    <a class="nav-link fw-normal" href="{{ url('/') }}">HOME</a>
+                </li>
+                <li class="links nav-item my-2 my-md-0">
+                    <a class="nav-link fw-normal" href="{{ url('/search') }}">RICERCA AVANZATA</a>
+                </li>
+                <li class="links nav-item my-2 my-md-0">
+                    <a class="nav-link fw-normal" href="{{ url('/pricing') }}">PREZZI</a>
+                </li>
+            </ul>
         </div>
-        <div class="flex-center">
+        {{-- pulsanti navbar lg --}}
+        <div class="d-none d-md-block d-lg-block">
             @if (Route::has('login'))
                 <div class="links mx-3">
                     @auth
@@ -112,7 +125,6 @@
 
     <!-- Footer -->
     <footer class="text-center text-lg-start bg-secondary text-light">
-
         {{-- upper footer  --}}
         <section class="pt-3">
             <div class="container text-center text-md-start mt-5">
@@ -149,7 +161,6 @@
                             + 39 345 678 90
                         </p>
                     </div>
-
                     {{-- azienda --}}
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                         <h6 class="text-uppercase fw-bold mb-4">
@@ -165,7 +176,6 @@
                             <a href="" class="text-reset">Privacy</a>
                         </p>
                     </div>
-
                     {{-- link utili --}}
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                         <h6 class="text-uppercase fw-bold mb-4">
@@ -184,7 +194,6 @@
                 </div>
             </div>
         </section>
-
         <!-- bottom footer -->
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
             © 2022 Copyright: BDoctors Tutti i diritti riservati
