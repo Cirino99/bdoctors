@@ -70,13 +70,13 @@
             <div class="collapse navbar-collapse m-3" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="links nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">HOME</a>
+                        <a class="nav-link fw-normal" href="{{ url('/') }}">HOME</a>
                     </li>
                     <li class="links nav-item">
-                        <a class="nav-link" href="{{ url('/search') }}">RICERCA AVANZATA</a>
+                        <a class="nav-link fw-normal" href="{{ url('/search') }}">RICERCA AVANZATA</a>
                     </li>
                     <li class="links nav-item">
-                        <a class="nav-link" href="{{ url('/pricing') }}">PREZZI</a>
+                        <a class="nav-link fw-normal" href="{{ url('/pricing') }}">PREZZI</a>
                     </li>
                 </ul>
             </div>
@@ -85,12 +85,12 @@
             @if (Route::has('login'))
                 <div class="links mx-3">
                     @auth
-                        <a href="{{ route('doctor.dashboard') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light" style="background: #004d73">Dashboard</a>
+                        <a href="{{ route('doctor.dashboard') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light fw-normal" style="background: #004d73">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light" style="background: #004d73">Accedi</a>
+                        <a href="{{ route('login') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light fw-normal" style="background: #004d73">Accedi</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light" style="background: #004d73">Registrati</a>
+                            <a href="{{ route('register') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light fw-normal" style="background: #004d73">Registrati</a>
                         @endif
                     @endauth
                 </div>

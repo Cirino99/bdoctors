@@ -33,16 +33,6 @@
                                             <h4 class="my-0">Pro</h4>
                                         </div>
                                     @endif
-                                    {{-- @if ($sponsorship->id == 2)
-                                        <div class="card-header">
-                                            <h4 class="my-0">Avanzato</h4>
-                                        </div>
-                                    @endif
-                                    @if ($sponsorship->id == 3)
-                                        <div class="card-header">
-                                            <h4 class="my-0">Pro</h4>
-                                        </div>
-                                    @endif --}}
                                     <div class="card-body bg-white">
                                         <h1 class="card-title fst-italic">
                                             {{$sponsorship->price}} <small>€</small>

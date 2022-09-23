@@ -43,7 +43,7 @@
         <!-- schede dottori -->
         <div class="container">
             <div class="mt-5">
-                <div class="text-center">
+                <div class="text-center my-3">
                     <big class="fs-2" style="color: #00334e">
                         MEDICI SPONSORIZZATI
                     </big>
@@ -65,7 +65,7 @@
                 </big>
                 <div class="col-12 d-flex align-items-center flex-wrap">
                     <div class="col-md-6 col-sm-12">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore unde, corrupti maiores eos,
+                        <p class="lh-lg my-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore unde, corrupti maiores eos,
                             itaque, facilis nulla reprehenderit laboriosam asperiores nobis ipsam. Nam explicabo ipsam
                             quod alias fugiat saepe, sunt impedit!
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum atque necessitatibus tempora,
@@ -82,19 +82,19 @@
             </div>
         </div>
 
-        <div class="container text-center mt-4 mb-5">
+        <div class="container text-center my-4">
             <big class="fs-1">
                 Facile e veloce!
             </big>
-            <div class="row">
+            <div class="row my-5">
                 <div class="col-md-4 text-center">
                     <img class="my-img" src="img/consultazione-sito.svg" alt="">
-                    <h3 class="mt-3">Scegli il Medico</h3>
+                    <h3 class="mt-3">Scegli il medico</h3>
                     <p>Fai la scelta migliore secondo le tue esigenze: valuta curriculum, prezzo delle prestazioni, patologie trattate e recensioni degli altri pazienti.</p>
                 </div>
                 <div class="col-md-4 text-center">
                     <img class="my-img" src="img/prenotazione-online.svg" alt="">
-                    <h3 class="mt-3">Prenota la sisita</h3>
+                    <h3 class="mt-3">Prenota la visita</h3>
                     <p>Ti bastano pochi secondi: è facile e veloce, non serve telefonare e non è richiesta la carta di credito: pagherai direttamente al medico.</p>
                 </div>
                 <div class="col-md-4 text-center">
@@ -104,7 +104,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </template>
 

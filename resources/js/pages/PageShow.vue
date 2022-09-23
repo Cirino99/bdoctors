@@ -1,7 +1,7 @@
 <template>
     <div class="min-vh-100">
         <div id="sez-nome" class="bg-blu-chiaro text-white d-flex justify-content-center align-items-center">
-            <h2> Dr. {{ showProfile.name }} {{ showProfile.lastname }}</h2>       
+            <h2> Dr. {{ showProfile.name }} {{ showProfile.lastname }}</h2>
         </div>
         <div class="container mt-5">
             <div class="d-flex justify-content-start flex-wrap mb-5">
@@ -32,7 +32,7 @@
                         <li>
                             <b class="fst-italic blu-scuro">Specializzazione: </b>
                             <span v-for="specialization in showProfile.specializations" :key="specialization.id"
-                            class="badge bg-warning mx-1">
+                            class="bg-label badge mx-1 text-dark">
                                 {{ specialization.name }}
                             </span>
                         </li>
@@ -48,9 +48,9 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-between align-items-center mb-3">
                 <button class="btn btn-secondary" @click="displayMessage">Contatta</button>
-                <button class="btn" style="background: #23A3B3; color: #fff" @click="displayReview">Scrivi una recensione</button>
+                <button class="btn btn-bg-blu-chiaro text-light" @click="displayReview">Scrivi una recensione</button>
             </div>
             <!-- campo per la recensione temporaneo TODO: da sistemare -->
             <div class="form-floating my-4" v-show="displayR">
@@ -190,7 +190,7 @@ export default {
     li {
         list-style-type: none;
     }
-  
+
     #user-img {
         width: 200px;
         height: 200px;
@@ -212,10 +212,12 @@ export default {
     }
 
     // colors
+    .bg-label {
+        background: $bluelight;
+    }
 
-    
     .blu-scuro {
-        color: #00acff;
+        color: $bluedark;
     }
     .blu-chiaro {
         color: #00c7ff;
@@ -229,8 +231,15 @@ export default {
     .bg-blu-scuro {
         background-color: #00acff;
     }
+    .btn-bg-blu-chiaro {
+        background-color: $bluedark;
+
+        &:hover {
+            background: $ultradark
+        }
+    }
     .bg-blu-chiaro {
-        background-color: #00c7ff;
+        background-color: $bluedark;
     }
     .bg-blu-chiaro2 {
         background-color: #8ce6ff;
@@ -238,5 +247,5 @@ export default {
     .bg-nero {
         background-color: #2a2d45;
     }
-    
+
 </style>

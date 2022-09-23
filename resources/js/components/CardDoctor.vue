@@ -7,24 +7,24 @@
             </div>
         </div>
         <div class="my-card-content">
-            <div class="my-card-name">
-                <big><strong>Dr.</strong></big>
-                <big class="card-title"><b> {{ doctor.name }} </b></big>
-                <big class="card-title"><b> {{ doctor.lastname }} </b></big>
+            <div class="my-card-name fw-bold m-auto my-2">
+                <big>Dr.</big>
+                <big class="card-title"> {{ doctor.name }} </big>
+                <big class="card-title"> {{ doctor.lastname }} </big>
             </div>
             <div>
                 <big><strong>Città:</strong></big>
-                <big>{{ doctor.city}}</big>
+                <big>{{ doctor.city }}</big>
             </div>
             <div>
-                <big class="card-title"><b>Su di me</b></big>
+                <big class="card-title fw-bold">Su di me</big>
                 <p class="my-text-cv">{{ doctor.cv }}</p>
             </div>
 
-            <span>
+            <span class="lh-lg">
                 <strong>Voto:</strong>
                 <font-awesome-icon v-for="(myStar, i) in doctor.vote" :key="i" icon="fa-solid fa-star" />
-                <font-awesome-icon v-for="(myEmptyStar, j) in (5 - doctor.vote)" :key="j" icon="fa-regular fa-star" />            
+                <font-awesome-icon v-for="(myEmptyStar, j) in (5 - doctor.vote)" :key="j" icon="fa-regular fa-star" />
             </span>
 
             <div class="card-body d-flex flex-column justify-content-end">
