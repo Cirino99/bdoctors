@@ -245,10 +245,6 @@ export default {
 
 li {
     list-style-type: none;
-
-    &:hover {
-        background-color: aquamarine;
-    }
 }
 
 .my-collapse {
