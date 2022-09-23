@@ -50,7 +50,7 @@
                 </div>
                 <div class="d-flex flex-wrap justify-content-center gap-5 my-5">
                     <!-- card singolo dottore -->
-                    <CardDoctor v-for="(doctor, index) in doctors" :key="index" :doctor="doctor" />
+                    <CardDoctor v-for="(doctor, index) in doctors" :key="index + 20" :doctor="doctor" />
                 </div>
             </div>
         </div>
@@ -129,6 +129,7 @@ export default {
             .then(res => {
                 if (res.data.success) {
                     this.doctors = res.data.result;
+                    console.log('Array medici: ',res.data.result);
                 }
             });
     },
