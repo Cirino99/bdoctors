@@ -50,7 +50,7 @@
                 </div>
                 <div class="d-flex flex-wrap justify-content-center gap-5 my-5">
                     <!-- card singolo dottore -->
-                    <CardDoctor v-for="(doctor, index) in doctors" :key="index" :doctor="doctor" />
+                    <CardDoctor v-for="(doctor, index) in doctors" :key="index + 20" :doctor="doctor" />
                 </div>
             </div>
         </div>
@@ -65,15 +65,26 @@
                 </big>
                 <div class="col-12 d-flex align-items-center flex-wrap">
                     <div class="col-md-6 col-sm-12">
-                        <p class="lh-lg my-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore unde, corrupti maiores eos,
-                            itaque, facilis nulla reprehenderit laboriosam asperiores nobis ipsam. Nam explicabo ipsam
-                            quod alias fugiat saepe, sunt impedit!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum atque necessitatibus tempora,
-                            facilis reiciendis ab exercitationem minus rerum nihil sequi et, pariatur temporibus placeat
-                            amet magni mollitia veniam aliquam reprehenderit!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius eaque saepe minus architecto explicabo molestiae totam omnis ducimus doloremque? Et eaque velit quibusdam ratione dolorem assumenda ea nisi officiis itaque.
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, sit? Ex magnam illo nam, rerum neque, voluptatem eaque temporibus labore minus soluta ipsum dicta dolor dignissimos saepe eum quisquam laudantium?
+                        <h4 class="mt-3">Incontra un Dottore ovunque tu sia</h4>
+                        <p class="lh-lg my-3">
+                            Una soluzione per richiedere una consulenza medica, direttamente da casa tua, con il tuo
+                            smartphone o PC.
+                            Utili per una seconda opinione, per l'esame di un referto, per un colloquio preliminare a
+                            una visita, o per avere più informazioni su una possibile patologia.
+                            I Videoconsulti, disponibili su BDoctors già dal 2019, sono uno strumento utilizzato da
+                            molti medici per facilitare l'attività professionale e il follow-up del paziente.
                         </p>
+                        <h4>Con BDoctor:</h4>
+                        <div class="my-list">
+                            <ul>
+                                <li>Ricevi prenotazioni da nuovi pazienti</li>
+                                <li>Migliori la tua visibilità e la tua reputazione online</li>
+                                <li>Organizzi al meglio il tuo lavoro con una suite completa di strumenti dedicati al
+                                    Medico</li>
+                                <li>Puoi usare la nostra App multipiattaforma dedicata ai Medici</li>
+                                <li>Hai il nostro staff sempre disponibile ad aiutarti</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <img class="img-fluid" src="img/doctor-phone.png" alt="">
@@ -90,17 +101,20 @@
                 <div class="col-md-4 text-center">
                     <img class="my-img" src="img/consultazione-sito.svg" alt="">
                     <h3 class="mt-3">Scegli il medico</h3>
-                    <p>Fai la scelta migliore secondo le tue esigenze: valuta curriculum, prezzo delle prestazioni, patologie trattate e recensioni degli altri pazienti.</p>
+                    <p>Fai la scelta migliore secondo le tue esigenze: valuta curriculum, prezzo delle prestazioni,
+                        patologie trattate e recensioni degli altri pazienti.</p>
                 </div>
                 <div class="col-md-4 text-center">
                     <img class="my-img" src="img/prenotazione-online.svg" alt="">
                     <h3 class="mt-3">Prenota la visita</h3>
-                    <p>Ti bastano pochi secondi: è facile e veloce, non serve telefonare e non è richiesta la carta di credito: pagherai direttamente al medico.</p>
+                    <p>Ti bastano pochi secondi: è facile e veloce, non serve telefonare e non è richiesta la carta di
+                        credito: pagherai direttamente al medico.</p>
                 </div>
                 <div class="col-md-4 text-center">
                     <img class="my-img" src="img/medico-e-paziente.svg" alt="">
                     <h3 class="mt-3">Vai all'appuntamento</h3>
-                    <p>Vai dal Medico scelto, nel giorno e nell'ora selezionati. Dopo la visita potrai lasciare una tua recensione che sarà utile per gli altri pazienti.</p>
+                    <p>Vai dal Medico scelto, nel giorno e nell'ora selezionati. Dopo la visita potrai lasciare una tua
+                        recensione che sarà utile per gli altri pazienti.</p>
                 </div>
             </div>
         </div>
@@ -129,6 +143,7 @@ export default {
             .then(res => {
                 if (res.data.success) {
                     this.doctors = res.data.result;
+                    console.log('Array medici: ', res.data.result);
                 }
             });
     },
@@ -234,10 +249,6 @@ export default {
 
 li {
     list-style-type: none;
-
-    &:hover {
-        background-color: aquamarine;
-    }
 }
 
 .my-collapse {
@@ -267,11 +278,20 @@ li {
     background-color: $bluelight;
 }
 
-.row{
+.row {
     color: $dark;
 
-    .my-img{
+    .my-img {
         width: 200px;
+    }
+}
+
+.my-list{
+    text-align: start;
+    ul{
+        li{
+            list-style-type: disc;
+        }
     }
 }
 </style>

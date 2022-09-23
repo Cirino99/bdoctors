@@ -32,6 +32,7 @@
         .position-ref {
             position: relative;
         }
+
         .links>a {
             color: #636b6f;
             padding: 0 25px;
@@ -41,12 +42,13 @@
             text-decoration: none;
             text-transform: uppercase;
         }
+
         .logo {
             width: auto;
             height: 60px;
         }
 
-        .navbar{
+        .navbar {
             display: flex;
             justify-content: space-between;
             padding: 10px;
@@ -103,12 +105,16 @@
             @if (Route::has('login'))
                 <div class="links mx-3">
                     @auth
-                        <a href="{{ route('doctor.dashboard') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light fw-normal" style="background: #004d73">Dashboard</a>
+                        <a href="{{ route('doctor.dashboard') }}"
+                            class="btn p-2 px-3 mx-2 rounded-pill text-light fw-normal"
+                            style="background: #004d73">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light fw-normal" style="background: #004d73">Accedi</a>
+                        <a href="{{ route('login') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light fw-normal"
+                            style="background: #004d73">Accedi</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light fw-normal" style="background: #004d73">Registrati</a>
+                            <a href="{{ route('register') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light fw-normal"
+                                style="background: #004d73">Registrati</a>
                         @endif
                     @endauth
                 </div>
@@ -126,10 +132,13 @@
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         {{-- logo --}}
                         <a class="text-uppercase fw-bold mb-4" href="{{ url('/') }}">
-                            <img class="logo d-sm-flex d-md-flex d-lg-flex" src="{{ asset('img/BDoctors_logo_2_resp.svg') }}" alt="logo-resp">
+                            <img class="logo d-sm-flex d-md-flex d-lg-flex"
+                                src="{{ asset('img/BDoctors_logo_2_resp.svg') }}" alt="logo-resp">
                         </a>
                         <p class="mt-4">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam repudiandae ad impedit quisquam, repellendus molestias doloribus.
+                            Oltre il 99% di pazienti soddisfatti
+                            <strong>BDoctors</strong> è il primo sito in Italia di prenotazioni di visite mediche ed esami diagnostici,
+                            online dal 2008.
                         </p>
                     </div>
                     {{-- contatti --}}
@@ -155,7 +164,7 @@
                     {{-- azienda --}}
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                         <h6 class="text-uppercase fw-bold mb-4">
-                        Azienda
+                            Azienda
                         </h6>
                         <p>
                             <a href="{{ url('/about') }}" class="text-reset">Chi siamo</a>
@@ -170,7 +179,7 @@
                     {{-- link utili --}}
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                         <h6 class="text-uppercase fw-bold mb-4">
-                        link utili
+                            link utili
                         </h6>
                         <p>
                             <a href="{{ url('/search') }}" class="text-reset">Ricerca avanzata</a>

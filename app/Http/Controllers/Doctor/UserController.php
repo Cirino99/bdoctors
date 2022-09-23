@@ -43,7 +43,7 @@ class UserController extends Controller
                 'user' => $user
             ]);
         } else {
-            return view('doctor.dashboard');
+            return redirect()->route('doctor.dashboard');
         }
     }
 
@@ -63,7 +63,7 @@ class UserController extends Controller
                 'specializations' => $specializations
             ]);
         } else {
-            return view('doctor.dashboard');
+            return redirect()->route('doctor.dashboard');
         }
     }
 

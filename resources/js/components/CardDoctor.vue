@@ -24,7 +24,7 @@
             <span class="lh-lg">
                 <strong>Voto:</strong>
                 <font-awesome-icon v-for="(myStar, i) in doctor.vote" :key="i" icon="fa-solid fa-star" />
-                <font-awesome-icon v-for="(myEmptyStar, j) in (5 - doctor.vote)" :key="j" icon="fa-regular fa-star" />
+                <font-awesome-icon v-for="(myEmptyStar, j) in (5 - doctor.vote)" :key="j + doctor.vote" icon="fa-regular fa-star" />
             </span>
 
             <div class="card-body d-flex flex-column justify-content-end">
