@@ -20,9 +20,9 @@
                             <div class="collapse position-absolute d-flex my-collapse" v-if="display"
                                 @mouseleave="handleFocusOut">
                                 <ul class="card overflow-auto my-overflow">
-                                    <li v-for="specialization in specializations" :key="specialization.id"
-                                        @click="selectSpecialization(specialization)">
-                                        {{ specialization.name }}
+                                    <li v-for="specializationLi in specializations" :key="specializationLi.id"
+                                        @click="selectSpecialization(specializationLi)">
+                                        {{ specializationLi.name }}
                                     </li>
                                 </ul>
                             </div>
@@ -81,14 +81,7 @@ import CardDoctor from '../components/CardDoctor.vue'
 export default {
     name: 'PageAdvanceSearch',
     props: {
-        specializationSelect: {
-            default: function(){
-                return {
-                'name' : '',
-                'id' : ''
-            }},
-            type: Object
-        },
+        specialization: Number
     },
     components: {
         CardDoctor,
@@ -98,7 +91,10 @@ export default {
             doctors: '',
             doctors_sponsorship: '',
             specializations: [],
-            mySpecialization: null,
+            specializationSelect: {
+                'name' : '',
+                'id' : null
+            },
             search: '',
             vote: 0,
             review: 0,
@@ -106,14 +102,25 @@ export default {
         }
     },
     created() {
+        console.log(this.specialization);
+        this.specializationSelect.id = this.specialization;
+        console.log( this.specializationSelect);
+        axios.get('/api/search/specialization/id?id=' + this.specialization)
+                .then(res => {
+                    if (res.data.success) {
+                        this.specializationSelect.name = res.data.result.name;
+                    }
+                });
         this.searchDoctor();
     },
     methods: {
         searchDoctor() {
-            if(this.specializationSelect.name != ''){
-                axios.get('api/search?specialization=' + this.specializationSelect.id + '&city=all&reviews= ' + this.review + '  &vote=' + this.vote)
+            if(this.specializationSelect.id != ''){
+                axios.get('/api/search?specialization=' + this.specializationSelect.id + '&city=all&reviews=' + this.review + '&vote=' + this.vote)
                 .then(res => {
+                    console.log(res.data);
                     if (res.data.success) {
+                        console.log('mariooo');
                         this.doctors = res.data.result[0];
                         this.doctors_sponsorship = res.data.result[1];
                     }

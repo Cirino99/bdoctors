@@ -15,7 +15,7 @@
                         <input v-model="search" class="form-control mr-sm-2 w-100" type="search"
                             placeholder="Scrivi qui.." aria-label="Search" @input="searchInput"
                             @click="displayComponent" @keyup="displayComponent">
-                        <router-link :to="{name: 'AdvanceSearch', params: {specializationSelect: mySpecialization} }"
+                        <router-link :to="{name: 'AdvanceSearch', params: {specialization: mySpecialization.id} }"
                             id="search-button"
                             class="btn btn-warning bg-opacity-25 my-2 my-sm-0 d-flex justify-content-center">
                             <img id="search-icon" src="img/BDoctors_lens_search.svg" alt="lens-search">
@@ -126,7 +126,10 @@ export default {
     data() {
         return {
             search: "",
-            mySpecialization: null,
+            mySpecialization: {
+                'name': '',
+                'id': ''
+            },
             doctors: [],
             specializations: [],
             display: false

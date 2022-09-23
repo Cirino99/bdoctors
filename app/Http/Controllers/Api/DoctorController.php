@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Specialization;
 
 class DoctorController extends Controller
 {
@@ -64,6 +65,22 @@ class DoctorController extends Controller
             return response()->json([
                 'success'   => true,
                 'result'    => $specializations
+            ]);
+        } else {
+            return response()->json([
+                'success'   => false,
+            ]);
+        }
+    }
+
+    public function specializationId(Request $request)
+    {
+        $specialization_id = $request->get('id');
+        $specialization = Specialization::where('id', $specialization_id)->select('name')->first();
+        if ($specialization) {
+            return response()->json([
+                'success'   => true,
+                'result'    => $specialization
             ]);
         } else {
             return response()->json([
