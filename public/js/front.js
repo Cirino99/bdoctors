@@ -21800,15 +21800,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'PageAdvanceSearch',
   props: {
-    specializationSelect: {
-      "default": function _default() {
-        return {
-          'name': '',
-          'id': ''
-        };
-      },
-      type: Object
-    }
+    specialization: Number
   },
   components: {
     CardDoctor: _components_CardDoctor_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -21818,7 +21810,10 @@ __webpack_require__.r(__webpack_exports__);
       doctors: '',
       doctors_sponsorship: '',
       specializations: [],
-      mySpecialization: null,
+      specializationSelect: {
+        'name': '',
+        'id': null
+      },
       search: '',
       vote: 0,
       review: 0,
@@ -21826,17 +21821,30 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
+    var _this = this;
+
+    console.log(this.specialization);
+    this.specializationSelect.id = this.specialization;
+    console.log(this.specializationSelect);
+    axios.get('/api/search/specialization/id?id=' + this.specialization).then(function (res) {
+      if (res.data.success) {
+        _this.specializationSelect.name = res.data.result.name;
+      }
+    });
     this.searchDoctor();
   },
   methods: {
     searchDoctor: function searchDoctor() {
-      var _this = this;
+      var _this2 = this;
 
-      if (this.specializationSelect.name != '') {
-        axios.get('api/search?specialization=' + this.specializationSelect.id + '&city=all&reviews= ' + this.review + '  &vote=' + this.vote).then(function (res) {
+      if (this.specializationSelect.id != '') {
+        axios.get('/api/search?specialization=' + this.specializationSelect.id + '&city=all&reviews=' + this.review + '&vote=' + this.vote).then(function (res) {
+          console.log(res.data);
+
           if (res.data.success) {
-            _this.doctors = res.data.result[0];
-            _this.doctors_sponsorship = res.data.result[1];
+            console.log('mariooo');
+            _this2.doctors = res.data.result[0];
+            _this2.doctors_sponsorship = res.data.result[1];
           }
         });
       }
@@ -21850,12 +21858,12 @@ __webpack_require__.r(__webpack_exports__);
       this.searchDoctor();
     },
     searchInput: function searchInput() {
-      var _this2 = this;
+      var _this3 = this;
 
       if (this.specializationSelect.name != '') {
         axios.get('/api/search/specialization?specialization=' + this.specializationSelect.name).then(function (res) {
           if (res.data.success) {
-            _this2.specializations = res.data.result;
+            _this3.specializations = res.data.result;
           }
         });
       } else {
@@ -21908,7 +21916,10 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       search: "",
-      mySpecialization: null,
+      mySpecialization: {
+        'name': '',
+        'id': ''
+      },
       doctors: [],
       specializations: [],
       display: false
@@ -22034,6 +22045,9 @@ __webpack_require__.r(__webpack_exports__);
         })["catch"](function (error) {
           console.log(error);
         });
+      } else {
+        alert('compila tutti i campi');
+        return false;
       }
     },
     newMessage: function newMessage($id) {
@@ -22053,6 +22067,9 @@ __webpack_require__.r(__webpack_exports__);
         })["catch"](function (error) {
           console.log(error);
         });
+      } else {
+        alert('compila tutti i campi');
+        return false;
       }
     },
     displayReview: function displayReview() {
@@ -22386,15 +22403,15 @@ var render = function render() {
     }
   }, [_c("ul", {
     staticClass: "card overflow-auto my-overflow"
-  }, _vm._l(_vm.specializations, function (specialization) {
+  }, _vm._l(_vm.specializations, function (specializationLi) {
     return _c("li", {
-      key: specialization.id,
+      key: specializationLi.id,
       on: {
         click: function click($event) {
-          return _vm.selectSpecialization(specialization);
+          return _vm.selectSpecialization(specializationLi);
         }
       }
-    }, [_vm._v("\n                                    " + _vm._s(specialization.name) + "\n                                ")]);
+    }, [_vm._v("\n                                    " + _vm._s(specializationLi.name) + "\n                                ")]);
   }), 0)]) : _vm._e()]), _vm._v(" "), _c("li", {
     staticClass: "list-group-item"
   }, [_c("strong", [_vm._v("Città:")]), _c("br"), _vm._v(" "), _c("form", {
@@ -22685,7 +22702,7 @@ var render = function render() {
       to: {
         name: "AdvanceSearch",
         params: {
-          specializationSelect: _vm.mySpecialization
+          specialization: _vm.mySpecialization.id
         }
       },
       id: "search-button"
@@ -62518,7 +62535,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 var routes = [{
-  path: '/search',
+  path: '/search/:specialization',
   name: 'AdvanceSearch',
   component: _pages_PageAdvanceSearch_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
   props: true
@@ -63105,8 +63122,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })

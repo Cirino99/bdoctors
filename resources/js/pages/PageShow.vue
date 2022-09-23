@@ -141,6 +141,9 @@ export default {
             }).catch(function (error) {
                 console.log(error);
             });
+            } else {
+                alert('compila tutti i campi');
+                return false;
             }
         },
 
@@ -160,6 +163,9 @@ export default {
             }).catch(function (error) {
                 console.log(error);
             });
+            } else {
+                alert('compila tutti i campi');
+                return false;
             }
         },
 
