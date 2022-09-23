@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    
+
     {{-- Scripts --}}
     <script src="{{ asset('js/bootstrap.js') }}" defer></script>
 
@@ -32,6 +32,7 @@
         .position-ref {
             position: relative;
         }
+
         .links>a {
             color: #636b6f;
             padding: 0 25px;
@@ -41,12 +42,13 @@
             text-decoration: none;
             text-transform: uppercase;
         }
+
         .logo {
             width: auto;
             height: 60px;
         }
 
-        .navbar{
+        .navbar {
             display: flex;
             justify-content: space-between;
             padding: 10px;
@@ -61,11 +63,15 @@
             <a class="navbar-brand mx-3" href="{{ url('/') }}">
                 {{-- {{ config('app.name', 'Laravel') }} --}}
                 {{-- logo main --}}
-                <img class="logo d-none d-sm-flex d-lg-flex" src="{{ asset('img/BDoctors_logo_2.svg') }}" alt="logo">
+                <img class="logo d-none d-sm-flex d-lg-flex" src="{{ asset('img/BDoctors_logo_2.svg') }}"
+                    alt="logo">
                 {{-- logo responsive --}}
-                <img class="logo d-flex d-sm-none d-lg-none" src="{{ asset('img/BDoctors_logo_2_resp.svg') }}" alt="logo-resp">
+                <img class="logo d-flex d-sm-none d-lg-none" src="{{ asset('img/BDoctors_logo_2_resp.svg') }}"
+                    alt="logo-resp">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse m-3" id="navbarSupportedContent">
@@ -86,12 +92,16 @@
             @if (Route::has('login'))
                 <div class="links mx-3">
                     @auth
-                        <a href="{{ route('doctor.dashboard') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light fw-normal" style="background: #004d73">Dashboard</a>
+                        <a href="{{ route('doctor.dashboard') }}"
+                            class="btn p-2 px-3 mx-2 rounded-pill text-light fw-normal"
+                            style="background: #004d73">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light fw-normal" style="background: #004d73">Accedi</a>
+                        <a href="{{ route('login') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light fw-normal"
+                            style="background: #004d73">Accedi</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light fw-normal" style="background: #004d73">Registrati</a>
+                            <a href="{{ route('register') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light fw-normal"
+                                style="background: #004d73">Registrati</a>
                         @endif
                     @endauth
                 </div>
@@ -110,10 +120,13 @@
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         {{-- logo --}}
                         <a class="text-uppercase fw-bold mb-4" href="{{ url('/') }}">
-                            <img class="logo d-sm-flex d-md-flex d-lg-flex" src="{{ asset('img/BDoctors_logo_2_resp.svg') }}" alt="logo-resp">
+                            <img class="logo d-sm-flex d-md-flex d-lg-flex"
+                                src="{{ asset('img/BDoctors_logo_2_resp.svg') }}" alt="logo-resp">
                         </a>
                         <p class="mt-4">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam repudiandae ad impedit quisquam, repellendus molestias doloribus.
+                            Oltre il 99% di pazienti soddisfatti
+                            <strong>BDoctors</strong> è il primo sito in Italia di prenotazioni di visite mediche ed esami diagnostici,
+                            online dal 2008.
                         </p>
                     </div>
                     {{-- contatti --}}
@@ -140,7 +153,7 @@
                     {{-- azienda --}}
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                         <h6 class="text-uppercase fw-bold mb-4">
-                        Azienda
+                            Azienda
                         </h6>
                         <p>
                             <a href="{{ url('/about') }}" class="text-reset">Chi siamo</a>
@@ -156,7 +169,7 @@
                     {{-- link utili --}}
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                         <h6 class="text-uppercase fw-bold mb-4">
-                        link utili
+                            link utili
                         </h6>
                         <p>
                             <a href="{{ url('/search') }}" class="text-reset">Ricerca avanzata</a>

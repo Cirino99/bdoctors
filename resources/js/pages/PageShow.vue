@@ -40,11 +40,9 @@
                 </div>
                 <!-- lista info profilo -->
                 <div class="fst-italic col-12 col-sm-12 col-md-6 col-lg-8">
-                    <h4>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita dolorem rerum, tempore quaerat quasi quisquam! Delectus, fuga laboriosam voluptatem quos eveniet blanditiis eum quidem et dolorum eaque earum iure neque!
-                    </h4>
                     <div>
-                        CV: {{ showProfile.cv }}
+                        <h2>Il mio curriculum</h2>
+                        <p>{{ showProfile.cv }}</p>
                     </div>
                 </div>
             </div>
