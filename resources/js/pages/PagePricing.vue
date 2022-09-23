@@ -1,7 +1,7 @@
 <template>
     <div class="container mt-5 min-vh-100">
         <div class="px-3 py-3 pt-md-4 text-center">
-            <h1 class="display-4">Pricing</h1>
+            <h1 class="display-4">Prezzi</h1>
             <h3 class="lead">
                 Sei un medico e vuoi sponsorizzarti? Compari nella homepage e durante la ricerca prima di tutti gli altri.
                 Ecco i nostri prezzi.
