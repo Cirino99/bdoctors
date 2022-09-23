@@ -36,13 +36,11 @@
             <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            {{-- <button class="btn btn-secondary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                Default dropdown
+            </button> --}}
 
-            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
-
-                </ul>
-
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
@@ -56,18 +54,16 @@
                             </li>
                         @endif
                     @else
-                        <li class="nav-item dropdown d-flex justify-content-center mx-3">
+                        <li class="nav-item dropdown d-flex justify-content-end me-3">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
-
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu flex-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
+                                    document.getElementById('logout-form').submit();">
                                     {{ __('Esci') }}
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
@@ -80,43 +76,42 @@
 
         <main class="d-flex">
             <section class="left-menu d-flex justify-content-center">
-                <div class="d-flex flex-column flex-shrink-0 mt-3" >
-                    <ul class="nav nav-pills mb-auto flex-column d-flex align-content-center">
+                <div class="d-flex flex-shrink-0 mt-3" >
+                    <ul class="nav nav-pills mb-auto d-flex flex-column align-content-center">
                       <li class="side-nav-li my-1">
-                        <a href="{{ route('doctor.dashboard') }}" class="nav-link link-dark d-flex align-items-baseline gap-2" aria-current="page">
+                        <a href="{{ route('doctor.dashboard') }}" class="nav-link link-dark d-flex align-items-baseline" aria-current="page">
                           <i class="fa-solid fa-house-user fs-5 my-auto"></i>
-                          <h6 class="d-none d-sm-block d-lg-block my-auto">Dashboard</h6>
+                          <span class="d-none d-sm-block d-lg-block my-auto ms-2">Dashboard</span>
                         </a>
                       </li>
                       <li class="side-nav-li my-1">
-                        <a href="{{ route('doctor.profile.edit', ['profile' => Auth::id()]) }}" class="nav-link link-dark d-flex align-items-baseline gap-2">
+                        <a href="{{ route('doctor.profile.edit', ['profile' => Auth::id()]) }}" class="nav-link link-dark d-flex align-items-baseline">
                           <i class="fa-solid fa-pen fs-5 my-auto"></i>
-                          <h6 class="d-none d-sm-block d-lg-block my-auto col-sm-12">Modifica Profilo</h6>
+                          <span class="d-none d-sm-block d-lg-block my-auto ms-2 col-sm-12">Modifica Profilo</span>
                         </a>
                       </li>
                       <li class="side-nav-li my-1">
-                        <a href="{{ route('doctor.profile.show', ['profile' => Auth::id()]) }}" class="nav-link link-dark d-flex align-items-baseline gap-2">
+                        <a href="{{ route('doctor.profile.show', ['profile' => Auth::id()]) }}" class="nav-link link-dark d-flex align-items-baseline">
                           <i class="fa-solid fa-eye fs-5 my-auto"></i>
-                          <h6 class="d-none d-sm-block d-lg-block my-auto col-12">Visualizza Profilo</h6>
+                          <span class="d-none d-sm-block d-lg-block my-auto ms-2 col-12">Visualizza Profilo</span>
                         </a>
                       </li>
                       <li class="side-nav-li my-1">
-                        <a href="{{ route('doctor.messages.index') }}" class="nav-link link-dark d-flex align-items-baseline gap-2">
+                        <a href="{{ route('doctor.messages.index') }}" class="nav-link link-dark d-flex align-items-baseline">
                           <i class="fa-solid fa-envelope fs-5 my-auto"></i>
-                          <h6 class="d-none d-sm-block d-lg-block my-auto">Messaggi</h6>
+                          <span class="d-none d-sm-block d-lg-block my-auto ms-2">Messaggi</span>
                         </a>
                       </li>
                       <li class="side-nav-li my-1">
-                        <a href="{{ route('doctor.reviews.index') }}" class="nav-link link-dark d-flex align-items-baseline gap-2">
-                            {{-- <img src="{{ asset('img/BDoctors_user_icon.svg') }}" alt="user-icon" style="max-width: 100%; height: 27px"> --}}
+                        <a href="{{ route('doctor.reviews.index') }}" class="nav-link link-dark d-flex align-items-baseline">
                             <i class="fa-solid fa-users fs-5 my-auto"></i>
-                            <h6 class="d-none d-sm-block d-lg-block my-auto">Recensioni</h6>
+                            <span class="d-none d-sm-block d-lg-block my-auto ms-2">Recensioni</span>
                         </a>
                       </li>
                       <li class="side-nav-li my-1">
-                        <a href="{{ route('doctor.sponsorships.index') }}" class="nav-link link-dark d-flex align-items-baseline gap-2">
+                        <a href="{{ route('doctor.sponsorships.index') }}" class="nav-link link-dark d-flex align-items-baseline">
                           <i class="fa-solid fa-cart-shopping fs-5 my-auto"></i>
-                          <h6 class="d-none d-sm-block d-lg-block my-auto">Sponsorizzazioni</h6>
+                          <span class="d-none d-sm-block d-lg-block my-auto ms-2">Sponsorizzazioni</span>
                         </a>
                       </li>
                     </ul>
