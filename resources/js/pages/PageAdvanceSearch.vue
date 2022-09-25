@@ -9,6 +9,7 @@
                         </div>
                         <!-- searchbar -->
                         <ul class="list-group list-group-flush">
+                            <!-- Specialization -->
                             <li class="list-group-item"><strong>Specializzazioni:</strong><br>
                                 <form class="d-flex form-inline py-2 my-lg-0">
                                     <input v-model="specializationSelect.name" class="form-control mr-sm-2 w-50 me-2" type="search_spec"
@@ -27,15 +28,27 @@
                                 </ul>
                             </div>
                             </li>
+                            <!-- City -->
                             <li class="list-group-item"><strong>Città:</strong><br>
                                 <form class="d-flex form-inline py-2 my-lg-0">
-                                    <input v-model="search" @keyup.enter="searchDoctor"
-                                        class="form-control mr-sm-2 rounded-3 w-50 me-2" type="search"
-                                        placeholder="Scrivi qui.." aria-label="Search">
+                                    <input v-model="city" @keyup.enter="searchDoctor" @input="searchInputCity"
+                                        class="form-control mr-sm-2 rounded-3 w-50 me-2" type="search_city"
+                                        placeholder="Scrivi qui.." aria-label="Search_city" @click="displayComponentCity" @keyup="displayComponentCity">
                                     <button class="btn btn-outline-primary my-2 m my-sm-0 rounded-3"
-                                        type="submit">Filtra</button>
+                                        type="button" @click="searchDoctor()">Filtra</button>
                                 </form>
+
+                                <div class="collapse position-absolute d-flex my-collapse" v-if="displayCity"
+                                @mouseleave="handleFocusOutCity">
+                                <ul class="card overflow-auto my-overflow">
+                                    <li v-for="cityLi, index in citys" :key="index"
+                                        @click="selectCity(cityLi.city)">
+                                        {{ cityLi.city }}
+                                    </li>
+                                </ul>
+                            </div>
                             </li>
+                            <!-- Vote -->
                             <li class="list-group-item">
                                 <strong>Media Voto:</strong>
                                 <span v-for="item in 5" :key="item">
@@ -46,6 +59,7 @@
                                     </label>
                                 </span>
                             </li>
+                            <!-- Review -->
                             <li class="list-group-item">
                                 <strong>Numero Recensioni:</strong>
                                 <span v-for="item in 4" :key="item">
@@ -95,10 +109,12 @@ export default {
                 'name' : '',
                 'id' : null
             },
-            search: '',
+            city: '',
+            citys: [],
             vote: 0,
             review: 0,
-            display: false
+            display: false,
+            displayCity: false
         }
     },
     created() {
@@ -116,15 +132,47 @@ export default {
     methods: {
         searchDoctor() {
             if(this.specializationSelect.id != ''){
-                axios.get('/api/search?specialization=' + this.specializationSelect.id + '&city=all&reviews=' + this.review + '&vote=' + this.vote)
-                .then(res => {
-                    console.log(res.data);
-                    if (res.data.success) {
-                        console.log('mariooo');
-                        this.doctors = res.data.result[0];
-                        this.doctors_sponsorship = res.data.result[1];
-                    }
-                })
+                if(this.city == ''){
+                    // axios.post('/api/search?specialization=' + this.specializationSelect.id + '&city=all&reviews=' + this.review + '&vote=' + this.vote)
+                    //     .then(res => {
+                    //     if (res.data.success) {
+                    //         console.log('mariooo');
+                    //         this.doctors = res.data.result[0];
+                    //         this.doctors_sponsorship = res.data.result[1];
+                    //         this.$router.push({name: 'AdvanceSearch', params: {specialization: this.specializationSelect.id}});
+                    //     }
+                    // })
+                    axios.post('/api/search',{
+                            specialization: this.specializationSelect.id,
+                            city: 'all',
+                            reviews: this.review,
+                            vote: this.vote
+                        })
+                        .then(res => {
+                        if (res.data.success) {
+                            console.log('mariooo');
+                            this.doctors = res.data.result[0];
+                            this.doctors_sponsorship = res.data.result[1];
+                            this.$router.push({name: 'AdvanceSearch', params: {specialization: this.specializationSelect.id}});
+                        }
+                    })
+                } else {
+                    axios.post('/api/search',{
+                            specialization: this.specializationSelect.id,
+                            city: this.city,
+                            reviews: this.review,
+                            vote: this.vote
+                        })
+                        .then(res => {
+                        if (res.data.success) {
+                            console.log('mariooo');
+                            this.doctors = res.data.result[0];
+                            this.doctors_sponsorship = res.data.result[1];
+                            this.$router.push({name: 'AdvanceSearch', params: {specialization: this.specializationSelect.id}});
+                        }
+                    })
+                }
+                
             }
         },
         changeVote(id) {
@@ -157,7 +205,28 @@ export default {
         },
         handleFocusOut() {
             this.display = false;
-        }
+        },
+        searchInputCity() {
+            if (this.city != '') {
+                axios.get('/api/search/city?city=' + this.city)
+                    .then(res => {
+                        if (res.data.success) {
+                            this.citys = res.data.result;
+                        }
+                    });
+            } else {
+                this.citys = [];
+            }
+        },
+        selectCity(city) {
+          this.city = city;
+        },
+        displayComponentCity() {
+            this.displayCity = true;
+        },
+        handleFocusOutCity() {
+            this.displayCity = false;
+        },
     }
 }
 </script>

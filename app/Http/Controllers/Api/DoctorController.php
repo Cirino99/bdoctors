@@ -91,10 +91,11 @@ class DoctorController extends Controller
 
     public function search(Request $request)
     {
-        $specialization = $request->get('specialization');
-        $city = $request->get('city');
-        $reviews = $request->get('reviews');
-        $vote = $request->get('vote');
+        $data = $request->all();
+        $specialization = $data['specialization'];
+        $city = $data['city'];
+        $reviews = $data['reviews'];
+        $vote = $data['vote'];
         if ($city == 'all') {
             $doctors_sponsorship = User::with(['specializations'])->whereHas('specializations', function ($q) use ($specialization) {
                 $q->where('specialization_id', 'like', $specialization);
@@ -109,6 +110,14 @@ class DoctorController extends Controller
                 ->having('reviews_count', '>=', $reviews)
                 ->get();
         } else {
+            $doctors_sponsorship = User::with(['specializations'])->whereHas('specializations', function ($q) use ($specialization) {
+                $q->where('specialization_id', 'like', $specialization);
+            })->whereHas('sponsorships', function ($q) {
+                $q->where('ending_date', '>', date('Y-m-d H:i:s'));
+            })->where('city', 'like', $city)
+                ->withCount('reviews')
+                ->having('reviews_count', '>=', $reviews)
+                ->get();
             $doctors = User::with(['specializations'])->whereHas('specializations', function ($q) use ($specialization) {
                 $q->where('specialization_id', 'like', $specialization);
             })->where('city', 'like', $city)
