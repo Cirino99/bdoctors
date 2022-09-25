@@ -96,6 +96,7 @@ class DoctorController extends Controller
         $city = $data['city'];
         $reviews = $data['reviews'];
         $vote = $data['vote'];
+        $page = $data['page'];
         if ($city == 'all') {
             $doctors_sponsorship = User::with(['specializations'])->whereHas('specializations', function ($q) use ($specialization) {
                 $q->where('specialization_id', 'like', $specialization);
@@ -103,12 +104,12 @@ class DoctorController extends Controller
                 $q->where('ending_date', '>', date('Y-m-d H:i:s'));
             })->withCount('reviews')
                 ->having('reviews_count', '>=', $reviews)
-                ->get();
+                ->limit(4)->inRandomOrder()->get();
             $doctors = User::with(['specializations'])->whereHas('specializations', function ($q) use ($specialization) {
                 $q->where('specialization_id', 'like', $specialization);
             })->withCount('reviews')
                 ->having('reviews_count', '>=', $reviews)
-                ->get();
+                ->paginate(8, ['*'], 'page', $page);
         } else {
             $doctors_sponsorship = User::with(['specializations'])->whereHas('specializations', function ($q) use ($specialization) {
                 $q->where('specialization_id', 'like', $specialization);
@@ -117,13 +118,13 @@ class DoctorController extends Controller
             })->where('city', 'like', $city)
                 ->withCount('reviews')
                 ->having('reviews_count', '>=', $reviews)
-                ->get();
+                ->limit(4)->inRandomOrder()->get();
             $doctors = User::with(['specializations'])->whereHas('specializations', function ($q) use ($specialization) {
                 $q->where('specialization_id', 'like', $specialization);
             })->where('city', 'like', $city)
                 ->withCount('reviews')
                 ->having('reviews_count', '>=', $reviews)
-                ->get();
+                ->paginate(8, ['*'], 'page', $page);
         }
         foreach ($doctors_sponsorship as $i => $doctor) {
             $doctor->vote = $doctor->reviews->avg('vote');

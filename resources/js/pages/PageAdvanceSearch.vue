@@ -15,7 +15,7 @@
                                     <input v-model="specializationSelect.name" class="form-control mr-sm-2 w-50 me-2" type="search_spec"
                                         placeholder="Scrivi qui.." aria-label="Search_spec" @input="searchInput"
                                         @click="displayComponent" @keyup="displayComponent">
-                                    <button class="btn btn-outline-primary my-2 m my-sm-0 rounded-3" type="button" @click="searchDoctor()">Filtra</button>
+                                    <button class="btn btn-outline-primary my-2 m my-sm-0 rounded-3" type="button" @click="searchDoctor(1)">Filtra</button>
                                 </form>
 
                             <div class="collapse position-absolute d-flex my-collapse" v-if="display"
@@ -35,7 +35,7 @@
                                         class="form-control mr-sm-2 rounded-3 w-50 me-2" type="search_city"
                                         placeholder="Scrivi qui.." aria-label="Search_city" @click="displayComponentCity" @keyup="displayComponentCity">
                                     <button class="btn btn-outline-primary my-2 m my-sm-0 rounded-3"
-                                        type="button" @click="searchDoctor()">Filtra</button>
+                                        type="button" @click="searchDoctor(1)">Filtra</button>
                                 </form>
 
                                 <div class="collapse position-absolute d-flex my-collapse" v-if="displayCity"
@@ -85,6 +85,24 @@
                         <CardDoctor v-for="(doctor, index) in doctors" :key="index" :doctor="doctor" class="m-2"/>
                     </div>
                 </div>
+                <nav aria-label="Page navigation" class="mt-3">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous" @click="searchDoctor(--currentPage)">
+                        <span aria-hidden=" true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#" @click="searchDoctor(currentPage)">{{
+                        currentPage
+                }}</a>
+                </li>
+                <li class=" page-item">
+                    <a class="page-link" href="#" aria-label="Next" @click="searchDoctor(++currentPage)">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
             </div>
         </div>
     </div>
@@ -114,7 +132,8 @@ export default {
             vote: 0,
             review: 0,
             display: false,
-            displayCity: false
+            displayCity: false,
+            currentPage: 1
         }
     },
     created() {
@@ -127,32 +146,25 @@ export default {
                         this.specializationSelect.name = res.data.result.name;
                     }
                 });
-        this.searchDoctor();
+        this.searchDoctor(1);
     },
     methods: {
-        searchDoctor() {
+        searchDoctor(page) {
             if(this.specializationSelect.id != ''){
                 if(this.city == ''){
-                    // axios.post('/api/search?specialization=' + this.specializationSelect.id + '&city=all&reviews=' + this.review + '&vote=' + this.vote)
-                    //     .then(res => {
-                    //     if (res.data.success) {
-                    //         console.log('mariooo');
-                    //         this.doctors = res.data.result[0];
-                    //         this.doctors_sponsorship = res.data.result[1];
-                    //         this.$router.push({name: 'AdvanceSearch', params: {specialization: this.specializationSelect.id}});
-                    //     }
-                    // })
                     axios.post('/api/search',{
                             specialization: this.specializationSelect.id,
                             city: 'all',
                             reviews: this.review,
-                            vote: this.vote
+                            vote: this.vote,
+                            page: page
                         })
                         .then(res => {
                         if (res.data.success) {
-                            console.log('mariooo');
-                            this.doctors = res.data.result[0];
+                            console.log(res.data.result);
+                            this.doctors = res.data.result[0].data;
                             this.doctors_sponsorship = res.data.result[1];
+                            this.currentPage = response.data.result[0].current_page;
                             this.$router.push({name: 'AdvanceSearch', params: {specialization: this.specializationSelect.id}});
                         }
                     })
@@ -161,13 +173,14 @@ export default {
                             specialization: this.specializationSelect.id,
                             city: this.city,
                             reviews: this.review,
-                            vote: this.vote
+                            vote: this.vote,
+                            page: page
                         })
                         .then(res => {
                         if (res.data.success) {
-                            console.log('mariooo');
-                            this.doctors = res.data.result[0];
+                            this.doctors = res.data.result[0].data;
                             this.doctors_sponsorship = res.data.result[1];
+                            this.currentPage = response.data.result[0].current_page;
                             this.$router.push({name: 'AdvanceSearch', params: {specialization: this.specializationSelect.id}});
                         }
                     })
@@ -177,11 +190,11 @@ export default {
         },
         changeVote(id) {
             this.vote = id;
-            this.searchDoctor();
+            this.searchDoctor(1);
         },
         changeReview(id) {
             this.review = id;
-            this.searchDoctor();
+            this.searchDoctor(1);
         },
 
         searchInput() {
