@@ -27925,7 +27925,7 @@ function validationRegister() {
       return false;
     }
   } else {
-    swal('compila tutti i campi');
+    swal('compila tutti i campi obbligatori');
     return false;
   }
 
@@ -27962,12 +27962,12 @@ function validationEdit() {
       return false;
     }
 
-    if (cv.length > 1000) {
+    if (cv.length > 10000) {
       swal('cv troppo lungo');
       return false;
     }
   } else {
-    swal('compila tutti i campi');
+    swal('compila tutti i campi obbligatori');
     return false;
   }
 
@@ -28025,7 +28025,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\back.js */"./resources/js/back.js");
+module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\back.js */"./resources/js/back.js");
 
 
 /***/ })

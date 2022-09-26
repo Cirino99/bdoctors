@@ -54,7 +54,7 @@ function validationRegister() {
             return false;
         }
     } else {
-        swal('compila tutti i campi');
+        swal('compila tutti i campi obbligatori');
         return false;
     }
     return true;
@@ -93,7 +93,7 @@ function validationEdit() {
             return false;
         }
     } else {
-        swal('compila tutti i campi');
+        swal('compila tutti i campi obbligatori');
         return false;
     }
     return true;
