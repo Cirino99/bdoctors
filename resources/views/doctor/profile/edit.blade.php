@@ -104,7 +104,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label" for="service">Prestazione*</label>
+                            <label class="form-label" for="service">Servizi*</label>
                             <input class="form-control w-75 @error('service') is-invalid @enderror"
                                 type="text"
                                 name="service"
