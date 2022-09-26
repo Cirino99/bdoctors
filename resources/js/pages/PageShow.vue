@@ -109,7 +109,6 @@
 
 <script>
 import axios from 'axios';
-// import swal from 'sweetalert';
 import Swal from 'sweetalert2';
 
 export default {
@@ -140,26 +139,29 @@ export default {
     methods: {
         newReview($id){
             if(this.name != '' && this.vote != '' &&  this.text != ''){
-                axios.post('/api/review', {
-                id: $id,
-                name: this.name ,
-                vote: this.vote,
-                text: this.text
-            })
-            .then(res => {
-                if (res.data.success) {
-                    this.name = '';
-                    this.vote = '';
-                    this.text = '';
-                    this.displayR = false;
+                if(this.vote >= 1 && this.vote <= 5){
+                    axios.post('/api/review', {
+                        id: $id,
+                        name: this.name ,
+                        vote: this.vote,
+                        text: this.text
+                    })
+                    .then(res => {
+                        if (res.data.success) {
+                            this.name = '';
+                            this.vote = '';
+                            this.text = '';
+                            this.displayR = false;
+                        }
+                        Swal.fire('Recensione inviata');
+                    }).catch(function (error) {
+                        console.log(error);
+                    });
+                } else {
+                    Swal.fire('il voto deve essere compreso tra 1 e 5');
                 }
-                Swal.fire('Recensione inviata');
-            }).catch(function (error) {
-                console.log(error);
-            });
             } else {
                 Swal.fire('compila tutti i campi obbligatori');
-                return false;
             }
         },
 
@@ -187,7 +189,6 @@ export default {
                 }
             } else {
                 Swal.fire('compila tutti i campi obbligatori');
-                return false;
             }
         },
 
@@ -203,12 +204,7 @@ export default {
                 this.displayR = !this.displayR
             }
             this.displayM = !this.displayM
-        },
-
-        // hideComponent() {
-        //     this.displayR = false;
-        //     this.displayM = false;
-        // }
+        }
     }
 }
 </script>
@@ -250,28 +246,6 @@ export default {
         width: 80px;
         margin-left: 20px;
     }
-
-    // swal
-
-    .swal-button {
-    background-color: #004d73;
-    color: white;
-    }
-
-    // .swal-button:not([disabled]):hover{
-    //     background-color: #00334e;
-    // }
-
-    .swal-text {
-        background-color: rgb(226, 25, 25);
-        padding: 17px;
-        border: 1px solid rgb(226, 25, 25);
-        display: block;
-        margin: 22px;
-        text-align: center;
-        color: white;
-    }
-
     // colors
     .bg-label {
         background: $bluelight;
