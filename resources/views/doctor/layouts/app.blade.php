@@ -25,7 +25,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-light shadow-sm d-flex justify-content-between">
             <a class="navbar-brand mx-3" href="{{ url('/') }}">
                 {{-- {{ config('app.name', 'Laravel') }} --}}
                 {{-- logo main --}}
@@ -33,14 +33,86 @@
                 {{-- logo responsive --}}
                 <img class="logo d-flex d-sm-none d-lg-none" src="{{ asset('img/BDoctors_logo_2_resp.svg') }}" alt="logo-resp">
             </a>
-            <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            {{-- pulsante menu desktop --}}
+            <div class="btn-group dropstart d-none d-md-block d-lg-block mx-3">
+                <button class="btn btn-outline-secondary rounded-pill dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dr. {{ Auth::user()->name }} {{ Auth::user()->lastname }}
+                </button>
+                {{-- menu card --}}
+                <ul class="dropdown-menu px-3" aria-labelledby="dropdownMenuButton1">
+                    @guest
+                        <li class="links nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="links nav-item">
+                                <a class="nav-link mb-3" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="links nav-item my-md-0">
+                            <a class="nav-link mb-3" href="{{ route('home') }}">{{ __('VAI AL SITO') }}</a>
+                        </li>
+                        <li class="links nav-item my-md-0">
+                            <a class="nav-link mb-3" href="{{ route('doctor.sponsorships.index') }}">{{ __('I TUOI ABBONAMENTI') }}</a>
+                        </li>
+                        <li class="links nav-item my-md-0">
+                            <a class="nav-link" href="{{ route('logout') }}" class="nav-link"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                {{ __('ESCI') }}
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </a>
+                        </li>
+                    @endguest
+                </ul>
+            </div>
+
+            {{-- pulsante hamburger menu --}}
+            <button class="navbar-toggler rounded-3 border-0 mx-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            {{-- <button class="btn btn-secondary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                Default dropdown
-            </button> --}}
+            {{-- tendina a comparsa smartphone --}}
+            <div class="offcanvas offcanvas-end bg-gradient d-md-none d-lg-none" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="background: #004d73">
+                <div class="offcanvas-header d-flex align-items-center text-light mb-3">
+                    <h4 class="pt-2" id="offcanvasRightLabel">Dr {{ Auth::user()->name }} {{ Auth::user()->lastname }}</h4>
+                    <button type="button" class="btn-close bg-white text-reset fs-5 d-block d-md-none d-lg-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <ul class="navbar-nav ml-auto mx-4 text-start">
+                    @guest
+                        <li class="links nav-item my-2">
+                            <a class="nav-link text-light" href="{{ route('login') }}">{{ __('Accedi') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="links nav-item my-2">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="links nav-item my-2 my-md-0">
+                            <a class="nav-link text-light" href="{{ route('home') }}">{{ __('VAI AL SITO') }}</a>
+                        </li>
+                        <li class="links nav-item my-2 my-md-0">
+                            <a class="nav-link text-light" href="{{ route('doctor.sponsorships.index') }}">{{ __('I TUOI ABBONAMENTI') }}</a>
+                        </li>
+                        <li class="links nav-item my-2 my-md-0">
+                            <a class="nav-link text-light" href="{{ route('logout') }}" class="nav-link"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                {{ __('ESCI') }}
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </a>
+                        </li>
+                    @endguest
+                </ul>
+            </div>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            {{-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
@@ -71,7 +143,7 @@
                         </li>
                     @endguest
                 </ul>
-            </div>
+            </div> --}}
         </nav>
 
         <main class="d-flex">

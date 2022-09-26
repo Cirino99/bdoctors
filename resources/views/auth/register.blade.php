@@ -3,10 +3,11 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-sm-11 col-md-10 col-lg-10">
                 <div class="card border-primary">
-                    <div class="card-header bg-primary bg-gradient bg-opacity-50 fw-bold border-primary">
-                        {{ __('Registrazione') }}</div>
+                    <div class="card-header bg-primary bg-gradient bg-opacity-50 border-primary">
+                        <big>{{ __('Registrazione') }}</big>
+                    </div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}" id="form-register">

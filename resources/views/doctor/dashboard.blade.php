@@ -4,10 +4,10 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <div class="container">
         <div class="row justify-content-center text-center vh-100">
-            <div class="col-12 col-sm-12 col-md-10 col-lg-7">
+            <div class="col-sm-12 col-md-10 col-lg-7">
                 <div class="card border-primary">
                     <div class="card-header bg-primary bg-opacity-50 border-bottom border-primary">
-                        <b>{{ __('Dashboard') }}</b>
+                        <big>{{ __('Dashboard') }}</big>
                     </div>
 
                     <div class="card-body">

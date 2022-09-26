@@ -9,7 +9,7 @@
                     <!-- foto profilo -->
                     <img id="user-img" class="img-fluid img-thumbnail rounded-circle mb-4" :src="showProfile.photo" :alt="showProfile.name">
                     <ul class="col-12 col-sm-12 col-md-12 col-lg-12 d-flex flex-column justify-content-center gap-2 order-2">
-                        <li>
+                        <li class="col-12">
                             <h3>
                                 Dr. {{ showProfile.name }} {{ showProfile.lastname }}
                             </h3>
@@ -47,10 +47,23 @@
                 </div>
             </div>
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <button class="btn btn-secondary" @click="displayMessage">Contatta</button>
-                <button class="btn btn-bg-blu-chiaro text-light" @click="displayReview">Scrivi una recensione</button>
+                <button class="btn btn-secondary rounded-pill" @click="displayMessage">Contatta</button>
+                <button class="btn btn-bg-blu-chiaro rounded-pill text-light" @click="displayReview">Scrivi una recensione</button>
             </div>
-            <!-- campo per la recensione temporaneo TODO: da sistemare -->
+            <!-- alert -->
+            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <strong class="me-auto">Bootstrap</strong>
+                        <small>11 mins ago</small>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        Hello, world! This is a toast message.
+                    </div>
+                </div>
+            </div>
+            <!-- campo recensione -->
             <div class="form-floating my-4" v-show="displayR">
                 <!-- voto -->
                 <div class="d-flex justify-content-start">
@@ -68,7 +81,7 @@
                 <div class="mt-4">
                     <label for="floatingTextarea2">Recensione*</label>
                     <textarea class="form-control" placeholder="Lascia una recensione..." id="floatingTextarea2" v-model="text" style="height: 100px"></textarea>
-                    <button class="btn mt-4" style="background: #23A3B3; color: #fff" @click="newReview(showProfile.id)">Invia</button>
+                    <button class="btn mt-1 p-1 px-2 text-light" id="liveToastBtn" style="background: #23A3B3" @click="newReview(showProfile.id)">Invia</button>
                 </div>
             </div>
             <!-- campo messaggio  -->
@@ -86,7 +99,7 @@
                     <label for="floatingTextarea2">Messaggio*</label>
                     <textarea required class="form-control" placeholder="Lascia un messaggio..." id="floatingTextarea2" v-model="text" style="height: 100px"></textarea>
                     <label for="floatingTextarea2"></label>
-                    <button class="btn mt-4" style="background: #23A3B3; color: #fff" @click="newMessage(showProfile.id)">Invia</button>
+                    <button class="btn mt-1 p-1 px-2 text-light" id="liveToastBtn" style="background: #23A3B3" @click="newMessage(showProfile.id)">Invia</button>
                 </div>
             </div>
         </div>
@@ -190,8 +203,10 @@ export default {
     @import "../../sass/bdoctor-palette.scss";
 
     #sez-nome {
-        height: 10vh;
+        height: 15vh;
+
         h2 {
+            text-align: center;
             margin: 0.5%;
             font-size: 50px;
         }
