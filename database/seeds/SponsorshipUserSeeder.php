@@ -14,7 +14,7 @@ class SponsorshipUserSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $users = User::all()->where('id', '<', 3);
+        $users = User::all()->where('id', '<', 5);
         $sponsorships = Sponsorship::all();
         $nSponsorships = count($sponsorships);
 
