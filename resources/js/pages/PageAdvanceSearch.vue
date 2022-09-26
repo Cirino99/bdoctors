@@ -10,12 +10,12 @@
                         <!-- searchbar -->
                         <ul class="list-group list-group-flush">
                             <!-- Specialization -->
-                            <li class="list-group-item"><strong>Specializzazioni:</strong><br>
+                            <li class="list-group-item" style="border-color: #007fbd"><strong>Specializzazioni:</strong><br>
                                 <form class="d-flex form-inline py-2 my-lg-0">
                                     <input v-model="specializationSelect.name" class="form-control mr-sm-2 w-50 me-2" type="search_spec"
                                         placeholder="Scrivi qui.." aria-label="Search_spec" @input="searchInput"
                                         @click="displayComponent" @keyup="displayComponent">
-                                    <button class="btn btn-outline-secondary my-2 m my-sm-0 rounded-3" type="button" @click="searchDoctor(1)">Filtra</button>
+                                    <button class="filter-btn btn btn-outline-primary my-2 m my-sm-0 rounded-3" type="button" @click="searchDoctor(1)">Filtra</button>
                                 </form>
 
                                 <div class="collapse position-absolute d-flex my-collapse" v-if="display"
@@ -29,12 +29,12 @@
                                 </div>
                             </li>
                             <!-- City -->
-                            <li class="list-group-item"><strong>Città:</strong><br>
+                            <li class="list-group-item" style="border-color: #007fbd"><strong>Città:</strong><br>
                                 <form class="d-flex form-inline py-2 my-lg-0">
                                     <input v-model="city" @keyup.enter="searchDoctor" @input="searchInputCity"
                                         class="form-control mr-sm-2 rounded-3 w-50 me-2" type="search_city"
                                         placeholder="Scrivi qui.." aria-label="Search_city" @click="displayComponentCity" @keyup="displayComponentCity">
-                                    <button class="btn btn-outline-primary my-2 m my-sm-0 rounded-3"
+                                    <button class="filter-btn btn btn-outline-primary my-2 m my-sm-0 rounded-3"
                                         type="button" @click="searchDoctor(1)">Filtra</button>
                                 </form>
 
@@ -49,7 +49,7 @@
                             </div>
                             </li>
                             <!-- Vote -->
-                            <li class="list-group-item">
+                            <li class="list-group-item" style="border-color: #007fbd">
                                 <strong>Media Voto:</strong>
                                 <span v-for="item in 5" :key="item" class="mx-1">
                                     <input class="form-check-input" type="radio" name="vote" id="flexRadioDefault1"
@@ -86,23 +86,23 @@
                     </div>
                 </div>
                 <nav aria-label="Page navigation" class="mt-3">
-            <ul class="pagination justify-content-center">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous" @click="searchDoctor(--currentPage)">
-                        <span aria-hidden=" true">&laquo;</span>
-                    </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#" @click="searchDoctor(currentPage)">{{
-                        currentPage
-                }}</a>
-                </li>
-                <li class=" page-item">
-                    <a class="page-link" href="#" aria-label="Next" @click="searchDoctor(++currentPage)">
-                        <span aria-hidden="true">&raquo;</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous" @click="searchDoctor(--currentPage)">
+                                <span aria-hidden=" true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#" @click="searchDoctor(currentPage)">{{
+                                currentPage
+                        }}</a>
+                        </li>
+                        <li class=" page-item">
+                            <a class="page-link" href="#" aria-label="Next" @click="searchDoctor(++currentPage)">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
@@ -245,6 +245,15 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/bdoctor-palette.scss";
+
+.filter-btn {
+    border-color: #007fbd;
+    color: #007fbd;
+
+    &:hover {
+        background: #007fbd;
+    }
+}
 
 .form-check {
         display: inline-block;
