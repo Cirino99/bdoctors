@@ -161,10 +161,9 @@ export default {
                         })
                         .then(res => {
                         if (res.data.success) {
-                            console.log(res.data.result);
                             this.doctors = res.data.result[0].data;
                             this.doctors_sponsorship = res.data.result[1];
-                            this.currentPage = response.data.result[0].current_page;
+                            this.currentPage = res.data.result[0].current_page;
                             this.$router.push({name: 'AdvanceSearch', params: {specialization: this.specializationSelect.id}});
                         }
                     })
@@ -180,7 +179,7 @@ export default {
                         if (res.data.success) {
                             this.doctors = res.data.result[0].data;
                             this.doctors_sponsorship = res.data.result[1];
-                            this.currentPage = response.data.result[0].current_page;
+                            this.currentPage = res.data.result[0].current_page;
                             this.$router.push({name: 'AdvanceSearch', params: {specialization: this.specializationSelect.id}});
                         }
                     })
