@@ -67,6 +67,7 @@ class UserSeeder extends Seeder
         Inglese avanzato';
 
         $myCity = ['Milano', 'Roma', 'Napoli', 'Palermo', 'Bologna'];
+        $myService = 'Esperto di interventi rapidi';
 
         $faker = Factory::create('it_IT');
         for ($i = 0; $i < 20; $i++) {
@@ -83,7 +84,8 @@ class UserSeeder extends Seeder
             $user->postal_code = (int)$faker->postcode();
             // $user->cv = implode($faker->paragraphs(3));
             $user->cv = $myCv;
-            $user->service = $faker->word();
+            // $user->service = $faker->word();
+            $user->service = $myService;
             $contents = new File(__DIR__ . '/../../storage/app/img/' . rand(1, 13) . '.jpg');
             $user->photo = Storage::put('uploads', $contents);
             $user->save();
