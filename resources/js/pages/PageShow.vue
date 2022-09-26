@@ -106,8 +106,10 @@
     </div>
 </template>
 
+
 <script>
 import axios from 'axios';
+import swal from 'sweetalert';
 
 export default {
     name: 'PageShow',
@@ -154,25 +156,36 @@ export default {
             }).catch(function (error) {
                 console.log(error);
             });
+            } else {
+                alert('compila tutti i campi');
+                return false;
             }
         },
 
         newMessage($id){
             if(this.email != '' && this.text != ''){
-                axios.post('/api/message', {
-                id: $id,
-                email: this.email ,
-                text: this.text
-            })
-            .then(res => {
-                if (res.data.success) {
-                    this.email = '';
-                    this.text = '';
-                    this.displayM = false;
+                if (!this.email.includes('@') || !this.email.includes('.')) {
+                    swal('email non corretta');
+                    return false;
+                } else {
+                    axios.post('/api/message', {
+                    id: $id,
+                    email: this.email ,
+                    text: this.text
+                })
+                .then(res => {
+                    if (res.data.success) {
+                        this.email = '';
+                        this.text = '';
+                        this.displayM = false;
+                    }
+                }).catch(function (error) {
+                    console.log(error);
+                })
                 }
-            }).catch(function (error) {
-                console.log(error);
-            });
+            } else {
+                swal('compila tutti i campi');
+                return false;
             }
         },
 

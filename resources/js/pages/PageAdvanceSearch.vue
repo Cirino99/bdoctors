@@ -9,7 +9,8 @@
                         </div>
                         <!-- searchbar -->
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item" style="border-color: #007fbd"><strong>Specializzazioni:</strong><br>
+                            <!-- Specialization -->
+                            <li class="list-group-item"><strong>Specializzazioni:</strong><br>
                                 <form class="d-flex form-inline py-2 my-lg-0">
                                     <input v-model="specializationSelect.name" class="form-control mr-sm-2 w-50 me-2" type="search_spec"
                                         placeholder="Scrivi qui.." aria-label="Search_spec" @input="searchInput"
@@ -27,16 +28,28 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="list-group-item" style="border-color: #007fbd"><strong>Città:</strong><br>
+                            <!-- City -->
+                            <li class="list-group-item"><strong>Città:</strong><br>
                                 <form class="d-flex form-inline py-2 my-lg-0">
-                                    <input v-model="search" @keyup.enter="searchDoctor"
-                                        class="form-control mr-sm-2 rounded-3 w-50 me-2" type="search"
-                                        placeholder="Scrivi qui.." aria-label="Search">
-                                    <button class="btn btn-outline-secondary my-2 m my-sm-0 rounded-3"
-                                        type="submit">Filtra</button>
+                                    <input v-model="city" @keyup.enter="searchDoctor" @input="searchInputCity"
+                                        class="form-control mr-sm-2 rounded-3 w-50 me-2" type="search_city"
+                                        placeholder="Scrivi qui.." aria-label="Search_city" @click="displayComponentCity" @keyup="displayComponentCity">
+                                    <button class="btn btn-outline-primary my-2 m my-sm-0 rounded-3"
+                                        type="button" @click="searchDoctor(1)">Filtra</button>
                                 </form>
+
+                                <div class="collapse position-absolute d-flex my-collapse" v-if="displayCity"
+                                @mouseleave="handleFocusOutCity">
+                                <ul class="card overflow-auto my-overflow">
+                                    <li v-for="cityLi, index in citys" :key="index"
+                                        @click="selectCity(cityLi.city)">
+                                        {{ cityLi.city }}
+                                    </li>
+                                </ul>
+                            </div>
                             </li>
-                            <li class="list-group-item" style="border-color: #007fbd">
+                            <!-- Vote -->
+                            <li class="list-group-item">
                                 <strong>Media Voto:</strong>
                                 <span v-for="item in 5" :key="item" class="mx-1">
                                     <input class="form-check-input" type="radio" name="vote" id="flexRadioDefault1"
@@ -46,6 +59,7 @@
                                     </label>
                                 </span>
                             </li>
+                            <!-- Review -->
                             <li class="list-group-item" style="border-color: #007fbd">
                                 <strong>Numero Recensioni:</strong>
                                 <span v-for="item in 4" :key="item" class="mx-1">
@@ -71,6 +85,24 @@
                         <CardDoctor v-for="(doctor, index) in doctors" :key="index" :doctor="doctor" class="m-2"/>
                     </div>
                 </div>
+                <nav aria-label="Page navigation" class="mt-3">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous" @click="searchDoctor(--currentPage)">
+                        <span aria-hidden=" true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#" @click="searchDoctor(currentPage)">{{
+                        currentPage
+                }}</a>
+                </li>
+                <li class=" page-item">
+                    <a class="page-link" href="#" aria-label="Next" @click="searchDoctor(++currentPage)">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
             </div>
         </div>
     </div>
@@ -95,10 +127,13 @@ export default {
                 'name' : '',
                 'id' : null
             },
-            search: '',
+            city: '',
+            citys: [],
             vote: 0,
             review: 0,
-            display: false
+            display: false,
+            displayCity: false,
+            currentPage: 1
         }
     },
     created() {
@@ -111,29 +146,55 @@ export default {
                         this.specializationSelect.name = res.data.result.name;
                     }
                 });
-        this.searchDoctor();
+        this.searchDoctor(1);
     },
     methods: {
-        searchDoctor() {
+        searchDoctor(page) {
             if(this.specializationSelect.id != ''){
-                axios.get('/api/search?specialization=' + this.specializationSelect.id + '&city=all&reviews=' + this.review + '&vote=' + this.vote)
-                .then(res => {
-                    console.log(res.data);
-                    if (res.data.success) {
-                        console.log('mariooo');
-                        this.doctors = res.data.result[0];
-                        this.doctors_sponsorship = res.data.result[1];
-                    }
-                })
+                if(this.city == ''){
+                    axios.post('/api/search',{
+                            specialization: this.specializationSelect.id,
+                            city: 'all',
+                            reviews: this.review,
+                            vote: this.vote,
+                            page: page
+                        })
+                        .then(res => {
+                        if (res.data.success) {
+                            console.log(res.data.result);
+                            this.doctors = res.data.result[0].data;
+                            this.doctors_sponsorship = res.data.result[1];
+                            this.currentPage = response.data.result[0].current_page;
+                            this.$router.push({name: 'AdvanceSearch', params: {specialization: this.specializationSelect.id}});
+                        }
+                    })
+                } else {
+                    axios.post('/api/search',{
+                            specialization: this.specializationSelect.id,
+                            city: this.city,
+                            reviews: this.review,
+                            vote: this.vote,
+                            page: page
+                        })
+                        .then(res => {
+                        if (res.data.success) {
+                            this.doctors = res.data.result[0].data;
+                            this.doctors_sponsorship = res.data.result[1];
+                            this.currentPage = response.data.result[0].current_page;
+                            this.$router.push({name: 'AdvanceSearch', params: {specialization: this.specializationSelect.id}});
+                        }
+                    })
+                }
+
             }
         },
         changeVote(id) {
             this.vote = id;
-            this.searchDoctor();
+            this.searchDoctor(1);
         },
         changeReview(id) {
             this.review = id;
-            this.searchDoctor();
+            this.searchDoctor(1);
         },
 
         searchInput() {
@@ -157,7 +218,28 @@ export default {
         },
         handleFocusOut() {
             this.display = false;
-        }
+        },
+        searchInputCity() {
+            if (this.city != '') {
+                axios.get('/api/search/city?city=' + this.city)
+                    .then(res => {
+                        if (res.data.success) {
+                            this.citys = res.data.result;
+                        }
+                    });
+            } else {
+                this.citys = [];
+            }
+        },
+        selectCity(city) {
+          this.city = city;
+        },
+        displayComponentCity() {
+            this.displayCity = true;
+        },
+        handleFocusOutCity() {
+            this.displayCity = false;
+        },
     }
 }
 </script>
