@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+        <div class="col-sm-11 col-md-10 col-lg-10">
+            <div class="card border-primary">
+                <div class="card-header bg-primary bg-gradient bg-opacity-50 border-bottom border-primary"><big>{{ __('Reimposta Password') }}</big></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -18,9 +18,9 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo E-Mail') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 mb-3">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -33,8 +33,8 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
+                                <button type="submit" class="btn btn-primary bg-gradient text-light rounded-pill">
+                                    {{ __('Continua') }}
                                 </button>
                             </div>
                         </div>

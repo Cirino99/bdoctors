@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-sm-10 col-md-10 col-lg-10">
+        <div class="col-sm-11 col-md-10 col-lg-10">
             <div class="card border-danger">
-                <div class="card-header bg-danger bg-gradient bg-opacity-75 border-bottom border-danger fw-bold">{{ __('Il tuo Profilo') }}</div>
+                <div class="card-header bg-danger bg-gradient bg-opacity-75 border-bottom border-danger"><big>{{ __('Il tuo Profilo') }}</big></div>
 
                 <div class="card-body d-flex flex-column gap-1">
                     @if (session('status'))

@@ -2,10 +2,10 @@
     <div class="min-vh-100">
         <div class="container my-5">
             <div class="d-flex flex-column justify-content-center">
-                <div class="col-12 m-2 p-2">
-                    <div class="card w-100 m-auto">
-                        <div class="card-header">
-                            <h4>Filtra per:</h4>
+                <div class="col-12 mb-4">
+                    <div class="card w-100 m-auto" style="border-color: #007fbd">
+                        <div class="card-header bg-gradient text-light" style="background: #007fbd; border-color: #007fbd">
+                            <h5 class="m-auto">Filtra per:</h5>
                         </div>
                         <!-- searchbar -->
                         <ul class="list-group list-group-flush">
@@ -15,18 +15,18 @@
                                     <input v-model="specializationSelect.name" class="form-control mr-sm-2 w-50 me-2" type="search_spec"
                                         placeholder="Scrivi qui.." aria-label="Search_spec" @input="searchInput"
                                         @click="displayComponent" @keyup="displayComponent">
-                                    <button class="btn btn-outline-primary my-2 m my-sm-0 rounded-3" type="button" @click="searchDoctor(1)">Filtra</button>
+                                    <button class="btn btn-outline-secondary my-2 m my-sm-0 rounded-3" type="button" @click="searchDoctor(1)">Filtra</button>
                                 </form>
 
-                            <div class="collapse position-absolute d-flex my-collapse" v-if="display"
-                                @mouseleave="handleFocusOut">
-                                <ul class="card overflow-auto my-overflow">
-                                    <li v-for="specializationLi in specializations" :key="specializationLi.id"
-                                        @click="selectSpecialization(specializationLi)">
-                                        {{ specializationLi.name }}
-                                    </li>
-                                </ul>
-                            </div>
+                                <div class="collapse position-absolute d-flex my-collapse" v-if="display"
+                                    @mouseleave="handleFocusOut">
+                                    <ul class="card overflow-auto my-overflow">
+                                        <li v-for="specializationLi in specializations" :key="specializationLi.id"
+                                            @click="selectSpecialization(specializationLi)">
+                                            {{ specializationLi.name }}
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                             <!-- City -->
                             <li class="list-group-item"><strong>Città:</strong><br>
@@ -51,7 +51,7 @@
                             <!-- Vote -->
                             <li class="list-group-item">
                                 <strong>Media Voto:</strong>
-                                <span v-for="item in 5" :key="item">
+                                <span v-for="item in 5" :key="item" class="mx-1">
                                     <input class="form-check-input" type="radio" name="vote" id="flexRadioDefault1"
                                         :checked="vote === item" @click="changeVote(item)">
                                     <label class="form-check-label" for="vote">
@@ -60,9 +60,9 @@
                                 </span>
                             </li>
                             <!-- Review -->
-                            <li class="list-group-item">
+                            <li class="list-group-item" style="border-color: #007fbd">
                                 <strong>Numero Recensioni:</strong>
-                                <span v-for="item in 4" :key="item">
+                                <span v-for="item in 4" :key="item" class="mx-1">
                                     <input class="form-check-input" type="radio" name="review" id="flexRadioDefault1"
                                         :checked="review === item" @click="changeReview(item)">
                                     <label class="form-check-label" for="review">
@@ -161,10 +161,9 @@ export default {
                         })
                         .then(res => {
                         if (res.data.success) {
-                            console.log(res.data.result);
                             this.doctors = res.data.result[0].data;
                             this.doctors_sponsorship = res.data.result[1];
-                            this.currentPage = response.data.result[0].current_page;
+                            this.currentPage = res.data.result[0].current_page;
                             this.$router.push({name: 'AdvanceSearch', params: {specialization: this.specializationSelect.id}});
                         }
                     })
@@ -180,12 +179,12 @@ export default {
                         if (res.data.success) {
                             this.doctors = res.data.result[0].data;
                             this.doctors_sponsorship = res.data.result[1];
-                            this.currentPage = response.data.result[0].current_page;
+                            this.currentPage = res.data.result[0].current_page;
                             this.$router.push({name: 'AdvanceSearch', params: {specialization: this.specializationSelect.id}});
                         }
                     })
                 }
-                
+
             }
         },
         changeVote(id) {

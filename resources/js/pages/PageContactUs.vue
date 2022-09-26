@@ -41,7 +41,7 @@
                     </form>
 
                     <div class="text-center text-md-left mt-3">
-                        <a class="btn btn-primary">Send</a>
+                        <a class="btn btn-primary bg-gradient rounded-pill">Invia</a>
                     </div>
                 </div>
 
@@ -74,7 +74,7 @@
 
 export default {
     name: 'PageContactUs',
-    
+
 }
 </script>
 
@@ -82,7 +82,7 @@ export default {
 
     // colors
 
-    
+
     .blu-scuro {
         color: #00acff;
     }
@@ -107,5 +107,5 @@ export default {
     .bg-nero {
         background-color: #2a2d45;
     }
-    
+
 </style>

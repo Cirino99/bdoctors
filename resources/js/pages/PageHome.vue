@@ -4,20 +4,19 @@
         <div class="container-jumbo">
             <img src="img/jumbotron-2.jpg" alt="jumbotron" class="img-fluid" id="jumbotron">
 
-            <div class="cont-jumbo col-12 col-md-6 ps-5">
+            <div class="cont-jumbo col-12 col-md-6 ps-4 ps-sm-5 ps-md-5 ps-lg-5">
                 <h2 class="title-jumbo">
                     Il tuo specialista a portata di click!
                 </h2>
-
+                <!-- searchbar -->
                 <div class="cont-searchbar">
-                    <!-- searchbar -->
                     <form class="d-flex justify-content-center gap-1 form-inline my-2 my-lg-0 w-75" id="form">
                         <input v-model="search" class="form-control mr-sm-2 w-100" type="search"
                             placeholder="Scrivi qui.." aria-label="Search" @input="searchInput"
                             @click="displayComponent" @keyup="displayComponent">
                         <router-link :to="{name: 'AdvanceSearch', params: {specialization: mySpecialization.id} }"
                             id="search-button"
-                            class="btn btn-warning bg-opacity-25 my-2 my-sm-0 d-flex justify-content-center">
+                            class="btn btn-warning bg-gradient bg-opacity-25 my-2 my-sm-0 d-flex justify-content-center">
                             <img id="search-icon" src="img/BDoctors_lens_search.svg" alt="lens-search">
                         </router-link>
                     </form>
@@ -55,8 +54,8 @@
             </div>
         </div>
 
-        <div class="mt-5 full-container">
-            <div class="wawe">
+        <div class="full-container mt-5">
+            <div class="wave pb-5 pb-sm-5 pb-md-0 pb-lg-0">
                 <img src="img/wave.svg" alt="">
             </div>
             <div class="container mt-5 text-center">
@@ -75,7 +74,7 @@
                             molti medici per facilitare l'attività professionale e il follow-up del paziente.
                         </p>
                         <h4>Con BDoctor:</h4>
-                        <div class="my-list">
+                        <div class="my-list lh-lg">
                             <ul>
                                 <li>Ricevi prenotazioni da nuovi pazienti</li>
                                 <li>Migliori la tua visibilità e la tua reputazione online</li>
@@ -86,7 +85,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-12">
+                    <div class="col-10 col-md-6 col-sm-12 m-auto">
                         <img class="img-fluid" src="img/doctor-phone.png" alt="">
                     </div>
                 </div>
@@ -196,7 +195,7 @@ export default {
 
     .cont-jumbo {
         position: absolute;
-        top: 50%;
+        top: 45%;
         left: 50%;
         z-index: 500;
         transform: translate(-50%, -50%);
@@ -215,7 +214,6 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-
 }
 
 .wave_container {
@@ -230,7 +228,7 @@ export default {
     }
 }
 
-.wawe {
+.wave {
     margin-bottom: -100px;
 }
 
@@ -240,7 +238,13 @@ export default {
     height: 40vw;
     object-fit: cover;
     object-position: center;
+
+    @media screen and (max-width: 575px) {
+        min-height: 200px;
+    }
 }
+
+
 
 #search-button {
     width: 100px;
