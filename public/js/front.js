@@ -21850,10 +21850,9 @@ __webpack_require__.r(__webpack_exports__);
             page: page
           }).then(function (res) {
             if (res.data.success) {
-              console.log(res.data.result);
               _this2.doctors = res.data.result[0].data;
               _this2.doctors_sponsorship = res.data.result[1];
-              _this2.currentPage = response.data.result[0].current_page;
+              _this2.currentPage = res.data.result[0].current_page;
 
               _this2.$router.push({
                 name: 'AdvanceSearch',
@@ -21874,7 +21873,7 @@ __webpack_require__.r(__webpack_exports__);
             if (res.data.success) {
               _this2.doctors = res.data.result[0].data;
               _this2.doctors_sponsorship = res.data.result[1];
-              _this2.currentPage = response.data.result[0].current_page;
+              _this2.currentPage = res.data.result[0].current_page;
 
               _this2.$router.push({
                 name: 'AdvanceSearch',
@@ -22110,7 +22109,7 @@ __webpack_require__.r(__webpack_exports__);
           console.log(error);
         });
       } else {
-        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('compila tutti i campi');
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('compila tutti i campi obbligatori');
         return false;
       }
     },
@@ -22137,7 +22136,7 @@ __webpack_require__.r(__webpack_exports__);
           });
         }
       } else {
-        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('compila tutti i campi');
+        sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('compila tutti i campi obbligatori');
         return false;
       }
     },
@@ -22248,7 +22247,7 @@ var render = function render() {
   })], 2), _vm._v(" "), _c("div", {
     staticClass: "card-body d-flex flex-column justify-content-end"
   }, [_c("router-link", {
-    staticClass: "btn btn-primary col-12 my-btn",
+    staticClass: "btn btn-primary bg-gradient col-12 my-btn",
     attrs: {
       to: {
         name: "profile",
@@ -22312,7 +22311,7 @@ var staticRenderFns = [function () {
   }, [_vm._v("Daniele Puccio")]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
   }, [_vm._v("Jr. Full Stack Web Developer")]), _vm._v(" "), _c("a", {
-    staticClass: "btn btn-primary",
+    staticClass: "btn btn-primary bg-gradient rounded-pill",
     attrs: {
       href: "https://www.linkedin.com/in/daniele-puccio-2b894324a/",
       target: "_blank"
@@ -22337,7 +22336,7 @@ var staticRenderFns = [function () {
   }, [_vm._v("Andrea Guidotti")]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
   }, [_vm._v("Jr. Full Stack Web Developer")]), _vm._v(" "), _c("a", {
-    staticClass: "btn btn-primary",
+    staticClass: "btn btn-primary bg-gradient rounded-pill",
     attrs: {
       href: "https://www.linkedin.com/in/andrea-guidotti-1a204224b/",
       target: "_blank"
@@ -22362,7 +22361,7 @@ var staticRenderFns = [function () {
   }, [_vm._v("Simone Cirino")]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
   }, [_vm._v("Jr. Full Stack Web Developer")]), _vm._v(" "), _c("a", {
-    staticClass: "btn btn-primary",
+    staticClass: "btn btn-primary bg-gradient rounded-pill",
     attrs: {
       href: "https://www.linkedin.com/in/simonecirino/",
       target: "_blank"
@@ -22387,7 +22386,7 @@ var staticRenderFns = [function () {
   }, [_vm._v("Mouhcine El Bakkali")]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
   }, [_vm._v("Jr. Full Stack Web Developer")]), _vm._v(" "), _c("a", {
-    staticClass: "btn btn-primary",
+    staticClass: "btn btn-primary bg-gradient rounded-pill",
     attrs: {
       href: "https://www.linkedin.com/in/mouhcine-el-bakkali-b50096207/",
       target: "_blank"
@@ -22421,13 +22420,19 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "d-flex flex-column justify-content-center"
   }, [_c("div", {
-    staticClass: "col-12 m-2 p-2"
+    staticClass: "col-12 mb-4"
   }, [_c("div", {
-    staticClass: "card w-100 m-auto"
+    staticClass: "card w-100 m-auto",
+    staticStyle: {
+      "border-color": "#007fbd"
+    }
   }, [_vm._m(0), _vm._v(" "), _c("ul", {
     staticClass: "list-group list-group-flush"
   }, [_c("li", {
-    staticClass: "list-group-item"
+    staticClass: "list-group-item",
+    staticStyle: {
+      "border-color": "#007fbd"
+    }
   }, [_c("strong", [_vm._v("Specializzazioni:")]), _c("br"), _vm._v(" "), _c("form", {
     staticClass: "d-flex form-inline py-2 my-lg-0"
   }, [_c("input", {
@@ -22456,7 +22461,7 @@ var render = function render() {
       keyup: _vm.displayComponent
     }
   }), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-outline-primary my-2 m my-sm-0 rounded-3",
+    staticClass: "filter-btn btn btn-outline-primary my-2 m my-sm-0 rounded-3",
     attrs: {
       type: "button"
     },
@@ -22480,9 +22485,12 @@ var render = function render() {
           return _vm.selectSpecialization(specializationLi);
         }
       }
-    }, [_vm._v("\n                                    " + _vm._s(specializationLi.name) + "\n                                ")]);
+    }, [_vm._v("\n                                        " + _vm._s(specializationLi.name) + "\n                                    ")]);
   }), 0)]) : _vm._e()]), _vm._v(" "), _c("li", {
-    staticClass: "list-group-item"
+    staticClass: "list-group-item",
+    staticStyle: {
+      "border-color": "#007fbd"
+    }
   }, [_c("strong", [_vm._v("Città:")]), _c("br"), _vm._v(" "), _c("form", {
     staticClass: "d-flex form-inline py-2 my-lg-0"
   }, [_c("input", {
@@ -22513,7 +22521,7 @@ var render = function render() {
       click: _vm.displayComponentCity
     }
   }), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-outline-primary my-2 m my-sm-0 rounded-3",
+    staticClass: "filter-btn btn btn-outline-primary my-2 m my-sm-0 rounded-3",
     attrs: {
       type: "button"
     },
@@ -22539,10 +22547,14 @@ var render = function render() {
       }
     }, [_vm._v("\n                                    " + _vm._s(cityLi.city) + "\n                                ")]);
   }), 0)]) : _vm._e()]), _vm._v(" "), _c("li", {
-    staticClass: "list-group-item"
+    staticClass: "list-group-item",
+    staticStyle: {
+      "border-color": "#007fbd"
+    }
   }, [_c("strong", [_vm._v("Media Voto:")]), _vm._v(" "), _vm._l(5, function (item) {
     return _c("span", {
-      key: item
+      key: item,
+      staticClass: "mx-1"
     }, [_c("input", {
       staticClass: "form-check-input",
       attrs: {
@@ -22565,10 +22577,14 @@ var render = function render() {
       }
     }, [_vm._v("\n                                    " + _vm._s(item) + "\n                                ")])]);
   })], 2), _vm._v(" "), _c("li", {
-    staticClass: "list-group-item"
+    staticClass: "list-group-item",
+    staticStyle: {
+      "border-color": "#007fbd"
+    }
   }, [_c("strong", [_vm._v("Numero Recensioni:")]), _vm._v(" "), _vm._l(4, function (item) {
     return _c("span", {
-      key: item
+      key: item,
+      staticClass: "mx-1"
     }, [_c("input", {
       staticClass: "form-check-input",
       attrs: {
@@ -22671,8 +22687,14 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "card-header"
-  }, [_c("h4", [_vm._v("Filtra per:")])]);
+    staticClass: "card-header bg-gradient text-light",
+    staticStyle: {
+      background: "#007fbd",
+      "border-color": "#007fbd"
+    }
+  }, [_c("h5", {
+    staticClass: "m-auto"
+  }, [_vm._v("Filtra per:")])]);
 }];
 render._withStripped = true;
 
@@ -22763,8 +22785,8 @@ var staticRenderFns = [function () {
   })])])])]), _vm._v(" "), _c("div", {
     staticClass: "text-center text-md-left mt-3"
   }, [_c("a", {
-    staticClass: "btn btn-primary"
-  }, [_vm._v("Send")])])]), _vm._v(" "), _c("div", {
+    staticClass: "btn btn-primary bg-gradient rounded-pill"
+  }, [_vm._v("Invia")])])]), _vm._v(" "), _c("div", {
     staticClass: "col-md-3 text-center"
   }, [_c("ul", {
     staticClass: "list-unstyled mb-0"
@@ -22806,7 +22828,7 @@ var render = function render() {
       id: "jumbotron"
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "cont-jumbo col-12 col-md-6 ps-5"
+    staticClass: "cont-jumbo col-12 col-md-6 ps-4 ps-sm-5 ps-md-5 ps-lg-5"
   }, [_c("h2", {
     staticClass: "title-jumbo"
   }, [_vm._v("\n                Il tuo specialista a portata di click!\n            ")]), _vm._v(" "), _c("div", {
@@ -22841,7 +22863,7 @@ var render = function render() {
       keyup: _vm.displayComponent
     }
   }), _vm._v(" "), _c("router-link", {
-    staticClass: "btn btn-warning bg-opacity-25 my-2 my-sm-0 d-flex justify-content-center",
+    staticClass: "btn btn-warning bg-gradient bg-opacity-25 my-2 my-sm-0 d-flex justify-content-center",
     attrs: {
       to: {
         name: "AdvanceSearch",
@@ -22896,7 +22918,7 @@ var render = function render() {
       }
     });
   }), 1)])]), _vm._v(" "), _c("div", {
-    staticClass: "mt-5 full-container"
+    staticClass: "full-container mt-5"
   }, [_vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "container mt-5 text-center"
   }, [_c("big", {
@@ -22925,7 +22947,7 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "wawe"
+    staticClass: "wave pb-5 pb-sm-5 pb-md-0 pb-lg-0"
   }, [_c("img", {
     attrs: {
       src: "img/wave.svg",
@@ -22945,9 +22967,9 @@ var staticRenderFns = [function () {
   }, [_vm._v("Incontra un Dottore ovunque tu sia")]), _vm._v(" "), _c("p", {
     staticClass: "lh-lg my-3"
   }, [_vm._v("\n                        Una soluzione per richiedere una consulenza medica, direttamente da casa tua, con il tuo\n                        smartphone o PC.\n                        Utili per una seconda opinione, per l'esame di un referto, per un colloquio preliminare a\n                        una visita, o per avere più informazioni su una possibile patologia.\n                        I Videoconsulti, disponibili su BDoctors già dal 2019, sono uno strumento utilizzato da\n                        molti medici per facilitare l'attività professionale e il follow-up del paziente.\n                    ")]), _vm._v(" "), _c("h4", [_vm._v("Con BDoctor:")]), _vm._v(" "), _c("div", {
-    staticClass: "my-list"
+    staticClass: "my-list lh-lg"
   }, [_c("ul", [_c("li", [_vm._v("Ricevi prenotazioni da nuovi pazienti")]), _vm._v(" "), _c("li", [_vm._v("Migliori la tua visibilità e la tua reputazione online")]), _vm._v(" "), _c("li", [_vm._v("Organizzi al meglio il tuo lavoro con una suite completa di strumenti dedicati al\n                                Medico")]), _vm._v(" "), _c("li", [_vm._v("Puoi usare la nostra App multipiattaforma dedicata ai Medici")]), _vm._v(" "), _c("li", [_vm._v("Hai il nostro staff sempre disponibile ad aiutarti")])])])]), _vm._v(" "), _c("div", {
-    staticClass: "col-md-6 col-sm-12"
+    staticClass: "col-10 col-md-6 col-sm-12 m-auto"
   }, [_c("img", {
     staticClass: "img-fluid",
     attrs: {
@@ -23025,9 +23047,9 @@ var staticRenderFns = [function () {
   }, [_c("div", {
     staticClass: "px-3 py-3 pt-md-4 text-center"
   }, [_c("h1", {
-    staticClass: "display-4"
+    staticClass: "display-4 mb-4"
   }, [_vm._v("Prezzi")]), _vm._v(" "), _c("h3", {
-    staticClass: "lead"
+    staticClass: "lead lh-base"
   }, [_vm._v("\n            Sei un medico e vuoi sponsorizzarti? Compari nella homepage e durante la ricerca prima di tutti gli altri.\n            Ecco i nostri prezzi.\n        ")])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center flex-wrap text-center"
   }, [_c("div", {
@@ -23044,7 +23066,7 @@ var staticRenderFns = [function () {
     staticClass: "card-body bg-white"
   }, [_c("h1", {
     staticClass: "card-title"
-  }, [_vm._v("€2,99 \n                    "), _c("small", {
+  }, [_vm._v("€2,99\n                    "), _c("small", {
     staticClass: "text-muted h3"
   }, [_vm._v("/ 24h")])]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
@@ -23061,14 +23083,17 @@ var staticRenderFns = [function () {
       "min-width": "18rem"
     }
   }, [_c("div", {
-    staticClass: "card-header"
+    staticClass: "card-header",
+    staticStyle: {
+      background: "#FDBC44"
+    }
   }, [_c("h4", {
     staticClass: "my-0"
   }, [_vm._v("Avanzato")])]), _vm._v(" "), _c("div", {
     staticClass: "card-body bg-white"
   }, [_c("h1", {
     staticClass: "card-title"
-  }, [_vm._v("€5,99 \n                    "), _c("small", {
+  }, [_vm._v("€5,99\n                    "), _c("small", {
     staticClass: "text-muted h3"
   }, [_vm._v("/ 72h")])]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
@@ -23085,14 +23110,17 @@ var staticRenderFns = [function () {
       "min-width": "18rem"
     }
   }, [_c("div", {
-    staticClass: "card-header"
+    staticClass: "card-header",
+    staticStyle: {
+      background: "#19CBCE"
+    }
   }, [_c("h4", {
     staticClass: "my-0"
   }, [_vm._v("Pro")])]), _vm._v(" "), _c("div", {
     staticClass: "card-body bg-white"
   }, [_c("h1", {
     staticClass: "card-title"
-  }, [_vm._v("€9,99 \n                    "), _c("small", {
+  }, [_vm._v("€9,99\n                    "), _c("small", {
     staticClass: "text-muted h3"
   }, [_vm._v("/ 144h")])]), _vm._v(" "), _c("p", {
     staticClass: "card-text"
@@ -23146,7 +23174,9 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("ul", {
     staticClass: "col-12 col-sm-12 col-md-12 col-lg-12 d-flex flex-column justify-content-center gap-2 order-2"
-  }, [_c("li", [_c("h3", [_vm._v("\n                            Dr. " + _vm._s(_vm.showProfile.name) + " " + _vm._s(_vm.showProfile.lastname) + "\n                        ")])]), _vm._v(" "), _c("li", [_c("b", {
+  }, [_c("li", {
+    staticClass: "col-12"
+  }, [_c("h3", [_vm._v("\n                            Dr. " + _vm._s(_vm.showProfile.name) + " " + _vm._s(_vm.showProfile.lastname) + "\n                        ")])]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic blu-scuro"
   }, [_vm._v("Email: ")]), _vm._v(" " + _vm._s(_vm.showProfile.email) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic blu-scuro"
@@ -23168,16 +23198,16 @@ var render = function render() {
   }, [_c("div", [_c("h2", [_vm._v("Il mio curriculum")]), _vm._v(" "), _c("p", [_vm._v(_vm._s(_vm.showProfile.cv))])])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-between align-items-center mb-3"
   }, [_c("button", {
-    staticClass: "btn btn-secondary",
+    staticClass: "btn btn-secondary rounded-pill",
     on: {
       click: _vm.displayMessage
     }
   }, [_vm._v("Contatta")]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-bg-blu-chiaro text-light",
+    staticClass: "btn btn-bg-blu-chiaro rounded-pill text-light",
     on: {
       click: _vm.displayReview
     }
-  }, [_vm._v("Scrivi una recensione")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Scrivi una recensione")])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -23275,10 +23305,12 @@ var render = function render() {
       }
     }
   }), _vm._v(" "), _c("button", {
-    staticClass: "btn mt-4",
+    staticClass: "btn mt-1 p-1 px-2 text-light",
     staticStyle: {
-      background: "#23A3B3",
-      color: "#fff"
+      background: "#23A3B3"
+    },
+    attrs: {
+      id: "liveToastBtn"
     },
     on: {
       click: function click($event) {
@@ -23358,10 +23390,12 @@ var render = function render() {
       "for": "floatingTextarea2"
     }
   }), _vm._v(" "), _c("button", {
-    staticClass: "btn mt-4",
+    staticClass: "btn mt-1 p-1 px-2 text-light",
     staticStyle: {
-      background: "#23A3B3",
-      color: "#fff"
+      background: "#23A3B3"
+    },
+    attrs: {
+      id: "liveToastBtn"
     },
     on: {
       click: function click($event) {
@@ -23371,7 +23405,38 @@ var render = function render() {
   }, [_vm._v("Invia")])])])])]);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "position-fixed bottom-0 end-0 p-3",
+    staticStyle: {
+      "z-index": "11"
+    }
+  }, [_c("div", {
+    staticClass: "toast",
+    attrs: {
+      id: "liveToast",
+      role: "alert",
+      "aria-live": "assertive",
+      "aria-atomic": "true"
+    }
+  }, [_c("div", {
+    staticClass: "toast-header"
+  }, [_c("strong", {
+    staticClass: "me-auto"
+  }, [_vm._v("Bootstrap")]), _vm._v(" "), _c("small", [_vm._v("11 mins ago")]), _vm._v(" "), _c("button", {
+    staticClass: "btn-close",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "toast",
+      "aria-label": "Close"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "toast-body"
+  }, [_vm._v("\n                    Hello, world! This is a toast message.\n                ")])])]);
+}];
 render._withStripped = true;
 
 
@@ -28689,7 +28754,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".form-check[data-v-4d587a7c] {\n  display: inline-block;\n}\n#search-button[data-v-4d587a7c] {\n  width: 100px;\n}\n#search-icon[data-v-4d587a7c] {\n  max-width: 20px;\n}\n.my-collapse[data-v-4d587a7c] {\n  z-index: 500;\n  width: 47%;\n}\n.my-collapse ul[data-v-4d587a7c] {\n  padding: 0;\n}\n.my-collapse li[data-v-4d587a7c] {\n  list-style-type: none;\n  padding-left: 5px;\n}\n.my-collapse li[data-v-4d587a7c]:hover {\n  background-color: #dbebfa;\n}\n.my-collapse .my-overflow[data-v-4d587a7c] {\n  width: 100%;\n}", ""]);
+exports.push([module.i, ".filter-btn[data-v-4d587a7c] {\n  border-color: #007fbd;\n  color: #007fbd;\n}\n.filter-btn[data-v-4d587a7c]:hover {\n  background: #007fbd;\n}\n.form-check[data-v-4d587a7c] {\n  display: inline-block;\n}\n#search-button[data-v-4d587a7c] {\n  width: 100px;\n}\n#search-icon[data-v-4d587a7c] {\n  max-width: 20px;\n}\n.my-collapse[data-v-4d587a7c] {\n  z-index: 500;\n  width: 47%;\n}\n.my-collapse ul[data-v-4d587a7c] {\n  padding: 0;\n}\n.my-collapse li[data-v-4d587a7c] {\n  list-style-type: none;\n  padding-left: 5px;\n}\n.my-collapse li[data-v-4d587a7c]:hover {\n  background-color: #dbebfa;\n}\n.my-collapse .my-overflow[data-v-4d587a7c] {\n  width: 100%;\n}", ""]);
 
 // exports
 
@@ -28727,7 +28792,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#bg-searchbar #form[data-v-13e03f97] {\n  height: 60px;\n}\n.container-jumbo[data-v-13e03f97] {\n  position: relative;\n}\n.container-jumbo .cont-jumbo[data-v-13e03f97] {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  z-index: 500;\n  transform: translate(-50%, -50%);\n}\n.container-jumbo .cont-jumbo h2[data-v-13e03f97] {\n  color: #2a2d45;\n  font-size: 40px;\n}\n.bg-jumbo[data-v-13e03f97] {\n  background-color: rgba(219, 235, 250, 0.6);\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.wave_container[data-v-13e03f97] {\n  position: relative;\n}\n.wave_container img[data-v-13e03f97] {\n  width: 100%;\n  display: block;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n}\n.wawe[data-v-13e03f97] {\n  margin-bottom: -100px;\n}\n#jumbotron[data-v-13e03f97] {\n  min-width: 100%;\n  min-height: 150px;\n  height: 40vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#search-button[data-v-13e03f97] {\n  width: 100px;\n}\n#search-icon[data-v-13e03f97] {\n  max-width: 20px;\n}\nli[data-v-13e03f97] {\n  list-style-type: none;\n}\n.my-collapse[data-v-13e03f97] {\n  z-index: 500;\n  width: 60.5%;\n}\n.my-collapse ul[data-v-13e03f97] {\n  padding: 0;\n}\n.my-collapse li[data-v-13e03f97] {\n  list-style-type: none;\n  padding-left: 5px;\n}\n.my-collapse li[data-v-13e03f97]:hover {\n  background-color: #dbebfa;\n}\n.my-collapse .my-overflow[data-v-13e03f97] {\n  width: 100%;\n}\n.full-container[data-v-13e03f97] {\n  width: 100%;\n  background-color: #dbebfa;\n}\n.row[data-v-13e03f97] {\n  color: #2a2d45;\n}\n.row .my-img[data-v-13e03f97] {\n  width: 200px;\n}\n.my-list[data-v-13e03f97] {\n  text-align: start;\n}\n.my-list ul li[data-v-13e03f97] {\n  list-style-type: disc;\n}", ""]);
+exports.push([module.i, "#bg-searchbar #form[data-v-13e03f97] {\n  height: 60px;\n}\n.container-jumbo[data-v-13e03f97] {\n  position: relative;\n}\n.container-jumbo .cont-jumbo[data-v-13e03f97] {\n  position: absolute;\n  top: 45%;\n  left: 50%;\n  z-index: 500;\n  transform: translate(-50%, -50%);\n}\n.container-jumbo .cont-jumbo h2[data-v-13e03f97] {\n  color: #2a2d45;\n  font-size: 40px;\n}\n.bg-jumbo[data-v-13e03f97] {\n  background-color: rgba(219, 235, 250, 0.6);\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n}\n.wave_container[data-v-13e03f97] {\n  position: relative;\n}\n.wave_container img[data-v-13e03f97] {\n  width: 100%;\n  display: block;\n  position: absolute;\n  bottom: 0;\n  left: 0;\n}\n.wave[data-v-13e03f97] {\n  margin-bottom: -100px;\n}\n#jumbotron[data-v-13e03f97] {\n  min-width: 100%;\n  min-height: 150px;\n  height: 40vw;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n@media screen and (max-width: 575px) {\n#jumbotron[data-v-13e03f97] {\n    min-height: 200px;\n}\n}\n#search-button[data-v-13e03f97] {\n  width: 100px;\n}\n#search-icon[data-v-13e03f97] {\n  max-width: 20px;\n}\nli[data-v-13e03f97] {\n  list-style-type: none;\n}\n.my-collapse[data-v-13e03f97] {\n  z-index: 500;\n  width: 60.5%;\n}\n.my-collapse ul[data-v-13e03f97] {\n  padding: 0;\n}\n.my-collapse li[data-v-13e03f97] {\n  list-style-type: none;\n  padding-left: 5px;\n}\n.my-collapse li[data-v-13e03f97]:hover {\n  background-color: #dbebfa;\n}\n.my-collapse .my-overflow[data-v-13e03f97] {\n  width: 100%;\n}\n.full-container[data-v-13e03f97] {\n  width: 100%;\n  background-color: #dbebfa;\n}\n.row[data-v-13e03f97] {\n  color: #2a2d45;\n}\n.row .my-img[data-v-13e03f97] {\n  width: 200px;\n}\n.my-list[data-v-13e03f97] {\n  text-align: start;\n}\n.my-list ul li[data-v-13e03f97] {\n  list-style-type: disc;\n}", ""]);
 
 // exports
 
@@ -28765,7 +28830,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#sez-nome[data-v-1ca8e6b5] {\n  height: 10vh;\n}\n#sez-nome h2[data-v-1ca8e6b5] {\n  margin: 0.5%;\n  font-size: 50px;\n}\nli[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n#user-img[data-v-1ca8e6b5] {\n  width: 200px;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#review-nome[data-v-1ca8e6b5] {\n  width: 200px;\n}\n#message-email[data-v-1ca8e6b5] {\n  width: 300px;\n}\n#voto[data-v-1ca8e6b5] {\n  width: 80px;\n  margin-left: 20px;\n}\n.swal-button[data-v-1ca8e6b5] {\n  background-color: #004d73;\n  color: white;\n}\n.swal-text[data-v-1ca8e6b5] {\n  background-color: rgb(226, 25, 25);\n  padding: 17px;\n  border: 1px solid rgb(226, 25, 25);\n  display: block;\n  margin: 22px;\n  text-align: center;\n  color: white;\n}\n.bg-label[data-v-1ca8e6b5] {\n  background: #dbebfa;\n}\n.blu-scuro[data-v-1ca8e6b5] {\n  color: #004d73;\n}\n.blu-chiaro[data-v-1ca8e6b5] {\n  color: #00c7ff;\n}\n.blu-chiaro2[data-v-1ca8e6b5] {\n  color: #8ce6ff;\n}\n.nero[data-v-1ca8e6b5] {\n  color: #2a2d45;\n}\n.bg-blu-scuro[data-v-1ca8e6b5] {\n  background-color: #00acff;\n}\n.btn-bg-blu-chiaro[data-v-1ca8e6b5] {\n  background-color: #004d73;\n}\n.btn-bg-blu-chiaro[data-v-1ca8e6b5]:hover {\n  background: #00334e;\n}\n.bg-blu-chiaro[data-v-1ca8e6b5] {\n  background-color: #004d73;\n}\n.bg-blu-chiaro2[data-v-1ca8e6b5] {\n  background-color: #8ce6ff;\n}\n.bg-nero[data-v-1ca8e6b5] {\n  background-color: #2a2d45;\n}", ""]);
+exports.push([module.i, "#sez-nome[data-v-1ca8e6b5] {\n  height: 15vh;\n}\n#sez-nome h2[data-v-1ca8e6b5] {\n  text-align: center;\n  margin: 0.5%;\n  font-size: 50px;\n}\nli[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n#user-img[data-v-1ca8e6b5] {\n  width: 200px;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#review-nome[data-v-1ca8e6b5] {\n  width: 200px;\n}\n#message-email[data-v-1ca8e6b5] {\n  width: 300px;\n}\n#voto[data-v-1ca8e6b5] {\n  width: 80px;\n  margin-left: 20px;\n}\n.swal-button[data-v-1ca8e6b5] {\n  background-color: #004d73;\n  color: white;\n}\n.swal-text[data-v-1ca8e6b5] {\n  background-color: rgb(226, 25, 25);\n  padding: 17px;\n  border: 1px solid rgb(226, 25, 25);\n  display: block;\n  margin: 22px;\n  text-align: center;\n  color: white;\n}\n.bg-label[data-v-1ca8e6b5] {\n  background: #dbebfa;\n}\n.blu-scuro[data-v-1ca8e6b5] {\n  color: #004d73;\n}\n.blu-chiaro[data-v-1ca8e6b5] {\n  color: #00c7ff;\n}\n.blu-chiaro2[data-v-1ca8e6b5] {\n  color: #8ce6ff;\n}\n.nero[data-v-1ca8e6b5] {\n  color: #2a2d45;\n}\n.bg-blu-scuro[data-v-1ca8e6b5] {\n  background-color: #00acff;\n}\n.btn-bg-blu-chiaro[data-v-1ca8e6b5] {\n  background-color: #004d73;\n}\n.btn-bg-blu-chiaro[data-v-1ca8e6b5]:hover {\n  background: #00334e;\n}\n.bg-blu-chiaro[data-v-1ca8e6b5] {\n  background-color: #004d73;\n}\n.bg-blu-chiaro2[data-v-1ca8e6b5] {\n  background-color: #8ce6ff;\n}\n.bg-nero[data-v-1ca8e6b5] {\n  background-color: #2a2d45;\n}", ""]);
 
 // exports
 
@@ -67415,8 +67480,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })

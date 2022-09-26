@@ -158,7 +158,7 @@ export default {
                 console.log(error);
             });
             } else {
-                Swal.fire('compila tutti i campi');
+                Swal.fire('compila tutti i campi obbligatori');
                 return false;
             }
         },
@@ -185,7 +185,7 @@ export default {
                 })
                 }
             } else {
-                Swal.fire('compila tutti i campi');
+                Swal.fire('compila tutti i campi obbligatori');
                 return false;
             }
         },
