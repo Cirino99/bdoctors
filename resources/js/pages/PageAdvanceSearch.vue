@@ -15,7 +15,7 @@
                                     <input v-model="specializationSelect.name" class="form-control mr-sm-2 w-50 me-2" type="search_spec"
                                         placeholder="Scrivi qui.." aria-label="Search_spec" @input="searchInput"
                                         @click="displayComponent" @keyup="displayComponent">
-                                    <button class="btn btn-outline-secondary my-2 m my-sm-0 rounded-3" type="button" @click="searchDoctor()">Filtra</button>
+                                    <button class="btn btn-outline-secondary my-2 m my-sm-0 rounded-3" type="button" @click="searchDoctor(1)">Filtra</button>
                                 </form>
 
                                 <div class="collapse position-absolute d-flex my-collapse" v-if="display"

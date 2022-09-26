@@ -93,7 +93,7 @@
                     <a class="nav-link fw-normal" href="{{ url('/') }}">HOME</a>
                 </li>
                 <li class="links nav-item my-2 my-md-0">
-                    <a class="nav-link fw-normal" href="{{ url('/search') }}">RICERCA AVANZATA</a>
+                    <a class="nav-link fw-normal" href="{{ url('/search/1') }}">RICERCA AVANZATA</a>
                 </li>
                 <li class="links nav-item my-2 my-md-0">
                     <a class="nav-link fw-normal" href="{{ url('/pricing') }}">PREZZI</a>
