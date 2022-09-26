@@ -23,7 +23,13 @@
 
                         <ul class="p-0">
                             <li class="list-unstyled">
-                                <span><b class="fst-italic">Voto: </b> {{$review->vote}}</span>
+                                <span><b class="fst-italic">Voto: </b></span>
+                                @for ($i = 0; $i < $review->vote; $i++)
+                                    <i class="fa-solid fa-star"></i>
+                                @endfor
+                                @for ($i = 0; $i < 5 - $review->vote; $i++)
+                                    <i class="fa-regular fa-star"></i>
+                                @endfor
                                 <p class="mt-2">{{$review->review}}</p>
                             </li>
                         </ul>
