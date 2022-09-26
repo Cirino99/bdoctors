@@ -47,7 +47,7 @@
                         MEDICI SPONSORIZZATI
                     </big>
                 </div>
-                <div class="d-flex flex-wrap justify-content-center gap-5 my-5">
+                <div class="d-flex flex-wrap justify-content-center gap-4 my-5">
                     <!-- card singolo dottore -->
                     <CardDoctor v-for="(doctor, index) in doctors" :key="index + 20" :doctor="doctor" />
                 </div>

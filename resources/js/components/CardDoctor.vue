@@ -72,7 +72,7 @@ export default {
 }
 
 .my-card {
-    width: 250px;
+    width: 260px;
     border-radius: 25px;
     background-color: #FFF;
     color: $dark;
@@ -94,7 +94,7 @@ export default {
 
     .my-text-cv {
         height: 130px;
-        overflow: scroll;
+        overflow-y: scroll;
         margin: 0;
         padding-top: 3px;
     }

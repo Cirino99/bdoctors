@@ -20,7 +20,7 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="name">Nome*</label>
-                            <input class="form-control w-50 @error('name') is-invalid @enderror"
+                            <input class="form-control w-75 @error('name') is-invalid @enderror"
                                 type="text"
                                 name="name"
                                 id="name"
@@ -36,7 +36,7 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="lastname">Cognome*</label>
-                            <input class="form-control w-50 @error('lastname') is-invalid @enderror"
+                            <input class="form-control w-75 @error('lastname') is-invalid @enderror"
                                 type="text"
                                 name="lastname"
                                 id="lastname"
@@ -52,7 +52,7 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="email">Email*</label>
-                            <input class="form-control w-50 @error('email') is-invalid @enderror"
+                            <input class="form-control w-75 @error('email') is-invalid @enderror"
                                 type="text"
                                 name="email"
                                 id="email"
@@ -89,7 +89,7 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="phone">Numero di telefono</label>
-                            <input class="form-control w-50 @error('phone') is-invalid @enderror"
+                            <input class="form-control w-75 @error('phone') is-invalid @enderror"
                                 type="text"
                                 name="phone"
                                 id="phone"
@@ -105,7 +105,7 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="service">Prestazione*</label>
-                            <input class="form-control w-50 @error('service') is-invalid @enderror"
+                            <input class="form-control w-75 @error('service') is-invalid @enderror"
                                 type="text"
                                 name="service"
                                 id="service"
@@ -121,7 +121,7 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="address">Via*</label>
-                            <input class="form-control w-50 @error('address') is-invalid @enderror"
+                            <input class="form-control w-75 @error('address') is-invalid @enderror"
                                 type="text"
                                 name="address"
                                 id="address"
@@ -137,7 +137,7 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="city">Città*</label>
-                            <input class="form-control w-50 @error('city') is-invalid @enderror"
+                            <input class="form-control w-75 @error('city') is-invalid @enderror"
                                 type="text"
                                 name="city"
                                 id="city"
@@ -153,7 +153,7 @@
 
                         <div class="mb-3">
                             <label class="form-label" for="postal_code">Codice Postale*</label>
-                            <input class="form-control w-50 @error('postal_code') is-invalid @enderror"
+                            <input class="form-control w-75 @error('postal_code') is-invalid @enderror"
                                 type="text"
                                 name="postal_code"
                                 id="postal_code"

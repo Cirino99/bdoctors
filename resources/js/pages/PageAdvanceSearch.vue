@@ -88,16 +88,16 @@
                 <nav aria-label="Page navigation" class="mt-3">
                     <ul class="pagination justify-content-center">
                         <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous" @click="searchDoctor(--currentPage)">
+                            <a class="page-link input-nav" href="#" aria-label="Previous" @click="searchDoctor(--currentPage)">
                                 <span aria-hidden=" true">&laquo;</span>
                             </a>
                         </li>
-                        <li class="page-item"><a class="page-link" href="#" @click="searchDoctor(currentPage)">{{
+                        <li class="page-item"><a class="page-link input-nav" href="#" @click="searchDoctor(currentPage)">{{
                                 currentPage
                         }}</a>
                         </li>
                         <li class=" page-item">
-                            <a class="page-link" href="#" aria-label="Next" @click="searchDoctor(++currentPage)">
+                            <a class="page-link input-nav" href="#" aria-label="Next" @click="searchDoctor(++currentPage)">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
@@ -288,4 +288,8 @@ export default {
             width: 100%;
         }
     }
+
+.input-nav {
+    color: #007fbd;
+}
 </style>

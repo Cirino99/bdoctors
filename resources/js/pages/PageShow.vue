@@ -84,7 +84,7 @@
                     <button class="btn mt-1 p-1 px-2 text-light" id="liveToastBtn" style="background: #23A3B3" @click="newReview(showProfile.id)">Invia</button>
                 </div>
             </div>
-            <!-- campo messaggio  -->
+            <!-- campo contatta  -->
             <div class="form-floating my-4" v-show="displayM">
                 <!-- email -->
                 <div class="d-flex justify-content-start">
