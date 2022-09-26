@@ -109,7 +109,8 @@
 
 <script>
 import axios from 'axios';
-import swal from 'sweetalert';
+// import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 export default {
     name: 'PageShow',
@@ -157,7 +158,7 @@ export default {
                 console.log(error);
             });
             } else {
-                alert('compila tutti i campi');
+                Swal.fire('compila tutti i campi');
                 return false;
             }
         },
@@ -165,7 +166,7 @@ export default {
         newMessage($id){
             if(this.email != '' && this.text != ''){
                 if (!this.email.includes('@') || !this.email.includes('.')) {
-                    swal('email non corretta');
+                    Swal.fire('email non corretta');
                     return false;
                 } else {
                     axios.post('/api/message', {
@@ -184,7 +185,7 @@ export default {
                 })
                 }
             } else {
-                swal('compila tutti i campi');
+                Swal.fire('compila tutti i campi');
                 return false;
             }
         },
@@ -247,6 +248,27 @@ export default {
     #voto {
         width: 80px;
         margin-left: 20px;
+    }
+
+    // swal
+
+    .swal-button {
+    background-color: #004d73;
+    color: white;
+    }
+
+    // .swal-button:not([disabled]):hover{
+    //     background-color: #00334e;
+    // }
+
+    .swal-text {
+        background-color: rgb(226, 25, 25);
+        padding: 17px;
+        border: 1px solid rgb(226, 25, 25);
+        display: block;
+        margin: 22px;
+        text-align: center;
+        color: white;
     }
 
     // colors

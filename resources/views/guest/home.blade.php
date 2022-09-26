@@ -167,9 +167,6 @@
                         <p>
                             <a href="{{ url('/contacts') }}" class="text-reset">Contattaci</a>
                         </p>
-                        <p>
-                            <a href="" class="text-reset">Privacy</a>
-                        </p>
                     </div>
                     {{-- link utili --}}
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -181,9 +178,6 @@
                         </p>
                         <p>
                             <a href="{{ url('/pricing') }}" class="text-reset">Prezzi</a>
-                        </p>
-                        <p>
-                            <a href="" class="text-reset">Aiuto</a>
                         </p>
                     </div>
                 </div>
