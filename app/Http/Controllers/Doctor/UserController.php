@@ -24,7 +24,7 @@ class UserController extends Controller
         'address' => 'required|string|max:255',
         'city' => 'required|string|max:255',
         'postal_code' => 'required|integer',
-        'cv' => 'required|min:10|max:1000',
+        'cv' => 'required|min:10|max:10000',
         'specializations' => 'required|array',
         'specializations.*' => 'required|integer|exists:specializations,id'
     ];
