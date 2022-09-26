@@ -3,18 +3,17 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center flex-wrap">
-        <div class="col-md-12 col-lg-12">
+        <div class="col-sm-11 col-md-10 col-lg-10">
             <div class="card p-3">
-                {{-- <div class="card-header bg-gradient fw-bold" style="background: #00c7ff; border-color: #00c7ff; ">{{ __('Sponsorizzazioni') }}</div> --}}
                 <h2 class="p-3 m-auto">Sponsorizzazioni</h2>
-                <div class="card-body p-4">
+                <div class="card-body m-auto p-4">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
                     @if ($user !== 0)
-                        <h2>La tua sponsorizzazione finisce il {{$user[0]->sponsorships[0]->pivot->ending_date}}</h2>
+                        <big class="fs-4">La tua sponsorizzazione terminerà il {{$user[0]->sponsorships[0]->pivot->ending_date}}</big>
                     @else
                         <!-- abbonamenti -->
                         <div class="d-flex justify-content-center flex-wrap text-center">
@@ -36,12 +35,13 @@
                                     <div class="card-body bg-white">
                                         <h1 class="card-title fst-italic">
                                             {{$sponsorship->price}} <small>€</small>
-                                            <small class="text-muted h3">/ {{$sponsorship->time}} ore</small>
+                                            <small class="text-muted h3">/ {{$sponsorship->time}}h</small>
                                         </h1>
                                         <p class="card-text">Sponsorship</p>
                                         <div class="list-unstyled mt-3 mb-4">
                                             <li>Comparsa in HomePage</li>
                                             <li class="mt-2">Comparsa tra i primi risultati di ricerca</li>
+                                            <li class="mt-2">Durata vantaggi: {{$sponsorship->time}} ore</li>
                                         </div>
                                         <a href="{{ route('doctor.sponsorships.show', ['sponsorship' => $sponsorship->id]) }}"
                                         class="btn bg-secondary bg-gradient rounded-pill border-0 p-2 px-3 text-light">
@@ -51,16 +51,6 @@
                                 </div>
                             @endforeach
                         </div>
-                        {{-- <ul>
-                            @foreach ($sponsorships as $sponsorship)
-                                <li>
-                                    <strong>Durata:</strong> {{$sponsorship->time}} ore - <strong>Prezzo:</strong> {{$sponsorship->price}}€
-                                    <a href="{{ route('doctor.sponsorships.show', ['sponsorship' => $sponsorship->id]) }}">
-                                        Buy
-                                    </a>
-                                </li>
-                            @endforeach
-                        </ul> --}}
                     @endif
                 </div>
             </div>

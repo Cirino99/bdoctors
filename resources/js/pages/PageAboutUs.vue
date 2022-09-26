@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Daniele Puccio</h5>
                         <p class="card-text">Jr. Full Stack Web Developer</p>
-                        <a href="https://www.linkedin.com/in/daniele-puccio-2b894324a/" target="_blank" class="btn btn-primary">Contatta</a>
+                        <a href="https://www.linkedin.com/in/daniele-puccio-2b894324a/" target="_blank" class="btn btn-primary bg-gradient rounded-pill">Contatta</a>
                     </div>
                     </div>
                 </div>
@@ -21,7 +21,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Andrea Guidotti</h5>
                         <p class="card-text">Jr. Full Stack Web Developer</p>
-                        <a href="https://www.linkedin.com/in/andrea-guidotti-1a204224b/" target="_blank" class="btn btn-primary">Contatta</a>
+                        <a href="https://www.linkedin.com/in/andrea-guidotti-1a204224b/" target="_blank" class="btn btn-primary bg-gradient rounded-pill">Contatta</a>
                     </div>
                     </div>
                 </div>
@@ -31,7 +31,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Simone Cirino</h5>
                         <p class="card-text">Jr. Full Stack Web Developer</p>
-                        <a href="https://www.linkedin.com/in/simonecirino/" target="_blank" class="btn btn-primary">Contatta</a>
+                        <a href="https://www.linkedin.com/in/simonecirino/" target="_blank" class="btn btn-primary bg-gradient rounded-pill">Contatta</a>
                     </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Mouhcine El Bakkali</h5>
                         <p class="card-text">Jr. Full Stack Web Developer</p>
-                        <a href="https://www.linkedin.com/in/mouhcine-el-bakkali-b50096207/" target="_blank" class="btn btn-primary">Contatta</a>
+                        <a href="https://www.linkedin.com/in/mouhcine-el-bakkali-b50096207/" target="_blank" class="btn btn-primary bg-gradient rounded-pill">Contatta</a>
                     </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
 
 export default {
     name: 'PageAboutUs',
-    
+
 }
 </script>
 
@@ -62,7 +62,7 @@ export default {
 
     // colors
 
-    
+
     .blu-scuro {
         color: #00acff;
     }
@@ -87,5 +87,5 @@ export default {
     .bg-nero {
         background-color: #2a2d45;
     }
-    
+
 </style>

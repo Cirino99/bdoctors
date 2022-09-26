@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-sm-11 col-md-10 col-lg-10">
             @foreach ($reviews as $review)
                 <div class="card border-success mb-3">
                     <div class="card-header bg-success bg-gradient bg-opacity-50 border-bottom border-success d-flex flex-wrap justify-content-between">

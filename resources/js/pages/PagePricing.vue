@@ -1,8 +1,8 @@
 <template>
     <div class="container mt-5 min-vh-100">
         <div class="px-3 py-3 pt-md-4 text-center">
-            <h1 class="display-4">Prezzi</h1>
-            <h3 class="lead">
+            <h1 class="display-4 mb-4">Prezzi</h1>
+            <h3 class="lead lh-base">
                 Sei un medico e vuoi sponsorizzarti? Compari nella homepage e durante la ricerca prima di tutti gli altri.
                 Ecco i nostri prezzi.
             </h3>
@@ -14,7 +14,7 @@
                     <h4 class="my-0">Base</h4>
                 </div>
                 <div class="card-body bg-white">
-                    <h1 class="card-title">€2,99 
+                    <h1 class="card-title">€2,99
                         <small class="text-muted h3">/ 24h</small>
                     </h1>
                     <p class="card-text">Sponsorship</p>
@@ -27,11 +27,11 @@
             </div>
             <!-- opzione 2 -->
             <div class="card bg-light shadow m-5 bg-white rounded" style="max-width: 18rem; min-width: 18rem;">
-                <div class="card-header">
+                <div class="card-header" style="background: #FDBC44">
                     <h4 class="my-0">Avanzato</h4>
                 </div>
                 <div class="card-body bg-white">
-                    <h1 class="card-title">€5,99 
+                    <h1 class="card-title">€5,99
                         <small class="text-muted h3">/ 72h</small>
                     </h1>
                     <p class="card-text">Sponsorship</p>
@@ -44,11 +44,11 @@
             </div>
             <!-- opzione 3 -->
             <div class="card bg-light shadow m-5 bg-white rounded" style="max-width: 18rem; min-width: 18rem;">
-                <div class="card-header">
+                <div class="card-header" style="background: #19CBCE">
                     <h4 class="my-0">Pro</h4>
                 </div>
                 <div class="card-body bg-white">
-                    <h1 class="card-title">€9,99 
+                    <h1 class="card-title">€9,99
                         <small class="text-muted h3">/ 144h</small>
                     </h1>
                     <p class="card-text">Sponsorship</p>
@@ -67,7 +67,7 @@
 
 export default {
     name: 'PagePricing',
-    
+
 }
 </script>
 
@@ -75,7 +75,7 @@ export default {
 
     // colors
 
-    
+
     .blu-scuro {
         color: #00acff;
     }
@@ -100,5 +100,5 @@ export default {
     .bg-nero {
         background-color: #2a2d45;
     }
-    
+
 </style>

@@ -66,14 +66,14 @@
             <img class="logo d-flex d-sm-none d-lg-none" src="{{ asset('img/BDoctors_logo_2_resp.svg') }}" alt="logo-resp">
         </a>
         {{-- pulsante hamburger menu --}}
-        <button class="navbar-toggler mx-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+        <button class="navbar-toggler rounded-3 border-0 mx-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
-        {{-- tendina a comparsa --}}
+        {{-- tendina a comparsa smartphone --}}
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header bg-gradient text-light mb-3" style="background: #00334e">
                 <h5 class="pt-2" id="offcanvasRightLabel">Menu</h5>
-                <button type="button" class="btn-close text-reset bg-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <button type="button" class="btn-close bg-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <ul class="navbar-nav ml-auto flex-wrap flex-column flex-md-row flex-center align-items-start gap-2 text-start">
                 <li class="links nav-item d-flex flex-column gap-4 d-md-none d-lg-none my-2 my-md-0">
@@ -100,7 +100,7 @@
                 </li>
             </ul>
         </div>
-        {{-- pulsanti navbar lg --}}
+        {{-- pulsanti navbar desktop --}}
         <div class="d-none d-md-block d-lg-block">
             @if (Route::has('login'))
                 <div class="links mx-3">
@@ -111,11 +111,6 @@
                     @else
                         <a href="{{ route('login') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light fw-normal"
                             style="background: #004d73">Accedi</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="btn p-2 px-3 mx-2 rounded-pill text-light fw-normal"
-                                style="background: #004d73">Registrati</a>
-                        @endif
                     @endauth
                 </div>
             @endif
@@ -196,7 +191,7 @@
         </section>
         <!-- bottom footer -->
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-            © 2022 Copyright: BDoctors Tutti i diritti riservati
+            <small>© 2022 Copyright: BDoctors Tutti i diritti riservati</small>
         </div>
     </footer>
     <script src="{{ asset('js/front.js') }}"></script>
