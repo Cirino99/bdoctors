@@ -115,7 +115,7 @@ import Swal from 'sweetalert2';
 export default {
     name: 'PageShow',
     props: {
-        id: Number,
+        id: String,
     },
     data() {
         return {
@@ -134,7 +134,6 @@ export default {
             .then(res =>{
                 if (res.data.success) {
                     this.showProfile = res.data.result
-                    console.log(this.showProfile);
                 }
             })
     },

@@ -14,7 +14,7 @@
                         <input v-model="search" class="form-control mr-sm-2 w-100" type="search"
                             placeholder="Scrivi qui.." aria-label="Search" @input="searchInput"
                             @click="displayComponent" @keyup="displayComponent">
-                        <router-link :to="{name: 'AdvanceSearch', params: {specialization: mySpecialization.id} }"
+                        <router-link :to="{name: 'AdvanceSearch', params: {specialization: mySpecialization.id.toString()} }"
                             id="search-button"
                             class="btn btn-warning bg-gradient bg-opacity-25 my-2 my-sm-0 d-flex justify-content-center">
                             <img id="search-icon" src="img/BDoctors_lens_search.svg" alt="lens-search">
@@ -145,7 +145,6 @@ export default {
             .then(res => {
                 if (res.data.success) {
                     this.doctors = res.data.result;
-                    console.log('Array medici: ', res.data.result);
                 }
             });
     },
@@ -156,7 +155,6 @@ export default {
                     .then(res => {
                         if (res.data.success) {
                             this.specializations = res.data.result;
-                            console.log(this.specializations);
                         }
                     });
             } else {

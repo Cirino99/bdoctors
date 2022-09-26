@@ -113,7 +113,7 @@ import CardDoctor from '../components/CardDoctor.vue'
 export default {
     name: 'PageAdvanceSearch',
     props: {
-        specialization: Number
+        specialization: String
     },
     components: {
         CardDoctor,
@@ -137,9 +137,7 @@ export default {
         }
     },
     created() {
-        console.log(this.specialization);
         this.specializationSelect.id = this.specialization;
-        console.log( this.specializationSelect);
         axios.get('/api/search/specialization/id?id=' + this.specialization)
                 .then(res => {
                     if (res.data.success) {
@@ -164,7 +162,10 @@ export default {
                             this.doctors = res.data.result[0].data;
                             this.doctors_sponsorship = res.data.result[1];
                             this.currentPage = res.data.result[0].current_page;
-                            this.$router.push({name: 'AdvanceSearch', params: {specialization: this.specializationSelect.id}});
+                            let path = '/search/' + this.specializationSelect.id;
+                            if (this.$route.path !== path) {
+                                this.$router.push({name: 'AdvanceSearch', params: {specialization: this.specializationSelect.id.toString()}});
+                            }
                         }
                     })
                 } else {
@@ -180,7 +181,10 @@ export default {
                             this.doctors = res.data.result[0].data;
                             this.doctors_sponsorship = res.data.result[1];
                             this.currentPage = res.data.result[0].current_page;
-                            this.$router.push({name: 'AdvanceSearch', params: {specialization: this.specializationSelect.id}});
+                            let path = '/search/' + this.specializationSelect.id;
+                            if (this.$route.path !== path) {
+                                this.$router.push({name: 'AdvanceSearch', params: {specialization: this.specializationSelect.id.toString()}});
+                            }
                         }
                     })
                 }
