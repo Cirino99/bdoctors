@@ -88,7 +88,7 @@ function validationEdit() {
             swal('cv troppo corto');
             return false;
         }
-        if (cv.length > 1000) {
+        if (cv.length > 10000) {
             swal('cv troppo lungo');
             return false;
         }
