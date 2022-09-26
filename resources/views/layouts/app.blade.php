@@ -67,7 +67,7 @@
                         @endif
                     @else
                         <li class="links nav-item my-2 my-md-0">
-                            <a class="nav-link text-light" href="{{ route('home') }}">{{ __('VAI AL SITO') }}</a>
+                            <a class="nav-link text-light" href="{{ route('home') }}">{{ __('HOME') }}</a>
                         </li>
                         <li class="links nav-item my-2 my-md-0">
                             <a class="nav-link text-light" href="{{ route('doctor.sponsorships.index') }}">{{ __('I TUOI ABBONAMENTI') }}</a>

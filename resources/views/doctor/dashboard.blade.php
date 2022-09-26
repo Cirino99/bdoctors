@@ -5,8 +5,8 @@
     <div class="container">
         <div class="row justify-content-center text-center vh-100">
             <div class="col-sm-12 col-md-10 col-lg-7">
-                <div class="card border-primary">
-                    <div class="card-header bg-primary bg-opacity-50 border-bottom border-primary">
+                <div class="card" style="border-color: #00334e">
+                    <div class="card-header border-bottom bg-gradient text-light" style="background: #00334e; border-color: #00334e">
                         <big>{{ __('Dashboard') }}</big>
                     </div>
 
@@ -48,8 +48,8 @@
                                 labels: labels,
                                 datasets: [{
                                     label: 'Statistiche messaggi per mese',
-                                    backgroundColor: '#00c7ff',
-                                    borderColor: '#00c7ff',
+                                    backgroundColor: '#A2CBEF',
+                                    borderColor: '#A2CBEF',
                                     data: numberMessages,
                                 }]
                             };
@@ -58,8 +58,8 @@
                                 labels: labels,
                                 datasets: [{
                                     label: 'Statistiche recensioni per mese',
-                                    backgroundColor: '#007fbd',
-                                    borderColor: '#007fbd',
+                                    backgroundColor: '#A3E2BD',
+                                    borderColor: '#A3E2BD',
                                     data: numberReviews,
                                 }]
                             };
