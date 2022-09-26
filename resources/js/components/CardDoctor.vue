@@ -28,7 +28,7 @@
             </span>
 
             <div class="card-body d-flex flex-column justify-content-end">
-                <router-link :to="{name: 'profile', params: {id: doctor.id} }" class="btn btn-primary bg-gradient col-12 my-btn">Visualizza
+                <router-link :to="{name: 'profile', params: {id: doctor.id.toString()} }" class="btn btn-primary bg-gradient col-12 my-btn">Visualizza
                 </router-link>
             </div>
         </div>
