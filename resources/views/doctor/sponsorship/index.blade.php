@@ -6,7 +6,7 @@
         <div class="col-sm-11 col-md-10 col-lg-10">
             <div class="card p-3">
                 <h2 class="p-3 m-auto">Sponsorizzazioni</h2>
-                <div class="card-body p-4">
+                <div class="card-body text-center p-4">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
