@@ -22105,6 +22105,8 @@ __webpack_require__.r(__webpack_exports__);
             _this2.text = '';
             _this2.displayR = false;
           }
+
+          sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('Recensione inviata');
         })["catch"](function (error) {
           console.log(error);
         });
@@ -22131,6 +22133,8 @@ __webpack_require__.r(__webpack_exports__);
               _this3.text = '';
               _this3.displayM = false;
             }
+
+            sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('Messaggio inviato');
           })["catch"](function (error) {
             console.log(error);
           });
@@ -22636,7 +22640,7 @@ var render = function render() {
   }, [_c("li", {
     staticClass: "page-item"
   }, [_c("a", {
-    staticClass: "page-link",
+    staticClass: "page-link input-nav",
     attrs: {
       href: "#",
       "aria-label": "Previous"
@@ -22653,7 +22657,7 @@ var render = function render() {
   }, [_vm._v("«")])])]), _vm._v(" "), _c("li", {
     staticClass: "page-item"
   }, [_c("a", {
-    staticClass: "page-link",
+    staticClass: "page-link input-nav",
     attrs: {
       href: "#"
     },
@@ -22665,7 +22669,7 @@ var render = function render() {
   }, [_vm._v(_vm._s(_vm.currentPage))])]), _vm._v(" "), _c("li", {
     staticClass: "page-item"
   }, [_c("a", {
-    staticClass: "page-link",
+    staticClass: "page-link input-nav",
     attrs: {
       href: "#",
       "aria-label": "Next"
@@ -22909,7 +22913,7 @@ var render = function render() {
       color: "#00334e"
     }
   }, [_vm._v("\n                    MEDICI SPONSORIZZATI\n                ")])], 1), _vm._v(" "), _c("div", {
-    staticClass: "d-flex flex-wrap justify-content-center gap-5 my-5"
+    staticClass: "d-flex flex-wrap justify-content-center gap-4 my-5"
   }, _vm._l(_vm.doctors, function (doctor, index) {
     return _c("CardDoctor", {
       key: index + 20,
@@ -28716,7 +28720,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "*[data-v-20294d0c]::-webkit-scrollbar {\n  width: 5px;\n}\n*[data-v-20294d0c]::-webkit-scrollbar-track {\n  background: white;\n}\n*[data-v-20294d0c]::-webkit-scrollbar-thumb {\n  background-color: #004d73;\n  border-radius: 20px;\n  border: 1px solid #004d73;\n}\n.my-btn[data-v-20294d0c] {\n  background-color: #004d73;\n  border: 1px solid #004d73;\n}\n.my-btn[data-v-20294d0c]:hover {\n  background-color: #00334e;\n  border: 1px solid #00334e;\n}\n.my-card[data-v-20294d0c] {\n  width: 250px;\n  border-radius: 25px;\n  background-color: #FFF;\n  color: #2a2d45;\n  margin: 15px;\n}\n.my-image-content[data-v-20294d0c] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.my-card-content[data-v-20294d0c] {\n  text-align: center;\n}\n.my-card-content .my-card-name[data-v-20294d0c] {\n  width: 87%;\n}\n.my-card-content .my-text-cv[data-v-20294d0c] {\n  height: 130px;\n  overflow: scroll;\n  margin: 0;\n  padding-top: 3px;\n}\n.my-card-content .fa-star[data-v-20294d0c] {\n  color: rgb(239, 203, 0);\n}\n.my-image-content[data-v-20294d0c] {\n  position: relative;\n  row-gap: 5px;\n  padding: 25px 0;\n}\n.my-overlay[data-v-20294d0c] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%;\n  background-color: #004d73;\n  border-radius: 25px 25px 0 25px;\n}\n.my-overlay[data-v-20294d0c]::before,\n.my-overlay[data-v-20294d0c]::after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  bottom: -40px;\n  height: 40px;\n  width: 40px;\n  background-color: #004d73;\n}\n.my-overlay[data-v-20294d0c]::after {\n  border-radius: 0 25px 0 0;\n  background-color: #FFF;\n}\n.my-card-image[data-v-20294d0c] {\n  position: relative;\n  height: 130px;\n  width: 130px;\n  border-radius: 50%;\n  background: #FFF;\n  padding: 3px;\n}\n.my-card-image .my-card-img[data-v-20294d0c] {\n  height: 100%;\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}", ""]);
+exports.push([module.i, "*[data-v-20294d0c]::-webkit-scrollbar {\n  width: 5px;\n}\n*[data-v-20294d0c]::-webkit-scrollbar-track {\n  background: white;\n}\n*[data-v-20294d0c]::-webkit-scrollbar-thumb {\n  background-color: #004d73;\n  border-radius: 20px;\n  border: 1px solid #004d73;\n}\n.my-btn[data-v-20294d0c] {\n  background-color: #004d73;\n  border: 1px solid #004d73;\n}\n.my-btn[data-v-20294d0c]:hover {\n  background-color: #00334e;\n  border: 1px solid #00334e;\n}\n.my-card[data-v-20294d0c] {\n  width: 260px;\n  border-radius: 25px;\n  background-color: #FFF;\n  color: #2a2d45;\n  margin: 15px;\n}\n.my-image-content[data-v-20294d0c] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.my-card-content[data-v-20294d0c] {\n  text-align: center;\n}\n.my-card-content .my-card-name[data-v-20294d0c] {\n  width: 87%;\n}\n.my-card-content .my-text-cv[data-v-20294d0c] {\n  height: 130px;\n  overflow-y: scroll;\n  margin: 0;\n  padding-top: 3px;\n}\n.my-card-content .fa-star[data-v-20294d0c] {\n  color: rgb(239, 203, 0);\n}\n.my-image-content[data-v-20294d0c] {\n  position: relative;\n  row-gap: 5px;\n  padding: 25px 0;\n}\n.my-overlay[data-v-20294d0c] {\n  position: absolute;\n  left: 0;\n  top: 0;\n  height: 100%;\n  width: 100%;\n  background-color: #004d73;\n  border-radius: 25px 25px 0 25px;\n}\n.my-overlay[data-v-20294d0c]::before,\n.my-overlay[data-v-20294d0c]::after {\n  content: \"\";\n  position: absolute;\n  right: 0;\n  bottom: -40px;\n  height: 40px;\n  width: 40px;\n  background-color: #004d73;\n}\n.my-overlay[data-v-20294d0c]::after {\n  border-radius: 0 25px 0 0;\n  background-color: #FFF;\n}\n.my-card-image[data-v-20294d0c] {\n  position: relative;\n  height: 130px;\n  width: 130px;\n  border-radius: 50%;\n  background: #FFF;\n  padding: 3px;\n}\n.my-card-image .my-card-img[data-v-20294d0c] {\n  height: 100%;\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  border-radius: 50%;\n}", ""]);
 
 // exports
 
@@ -28754,7 +28758,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".filter-btn[data-v-4d587a7c] {\n  border-color: #007fbd;\n  color: #007fbd;\n}\n.filter-btn[data-v-4d587a7c]:hover {\n  background: #007fbd;\n}\n.form-check[data-v-4d587a7c] {\n  display: inline-block;\n}\n#search-button[data-v-4d587a7c] {\n  width: 100px;\n}\n#search-icon[data-v-4d587a7c] {\n  max-width: 20px;\n}\n.my-collapse[data-v-4d587a7c] {\n  z-index: 500;\n  width: 47%;\n}\n.my-collapse ul[data-v-4d587a7c] {\n  padding: 0;\n}\n.my-collapse li[data-v-4d587a7c] {\n  list-style-type: none;\n  padding-left: 5px;\n}\n.my-collapse li[data-v-4d587a7c]:hover {\n  background-color: #dbebfa;\n}\n.my-collapse .my-overflow[data-v-4d587a7c] {\n  width: 100%;\n}", ""]);
+exports.push([module.i, ".filter-btn[data-v-4d587a7c] {\n  border-color: #007fbd;\n  color: #007fbd;\n}\n.filter-btn[data-v-4d587a7c]:hover {\n  background: #007fbd;\n}\n.form-check[data-v-4d587a7c] {\n  display: inline-block;\n}\n#search-button[data-v-4d587a7c] {\n  width: 100px;\n}\n#search-icon[data-v-4d587a7c] {\n  max-width: 20px;\n}\n.my-collapse[data-v-4d587a7c] {\n  z-index: 500;\n  width: 47%;\n}\n.my-collapse ul[data-v-4d587a7c] {\n  padding: 0;\n}\n.my-collapse li[data-v-4d587a7c] {\n  list-style-type: none;\n  padding-left: 5px;\n}\n.my-collapse li[data-v-4d587a7c]:hover {\n  background-color: #dbebfa;\n}\n.my-collapse .my-overflow[data-v-4d587a7c] {\n  width: 100%;\n}\n.input-nav[data-v-4d587a7c] {\n  color: #007fbd;\n}", ""]);
 
 // exports
 
@@ -67480,8 +67484,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\DanielePC\Desktop\Boolean\Final Project\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })

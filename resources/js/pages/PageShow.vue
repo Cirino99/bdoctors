@@ -154,6 +154,7 @@ export default {
                     this.text = '';
                     this.displayR = false;
                 }
+                Swal.fire('Recensione inviata');
             }).catch(function (error) {
                 console.log(error);
             });
@@ -180,6 +181,7 @@ export default {
                         this.text = '';
                         this.displayM = false;
                     }
+                    Swal.fire('Messaggio inviato');
                 }).catch(function (error) {
                     console.log(error);
                 })
