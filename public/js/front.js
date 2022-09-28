@@ -21800,7 +21800,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'PageAdvanceSearch',
   props: {
-    specialization: Number
+    specialization: String
   },
   components: {
     CardDoctor: _components_CardDoctor_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -21826,9 +21826,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    console.log(this.specialization);
     this.specializationSelect.id = this.specialization;
-    console.log(this.specializationSelect);
     axios.get('/api/search/specialization/id?id=' + this.specialization).then(function (res) {
       if (res.data.success) {
         _this.specializationSelect.name = res.data.result.name;
@@ -21853,13 +21851,16 @@ __webpack_require__.r(__webpack_exports__);
               _this2.doctors = res.data.result[0].data;
               _this2.doctors_sponsorship = res.data.result[1];
               _this2.currentPage = res.data.result[0].current_page;
+              var path = '/search/' + _this2.specializationSelect.id;
 
-              _this2.$router.push({
-                name: 'AdvanceSearch',
-                params: {
-                  specialization: _this2.specializationSelect.id
-                }
-              });
+              if (_this2.$route.path !== path) {
+                _this2.$router.push({
+                  name: 'AdvanceSearch',
+                  params: {
+                    specialization: _this2.specializationSelect.id.toString()
+                  }
+                });
+              }
             }
           });
         } else {
@@ -21874,13 +21875,16 @@ __webpack_require__.r(__webpack_exports__);
               _this2.doctors = res.data.result[0].data;
               _this2.doctors_sponsorship = res.data.result[1];
               _this2.currentPage = res.data.result[0].current_page;
+              var path = '/search/' + _this2.specializationSelect.id;
 
-              _this2.$router.push({
-                name: 'AdvanceSearch',
-                params: {
-                  specialization: _this2.specializationSelect.id
-                }
-              });
+              if (_this2.$route.path !== path) {
+                _this2.$router.push({
+                  name: 'AdvanceSearch',
+                  params: {
+                    specialization: _this2.specializationSelect.id.toString()
+                  }
+                });
+              }
             }
           });
         }
@@ -21993,7 +21997,6 @@ __webpack_require__.r(__webpack_exports__);
     axios.get('/api/doctors').then(function (res) {
       if (res.data.success) {
         _this.doctors = res.data.result;
-        console.log('Array medici: ', res.data.result);
       }
     });
   },
@@ -22005,7 +22008,6 @@ __webpack_require__.r(__webpack_exports__);
         axios.get('/api/search/specialization?specialization=' + this.search).then(function (res) {
           if (res.data.success) {
             _this2.specializations = res.data.result;
-            console.log(_this2.specializations);
           }
         });
       } else {
@@ -22058,13 +22060,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
- // import swal from 'sweetalert';
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'PageShow',
   props: {
-    id: Number
+    id: String
   },
   data: function data() {
     return {
@@ -22084,7 +22085,6 @@ __webpack_require__.r(__webpack_exports__);
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/doctors/' + this.id).then(function (res) {
       if (res.data.success) {
         _this.showProfile = res.data.result;
-        console.log(_this.showProfile);
       }
     });
   },
@@ -22093,26 +22093,29 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       if (this.name != '' && this.vote != '' && this.text != '') {
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/review', {
-          id: $id,
-          name: this.name,
-          vote: this.vote,
-          text: this.text
-        }).then(function (res) {
-          if (res.data.success) {
-            _this2.name = '';
-            _this2.vote = '';
-            _this2.text = '';
-            _this2.displayR = false;
-          }
+        if (this.vote >= 1 && this.vote <= 5) {
+          axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/review', {
+            id: $id,
+            name: this.name,
+            vote: this.vote,
+            text: this.text
+          }).then(function (res) {
+            if (res.data.success) {
+              _this2.name = '';
+              _this2.vote = '';
+              _this2.text = '';
+              _this2.displayR = false;
+            }
 
-          sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('Recensione inviata');
-        })["catch"](function (error) {
-          console.log(error);
-        });
+            sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('Recensione inviata');
+          })["catch"](function (error) {
+            console.log(error);
+          });
+        } else {
+          sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('il voto deve essere compreso tra 1 e 5');
+        }
       } else {
         sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('compila tutti i campi obbligatori');
-        return false;
       }
     },
     newMessage: function newMessage($id) {
@@ -22141,7 +22144,6 @@ __webpack_require__.r(__webpack_exports__);
         }
       } else {
         sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('compila tutti i campi obbligatori');
-        return false;
       }
     },
     displayReview: function displayReview() {
@@ -22157,11 +22159,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.displayM = !this.displayM;
-    } // hideComponent() {
-    //     this.displayR = false;
-    //     this.displayM = false;
-    // }
-
+    }
   }
 });
 
@@ -22234,14 +22232,14 @@ var render = function render() {
     staticClass: "my-text-cv"
   }, [_vm._v(_vm._s(_vm.doctor.cv))])], 1), _vm._v(" "), _c("span", {
     staticClass: "lh-lg"
-  }, [_c("strong", [_vm._v("Voto:")]), _vm._v(" "), _vm._l(_vm.doctor.vote, function (myStar, i) {
+  }, [_c("strong", [_vm._v("Voto:")]), _vm._v(" "), _vm._l(Math.floor(_vm.doctor.vote), function (myStar, i) {
     return _c("font-awesome-icon", {
       key: i,
       attrs: {
         icon: "fa-solid fa-star"
       }
     });
-  }), _vm._v(" "), _vm._l(5 - _vm.doctor.vote, function (myEmptyStar, j) {
+  }), _vm._v(" "), _vm._l(5 - Math.floor(_vm.doctor.vote), function (myEmptyStar, j) {
     return _c("font-awesome-icon", {
       key: j + _vm.doctor.vote,
       attrs: {
@@ -22256,7 +22254,7 @@ var render = function render() {
       to: {
         name: "profile",
         params: {
-          id: _vm.doctor.id
+          id: _vm.doctor.id.toString()
         }
       }
     }
@@ -22872,7 +22870,7 @@ var render = function render() {
       to: {
         name: "AdvanceSearch",
         params: {
-          specialization: _vm.mySpecialization.id
+          specialization: _vm.mySpecialization.id.toString()
         }
       },
       id: "search-button"
@@ -22914,9 +22912,9 @@ var render = function render() {
     }
   }, [_vm._v("\n                    MEDICI SPONSORIZZATI\n                ")])], 1), _vm._v(" "), _c("div", {
     staticClass: "d-flex flex-wrap justify-content-center gap-4 my-5"
-  }, _vm._l(_vm.doctors, function (doctor, index) {
+  }, _vm._l(_vm.doctors, function (doctor) {
     return _c("CardDoctor", {
-      key: index + 20,
+      key: doctor.id,
       attrs: {
         doctor: doctor
       }
@@ -23192,6 +23190,8 @@ var render = function render() {
     staticClass: "fst-italic blu-scuro"
   }, [_vm._v("CAP: ")]), _vm._v(" " + _vm._s(_vm.showProfile.postal_code) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic blu-scuro"
+  }, [_vm._v("Servizi: ")]), _vm._v(" " + _vm._s(_vm.showProfile.service) + "\n                    ")]), _vm._v(" "), _c("li", [_c("b", {
+    staticClass: "fst-italic blu-scuro"
   }, [_vm._v("Specializzazione: ")]), _vm._v(" "), _vm._l(_vm.showProfile.specializations, function (specialization) {
     return _c("span", {
       key: specialization.id,
@@ -23211,7 +23211,7 @@ var render = function render() {
     on: {
       click: _vm.displayReview
     }
-  }, [_vm._v("Scrivi una recensione")])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
+  }, [_vm._v("Scrivi una recensione")])]), _vm._v(" "), _c("div", {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -23409,38 +23409,7 @@ var render = function render() {
   }, [_vm._v("Invia")])])])])]);
 };
 
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "position-fixed bottom-0 end-0 p-3",
-    staticStyle: {
-      "z-index": "11"
-    }
-  }, [_c("div", {
-    staticClass: "toast",
-    attrs: {
-      id: "liveToast",
-      role: "alert",
-      "aria-live": "assertive",
-      "aria-atomic": "true"
-    }
-  }, [_c("div", {
-    staticClass: "toast-header"
-  }, [_c("strong", {
-    staticClass: "me-auto"
-  }, [_vm._v("Bootstrap")]), _vm._v(" "), _c("small", [_vm._v("11 mins ago")]), _vm._v(" "), _c("button", {
-    staticClass: "btn-close",
-    attrs: {
-      type: "button",
-      "data-bs-dismiss": "toast",
-      "aria-label": "Close"
-    }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "toast-body"
-  }, [_vm._v("\n                    Hello, world! This is a toast message.\n                ")])])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -28834,7 +28803,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#sez-nome[data-v-1ca8e6b5] {\n  height: 15vh;\n}\n#sez-nome h2[data-v-1ca8e6b5] {\n  text-align: center;\n  margin: 0.5%;\n  font-size: 50px;\n}\nli[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n#user-img[data-v-1ca8e6b5] {\n  width: 200px;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#review-nome[data-v-1ca8e6b5] {\n  width: 200px;\n}\n#message-email[data-v-1ca8e6b5] {\n  width: 300px;\n}\n#voto[data-v-1ca8e6b5] {\n  width: 80px;\n  margin-left: 20px;\n}\n.swal-button[data-v-1ca8e6b5] {\n  background-color: #004d73;\n  color: white;\n}\n.swal-text[data-v-1ca8e6b5] {\n  background-color: rgb(226, 25, 25);\n  padding: 17px;\n  border: 1px solid rgb(226, 25, 25);\n  display: block;\n  margin: 22px;\n  text-align: center;\n  color: white;\n}\n.bg-label[data-v-1ca8e6b5] {\n  background: #dbebfa;\n}\n.blu-scuro[data-v-1ca8e6b5] {\n  color: #004d73;\n}\n.blu-chiaro[data-v-1ca8e6b5] {\n  color: #00c7ff;\n}\n.blu-chiaro2[data-v-1ca8e6b5] {\n  color: #8ce6ff;\n}\n.nero[data-v-1ca8e6b5] {\n  color: #2a2d45;\n}\n.bg-blu-scuro[data-v-1ca8e6b5] {\n  background-color: #00acff;\n}\n.btn-bg-blu-chiaro[data-v-1ca8e6b5] {\n  background-color: #004d73;\n}\n.btn-bg-blu-chiaro[data-v-1ca8e6b5]:hover {\n  background: #00334e;\n}\n.bg-blu-chiaro[data-v-1ca8e6b5] {\n  background-color: #004d73;\n}\n.bg-blu-chiaro2[data-v-1ca8e6b5] {\n  background-color: #8ce6ff;\n}\n.bg-nero[data-v-1ca8e6b5] {\n  background-color: #2a2d45;\n}", ""]);
+exports.push([module.i, "#sez-nome[data-v-1ca8e6b5] {\n  height: 15vh;\n}\n#sez-nome h2[data-v-1ca8e6b5] {\n  text-align: center;\n  margin: 0.5%;\n  font-size: 50px;\n}\nli[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n#user-img[data-v-1ca8e6b5] {\n  width: 200px;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n#review-nome[data-v-1ca8e6b5] {\n  width: 200px;\n}\n#message-email[data-v-1ca8e6b5] {\n  width: 300px;\n}\n#voto[data-v-1ca8e6b5] {\n  width: 80px;\n  margin-left: 20px;\n}\n.bg-label[data-v-1ca8e6b5] {\n  background: #dbebfa;\n}\n.blu-scuro[data-v-1ca8e6b5] {\n  color: #004d73;\n}\n.blu-chiaro[data-v-1ca8e6b5] {\n  color: #00c7ff;\n}\n.blu-chiaro2[data-v-1ca8e6b5] {\n  color: #8ce6ff;\n}\n.nero[data-v-1ca8e6b5] {\n  color: #2a2d45;\n}\n.bg-blu-scuro[data-v-1ca8e6b5] {\n  background-color: #00acff;\n}\n.btn-bg-blu-chiaro[data-v-1ca8e6b5] {\n  background-color: #004d73;\n}\n.btn-bg-blu-chiaro[data-v-1ca8e6b5]:hover {\n  background: #00334e;\n}\n.bg-blu-chiaro[data-v-1ca8e6b5] {\n  background-color: #004d73;\n}\n.bg-blu-chiaro2[data-v-1ca8e6b5] {\n  background-color: #8ce6ff;\n}\n.bg-nero[data-v-1ca8e6b5] {\n  background-color: #2a2d45;\n}", ""]);
 
 // exports
 
@@ -67484,8 +67453,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\mouhc\Desktop\BOOLEAN\_php\bdoctors\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! /Users/cirox/Programmazione/Boolean/Esercizi/bdoctors/resources/js/front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! /Users/cirox/Programmazione/Boolean/Esercizi/bdoctors/resources/sass/back.scss */"./resources/sass/back.scss");
 
 
 /***/ })
